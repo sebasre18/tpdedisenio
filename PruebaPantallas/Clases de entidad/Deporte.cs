@@ -41,5 +41,7 @@ namespace TPdeDiseño.Clases_de_entidad
             this._id_deporte = unId_deporte;
             this._nombre = unNombre;
         }
+
+        //lalala
     }
 }
