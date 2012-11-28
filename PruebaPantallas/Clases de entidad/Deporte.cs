@@ -35,7 +35,7 @@ namespace TPdeDiseño.Clases_de_entidad
             }
         }
 
-        //Constructor
+        //Constructores
         public Deporte(int unId_deporte, string unNombre)
         {
             this._id_deporte = unId_deporte;
