@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases de entidad\Class1.cs" />
+    <Compile Include="Clases de entidad\CompetenciaDeportiva.cs" />
     <Compile Include="Clases de entidad\Deporte.cs" />
     <Compile Include="Interfaces\13-listarLugares.cs">
       <SubType>Form</SubType>
