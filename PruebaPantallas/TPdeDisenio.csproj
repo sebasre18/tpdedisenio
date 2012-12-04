@@ -52,6 +52,12 @@
   <ItemGroup>
     <Compile Include="Clases de entidad\CompetenciaDeportiva.cs" />
     <Compile Include="Clases de entidad\Deporte.cs" />
+    <Compile Include="Clases de entidad\Disponibilidad.cs" />
+    <Compile Include="Clases de entidad\H de logueo.cs" />
+    <Compile Include="Clases de entidad\Localidad.cs" />
+    <Compile Include="Clases de entidad\Lugar de realizacion.cs" />
+    <Compile Include="Clases de entidad\Provincia.cs" />
+    <Compile Include="Clases de entidad\Usuario.cs" />
     <Compile Include="Interfaces\13-listarLugares.cs">
       <SubType>Form</SubType>
     </Compile>
