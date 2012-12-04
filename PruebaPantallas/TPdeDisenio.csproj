@@ -50,7 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases de entidad\Set.cs" />
+    <Compile Include="Clases de entidad\HistorialResultado.cs" />
+    <Compile Include="Clases de entidad\Resultado.cs" />
+    <Compile Include="Clases de entidad\HistorialParticipante.cs" />
+    <Compile Include="Clases de entidad\Participante.cs" />
     <Compile Include="Clases de entidad\CompetenciaDeportiva.cs" />
+    <Compile Include="Clases de entidad\TablaPosiciones.cs" />
     <Compile Include="Clases de entidad\Deporte.cs" />
     <Compile Include="Clases de entidad\Disponibilidad.cs" />
     <Compile Include="Clases de entidad\H de logueo.cs" />
