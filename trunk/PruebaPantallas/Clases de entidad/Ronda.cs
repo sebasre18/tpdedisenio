@@ -12,15 +12,15 @@ namespace TPdeDiseño.Clases_de_entidad
         private string nombre;
 
         //Propiedades
-        public int _id_deporte
+        public int _nro_ronda
         {
             get
             {
-                return id_deporte;
+                return nro_ronda;
             }
             set
             {
-                id_deporte = value;
+                nro_ronda = value;
             }
         }
         public string _nombre
@@ -36,11 +36,11 @@ namespace TPdeDiseño.Clases_de_entidad
         }
 
         //Constructor
-        public Deporte() { }
+        public Ronda() { }
         
-        public Deporte(int unId_deporte, string unNombre)
+        public Ronda(int unNro_ronda, string unNombre)
         {
-            this._id_deporte = unId_deporte;
+            this._id_deporte = unNro_ronda;
             this._nombre = unNombre;
         }
     }
