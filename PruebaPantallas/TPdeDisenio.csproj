@@ -50,6 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases de entidad\Fixture.cs" />
+    <Compile Include="Clases de entidad\FormaPuntuacion.cs" />
+    <Compile Include="Clases de entidad\Modalidad.cs" />
+    <Compile Include="Clases de entidad\Partido.cs" />
+    <Compile Include="Clases de entidad\Ronda.cs" />
     <Compile Include="Clases de entidad\Set.cs" />
     <Compile Include="Clases de entidad\HistorialResultado.cs" />
     <Compile Include="Clases de entidad\Resultado.cs" />
