@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TPdeDiseño.Clases_de_entidad
 {
-    class CompetenciaDeportiva
+    public class CompetenciaDeportiva
     {
         //Atributos
         private int id_competencia;
@@ -144,6 +144,8 @@ namespace TPdeDiseño.Clases_de_entidad
         }
 
         //Constructor
+        public CompetenciaDeportiva() { }
+
         public CompetenciaDeportiva(int unId_competencia, Boolean unEstado, string unNombre, string unReglamento, Deporte unDeporte, List<LugarDeRealizacion> listaLugaresDeRealizacion, Modalidad unaModalidad)
         {
             this._id_competencia = unId_competencia;

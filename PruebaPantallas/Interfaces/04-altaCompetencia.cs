@@ -16,9 +16,15 @@ namespace PruebaPantallas
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void aceptar_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void altaCompetencia_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
