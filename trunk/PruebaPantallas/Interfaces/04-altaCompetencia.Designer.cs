@@ -58,9 +58,9 @@
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +100,7 @@
             this.comboBox1.Location = new System.Drawing.Point(98, 60);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(83, 21);
-            this.comboBox1.TabIndex = 4;
+            this.comboBox1.TabIndex = 2;
             // 
             // label4
             // 
@@ -110,7 +110,6 @@
             this.label4.Size = new System.Drawing.Size(149, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Modalidad de la competencia:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // comboBox2
             // 
@@ -294,6 +293,7 @@
             this.aceptar.Text = "Aceptar";
             this.aceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.aceptar.UseVisualStyleBackColor = true;
+            this.aceptar.Click += new System.EventHandler(this.aceptar_Click);
             // 
             // richTextBox1
             // 
@@ -360,12 +360,12 @@
             this.toolStrip1.TabIndex = 30;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripLabel1
+            // toolStripLabel3
             // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Underline);
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(13, 22);
-            this.toolStripLabel1.Text = "S";
+            this.toolStripLabel3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(19, 22);
+            this.toolStripLabel3.Text = "N ";
             // 
             // toolStripLabel2
             // 
@@ -374,12 +374,12 @@
             this.toolStripLabel2.Size = new System.Drawing.Size(17, 22);
             this.toolStripLabel2.Text = "K ";
             // 
-            // toolStripLabel3
+            // toolStripLabel1
             // 
-            this.toolStripLabel3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(19, 22);
-            this.toolStripLabel3.Text = "N ";
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Underline);
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(13, 22);
+            this.toolStripLabel1.Text = "S";
             // 
             // altaCompetencia
             // 
@@ -412,6 +412,7 @@
             this.Controls.Add(this.labelNombCompetencia);
             this.Name = "altaCompetencia";
             this.Text = "Dar de alta competencia deportiva";
+            this.Load += new System.EventHandler(this.altaCompetencia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
