@@ -11,7 +11,7 @@ namespace TPdeDiseño.Clases_de_entidad
         private int codigo;
         private string nombre;
         private string descripcion;
-        //private int disponibilidad; ---> NOSE SI TIENE QUE IR YA QUE ESTA COMO OTRA ENTIDAD.... igualmente esta toda declarada aca como comentario.
+        private int disponibilidad;
         private List<LugarDeRealizacion> lugaresDeRealizacion;
 
         //Propiedades
@@ -48,7 +48,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 descripcion = value;
             }
         }
-/*        public int _disponibilidad
+        public int _disponibilidad
         {
             get
             {
@@ -57,18 +57,6 @@ namespace TPdeDiseño.Clases_de_entidad
             set
             {
                 disponibilidad = value;
-            }
-        }*/
-        public List<Factor> _factores
-        {
-            get
-            {
-            
-            return this.factores;
-            }
-            set
-            {
-                this.factores = value;
             }
         }
         public List<LugarDeRealizacion> _lugaresDeRealizacion
@@ -84,12 +72,12 @@ namespace TPdeDiseño.Clases_de_entidad
         }
 
         //Constructor
-        public LugarDeRealizacion(int unCodigo, string unNombre, string unaDescripcion,/* int unaDisponibilidad,*/ List<LugarDeRealizacion> unaListaDeLugaresDeRealizacion)
+        public LugarDeRealizacion(int unCodigo, string unNombre, string unaDescripcion, int unaDisponibilidad, List<LugarDeRealizacion> unaListaDeLugaresDeRealizacion)
         {
             this._codigo = unCodigo;
             this._nombre = unNombre;
             this._descripcion = unaDescripcion;
-            /*this._disponibilidad = unaDisponibilidad;*/
+            this._disponibilidad = unaDisponibilidad;
             this._lugaresDeRealizacion = unaListaDeLugaresDeRealizacion;
         }
 
