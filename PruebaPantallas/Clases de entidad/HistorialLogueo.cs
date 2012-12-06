@@ -5,13 +5,19 @@ using System.Text;
 
 namespace TPdeDiseño.Clases_de_entidad
 {
-    public class HdeLogueo
+    public class HistorialLogueo : Usuario
     {
         //Atributos
+        private string email;
+        private string contraseña;
+        private string apellido;
+        private string nombre;
+        private string tipo_dni;
+        private int nro_dni;
         private int id_hitorial;
-        private int fecha; // Preg a nemi q onda con "DateTime", si la struct tiene fecha y hs...
-        private int hora;
-        private string pc; // noc si sera int o string...
+        private DateTime fecha;
+        private DateTime hora;
+        private string pc;
 
         //Propiedades
         public int _id_historial
@@ -25,7 +31,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 id_hitorial = value;
             }
         }
-        public int _fecha
+        public DateTime _fecha
         {
             get
             {
@@ -36,7 +42,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 fecha = value;
             }
         }
-        public int _hora
+        public DateTime _hora
         {
             get
             {
@@ -60,7 +66,8 @@ namespace TPdeDiseño.Clases_de_entidad
         }
 
         //Constructor
-        public HdeLogueo(int unId_historial, int unaFecha, int unaHora, string unaPc)
+        public HistorialLogueo(string unEmail, string unaContraseña, string unApellido, string unNombre, string unTipo_dni, int unNro_dni, int unId_historial, DateTime unaFecha, DateTime unaHora, string unaPc) : 
+            base(unEmail, unaContraseña, unApellido, unNombre, unTipo_dni, unNro_dni)
         {
             this._id_historial = unId_historial;
             this._fecha = unaFecha;
