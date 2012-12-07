@@ -9,6 +9,7 @@ namespace TPdeDiseño.Clases_de_entidad
     {
         //Atributos
         private int id_forma;
+        private string nombreForma;
         private int cantidadSet;
         private int tantosAusencia;
 
@@ -22,6 +23,17 @@ namespace TPdeDiseño.Clases_de_entidad
             set
             {
                 id_forma = value;
+            }
+        }
+        public string _nombreForma
+        {
+            get
+            {
+                return nombreForma;
+            }
+            set
+            {
+                nombreForma = value;
             }
         }
         public int _cantidadSet
