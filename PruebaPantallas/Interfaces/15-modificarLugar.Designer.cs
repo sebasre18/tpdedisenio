@@ -1,4 +1,4 @@
-﻿namespace PruebaPantallas
+﻿namespace TPdeDiseño
 {
     partial class modificarLugar
     {

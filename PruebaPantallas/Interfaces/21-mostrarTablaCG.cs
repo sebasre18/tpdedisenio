@@ -7,13 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace PruebaPantallas
+namespace TPdeDiseño.Interfases
 {
     public partial class mostrarTablaCG : Form
     {
+        public List<Clases_de_entidad.renglonTabla> renglones;
+        
         public mostrarTablaCG()
         {
             InitializeComponent();
+        }
+
+        private void mostrarTablaSG_Load(object sender, EventArgs e, Clases_de_entidad.CompetenciaDeportiva competencia)
+        {
+            labelCompetencia.Text = competencia.nombre;
+
+            Clases_de_control.GestorCompetencia gestorComp = new Clases_de_control.GestorCompetencia();
+            Clases_de_entidad.TablaPosiciones tablaPos = gestorComp.verTabla(competencia);
+
+            int fila = 0;
+            foreach (Clases_de_entidad.renglonTabla tabla in renglones)
+            {
+                dataGridViewTablaCG.Rows.Add();
+                dataGridViewTablaCG[1, fila].Value = (fila+1);
+                dataGridViewTablaCG[2, fila].Value = ;
+                dataGridViewTablaCG[3, fila].Value = ev._cod_evaluacion; //columna oculta para determinar seleccionadas
+                fila++;
+            }
+
+
         }
     }
 }

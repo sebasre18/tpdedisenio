@@ -9,19 +9,41 @@ namespace TPdeDiseño.Clases_de_entidad
     {
         //Atributos
         private int id_competencia;
-        private Boolean estado;
-        private string nombre;
+        private bool estado;
+        public string nombre;
         private string reglamento;
-        private Deporte deporte;
+        private List<Deporte> deportes;
         private List<LugarDeRealizacion> lugaresDeRealizacion;
         private Usuario usuario;
         private Modalidad modalidad;
         private List<Participante> participantes;
-        private TablaPosiciones tablaPosiciones;
+        private renglonTabla tablaPosiciones;
         private Fixture fixture;
      
         //Propiedades
-        public Fixture _nombre
+        public int _id_competencia
+        {
+            get
+            {
+                return id_competencia;
+            }
+            set
+            {
+                id_competencia = value;
+            }
+        }
+        public bool _estado
+        {
+            get
+            {
+                return estado;
+            }
+            set
+            {
+                estado = value;
+            }
+        }
+        public string _nombre
         {
             get
             {
@@ -30,83 +52,6 @@ namespace TPdeDiseño.Clases_de_entidad
             set
             {
                 nombre = value;
-            }
-        }
-        public Fixture _fixture
-        {
-            get
-            {
-                return fixture;
-            }
-            set
-            {
-                fixture = value;
-            }
-        }
-        public TablaPosiciones _tablaPosiciones
-        {
-            get
-            {
-                return tablaPosiciones;
-            }
-            set
-            {
-                tablaPosiciones = value;
-            }
-        }
-        public Modalidad _modalidad
-        {
-            get
-            {
-                return modalidad;
-            }
-            set
-            {
-                modalidad = value;
-            }
-        }
-        public Usuario _usuario
-        {
-            get
-            {
-                return usuario;
-            }
-            set
-            {
-                usuario = value;
-            }
-        }
-        public List<Participante> _participantes
-        {
-            get
-            {
-                return this.participantes;
-            }
-            set
-            {
-                this.participantes = value;
-            }
-        }
-        public List<LugarDeRealizacion> _lugaresDeRealizacion
-        {
-            get
-            {
-                return this.lugaresDeRealizacion;
-            }
-            set
-            {
-                this.lugaresDeRealizacion = value;
-            }
-        }
-        public List<Deporte> _deportes
-        {
-            get
-            {
-                return this.deportes;
-            }
-            set
-            {
-                this.deportes = value;
             }
         }
         public string _reglamento
@@ -120,42 +65,96 @@ namespace TPdeDiseño.Clases_de_entidad
                 reglamento = value;
             }
         }
-        public int _id_deporte
+        public List<Deporte> _deportes
         {
             get
             {
-                return id_deporte;
+                return deportes;
             }
             set
             {
-                id_deporte = value;
+                deportes = value;
             }
         }
-        public Boolean _estado
+        public List<LugarDeRealizacion> _lugaresDeRealizacion
         {
             get
             {
-                return nombre;
+                return this.lugaresDeRealizacion;
             }
             set
             {
-                nombre = value;
+                this.lugaresDeRealizacion = value;
+            }
+        }
+        public Usuario _usuario
+        {
+            get
+            {
+                return usuario;
+            }
+            set
+            {
+                usuario = value;
+            }
+        }
+        public Modalidad _modalidad
+        {
+            get
+            {
+                return modalidad;
+            }
+            set
+            {
+                modalidad = value;
+            }
+        }
+        public List<Participante> _participantes
+        {
+            get
+            {
+                return this.participantes;
+            }
+            set
+            {
+                this.participantes = value;
+            }
+        }
+        public renglonTabla _tablaPosiciones
+        {
+            get
+            {
+                return tablaPosiciones;
+            }
+            set
+            {
+                tablaPosiciones = value;
+            }
+        }
+        public Fixture _fixture
+        {
+            get
+            {
+                return fixture;
+            }
+            set
+            {
+                fixture = value;
             }
         }
 
         //Constructor
         public CompetenciaDeportiva() { }
 
-        public CompetenciaDeportiva(int unId_competencia, Boolean unEstado, string unNombre, string unReglamento, Deporte unDeporte, List<LugarDeRealizacion> listaLugaresDeRealizacion, Modalidad unaModalidad)
+        public CompetenciaDeportiva(int unId_competencia, Boolean unEstado, string unNombre, string unReglamento, List<Deporte> listaDeportes, List<LugarDeRealizacion> listaLugaresDeRealizacion, Modalidad unaModalidad)
         {
             this._id_competencia = unId_competencia;
             this._nombre = unNombre;
             this._estado = unEstado;
             this._reglamento = unReglamento;
-            this._deporte = unDeporte;
+            this._deportes = listaDeportes;
             this._lugaresDeRealizacion = listaLugaresDeRealizacion;
             this._modalidad = unaModalidad;
         }
-        
     }
 }

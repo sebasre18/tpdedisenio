@@ -13,15 +13,15 @@ namespace TPdeDiseño.Clases_de_entidad
         private List<Ronda> rondas;
 
         //Propiedades
-        public int _id_deporte
+        public int _id_fixture
         {
             get
             {
-                return id_deporte;
+                return id_fixture;
             }
             set
             {
-                id_deporte = value;
+                id_fixture = value;
             }
         }
         public Boolean _eliminado
