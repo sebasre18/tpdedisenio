@@ -9,6 +9,7 @@ namespace TPdeDiseño.Clases_de_entidad
     {
         //Atributos
         private int id_modalidad;
+        private string nombreMod;
         private int ptosPG;
         private Boolean empate;
         private int ptosEmpate;
@@ -25,6 +26,17 @@ namespace TPdeDiseño.Clases_de_entidad
             set
             {
                 id_modalidad = value;
+            }
+        }
+        public string _nombreMod
+        {
+            get
+            {
+                return nombreMod;
+            }
+            set
+            {
+                nombreMod = value;
             }
         }
         public int _ptosPG
