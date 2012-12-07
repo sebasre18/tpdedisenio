@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace PruebaPantallas
+namespace TPdeDiseño
 {
     public partial class principal : Form
     {
@@ -17,6 +17,11 @@ namespace PruebaPantallas
         }
 
         private void accionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void principal_Load(object sender, EventArgs e)
         {
 
         }

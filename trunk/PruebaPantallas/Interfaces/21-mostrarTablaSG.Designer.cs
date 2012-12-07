@@ -1,4 +1,4 @@
-﻿namespace PruebaPantallas
+﻿namespace TPdeDiseño.Interfaces
 {
     partial class mostrarTablaSG
     {
@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTablaSG = new System.Windows.Forms.DataGridView();
             this.equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pts = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelCompetencia = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTablaSG)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewTablaSG
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTablaSG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTablaSG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.equipo,
             this.pts,
             this.pg,
             this.pe,
             this.pp});
-            this.dataGridView1.Location = new System.Drawing.Point(21, 71);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(364, 46);
-            this.dataGridView1.TabIndex = 3;
+            this.dataGridViewTablaSG.Location = new System.Drawing.Point(21, 71);
+            this.dataGridViewTablaSG.Name = "dataGridViewTablaSG";
+            this.dataGridViewTablaSG.Size = new System.Drawing.Size(364, 46);
+            this.dataGridViewTablaSG.TabIndex = 3;
             // 
             // equipo
             // 
@@ -90,21 +90,21 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.labelCompetencia);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(383, 42);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             // 
-            // label1
+            // labelCompetencia
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "XXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+            this.labelCompetencia.AutoSize = true;
+            this.labelCompetencia.Location = new System.Drawing.Point(6, 16);
+            this.labelCompetencia.Name = "labelCompetencia";
+            this.labelCompetencia.Size = new System.Drawing.Size(28, 13);
+            this.labelCompetencia.TabIndex = 21;
+            this.labelCompetencia.Text = "XXX";
             // 
             // button3
             // 
@@ -144,10 +144,11 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewTablaSG);
             this.Name = "mostrarTablaSG";
             this.Text = "Tabla de posiciones sin goles";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.mostrarTablaSG_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTablaSG)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -156,14 +157,14 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewTablaSG;
         private System.Windows.Forms.DataGridViewTextBoxColumn equipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn pts;
         private System.Windows.Forms.DataGridViewTextBoxColumn pg;
         private System.Windows.Forms.DataGridViewTextBoxColumn pe;
         private System.Windows.Forms.DataGridViewTextBoxColumn pp;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelCompetencia;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;

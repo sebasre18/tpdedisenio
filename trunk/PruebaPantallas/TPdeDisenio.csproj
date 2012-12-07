@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases ABD\ABDcompetencia.cs" />
+    <Compile Include="Clases de control\GestorCompetencia.cs" />
+    <Compile Include="Clases de entidad\TablaPosiciones.cs" />
     <Compile Include="Clases de entidad\Fixture.cs" />
     <Compile Include="Clases de entidad\FormaPuntuacion.cs" />
     <Compile Include="Clases de entidad\Modalidad.cs" />
@@ -61,7 +64,7 @@
     <Compile Include="Clases de entidad\HistorialParticipante.cs" />
     <Compile Include="Clases de entidad\Participante.cs" />
     <Compile Include="Clases de entidad\CompetenciaDeportiva.cs" />
-    <Compile Include="Clases de entidad\TablaPosiciones.cs" />
+    <Compile Include="Clases de entidad\renglonTabla.cs" />
     <Compile Include="Clases de entidad\Deporte.cs" />
     <Compile Include="Clases de entidad\Disponibilidad.cs" />
     <Compile Include="Clases de entidad\HistorialLogueo.cs" />
@@ -382,10 +385,7 @@
   <ItemGroup>
     <None Include="Resources\usuarioMasculino.gif" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ABD%27s\" />
-    <Folder Include="Clases de control\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

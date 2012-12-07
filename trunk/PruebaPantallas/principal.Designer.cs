@@ -1,4 +1,4 @@
-﻿namespace PruebaPantallas
+﻿namespace TPdeDiseño
 {
     partial class principal
     {
@@ -38,10 +38,10 @@
             this.darDeAltaCompetenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarCompetenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarLugaresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarTodasLasCompetenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verAyudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarTodasLasCompetenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,22 +110,28 @@
             // 
             this.darDeAltaCompetenciaToolStripMenuItem.Enabled = false;
             this.darDeAltaCompetenciaToolStripMenuItem.Name = "darDeAltaCompetenciaToolStripMenuItem";
-            this.darDeAltaCompetenciaToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.darDeAltaCompetenciaToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.darDeAltaCompetenciaToolStripMenuItem.Text = "Dar de alta competencia";
             // 
             // listarCompetenciasToolStripMenuItem
             // 
             this.listarCompetenciasToolStripMenuItem.Enabled = false;
             this.listarCompetenciasToolStripMenuItem.Name = "listarCompetenciasToolStripMenuItem";
-            this.listarCompetenciasToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.listarCompetenciasToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.listarCompetenciasToolStripMenuItem.Text = "Listar competencias";
             // 
             // listarLugaresToolStripMenuItem
             // 
             this.listarLugaresToolStripMenuItem.Enabled = false;
             this.listarLugaresToolStripMenuItem.Name = "listarLugaresToolStripMenuItem";
-            this.listarLugaresToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.listarLugaresToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.listarLugaresToolStripMenuItem.Text = "Listar lugares";
+            // 
+            // listarTodasLasCompetenciasToolStripMenuItem
+            // 
+            this.listarTodasLasCompetenciasToolStripMenuItem.Name = "listarTodasLasCompetenciasToolStripMenuItem";
+            this.listarTodasLasCompetenciasToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.listarTodasLasCompetenciasToolStripMenuItem.Text = "Listar todas las competencias";
             // 
             // ayudaToolStripMenuItem
             // 
@@ -139,20 +145,14 @@
             // verAyudaToolStripMenuItem
             // 
             this.verAyudaToolStripMenuItem.Name = "verAyudaToolStripMenuItem";
-            this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verAyudaToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.verAyudaToolStripMenuItem.Text = "Ver ayuda";
             // 
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
-            // 
-            // listarTodasLasCompetenciasToolStripMenuItem
-            // 
-            this.listarTodasLasCompetenciasToolStripMenuItem.Name = "listarTodasLasCompetenciasToolStripMenuItem";
-            this.listarTodasLasCompetenciasToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.listarTodasLasCompetenciasToolStripMenuItem.Text = "Listar todas las competencias";
             // 
             // principal
             // 
@@ -164,6 +164,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "principal";
             this.Text = "Menu principal";
+            this.Load += new System.EventHandler(this.principal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

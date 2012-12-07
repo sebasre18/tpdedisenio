@@ -1,4 +1,4 @@
-﻿namespace PruebaPantallas
+﻿namespace TPdeDiseño
 {
     partial class altaParticipante
     {
@@ -130,7 +130,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::PruebaPantallas.Properties.Resources.usuarioMasculino;
+            this.pictureBox1.Image = global::TPdeDiseño.Properties.Resources.usuarioMasculino;
             this.pictureBox1.Location = new System.Drawing.Point(36, 136);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(131, 107);

@@ -9,14 +9,7 @@ namespace TPdeDiseño.Clases_de_entidad
     {
         //Atributos
         private int id_tablaPos;
-        private int pts;
-        private int pGanado;
-        private int pEmpatado;
-        private int pPerdido;
-        private int golesFavor;
-        private int golesContra;
-        private int diferencia;
-        private List<Participante> participantes;
+        private List<renglonTabla> renglones;
         private int id_competencia;
 
         //Propiedades
@@ -31,92 +24,15 @@ namespace TPdeDiseño.Clases_de_entidad
                 id_tablaPos = value;
             }
         }
-        public int _pts
+        public List<renglonTabla> _renglones
         {
             get
             {
-                return pts;
+                return renglones;
             }
             set
             {
-                pts = value;
-            }
-        }
-        public int _pGanado
-        {
-            get
-            {
-                return pGanado;
-            }
-            set
-            {
-                pGanado = value;
-            }
-        }
-        public int _pEmpatado
-        {
-            get
-            {
-                return pEmpatado;
-            }
-            set
-            {
-                pEmpatado = value;
-            }
-        }
-        public int _pPerdido
-        {
-            get
-            {
-                return pPerdido;
-            }
-            set
-            {
-                pPerdido = value;
-            }
-        }
-        public int _golesFavor
-        {
-            get
-            {
-                return golesFavor;
-            }
-            set
-            {
-                golesFavor = value;
-            }
-        }
-        public int _golesContra
-        {
-            get
-            {
-                return golesContra;
-            }
-            set
-            {
-                golesContra = value;
-            }
-        }
-        public int _diferencia
-        {
-            get
-            {
-                return diferencia;
-            }
-            set
-            {
-                diferencia = value;
-            }
-        }
-        public List<Participante> _participantes
-        {
-            get
-            {
-                return this.participantes;
-            }
-            set
-            {
-                this.participantes = value;
+                renglones = value;
             }
         }
         public int _id_competencia
@@ -130,22 +46,13 @@ namespace TPdeDiseño.Clases_de_entidad
                 id_competencia = value;
             }
         }
-
+        
         //Constructor
-        public TablaPosiciones(int unId_tablaPos, int unPts, int unPGanado, int unPEmpatado, int unPPerdido, int unGolesFavor, int unGolesContra, int unaDiferencia, List<Participante> listaParticipantes, int unIdCompetencia)
+        public TablaPosiciones(int unId_tablaPos, List<renglonTabla> unosRenglones, int unId_competencia)
         {
             this._id_tablaPos = unId_tablaPos;
-            this._pts = unPts;
-            this._pGanado = unPGanado;
-            this._pEmpatado = unPEmpatado;
-            this._pPerdido = unPPerdido;
-            this._golesFavor = unGolesFavor;
-            this._golesContra = unGolesContra;
-            this._diferencia = unaDiferencia;
-            this._participantes = listaParticipantes;
-            this._id_competencia = unIdCompetencia;
+            this._renglones = unosRenglones;
+            this._id_competencia = unId_competencia;
         }
-
     }
 }
-//NO DEBERIAN SER PURAS LISTAS CON PTS Y ESO?? COMO SE ARMA ESO? hay q relacionar los puntos con cada participante... :P

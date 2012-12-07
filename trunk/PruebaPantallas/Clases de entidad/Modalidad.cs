@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TPdeDiseño.Clases_de_entidad
 {
-    public class Deporte
+    public class Modalidad
     {
         //Atributos
         private int id_modalidad;
@@ -38,15 +38,15 @@ namespace TPdeDiseño.Clases_de_entidad
                 ptosPG = value;
             }
         }
-        public Boolean _empeate
+        public Boolean _empate
         {
             get
             {
-                return empeate;
+                return empate;
             }
             set
             {
-                empeate = value;
+                empate = value;
             }
             }
         public int _ptosEmpate

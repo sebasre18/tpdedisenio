@@ -1,4 +1,4 @@
-﻿namespace PruebaPantallas
+﻿namespace TPdeDiseño
 {
     partial class bajaCompetencia
     {
@@ -126,6 +126,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "bajaCompetencia";
             this.Text = "Dar de baja competencia";
+            this.Load += new System.EventHandler(this.bajaCompetencia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

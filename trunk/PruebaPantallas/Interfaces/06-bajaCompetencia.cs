@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace PruebaPantallas
+namespace TPdeDiseño
 {
     public partial class bajaCompetencia : Form
     {
         public bajaCompetencia()
         {
             InitializeComponent();
+        }
+
+        private void bajaCompetencia_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
