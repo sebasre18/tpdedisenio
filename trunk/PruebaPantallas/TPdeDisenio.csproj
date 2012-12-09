@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases ABD\ABDcompetencia.cs" />
+    <Compile Include="Clases de control\GestorFixture.cs" />
     <Compile Include="Clases de control\GestorCompetencia.cs" />
     <Compile Include="Clases de entidad\TablaPosiciones.cs" />
     <Compile Include="Clases de entidad\Fixture.cs" />
@@ -252,10 +253,10 @@
     <Compile Include="Interfaces\19-mostrarFixtureCRG.Designer.cs">
       <DependentUpon>19-mostrarFixtureCRG.cs</DependentUpon>
     </Compile>
-    <Compile Include="principal.cs">
+    <Compile Include="Interfaces\principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="principal.Designer.cs">
+    <Compile Include="Interfaces\principal.Designer.cs">
       <DependentUpon>principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -356,7 +357,7 @@
     <EmbeddedResource Include="Interfaces\19-mostrarFixtureCRG.resx">
       <DependentUpon>19-mostrarFixtureCRG.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="principal.resx">
+    <EmbeddedResource Include="Interfaces\principal.resx">
       <DependentUpon>principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

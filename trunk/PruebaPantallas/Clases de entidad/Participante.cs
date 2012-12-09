@@ -132,6 +132,8 @@ namespace TPdeDiseño.Clases_de_entidad
         }
 
         //Constructor
+        public Participante() { }
+
         public Participante(int unId_participante, string unNombre, string unEmail, string unaImagen, bool unPerdio, bool unEliminado, int unId_competencia, int unId_historial, int unId_partido, int unId_tablaPos)
         {
             this._id_participante = unId_participante;

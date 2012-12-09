@@ -9,15 +9,15 @@ namespace TPdeDiseño.Clases_de_entidad
     {
         //Atributos
         private int id_competencia;
-        private bool estado;
-        public string nombre;
+        private string estado;
+        private string nombre;
         private string reglamento;
         private List<Deporte> deportes;
         private List<LugarDeRealizacion> lugaresDeRealizacion;
         private Usuario usuario;
         private Modalidad modalidad;
         private List<Participante> participantes;
-        private renglonTabla tablaPosiciones;
+        private TablaPosiciones tablaPosiciones;
         private Fixture fixture;
      
         //Propiedades
@@ -32,7 +32,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 id_competencia = value;
             }
         }
-        public bool _estado
+        public string _estado
         {
             get
             {
@@ -113,14 +113,14 @@ namespace TPdeDiseño.Clases_de_entidad
         {
             get
             {
-                return this.participantes;
+                return participantes;
             }
             set
             {
-                this.participantes = value;
+                participantes = value;
             }
         }
-        public renglonTabla _tablaPosiciones
+        public TablaPosiciones _tablaPosiciones
         {
             get
             {
@@ -146,7 +146,7 @@ namespace TPdeDiseño.Clases_de_entidad
         //Constructor
         public CompetenciaDeportiva() { }
 
-        public CompetenciaDeportiva(int unId_competencia, Boolean unEstado, string unNombre, string unReglamento, List<Deporte> listaDeportes, List<LugarDeRealizacion> listaLugaresDeRealizacion, Modalidad unaModalidad)
+        public CompetenciaDeportiva(int unId_competencia, string unEstado, string unNombre, string unReglamento, List<Deporte> listaDeportes, List<LugarDeRealizacion> listaLugaresDeRealizacion, Modalidad unaModalidad)
         {
             this._id_competencia = unId_competencia;
             this._nombre = unNombre;

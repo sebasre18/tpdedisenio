@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TPdeDiseño.Clases_de_entidad
 {
-    private class HistorialParticipante : Participante
+    public class HistorialParticipante : Participante
     {
         //Atributos
         private int id_participante;

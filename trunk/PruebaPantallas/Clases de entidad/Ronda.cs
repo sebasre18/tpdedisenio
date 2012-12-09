@@ -5,12 +5,13 @@ using System.Text;
 
 namespace TPdeDiseño.Clases_de_entidad
 {
-    class Ronda
+    public class Ronda
     {
         //Atributos
         private int nro_ronda; 
         private string nombre;
         private List<Partido> partidos;
+        private Participante libre;
 
         //Propiedades
         public int _nro_ronda
@@ -46,15 +47,28 @@ namespace TPdeDiseño.Clases_de_entidad
                 partidos = value;
             }
         }
+        public Participante _libre
+        {
+            get
+            {
+                return libre;
+            }
+            set
+            {
+                libre = value;
+            }
+        }
+
 
         //Constructor
         public Ronda() { }
         
-        public Ronda(int unNro_ronda, string unNombre, List<Partido> listaDePartidos)
+        public Ronda(int unNro_ronda, string unNombre, List<Partido> listaDePartidos, Participante unLibre)
         {
             this._nro_ronda = unNro_ronda;
             this._nombre = unNombre;
             this._partidos = listaDePartidos;
+            this._libre = unLibre;
         }
     }
 }

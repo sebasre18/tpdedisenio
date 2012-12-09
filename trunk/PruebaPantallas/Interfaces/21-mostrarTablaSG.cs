@@ -16,13 +16,13 @@ namespace TPdeDiseño.Interfaces
             InitializeComponent();
         }
 
-        private void mostrarTablaSG_Load(object sender, EventArgs e, Clases_de_entidad.CompetenciaDeportiva competencia)
+        private void mostrarTablaSG_Load(object sender, EventArgs e)
         {
-            labelCompetencia.Text = competencia.nombre;
-
+            /*labelCompetencia.Text = competencia.nombre;
+            
             Clases_de_control.GestorCompetencia gestorComp = new Clases_de_control.GestorCompetencia();
             Clases_de_entidad.TablaPosiciones tablaPos = gestorComp.verTabla(competencia);
-
+            
             int fila = 0;
             foreach (Clases_de_entidad.TablaPosiciones.renglones)
             {
@@ -32,7 +32,7 @@ namespace TPdeDiseño.Interfaces
                 DataGridView2[3, fila].Value = ev._cod_evaluacion; //columna oculta para determinar seleccionadas
                 fila++;
             }
-
+            */
 
         }
     }
