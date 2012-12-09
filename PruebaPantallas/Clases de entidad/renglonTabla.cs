@@ -10,7 +10,6 @@ namespace TPdeDiseño.Clases_de_entidad
         //Atributos
         private int id_renglonTabla;
         private int id_tablaPos;
-        private string participante;
         private int pts;
         private int pGanado;
         private int pEmpatado;
@@ -19,6 +18,7 @@ namespace TPdeDiseño.Clases_de_entidad
         private int golesContra;
         private int diferencia;
         private int id_participante;
+        private string nombreParticipante;
 
         //Propiedades
         public int _id_renglonTabla
@@ -41,17 +41,6 @@ namespace TPdeDiseño.Clases_de_entidad
             set
             {
                 id_tablaPos = value;
-            }
-        }
-        public string _participante
-        {
-            get
-            {
-                return participante;
-            }
-            set
-            {
-                participante = value;
             }
         }
         public int _pts
@@ -142,10 +131,20 @@ namespace TPdeDiseño.Clases_de_entidad
                 this.id_participante = value;
             }
         }
-    
+        public string _nombreParticipante
+        {
+            get
+            {
+                return nombreParticipante;
+            }
+            set
+            {
+                nombreParticipante = value;
+            }
+        }
 
         //Constructor
-        public renglonTabla(int unId_renglonTabla, int unId_tablaPos, int unPts, int unPGanado, int unPEmpatado, int unPPerdido, int unGolesFavor, int unGolesContra, int unaDiferencia, int unId_participante)
+        public renglonTabla(int unId_renglonTabla, int unId_tablaPos, int unPts, int unPGanado, int unPEmpatado, int unPPerdido, int unGolesFavor, int unGolesContra, int unaDiferencia, int unId_participante, string unNombreParticipante)
         {
             this._id_renglonTabla = unId_renglonTabla;
             this._id_tablaPos = unId_tablaPos;
@@ -157,7 +156,7 @@ namespace TPdeDiseño.Clases_de_entidad
             this._golesContra = unGolesContra;
             this._diferencia = unaDiferencia;
             this._id_participante = unId_participante;
+            this._nombreParticipante = unNombreParticipante;
         }
-
     }
 }

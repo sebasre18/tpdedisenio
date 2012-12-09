@@ -223,6 +223,7 @@
             this.button5.TabIndex = 3;
             this.button5.Text = "Generar fixture";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -268,6 +269,7 @@
             this.Controls.Add(this.label1);
             this.Name = "verCompetencia";
             this.Text = "Ver competencia";
+            this.Load += new System.EventHandler(this.verCompetencia_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

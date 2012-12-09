@@ -37,9 +37,9 @@
             this.gf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.d = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonImprimir = new System.Windows.Forms.Button();
+            this.buttonExportar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelCompetencia = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTablaCG)).BeginInit();
@@ -60,6 +60,7 @@
             this.d});
             this.dataGridViewTablaCG.Location = new System.Drawing.Point(21, 61);
             this.dataGridViewTablaCG.Name = "dataGridViewTablaCG";
+            this.dataGridViewTablaCG.ReadOnly = true;
             this.dataGridViewTablaCG.Size = new System.Drawing.Size(455, 46);
             this.dataGridViewTablaCG.TabIndex = 0;
             // 
@@ -67,78 +68,86 @@
             // 
             this.equipo.HeaderText = "Equipo";
             this.equipo.Name = "equipo";
+            this.equipo.ReadOnly = true;
             this.equipo.Width = 200;
             // 
             // pts
             // 
             this.pts.HeaderText = "PTS";
             this.pts.Name = "pts";
+            this.pts.ReadOnly = true;
             this.pts.Width = 30;
             // 
             // pg
             // 
             this.pg.HeaderText = "PG";
             this.pg.Name = "pg";
+            this.pg.ReadOnly = true;
             this.pg.Width = 30;
             // 
             // pe
             // 
             this.pe.HeaderText = "PE";
             this.pe.Name = "pe";
+            this.pe.ReadOnly = true;
             this.pe.Width = 30;
             // 
             // pp
             // 
             this.pp.HeaderText = "PP";
             this.pp.Name = "pp";
+            this.pp.ReadOnly = true;
             this.pp.Width = 30;
             // 
             // gf
             // 
             this.gf.HeaderText = "GF";
             this.gf.Name = "gf";
+            this.gf.ReadOnly = true;
             this.gf.Width = 30;
             // 
             // gc
             // 
             this.gc.HeaderText = "GC";
             this.gc.Name = "gc";
+            this.gc.ReadOnly = true;
             this.gc.Width = 30;
             // 
             // d
             // 
             this.d.HeaderText = "D";
             this.d.Name = "d";
+            this.d.ReadOnly = true;
             this.d.Width = 30;
             // 
-            // button3
+            // buttonCancelar
             // 
-            this.button3.Location = new System.Drawing.Point(410, 130);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Location = new System.Drawing.Point(410, 130);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 9;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonImprimir
             // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(298, 130);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Imprimir";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonImprimir.Enabled = false;
+            this.buttonImprimir.Location = new System.Drawing.Point(298, 130);
+            this.buttonImprimir.Name = "buttonImprimir";
+            this.buttonImprimir.Size = new System.Drawing.Size(75, 23);
+            this.buttonImprimir.TabIndex = 8;
+            this.buttonImprimir.Text = "Imprimir";
+            this.buttonImprimir.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonExportar
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(208, 130);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Exportar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonExportar.Enabled = false;
+            this.buttonExportar.Location = new System.Drawing.Point(208, 130);
+            this.buttonExportar.Name = "buttonExportar";
+            this.buttonExportar.Size = new System.Drawing.Size(75, 23);
+            this.buttonExportar.TabIndex = 7;
+            this.buttonExportar.Text = "Exportar";
+            this.buttonExportar.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -164,13 +173,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 173);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonImprimir);
+            this.Controls.Add(this.buttonExportar);
             this.Controls.Add(this.dataGridViewTablaCG);
             this.Name = "mostrarTablaCG";
             this.Text = "Tabla de posiciones con goles";
-            this.Load += new System.EventHandler(this.mostrarTablaCG_Load);
+            //this.Load += new System.EventHandler(this.mostrarTablaCG_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTablaCG)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -181,9 +190,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewTablaCG;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonImprimir;
+        private System.Windows.Forms.Button buttonExportar;
         private System.Windows.Forms.DataGridViewTextBoxColumn equipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn pts;
         private System.Windows.Forms.DataGridViewTextBoxColumn pg;

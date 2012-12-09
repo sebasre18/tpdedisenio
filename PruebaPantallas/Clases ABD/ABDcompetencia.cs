@@ -9,7 +9,7 @@ namespace TPdeDiseño.Clases_ABD
     {
         public Clases_de_entidad.TablaPosiciones getTabla(Clases_de_entidad.CompetenciaDeportiva competencia)
         {
-            return null;
+            return competencia._tablaPosiciones;
         }
     }
 }

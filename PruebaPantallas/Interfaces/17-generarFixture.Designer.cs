@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelNombreComp = new System.Windows.Forms.Label();
+            this.labelEstadoComp = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonAceptar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.labelNombreComp);
+            this.groupBox1.Controls.Add(this.labelEstadoComp);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(39, 12);
@@ -51,23 +51,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // label4
+            // labelNombreComp
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(68, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "XXXXXXXXXX";
+            this.labelNombreComp.AutoSize = true;
+            this.labelNombreComp.Location = new System.Drawing.Point(68, 16);
+            this.labelNombreComp.Name = "labelNombreComp";
+            this.labelNombreComp.Size = new System.Drawing.Size(77, 13);
+            this.labelNombreComp.TabIndex = 4;
+            this.labelNombreComp.Text = "XXXXXXXXXX";
             // 
-            // label3
+            // labelEstadoComp
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(448, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "XXXXXXXXXX";
+            this.labelEstadoComp.AutoSize = true;
+            this.labelEstadoComp.Location = new System.Drawing.Point(448, 16);
+            this.labelEstadoComp.Name = "labelEstadoComp";
+            this.labelEstadoComp.Size = new System.Drawing.Size(77, 13);
+            this.labelEstadoComp.TabIndex = 3;
+            this.labelEstadoComp.Text = "XXXXXXXXXX";
             // 
             // label2
             // 
@@ -97,35 +97,38 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "¿Desea generar el fixture correspondiente a esta competencia?";
             // 
-            // button1
+            // buttonAceptar
             // 
-            this.button1.Location = new System.Drawing.Point(227, 139);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Aceptar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAceptar.Location = new System.Drawing.Point(227, 139);
+            this.buttonAceptar.Name = "buttonAceptar";
+            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAceptar.TabIndex = 6;
+            this.buttonAceptar.Text = "Aceptar";
+            this.buttonAceptar.UseVisualStyleBackColor = true;
+            this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
             // 
-            // button2
+            // buttonCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(343, 139);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Location = new System.Drawing.Point(343, 139);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 7;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // generarFixture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 190);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Name = "generarFixture";
             this.Text = "Generar Fixture";
+            this.Load += new System.EventHandler(this.generarFixture_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -136,12 +139,12 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelNombreComp;
+        private System.Windows.Forms.Label labelEstadoComp;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonAceptar;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

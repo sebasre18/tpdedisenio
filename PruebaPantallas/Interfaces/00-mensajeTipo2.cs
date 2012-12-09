@@ -11,9 +11,17 @@ namespace TPdeDiseño
 {
     public partial class mensajeTipo2 : Form
     {
+        public string error2;
+
         public mensajeTipo2()
         {
             InitializeComponent();
         }
-    }
+
+        private void mensajeTipo2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+   }
 }

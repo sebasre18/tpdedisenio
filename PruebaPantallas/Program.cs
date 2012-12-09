@@ -15,7 +15,7 @@ namespace TPdeDiseño
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new altaCompetencia());
+            Application.Run(new generarFixture());
         }
     }
 }

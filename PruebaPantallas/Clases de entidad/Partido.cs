@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TPdeDiseño.Clases_de_entidad
 {
-    class Partido
+    public class Partido
     {
         //Atributos
         private int id_partido;
@@ -50,10 +50,10 @@ namespace TPdeDiseño.Clases_de_entidad
         //Constructor
         public Partido() { }
 
-        public Partido(int unId_partido, Resultado result, List<Participante> listaParticipantes)
+        public Partido(int unId_partido, Resultado resultado, List<Participante> listaParticipantes)
         {
-            this._id_paartido = unId_partido;
-            this._resultado = result;
+            this._id_partido = unId_partido;
+            this._resultado = resultado;
             this._participantes = listaParticipantes;
         }
     }

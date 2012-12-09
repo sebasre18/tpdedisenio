@@ -25,5 +25,21 @@ namespace TPdeDiseño
         {
 
         }
+
+        private void verCompetencia_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            generarFixture genFixture;
+            this.Close();
+            genFixture = new generarFixture();
+            genFixture.MdiParent = principal.ActiveForm;
+            genFixture.WindowState = FormWindowState.Maximized;
+            //genFixture.competenciaGenFix = competenciaVerComp;
+            genFixture.Show();
+        }
     }
 }

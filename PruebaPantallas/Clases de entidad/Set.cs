@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TPdeDiseño.Clases_de_entidad
 {
-    private class Set
+    public class Set
     {
         //Atributos
         private int id_set;
