@@ -11,12 +11,13 @@ namespace TPdeDiseño.Clases_de_entidad
         private int id_resultado;
         private int puntosP1;
         private int puntosP2;
-        private Participante ganador; //VER
+        private Participante ganador;
+        private Participante ausente;
         private bool empate;
         private int cantidad_set;
         private List<Set> sets;
         private int id_partido;
-        private int id_histResultado;
+        private HistorialResultado histResultado;
 
         //Propiedades
         public int _id_resultado
@@ -63,6 +64,17 @@ namespace TPdeDiseño.Clases_de_entidad
                 ganador = value;
             }
         }
+        public Participante _ausente
+        {
+            get
+            {
+                return ausente;
+            }
+            set
+            {
+                ausente = value;
+            }
+        }
         public bool _empate
         {
             get
@@ -107,30 +119,31 @@ namespace TPdeDiseño.Clases_de_entidad
                 id_partido = value;
             }
         }
-        public int _id_histResultado
+        public HistorialResultado _histResultado
         {
             get
             {
-                return id_histResultado;
+                return histResultado;
             }
             set
             {
-                id_histResultado = value;
+                histResultado = value;
             }
         }
 
         //Constructor
-        public Resultado(int unId_resultado, int unPuntosP1, int unPuntosP2, Participante unGanador, bool unEmpate, int unaCantidad_set, List<Set> unosSets, int unId_partido, int unId_histResultado)
+        public Resultado(int unId_resultado, int unPuntosP1, int unPuntosP2, Participante unGanador,Participante unAusente, bool unEmpate, int unaCantidad_set, List<Set> unosSets, int unId_partido, HistorialResultado unHistResultado)
         {
             this._id_resultado = unId_resultado;
             this._puntosP1 = unPuntosP1;
             this._puntosP2 = unPuntosP2;
             this._ganador = unGanador;
+            this._ausente = unAusente;
             this._empate = unEmpate;
             this._cantidad_set = unaCantidad_set;
             this._sets = unosSets;
             this._id_partido = unId_partido;
-            this._id_histResultado = unId_histResultado;
+            this._histResultado = unHistResultado;
         }
     }
 }
