@@ -96,13 +96,16 @@ namespace TPdeDiseño
             //Se ingresan solo caracteres alfanumericos.
             if (Char.IsLetterOrDigit(e.KeyChar))
             {
+                //Cuando es false se escribe el caracter e.
                 e.Handled = false;
             }
             else if (Char.IsControl(e.KeyChar))
             {
                 e.Handled = false;
             }
+            else
             {
+                //Cuando es TRUE, no se escribe el caracter e. 
                 e.Handled = true;
             }
         }
