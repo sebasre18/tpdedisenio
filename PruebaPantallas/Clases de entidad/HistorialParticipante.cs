@@ -8,16 +8,16 @@ namespace TPdeDiseño.Clases_de_entidad
     public class HistorialParticipante : Participante
     {
         //Atributos
-        private int id_participante;
+        private short id_participante;
         private string nombre;
         private string email;
         private string imagen;
         private bool perdio;
         private bool eliminado;
-        private int id_competencia;
-        private int id_historial;
-        private int id_partido;
-        private int id_tablaPos;
+        private short id_competencia;
+        private short id_historial;
+        private short id_partido;
+        private short id_tablaPos;
         private DateTime fecha_modificacion;
         private string pc;
 
@@ -46,7 +46,7 @@ namespace TPdeDiseño.Clases_de_entidad
         }
 
         //Constructor
-        public HistorialParticipante(int unId_participante, string unNombre, string unEmail, string unaImagen, bool unPerdio, bool unEliminado, int unId_competencia, int unId_historial, int unId_partido, int unId_tablaPos, DateTime unaFecha_modificacion, string unaPc) :
+        public HistorialParticipante(short unId_participante, string unNombre, string unEmail, string unaImagen, bool unPerdio, bool unEliminado, short unId_competencia, short unId_historial, short unId_partido, short unId_tablaPos, DateTime unaFecha_modificacion, string unaPc) :
             base(unId_participante, unNombre, unEmail, unaImagen, unPerdio, unEliminado, unId_competencia, unId_historial, unId_partido, unId_tablaPos)
         {
             this._fecha_modificacion = unaFecha_modificacion;

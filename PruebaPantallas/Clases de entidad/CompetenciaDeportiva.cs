@@ -8,11 +8,11 @@ namespace TPdeDiseño.Clases_de_entidad
     public class CompetenciaDeportiva
     {
         //Atributos
-        private int id_competencia;
+        private short id_competencia;
         private string estado;
         private string nombre;
         private string reglamento;
-        private List<Deporte> deportes;
+        private Deporte deporte;
         private List<LugarDeRealizacion> lugaresDeRealizacion;
         private Usuario usuario;
         private Modalidad modalidad;
@@ -21,7 +21,7 @@ namespace TPdeDiseño.Clases_de_entidad
         private Fixture fixture;
      
         //Propiedades
-        public int _id_competencia
+        public short _id_competencia
         {
             get
             {
@@ -65,15 +65,15 @@ namespace TPdeDiseño.Clases_de_entidad
                 reglamento = value;
             }
         }
-        public List<Deporte> _deportes
+        public Deporte _deporte
         {
             get
             {
-                return deportes;
+                return deporte;
             }
             set
             {
-                deportes = value;
+                deporte = value;
             }
         }
         public List<LugarDeRealizacion> _lugaresDeRealizacion
@@ -146,13 +146,13 @@ namespace TPdeDiseño.Clases_de_entidad
         //Constructor
         public CompetenciaDeportiva() { }
 
-        public CompetenciaDeportiva(int unId_competencia, string unEstado, string unNombre, string unReglamento, List<Deporte> listaDeportes, List<LugarDeRealizacion> listaLugaresDeRealizacion, Modalidad unaModalidad)
+        public CompetenciaDeportiva(short unId_competencia, string unEstado, string unNombre, string unReglamento, Deporte unDeporte, List<LugarDeRealizacion> listaLugaresDeRealizacion, Modalidad unaModalidad)
         {
             this._id_competencia = unId_competencia;
             this._nombre = unNombre;
             this._estado = unEstado;
             this._reglamento = unReglamento;
-            this._deportes = listaDeportes;
+            this._deporte = unDeporte;
             this._lugaresDeRealizacion = listaLugaresDeRealizacion;
             this._modalidad = unaModalidad;
         }

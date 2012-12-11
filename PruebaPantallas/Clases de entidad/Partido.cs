@@ -8,12 +8,12 @@ namespace TPdeDiseño.Clases_de_entidad
     public class Partido
     {
         //Atributos
-        private int id_partido;
+        private short id_partido;
         private Resultado resultado;
-        private List<Participante> participantes;
+        private List<PartidoParticipante> pParticipantes;
 
         //Propiedades
-        public int _id_partido
+        public short _id_partido
         {
             get
             {
@@ -35,26 +35,26 @@ namespace TPdeDiseño.Clases_de_entidad
                 resultado = value;
             }
         }
-        public List<Participante> _participantes
+        public List<PartidoParticipante> _pParticipantes
         {
             get
             {
-                return participantes;
+                return pParticipantes;
             }
             set
             {
-                participantes = value;
+                pParticipantes = value;
             }
         }
 
         //Constructor
         public Partido() { }
 
-        public Partido(int unId_partido, Resultado resultado, List<Participante> listaParticipantes)
+        public Partido(short unId_partido, Resultado resultado, List<PartidoParticipante> listaParticipantes)
         {
             this._id_partido = unId_partido;
             this._resultado = resultado;
-            this._participantes = listaParticipantes;
+            this._pParticipantes = listaParticipantes;
         }
     }
 }

@@ -8,13 +8,13 @@ namespace TPdeDiseño.Clases_de_entidad
     public class Ronda
     {
         //Atributos
-        private int nro_ronda; 
+        private short nro_ronda; 
         private string nombre;
         private List<Partido> partidos;
         private Participante libre;
 
         //Propiedades
-        public int _nro_ronda
+        public short _nro_ronda
         {
             get
             {
@@ -59,15 +59,14 @@ namespace TPdeDiseño.Clases_de_entidad
             }
         }
 
-
         //Constructor
         public Ronda() { }
         
-        public Ronda(int unNro_ronda, string unNombre, List<Partido> listaDePartidos, Participante unLibre)
+        public Ronda(short unNro_ronda, string unNombre, List<Partido> listaPartidos, Participante unLibre)
         {
             this._nro_ronda = unNro_ronda;
             this._nombre = unNombre;
-            this._partidos = listaDePartidos;
+            this._partidos = listaPartidos;
             this._libre = unLibre;
         }
     }

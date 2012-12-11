@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TP-DISEÑO" Class="DataClasses2DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=HARDKILL\SQLEXPRESS;Initial Catalog=TP-DISEÑO;Integrated Security=True" SettingsObjectName="TPdeDiseño.Properties.Settings" SettingsPropertyName="TP_DISEÑOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Deporte" Member="Deporte">
+    <Type Name="Deporte">
+      <Column Name="id_deporte" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_lugar" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Modalidad" Member="Modalidad">
+    <Type Name="Modalidad">
+      <Column Name="id_modalidad" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ptos_por_PG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="empate" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ptos_empate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ptos_por_presentarse" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_forma" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Forma_de_Puntuacion_Modalidad" Member="Forma_de_Puntuacion" ThisKey="id_forma" OtherKey="id_forma" Type="Forma_de_Puntuacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Forma de Puntuacion]" Member="Forma_de_Puntuacion">
+    <Type Name="Forma_de_Puntuacion">
+      <Column Name="id_forma" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cant_sets" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="tantos_x_ausencia_del_rival" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Forma_de_Puntuacion_Modalidad" Member="Modalidad" ThisKey="id_forma" OtherKey="id_forma" Type="Modalidad" />
+    </Type>
+  </Table>
+</Database>

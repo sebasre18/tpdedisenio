@@ -138,26 +138,11 @@
             // listBoxParticipantes
             // 
             this.listBoxParticipantes.FormattingEnabled = true;
-            this.listBoxParticipantes.Items.AddRange(new object[] {
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX",
-            "XXXXXXXXXXX"});
             this.listBoxParticipantes.Location = new System.Drawing.Point(57, 136);
             this.listBoxParticipantes.Name = "listBoxParticipantes";
             this.listBoxParticipantes.Size = new System.Drawing.Size(332, 147);
             this.listBoxParticipantes.TabIndex = 2;
+            this.listBoxParticipantes.SelectedIndexChanged += new System.EventHandler(this.listBoxParticipantes_SelectedIndexChanged);
             // 
             // label10
             // 

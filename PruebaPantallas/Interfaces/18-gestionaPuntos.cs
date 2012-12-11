@@ -26,8 +26,8 @@ namespace TPdeDiseño
         private void gestionaPuntos_Load(object sender, EventArgs e)
         {
             //Asigna el nombre de los participantes y el resultado alamacenado.
-            labelPart1.Text = partidoSeleccionado._participantes[0]._nombre;
-            labelPart2.Text = partidoSeleccionado._participantes[1]._nombre;
+            labelPart1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
+            labelPart2.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
 
             textBoxP1.Text = partidoSeleccionado._resultado._puntosP1.ToString();
             textBoxP2.Text = partidoSeleccionado._resultado._puntosP2.ToString();
@@ -200,8 +200,8 @@ namespace TPdeDiseño
             else if (checkBoxP1.Checked == true)
             {
                 //Asigna el ganador y el ausente
-                partidoSeleccionado._resultado._ganador = partidoSeleccionado._participantes[1];
-                partidoSeleccionado._resultado._ausente = partidoSeleccionado._participantes[0];
+                partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[1]._participante;
+                partidoSeleccionado._resultado._ausente = partidoSeleccionado._pParticipantes[0]._participante;
 
                 //Genera el historial de resultado y va a la BD
                 partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
@@ -210,8 +210,8 @@ namespace TPdeDiseño
             else if (checkBoxP2.Checked == true)
             {
                 //Asigna el ganador y el ausente
-                partidoSeleccionado._resultado._ganador = partidoSeleccionado._participantes[0];
-                partidoSeleccionado._resultado._ausente = partidoSeleccionado._participantes[1];
+                partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[0]._participante;
+                partidoSeleccionado._resultado._ausente = partidoSeleccionado._pParticipantes[1]._participante;
 
                 //Genera el historial de resultado y va a la BD
                 partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
@@ -248,7 +248,7 @@ namespace TPdeDiseño
                     if (int.Parse(textBoxP1.Text) < int.Parse(textBoxP2.Text))
                     {
                         //Setea el ganador y los resultados de cada participante
-                        partidoSeleccionado._resultado._ganador = partidoSeleccionado._participantes[1];
+                        partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[1]._participante;
                         partidoSeleccionado._resultado._puntosP1 = int.Parse(textBoxP1.Text);
                         partidoSeleccionado._resultado._puntosP2 = int.Parse(textBoxP2.Text);
 
@@ -259,7 +259,7 @@ namespace TPdeDiseño
                     else if (int.Parse(textBoxP1.Text) > int.Parse(textBoxP2.Text))
                     {
                         //Setea el ganador y los resultados de cada participante
-                        partidoSeleccionado._resultado._ganador = partidoSeleccionado._participantes[0];
+                        partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[0]._participante;
                         partidoSeleccionado._resultado._puntosP1 = int.Parse(textBoxP1.Text);
                         partidoSeleccionado._resultado._puntosP2 = int.Parse(textBoxP2.Text);
 

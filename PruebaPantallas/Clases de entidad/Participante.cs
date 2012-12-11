@@ -8,19 +8,19 @@ namespace TPdeDiseño.Clases_de_entidad
     public class Participante
     {
         //Atributos
-        private int id_participante;
+        private short id_participante;
         private string nombre;
         private string email;
         private string imagen;
         private bool perdio;
         private bool eliminado;
-        private int id_competencia;
-        private int id_historial;
-        private int id_partido;
-        private int id_tablaPos;
+        private short id_competencia;
+        private short id_historial;
+        private short id_partido;
+        private short id_tablaPos;
 
         //Propiedades
-        public int _id_participante
+        public short _id_participante
         {
             get
             {
@@ -86,7 +86,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 eliminado = value;
             }
         }
-        public int _id_competencia
+        public short _id_competencia
         {
             get
             {
@@ -97,7 +97,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 id_competencia = value;
             }
         }
-        public int _id_historial
+        public short _id_historial
         {
             get
             {
@@ -108,7 +108,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 id_historial = value;
             }
         }
-        public int _id_partido
+        public short _id_partido
         {
             get
             {
@@ -119,7 +119,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 id_partido = value;
             }
         }
-        public int _id_tablaPos
+        public short _id_tablaPos
         {
             get
             {
@@ -134,7 +134,7 @@ namespace TPdeDiseño.Clases_de_entidad
         //Constructor
         public Participante() { }
 
-        public Participante(int unId_participante, string unNombre, string unEmail, string unaImagen, bool unPerdio, bool unEliminado, int unId_competencia, int unId_historial, int unId_partido, int unId_tablaPos)
+        public Participante(short unId_participante, string unNombre, string unEmail, string unaImagen, bool unPerdio, bool unEliminado, short unId_competencia, short unId_historial, short unId_partido, short unId_tablaPos)
         {
             this._id_participante = unId_participante;
             this._nombre = unNombre;

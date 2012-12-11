@@ -5,10 +5,10 @@ using System.Text;
 
 namespace TPdeDiseño.Clases_de_entidad
 {
-    class HistorialResultado : Resultado
+    public class HistorialResultado : Resultado
     {
         //Atributos
-        private int id_resultado;
+        private short id_resultado;
         private int puntosP1;
         private int puntosP2;
         private Participante ganador;
@@ -34,11 +34,11 @@ namespace TPdeDiseño.Clases_de_entidad
         }
 
         //Constructor
-        public HistorialResultado(int unId_resultado, int unPuntosP1, int unPuntosP2, Participante unGanador,Participante unAusente, bool unEmpate, int unaCantidad_set, List<Set> unosSets, int unId_partido, HistorialResultado unHistResultado, DateTime unaFecha_modificacion) :
+        public HistorialResultado(short unId_resultado, int unPuntosP1, int unPuntosP2, Participante unGanador,Participante unAusente, bool unEmpate, int unaCantidad_set, List<Set> unosSets, int unId_partido, HistorialResultado unHistResultado, DateTime unaFecha_modificacion) :
             base(unId_resultado, unPuntosP1, unPuntosP2, unGanador, unAusente, unEmpate, unaCantidad_set, unosSets, unId_partido, unHistResultado)
         {
             this._fecha_modificacion = unaFecha_modificacion;
         }
-
+    
     }
 }
