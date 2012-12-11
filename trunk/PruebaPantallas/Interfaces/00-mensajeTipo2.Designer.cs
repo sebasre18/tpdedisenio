@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelError2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAceptar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelError2
@@ -43,14 +43,15 @@
             this.labelError2.TabIndex = 3;
             this.labelError2.Text = "XXXXXXXXXXX";
             // 
-            // button1
+            // buttonAceptar
             // 
-            this.button1.Location = new System.Drawing.Point(197, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Aceptar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAceptar.Location = new System.Drawing.Point(197, 82);
+            this.buttonAceptar.Name = "buttonAceptar";
+            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAceptar.TabIndex = 2;
+            this.buttonAceptar.Text = "Aceptar";
+            this.buttonAceptar.UseVisualStyleBackColor = true;
+            this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
             // 
             // mensajeTipo2
             // 
@@ -59,7 +60,7 @@
             this.ClientSize = new System.Drawing.Size(464, 130);
             this.ControlBox = false;
             this.Controls.Add(this.labelError2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonAceptar);
             this.Name = "mensajeTipo2";
             this.Text = "Error";
             this.Load += new System.EventHandler(this.mensajeTipo2_Load);
@@ -71,6 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Label labelError2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAceptar;
     }
 }
