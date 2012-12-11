@@ -98,6 +98,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "cargarLugar";
             this.Text = "Cargar lugares de realización";
+            this.Load += new System.EventHandler(this.cargarLugar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

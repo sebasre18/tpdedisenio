@@ -11,6 +11,13 @@ namespace TPdeDiseño
 {
     public partial class altaCompetencia : Form
     {
+        Clases_de_control.GestorUsuario gestorU = new Clases_de_control.GestorUsuario();
+        Clases_de_entidad.Usuario unUsuario;
+        Clases_de_control.GestorCompetencia gestorC = new Clases_de_control.GestorCompetencia();
+        List<Clases_de_entidad.Deporte> deportes;
+        List<Clases_de_entidad.Modalidad> modalidades;
+        Clases_de_control.GestorLugarRealizacion gestorL = new Clases_de_control.GestorLugarRealizacion();
+               
         public altaCompetencia()
         {
             InitializeComponent();
@@ -21,9 +28,10 @@ namespace TPdeDiseño
             CargarPantalla();
         }
 
-        private void Cargar_Pantalla()
+        private void CargarPantalla()
         {
-            //Todo lo del load.
+            
+            //Seguir con el diagrama de secuencia.
         }
 
         private void tbNombre_KeyDown(object sender, KeyEventArgs e)
@@ -74,21 +82,6 @@ namespace TPdeDiseño
         private void tbNoPresentarse_KeyDown(object sender, KeyEventArgs e)
         {
             simulaTab(e);
-        }
-
-        private void simulaTab(KeyEventArgs e)
-        {
-            //El Enter simula el Tab (pasa al siguiente objeto)
-            if (e.KeyCode == Keys.Enter)
-            {
-
-                if (this.GetNextControl(ActiveControl, true) != null)
-                {
-                    e.Handled = true;
-                    this.GetNextControl(ActiveControl, true).Focus();
-
-                }
-            }
         }
 
         private void tbNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -177,9 +170,61 @@ namespace TPdeDiseño
             }
         }
 
+        private void bAceptar_Click(object sender, EventArgs e)
+        {
+            //validar campo nulo
+        }
+
+        private void linkLugares_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            deportes = gestorC.buscarDeportes();
+            modalidades = gestorC.buscarModalidades();
+            unUsuario = gestorU.crearUsuario();
+            Clases_de_entidad.Deporte dep = deporteSeleccionado(cbDeporte.Text, deportes);
+            List<Clases_de_entidad.LugarDeRealizacion> coleccionLugares = gestorL.buscarLugares(dep, unUsuario._email);
+            
+            //Abre la interfaz para cargar la disponibilidad de los lugares, pasandole como parametro una lista con los lugares de realizacion.
+            cargarLugar cl = new cargarLugar();
+            cl.MdiParent = principal.ActiveForm;
+            cl.WindowState = FormWindowState.Maximized;
+            cl.lugares = coleccionLugares;
+            cl.Show();
+
+
+        }
+
+        ////////////////////////////////Metodos auxiliares////////////////////////////////////
+
+        private void simulaTab(KeyEventArgs e)
+        {
+            //El Enter simula el Tab (pasa al siguiente objeto)
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (this.GetNextControl(ActiveControl, true) != null)
+                {
+                    e.Handled = true;
+                    this.GetNextControl(ActiveControl, true).Focus();
+
+                }
+            }
+        }
+
+        private Clases_de_entidad.Deporte deporteSeleccionado(string textoDeporte, List<Clases_de_entidad.Deporte> coleccionDeportes)
+        {
+            /*Recibe el texto que indica que deporte se selecciono en el ComboBox Deporte y la coleccione de deportes traida de la Base de Datos,
+            y devuelve el objeto deporte con el nombre seleccionado.*/
+            foreach (Clases_de_entidad.Deporte unDeporte in coleccionDeportes)
+            {
+                if(unDeporte._nombre == string)
+                {
+                    return unDeporte;
+                }
+            }
+            return null;
+        }
+
         
 
-       
-
-     }
+    }
 }

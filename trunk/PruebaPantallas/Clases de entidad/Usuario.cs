@@ -84,6 +84,7 @@ namespace TPdeDiseño.Clases_de_entidad
         }
 
         //Constructor
+        public Usuario() { }
         public Usuario(string unEmail, string unaContraseña, string unApellido, string unNombre, string unTipo_dni, int unNro_dni)
         {
             this._email = unEmail;
@@ -92,6 +93,13 @@ namespace TPdeDiseño.Clases_de_entidad
             this._nombre = unNombre;
             this._tipo_dni = unTipo_dni;
             this._nro_dni = unNro_dni;
+        }
+        public Usuario(string unEmail, string unaContraseña, string unApellido, string unNombre)
+        {
+            this._email = unEmail;
+            this._contraseña = unaContraseña;
+            this._apellido = unApellido;
+            this._nombre = unNombre;
         }
     }
 }
