@@ -60,7 +60,7 @@
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbMaxSet = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -158,6 +158,7 @@
             this.cbEmpate.TabIndex = 54;
             this.cbEmpate.Text = "Permitir empate";
             this.cbEmpate.UseVisualStyleBackColor = true;
+            this.cbEmpate.CheckedChanged += new System.EventHandler(this.cbEmpate_CheckedChanged);
             this.cbEmpate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbEmpate_KeyDown);
             // 
             // label6
@@ -390,24 +391,24 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(13, 22);
             this.toolStripLabel1.Text = "S";
             // 
-            // comboBox1
+            // cbMaxSet
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbMaxSet.FormattingEnabled = true;
+            this.cbMaxSet.Items.AddRange(new object[] {
             "3",
             "5",
             "9"});
-            this.comboBox1.Location = new System.Drawing.Point(204, 344);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(38, 21);
-            this.comboBox1.TabIndex = 29;
+            this.cbMaxSet.Location = new System.Drawing.Point(204, 344);
+            this.cbMaxSet.Name = "cbMaxSet";
+            this.cbMaxSet.Size = new System.Drawing.Size(38, 21);
+            this.cbMaxSet.TabIndex = 29;
             // 
             // altaCompetencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 639);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbMaxSet);
             this.Controls.Add(this.comboBox6);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.toolStrip1);
@@ -477,6 +478,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbMaxSet;
     }
 }

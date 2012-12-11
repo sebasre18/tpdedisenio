@@ -25,6 +25,7 @@ namespace TPdeDiseño
 
         private void altaCompetencia_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
             CargarPantalla();
         }
 
@@ -172,7 +173,17 @@ namespace TPdeDiseño
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
-            //validar campo nulo
+            int error = 0;
+            error = validarCamposNulos();
+
+            if (error == 1)
+            {
+                MessageBox.Show("Asegurese que ningun campo sea nulo");
+                tbNombre.Focus();
+            }
+            //else 
+                // Comparar nombre en BD, etc.
+
         }
 
         private void linkLugares_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -195,6 +206,27 @@ namespace TPdeDiseño
 
         ////////////////////////////////Metodos auxiliares////////////////////////////////////
 
+        private int validarCamposNulos()
+        {
+            if (tbNombre.Text == "")
+                return 1;
+            if (cbDeporte.Text == "")
+                return 1;
+            if (cbModalidad.Text == "")
+                return 1;
+            if (tbPtosGanado.Text == "")
+                return 1;
+            if (cbFormaPuntuacion.Text == "")
+                return 1;
+            if (cbMaxSet.Text == "")
+                return 1;
+            if (tbNoPresentarse.Text == "")
+                return 1;
+            return 0;
+            //Falta validar la parte de permitir empate.
+
+        }
+        
         private void simulaTab(KeyEventArgs e)
         {
             //El Enter simula el Tab (pasa al siguiente objeto)
@@ -216,12 +248,17 @@ namespace TPdeDiseño
             y devuelve el objeto deporte con el nombre seleccionado.*/
             foreach (Clases_de_entidad.Deporte unDeporte in coleccionDeportes)
             {
-                if(unDeporte._nombre == string)
+                if(unDeporte._nombre == textoDeporte)
                 {
                     return unDeporte;
                 }
             }
             return null;
+        }
+
+        private void cbEmpate_CheckedChanged(object sender, EventArgs e)
+        {
+            // FALTA HABILITAR OPCIONES CUANDO SE TILDA "PERMITIR EMPATE"
         }
 
         

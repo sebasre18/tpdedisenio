@@ -8,13 +8,13 @@ namespace TPdeDiseño.Clases_de_entidad
     public class LugarDeRealizacion
     {
         //Atributos
-        private int codigo;
+        private short codigo;
         private string nombre;
         private string descripcion;
-        private int disponibilidad;
-
-        //Propiedades
-        public int _codigo
+        private short disponibilidad;
+       
+       //Propiedades
+        public short _codigo
         {
             get
             {
@@ -47,7 +47,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 descripcion = value;
             }
         }
-        public int _disponibilidad
+        public short _disponibilidad
         {
             get
             {
@@ -58,10 +58,17 @@ namespace TPdeDiseño.Clases_de_entidad
                 disponibilidad = value;
             }
         }
-
-
+        
         //Constructor
-        public LugarDeRealizacion(int unCodigo, string unNombre, string unaDescripcion, int unaDisponibilidad)
+
+        public LugarDeRealizacion() { }
+
+        public LugarDeRealizacion(string unNombre)
+        {
+            this._nombre = unNombre;
+        }
+
+        public LugarDeRealizacion(short unCodigo, string unNombre, string unaDescripcion, int unaDisponibilidad, List<LugarDeRealizacion> unaListaDeLugaresDeRealizacion)
         {
             this._codigo = unCodigo;
             this._nombre = unNombre;
