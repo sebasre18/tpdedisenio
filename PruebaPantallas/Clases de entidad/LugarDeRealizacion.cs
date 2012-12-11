@@ -12,7 +12,6 @@ namespace TPdeDiseño.Clases_de_entidad
         private string nombre;
         private string descripcion;
         private int disponibilidad;
-        private List<LugarDeRealizacion> lugaresDeRealizacion;
 
         //Propiedades
         public int _codigo
@@ -59,26 +58,15 @@ namespace TPdeDiseño.Clases_de_entidad
                 disponibilidad = value;
             }
         }
-        public List<LugarDeRealizacion> _lugaresDeRealizacion
-        {
-            get
-            {
-                return this.lugaresDeRealizacion;
-            }
-            set
-            {
-                this.lugaresDeRealizacion = value;
-            }
-        }
+
 
         //Constructor
-        public LugarDeRealizacion(int unCodigo, string unNombre, string unaDescripcion, int unaDisponibilidad, List<LugarDeRealizacion> unaListaDeLugaresDeRealizacion)
+        public LugarDeRealizacion(int unCodigo, string unNombre, string unaDescripcion, int unaDisponibilidad)
         {
             this._codigo = unCodigo;
             this._nombre = unNombre;
             this._descripcion = unaDescripcion;
             this._disponibilidad = unaDisponibilidad;
-            this._lugaresDeRealizacion = unaListaDeLugaresDeRealizacion;
         }
 
     }
