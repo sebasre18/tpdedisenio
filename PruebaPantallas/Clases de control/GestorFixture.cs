@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -78,5 +78,43 @@ namespace TPdeDiseño.Clases_de_control
 
             return fixture;
         }
+
+        //
+        //METODOS PARA GUARDAR EN BASE DE DATOS LOS RESULTADOS!!
+        //
+
+        //Llama al ABDfixture para una competencia con forma de puntuacion por PUNTOS
+        public void guardarResultadoPuntos(Clases_de_entidad.Partido unPartido, int ptosP1, int ptosP2)
+        {
+            //Llamada a la BD para setear el resultado
+            Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
+            ABDfix.setResultadoPtos(unPartido, ptosP1, ptosP2);
+        }
+
+        //Llama al ABDfixture para una competencia con forma de puntuacion por RDO FINAL o por ausencias
+        public void guardarResultadoGanador(Clases_de_entidad.Partido unPartido, Clases_de_entidad.Participante ganador)
+        {
+            //Llamada a la BD para setear el resultado
+            Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
+            ABDfix.setResultadoGanador(unPartido, ganador);
+        }
+
+        //Llama al ABDfixture para una competencia con forma de puntuacion por RDO FINAL EMPATE
+        public void guardarResultadoGanadorEmp(Clases_de_entidad.Partido unPartido, bool empate)
+        {
+            //Llamada a la BD para setear el resultado
+            Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
+            ABDfix.setResultadoGanadorEmp(unPartido, empate);
+        }
+
+        //Llama al ABDfixture para una competencia con forma de puntuacion por SETS
+        public void guardarResultadoSets(Clases_de_entidad.Partido unPartido, List<Clases_de_entidad.Set> sets)
+        {
+            //Llamada a la BD para setear el resultado
+            Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
+            ABDfix.setResultadoSets(unPartido, sets);
+        }
+
+
     }
 }

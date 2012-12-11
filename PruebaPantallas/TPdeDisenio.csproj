@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases ABD\ABDcompetencia.cs" />
+    <Compile Include="Clases ABD\ABDfixture.cs" />
+    <Compile Include="Clases de control\GestorTabla.cs" />
     <Compile Include="Clases de control\GestorUsuario.cs" />
     <Compile Include="Clases de control\GestorLugarRealizacion.cs" />
     <Compile Include="Clases de control\GestorFixture.cs" />

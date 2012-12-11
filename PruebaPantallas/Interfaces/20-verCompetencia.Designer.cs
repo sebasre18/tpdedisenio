@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelNombreComp = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelModComp = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelDeporteComp = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelEstadoComp = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxParticipantes = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBoxProxEncuentros = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonVerFixture = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -59,14 +59,14 @@
             this.label1.Text = "Nombre:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // labelNombreComp
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(108, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "XXXXXXXXXX";
+            this.labelNombreComp.AutoSize = true;
+            this.labelNombreComp.Location = new System.Drawing.Point(108, 22);
+            this.labelNombreComp.Name = "labelNombreComp";
+            this.labelNombreComp.Size = new System.Drawing.Size(56, 13);
+            this.labelNombreComp.TabIndex = 1;
+            this.labelNombreComp.Text = "NomComp";
             // 
             // label3
             // 
@@ -78,14 +78,14 @@
             this.label3.Text = "Modalidad:";
             this.label3.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label4
+            // labelModComp
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(119, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "XXXXXXXXXX";
+            this.labelModComp.AutoSize = true;
+            this.labelModComp.Location = new System.Drawing.Point(119, 46);
+            this.labelModComp.Name = "labelModComp";
+            this.labelModComp.Size = new System.Drawing.Size(55, 13);
+            this.labelModComp.TabIndex = 1;
+            this.labelModComp.Text = "ModComp";
             // 
             // label5
             // 
@@ -97,14 +97,14 @@
             this.label5.Text = "Deporte:";
             this.label5.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label6
+            // labelDeporteComp
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(108, 69);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "XXXXXXXXXX";
+            this.labelDeporteComp.AutoSize = true;
+            this.labelDeporteComp.Location = new System.Drawing.Point(108, 69);
+            this.labelDeporteComp.Name = "labelDeporteComp";
+            this.labelDeporteComp.Size = new System.Drawing.Size(54, 13);
+            this.labelDeporteComp.TabIndex = 1;
+            this.labelDeporteComp.Text = "DepComp";
             // 
             // label7
             // 
@@ -116,14 +116,14 @@
             this.label7.Text = "Estado:";
             this.label7.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label8
+            // labelEstadoComp
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(103, 93);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "XXXXXXXXXX";
+            this.labelEstadoComp.AutoSize = true;
+            this.labelEstadoComp.Location = new System.Drawing.Point(103, 93);
+            this.labelEstadoComp.Name = "labelEstadoComp";
+            this.labelEstadoComp.Size = new System.Drawing.Size(49, 13);
+            this.labelEstadoComp.TabIndex = 1;
+            this.labelEstadoComp.Text = "EstComp";
             // 
             // label9
             // 
@@ -135,10 +135,10 @@
             this.label9.Text = "Participantes:";
             this.label9.Click += new System.EventHandler(this.label1_Click);
             // 
-            // listBox1
+            // listBoxParticipantes
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.listBoxParticipantes.FormattingEnabled = true;
+            this.listBoxParticipantes.Items.AddRange(new object[] {
             "XXXXXXXXXXX",
             "XXXXXXXXXXX",
             "XXXXXXXXXXX",
@@ -154,11 +154,10 @@
             "XXXXXXXXXXX",
             "XXXXXXXXXXX",
             "XXXXXXXXXXX"});
-            this.listBox1.Location = new System.Drawing.Point(57, 136);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(332, 147);
-            this.listBox1.TabIndex = 2;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBoxParticipantes.Location = new System.Drawing.Point(57, 136);
+            this.listBoxParticipantes.Name = "listBoxParticipantes";
+            this.listBoxParticipantes.Size = new System.Drawing.Size(332, 147);
+            this.listBoxParticipantes.TabIndex = 2;
             // 
             // label10
             // 
@@ -170,14 +169,15 @@
             this.label10.Text = "Próximos encuentros:";
             this.label10.Click += new System.EventHandler(this.label1_Click);
             // 
-            // listBox2
+            // listBoxProxEncuentros
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(57, 317);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.ScrollAlwaysVisible = true;
-            this.listBox2.Size = new System.Drawing.Size(332, 147);
-            this.listBox2.TabIndex = 2;
+            this.listBoxProxEncuentros.FormattingEnabled = true;
+            this.listBoxProxEncuentros.Location = new System.Drawing.Point(57, 317);
+            this.listBoxProxEncuentros.Name = "listBoxProxEncuentros";
+            this.listBoxProxEncuentros.ScrollAlwaysVisible = true;
+            this.listBoxProxEncuentros.Size = new System.Drawing.Size(332, 147);
+            this.listBoxProxEncuentros.TabIndex = 2;
+            this.listBoxProxEncuentros.SelectedIndexChanged += new System.EventHandler(this.listBoxProxEncuentros_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -197,14 +197,15 @@
             this.button2.Text = "Dar de baja";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonVerFixture
             // 
-            this.button3.Location = new System.Drawing.Point(205, 487);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Ver fixture";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonVerFixture.Location = new System.Drawing.Point(205, 487);
+            this.buttonVerFixture.Name = "buttonVerFixture";
+            this.buttonVerFixture.Size = new System.Drawing.Size(75, 23);
+            this.buttonVerFixture.TabIndex = 3;
+            this.buttonVerFixture.Text = "Ver fixture";
+            this.buttonVerFixture.UseVisualStyleBackColor = true;
+            this.buttonVerFixture.Click += new System.EventHandler(this.buttonVerFixture_Click_1);
             // 
             // button4
             // 
@@ -252,18 +253,18 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonVerFixture);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.listBoxProxEncuentros);
+            this.Controls.Add(this.listBoxParticipantes);
+            this.Controls.Add(this.labelEstadoComp);
+            this.Controls.Add(this.labelDeporteComp);
+            this.Controls.Add(this.labelModComp);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelNombreComp);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -278,20 +279,20 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelNombreComp;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelModComp;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelDeporteComp;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelEstadoComp;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxParticipantes;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBoxProxEncuentros;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonVerFixture;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
