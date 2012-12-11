@@ -28,89 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvLugares = new System.Windows.Forms.DataGridView();
             this.lugarRealizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.turnosFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.aceptar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.bLimpiar = new System.Windows.Forms.Button();
+            this.bCancelar = new System.Windows.Forms.Button();
+            this.bAceptar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLugares)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvLugares
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvLugares.AllowUserToAddRows = false;
+            this.dgvLugares.AllowUserToDeleteRows = false;
+            this.dgvLugares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLugares.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.lugarRealizacion,
             this.turnosFecha});
-            this.dataGridView1.Location = new System.Drawing.Point(35, 33);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(495, 59);
-            this.dataGridView1.TabIndex = 30;
+            this.dgvLugares.Location = new System.Drawing.Point(35, 33);
+            this.dgvLugares.Name = "dgvLugares";
+            this.dgvLugares.Size = new System.Drawing.Size(495, 86);
+            this.dgvLugares.TabIndex = 30;
             // 
             // lugarRealizacion
             // 
             this.lugarRealizacion.HeaderText = "Lugar de realización";
             this.lugarRealizacion.Name = "lugarRealizacion";
+            this.lugarRealizacion.ReadOnly = true;
             this.lugarRealizacion.Width = 350;
             // 
             // turnosFecha
             // 
             this.turnosFecha.HeaderText = "Turnos por fecha";
             this.turnosFecha.Name = "turnosFecha";
+            this.turnosFecha.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // button2
+            // bLimpiar
             // 
-            this.button2.Location = new System.Drawing.Point(374, 125);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bLimpiar.Location = new System.Drawing.Point(375, 171);
+            this.bLimpiar.Name = "bLimpiar";
+            this.bLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.bLimpiar.TabIndex = 33;
+            this.bLimpiar.Text = "Limpiar";
+            this.bLimpiar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // bCancelar
             // 
-            this.button1.Location = new System.Drawing.Point(455, 125);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bCancelar.Location = new System.Drawing.Point(455, 171);
+            this.bCancelar.Name = "bCancelar";
+            this.bCancelar.Size = new System.Drawing.Size(75, 23);
+            this.bCancelar.TabIndex = 32;
+            this.bCancelar.Text = "Cancelar";
+            this.bCancelar.UseVisualStyleBackColor = true;
             // 
-            // aceptar
+            // bAceptar
             // 
-            this.aceptar.Location = new System.Drawing.Point(283, 125);
-            this.aceptar.Name = "aceptar";
-            this.aceptar.Size = new System.Drawing.Size(75, 23);
-            this.aceptar.TabIndex = 31;
-            this.aceptar.Text = "Aceptar";
-            this.aceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.aceptar.UseVisualStyleBackColor = true;
+            this.bAceptar.Location = new System.Drawing.Point(281, 171);
+            this.bAceptar.Name = "bAceptar";
+            this.bAceptar.Size = new System.Drawing.Size(75, 23);
+            this.bAceptar.TabIndex = 31;
+            this.bAceptar.Text = "Aceptar";
+            this.bAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.bAceptar.UseVisualStyleBackColor = true;
+            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
             // cargarLugar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 171);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.aceptar);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(565, 206);
+            this.Controls.Add(this.bLimpiar);
+            this.Controls.Add(this.bCancelar);
+            this.Controls.Add(this.bAceptar);
+            this.Controls.Add(this.dgvLugares);
             this.Name = "cargarLugar";
             this.Text = "Cargar lugares de realización";
             this.Load += new System.EventHandler(this.cargarLugar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLugares)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvLugares;
+        private System.Windows.Forms.Button bLimpiar;
+        private System.Windows.Forms.Button bCancelar;
+        private System.Windows.Forms.Button bAceptar;
         private System.Windows.Forms.DataGridViewTextBoxColumn lugarRealizacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn turnosFecha;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button aceptar;
     }
 }
