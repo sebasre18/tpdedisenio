@@ -38,6 +38,7 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
@@ -57,6 +58,7 @@
     <Compile Include="Clases de control\GestorLugarRealizacion.cs" />
     <Compile Include="Clases de control\GestorFixture.cs" />
     <Compile Include="Clases de control\GestorCompetencia.cs" />
+    <Compile Include="Clases de entidad\PartidoParticipante.cs" />
     <Compile Include="Clases de entidad\TablaPosiciones.cs" />
     <Compile Include="Clases de entidad\Fixture.cs" />
     <Compile Include="Clases de entidad\FormaPuntuacion.cs" />
@@ -77,6 +79,19 @@
     <Compile Include="Clases de entidad\LugarDeRealizacion.cs" />
     <Compile Include="Clases de entidad\Provincia.cs" />
     <Compile Include="Clases de entidad\Usuario.cs" />
+    <Compile Include="DataClasses1.cs">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataClasses1.designer.cs">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataClasses2.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses2.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\13-listarLugares.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,6 +286,20 @@
     <Compile Include="UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
+    <None Include="app.config" />
+    <None Include="bin\Debug\TPdeDiseño.vshost.exe.config" />
+    <None Include="bin\Debug\TPdeDiseño.vshost.exe.manifest" />
+    <None Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataClasses2.dbml.layout">
+      <DependentUpon>DataClasses2.dbml</DependentUpon>
+    </None>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Interfaces\13-listarLugares.resx">
       <DependentUpon>13-listarLugares.cs</DependentUpon>
     </EmbeddedResource>
@@ -364,6 +393,38 @@
     <EmbeddedResource Include="Interfaces\principal.resx">
       <DependentUpon>principal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.altaCompetencia.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.altaLugar.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.altaParticipante.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.autentificarUsuario.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.bajaCompetencia.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.bajaLugar.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.bajaParticipante.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.cargarLugar.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.errorCompetencia.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.generarFixture.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.gestionaGanador.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.gestionaPuntos.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.gestionaSet.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.Interfaces.mostrarTablaSG.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.Interfases.mostrarTablaCG.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.listarCompetencias.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.listarLugares.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.listarParticipantes.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.listarTodasCompetencias.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.mensajeTipo1.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.mensajeTipo2.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.mensajeTipo3.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.modificarCompetencia.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.modificarLugar.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.modificarParticipante.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.modificarUsuario.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.mostrarFixtureCRG.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.mostrarFixtureSRG.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.principal.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.registroUsuario.resources" />
+    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.verCompetencia.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -374,6 +435,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DataClasses2.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses2.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\x86\Debug\GenerateResource.read.1.tlog" />
+    <None Include="obj\x86\Debug\GenerateResource.write.1.tlog" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -390,7 +460,16 @@
   <ItemGroup>
     <None Include="Resources\usuarioMasculino.gif" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\TPdeDiseño.vshost.exe" />
+    <Content Include="obj\x86\Debug\TempPE\DataClasses1.designer.cs.dll" />
+    <Content Include="obj\x86\Debug\TempPE\DataClasses2.designer.cs.dll" />
+    <Content Include="obj\x86\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="obj\x86\Debug\TPdeDisenio.csproj.FileListAbsolute.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

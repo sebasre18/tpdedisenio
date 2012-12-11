@@ -16,17 +16,17 @@ namespace TPdeDiseño.Clases_de_control
 
             cantParticipantes = listaParticipantes.Count;
 
-            //asigno un "equipo fantasma" para poder realizar el ordenamiento de partidos
+            //agrego un "equipo fantasma" a la lista de participantes para poder realizar el ordenamiento de partidos
             if (cantParticipantes % 2 == 1)
             {
                 equipoFantasma = 1;
                 Clases_de_entidad.Participante partFantasma = new Clases_de_entidad.Participante();
-                partFantasma._nombre = "equipoFantasma";
+                partFantasma._nombre = "EQUIPOFANTASMA";
                 listaParticipantes.Add(partFantasma);
                 cantParticipantes = cantParticipantes + equipoFantasma;
             }
 
-            for (int nroRonda = 0; nroRonda < (cantParticipantes - 1); nroRonda++) //cantidad de participantes = cantidad de rondas (fechas)
+            for (short nroRonda = 1; nroRonda < cantParticipantes ; nroRonda++) //cantidad de participantes = cantidad de rondas (fechas)
             {
                 Clases_de_entidad.Ronda ronda = new Clases_de_entidad.Ronda();
                 ronda._partidos = new List<Clases_de_entidad.Partido>();
@@ -40,24 +40,31 @@ namespace TPdeDiseño.Clases_de_control
                 {
                     if ((equipoFantasma == 0) || (i != 0)) //en caso de que haya participante libre no se crea el primer partido ya q el primer part es el libre y el ultimo el equipo fantasma
                     {
-                        //se crea el partido con dos participantes
                         Clases_de_entidad.Partido partido = new Clases_de_entidad.Partido();
-                        partido._participantes = new List<Clases_de_entidad.Participante>();
-                        if ((i == 0) && (nroRonda % 2 == 1))
+                        partido._pParticipantes = new List<Clases_de_entidad.PartidoParticipante>();
+                        Clases_de_entidad.PartidoParticipante participante1 = new Clases_de_entidad.PartidoParticipante();
+                        Clases_de_entidad.PartidoParticipante participante2 = new Clases_de_entidad.PartidoParticipante();
+                        participante1._participante = listaParticipantes[i];
+                        participante2._participante = listaParticipantes[(cantParticipantes - 1) - i];
+
+                        if ((i == 0) && (nroRonda % 2 == 0))
                         {
-                            partido._participantes.Add(listaParticipantes[i]);                      //primer partido: primer part vs ultimo part; segundo partido: segundo part vs ante-ultimo part; etc
-                            partido._participantes.Add(listaParticipantes[(cantParticipantes - 1) - i]);
+                            //primer partido: primer part vs ultimo part; segundo partido: segundo part vs ante-ultimo part; etc
+                            partido._pParticipantes.Add(participante1);
+                            partido._pParticipantes.Add(participante2);
                         }
                         else
                         {
-                            partido._participantes.Add(listaParticipantes[(cantParticipantes - 1) - i]);
-                            partido._participantes.Add(listaParticipantes[i]);                      //se rotan los partidos impares
+                            //se rotan los partidos pares para cambiar la condicion de localia
+                            partido._pParticipantes.Add(participante2);
+                            partido._pParticipantes.Add(participante1);
                         }
-                        ronda._partidos.Add(partido);                          //si hay equipo fantasma se ubican los partidos una posicion anterior en la lista (2do partido en primer lugar)
+                        ronda._partidos.Add(partido);
                     }
-                };
+                }
                 //se agrega la ronda al fixture
                 fixture._rondas.Add(ronda);
+                fixture._rondaActual = 1;
 
                 //ROTAMOS la lista de participantes para que los encuentros no se repitan Ej L: 0,1,2,3,4
                 Clases_de_entidad.Participante partEstatico = new Clases_de_entidad.Participante();
@@ -78,6 +85,7 @@ namespace TPdeDiseño.Clases_de_control
 
             return fixture;
         }
+
 
         //
         //METODOS PARA GUARDAR EN BASE DE DATOS LOS RESULTADOS!!
@@ -114,7 +122,5 @@ namespace TPdeDiseño.Clases_de_control
             Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
             ABDfix.setResultadoSets(unPartido, sets);
         }
-
-
     }
 }

@@ -8,12 +8,13 @@ namespace TPdeDiseño.Clases_de_entidad
     public class Fixture
     {
         //Atributos
-        private int id_fixture;
+        private short id_fixture;
         private Boolean eliminado;
         private List<Ronda> rondas;
+        private short rondaActual;
 
         //Propiedades
-        public int _id_fixture
+        public short _id_fixture
         {
             get
             {
@@ -46,15 +47,27 @@ namespace TPdeDiseño.Clases_de_entidad
                 rondas = value;
             }
         }
+        public short _rondaActual
+        {
+            get
+            {
+                return rondaActual;
+            }
+            set
+            {
+                rondaActual = value;
+            }
+        }
 
         //Constructor TERMINAR
         public Fixture() { }
 
-        public Fixture(int unId_fixture, Boolean elim, List<Ronda> listaRondas)
+        public Fixture(short unId_fixture, Boolean elim, List<Ronda> listaRondas, short rondaActual)
         {
             this._id_fixture = unId_fixture;
             this._eliminado = elim;
             this._rondas = listaRondas;
+            this._rondaActual = rondaActual;
         }
 
     }

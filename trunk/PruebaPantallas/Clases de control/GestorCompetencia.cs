@@ -9,12 +9,16 @@ namespace TPdeDiseño.Clases_de_control
     {
         public List<Clases_de_entidad.Deporte> buscarDeportes()
         {
+            List<Clases_de_entidad.Deporte> deporte = new List<Clases_de_entidad.Deporte>();
             //buscar de la BD una coleccion con todos los deportes disponibles.
+            return deporte;
         }
 
         public List<Clases_de_entidad.Modalidad> buscarModalidades()
         {
+            List<Clases_de_entidad.Modalidad> modalidad = new List<Clases_de_entidad.Modalidad>();
             //buscar de la BD una coleccion con todos las modalidades disponibles.
+            return modalidad;
         }
         
         /* public Clases_de_entidad.TablaPosiciones verTabla(Clases_de_entidad.CompetenciaDeportiva competencia)

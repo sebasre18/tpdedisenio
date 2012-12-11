@@ -166,8 +166,8 @@ namespace TPdeDiseño
             foreach (Clases_de_entidad.Partido partido in competenciaVerFix._fixture._rondas[nRonda]._partidos)
             {
                 //Asigna el nombre de los participantes al dataGrid
-                dataGridPartidos[0, fila].Value = partido._participantes[0];
-                dataGridPartidos[3, fila].Value = partido._participantes[1];
+                dataGridPartidos[0, fila].Value = partido._pParticipantes[0]._participante;
+                dataGridPartidos[3, fila].Value = partido._pParticipantes[1]._participante;
 
                 //Asigna el resultado de cada participante
                 dataGridPartidos[1, fila].Value = partido._resultado._puntosP1;

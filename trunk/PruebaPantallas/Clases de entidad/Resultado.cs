@@ -8,7 +8,7 @@ namespace TPdeDiseño.Clases_de_entidad
     public class Resultado
     {
         //Atributos
-        private int id_resultado;
+        private short id_resultado;
         private int puntosP1;
         private int puntosP2;
         private Participante ganador;
@@ -20,7 +20,7 @@ namespace TPdeDiseño.Clases_de_entidad
         private HistorialResultado histResultado;
 
         //Propiedades
-        public int _id_resultado
+        public short _id_resultado
         {
             get
             {
@@ -132,7 +132,9 @@ namespace TPdeDiseño.Clases_de_entidad
         }
 
         //Constructor
-        public Resultado(int unId_resultado, int unPuntosP1, int unPuntosP2, Participante unGanador,Participante unAusente, bool unEmpate, int unaCantidad_set, List<Set> unosSets, int unId_partido, HistorialResultado unHistResultado)
+        public Resultado() { }
+
+        public Resultado(short unId_resultado, int unPuntosP1, int unPuntosP2, Participante unGanador,Participante unAusente, bool unEmpate, int unaCantidad_set, List<Set> unosSets, int unId_partido, HistorialResultado unHistResultado)
         {
             this._id_resultado = unId_resultado;
             this._puntosP1 = unPuntosP1;

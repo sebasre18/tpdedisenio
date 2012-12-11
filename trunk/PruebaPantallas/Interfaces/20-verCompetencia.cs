@@ -13,9 +13,10 @@ namespace TPdeDiseño
     {
         //Declaracion de clase Competencia publica.
         public Clases_de_entidad.CompetenciaDeportiva competenciaVerComp = new Clases_de_entidad.CompetenciaDeportiva();
+        
 
         //Declaracion de variables
-        int cantDep, i=0, rondaActual, nR=0, bandera=0;
+        int rondaActual, nR=0;
         string cadena;
 
         public verCompetencia()
@@ -30,16 +31,32 @@ namespace TPdeDiseño
 
         private void verCompetencia_Load(object sender, EventArgs e)
         {
+            /*
+            //Codigo para comprobar q se llene correctamente
+            
+            competenciaVerComp._id_competencia = 3;
+            competenciaVerComp._nombre = "COMPETENCIA DE PRUEBA";
+            competenciaVerComp._estado = "CREADA";
+            Clases_de_entidad.Modalidad mod = new Clases_de_entidad.Modalidad();
+            mod._nombreMod = "LIGA";
+            competenciaVerComp._modalidad = mod;
+            competenciaVerComp._deporte = new Clases_de_entidad.Deporte();
+
+            competenciaVerComp._participantes = new List<Clases_de_entidad.Participante>();
+            for (short i = 1; i <= 5; i++)
+            {
+                Clases_de_entidad.Participante participante = new Clases_de_entidad.Participante();
+                participante._nombre = "PARTICIPANTE" + i;
+                participante._id_participante = i;
+                competenciaVerComp._participantes.Add(participante);
+            }*/
+
+            
             //Asigna los labels de la pantalla
-            cantDep = competenciaVerComp._deportes.Count;
+            labelDeporteComp.Text = competenciaVerComp._deporte._nombre;
             labelEstadoComp.Text = competenciaVerComp._estado;
             labelModComp.Text = competenciaVerComp._modalidad._nombreMod;
             labelNombreComp.Text = competenciaVerComp._nombre;
-            while (i < cantDep)
-            {
-                labelDeporteComp.Text = competenciaVerComp._deportes[i]._nombre+" ";
-                i++;
-            }
             
             //Completa los listBox
             foreach (Clases_de_entidad.Participante participante in competenciaVerComp._participantes)
@@ -62,7 +79,7 @@ namespace TPdeDiseño
 
             foreach (Clases_de_entidad.Partido partido in competenciaVerComp._fixture._rondas[rondaActual + 1]._partidos)
             {
-                cadena = partido._participantes[0]._nombre + " - " + partido._participantes[1]._nombre;
+                cadena = partido._pParticipantes[0]._participante._nombre + " - " + partido._pParticipantes[1]._participante._nombre;
                 listBoxProxEncuentros.Items.Add(cadena);
             }
 
@@ -104,6 +121,16 @@ namespace TPdeDiseño
                 error.error2 = "No existe un fixture generado.";
                 error.Show();
             }
+        }
+
+        private void listBoxProxEncuentros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxParticipantes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

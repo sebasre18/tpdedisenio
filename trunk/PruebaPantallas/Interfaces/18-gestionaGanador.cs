@@ -29,8 +29,8 @@ namespace TPdeDiseño
         private void gestionaGanador_Load(object sender, EventArgs e)
         {
             //Asigna los nombres de los participantes
-            radioButtonP1.Text = partidoSeleccionado._participantes[0]._nombre;
-            radioButtonP2.Text = partidoSeleccionado._participantes[1]._nombre;
+            radioButtonP1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
+            radioButtonP2.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
 
         }
 
@@ -39,7 +39,7 @@ namespace TPdeDiseño
             //Comprueba que radioButton esta seleccionado
             if (radioButtonP1.Checked == true)
             {
-                partidoSeleccionado._resultado._ganador = partidoSeleccionado._participantes[0];
+                partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[0]._participante;
 
                 //Genera el historial de resultado y va a la BD
                 partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
@@ -47,7 +47,7 @@ namespace TPdeDiseño
             }
             else if (radioButtonP2.Checked == true)
             {
-                partidoSeleccionado._resultado._ganador = partidoSeleccionado._participantes[1];
+                partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[1]._participante;
 
                 //Genera el historial de resultado y va a la BD
                 partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
