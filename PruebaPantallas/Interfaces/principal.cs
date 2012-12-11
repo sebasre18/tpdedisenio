@@ -16,14 +16,17 @@ namespace TPdeDiseño
             InitializeComponent();
         }
 
-        private void accionesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void principal_Load(object sender, EventArgs e)
         {
-
+            CargarPantalla();
         }
+
+        private void CargarPantalla()
+        {
+            
+        }
+
+        ////////////////////////////////////// Metodos auxiliares ////////////////////////////////////////
+        
     }
 }

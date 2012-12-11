@@ -300,6 +300,7 @@
             this.bAceptar.Text = "Aceptar";
             this.bAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.bAceptar.UseVisualStyleBackColor = true;
+            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
             // rtbReglamento
             // 
@@ -321,6 +322,7 @@
             this.linkLugares.TabIndex = 3;
             this.linkLugares.TabStop = true;
             this.linkLugares.Text = "Cargar lugares de realización";
+            this.linkLugares.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLugares_LinkClicked);
             // 
             // comboBox3
             // 
