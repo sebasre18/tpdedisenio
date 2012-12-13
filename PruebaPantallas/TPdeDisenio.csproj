@@ -79,18 +79,13 @@
     <Compile Include="Clases de entidad\LugarDeRealizacion.cs" />
     <Compile Include="Clases de entidad\Provincia.cs" />
     <Compile Include="Clases de entidad\Usuario.cs" />
-    <Compile Include="DataClasses1.cs">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    <Compile Include="DataClasses.cs">
+      <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
-    <Compile Include="DataClasses1.designer.cs">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    <Compile Include="DataClasses.designer.cs">
+      <DependentUpon>DataClasses.dbml</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="DataClasses2.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataClasses2.dbml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\13-listarLugares.cs">
       <SubType>Form</SubType>
@@ -289,16 +284,13 @@
     <None Include="app.config" />
     <None Include="bin\Debug\TPdeDiseño.vshost.exe.config" />
     <None Include="bin\Debug\TPdeDiseño.vshost.exe.manifest" />
-    <None Include="DataClasses1.dbml">
+    <None Include="DataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataClasses2.dbml.layout">
-      <DependentUpon>DataClasses2.dbml</DependentUpon>
-    </None>
-    <None Include="DataClasses1.dbml.layout">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    <None Include="DataClasses.dbml.layout">
+      <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
     <EmbeddedResource Include="Interfaces\13-listarLugares.resx">
       <DependentUpon>13-listarLugares.cs</DependentUpon>
@@ -435,11 +427,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="DataClasses2.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses2.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\x86\Debug\GenerateResource.read.1.tlog" />
@@ -469,6 +456,7 @@
     <Content Include="obj\x86\Debug\TempPE\DataClasses2.designer.cs.dll" />
     <Content Include="obj\x86\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <Content Include="obj\x86\Debug\TPdeDisenio.csproj.FileListAbsolute.txt" />
+    <Content Include="CONSIDERACIONES.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
