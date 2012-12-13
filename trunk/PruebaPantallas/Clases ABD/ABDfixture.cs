@@ -64,6 +64,9 @@ namespace TPdeDiseño.Clases_ABD
                     db.SubmitChanges();   
                 }
             }
+
+            //Se setea la competencia como PLANIFICADA en la BD
+            ABDcompetencia.setEstado(unaCompetencia._id_competencia, unaCompetencia._estado);
         }
         
         //Setea resultado para FormaPuntuacion por puntos

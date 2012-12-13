@@ -8,8 +8,7 @@ namespace TPdeDiseño.Clases_de_entidad
     public class renglonTabla
     {
         //Atributos
-        private int id_renglonTabla;
-        private int id_tablaPos;
+        private short id_renglonTabla;
         private int pts;
         private int pGanado;
         private int pEmpatado;
@@ -17,11 +16,11 @@ namespace TPdeDiseño.Clases_de_entidad
         private int golesFavor;
         private int golesContra;
         private int diferencia;
-        private int id_participante;
+        private short id_participante;
         private string nombreParticipante;
 
         //Propiedades
-        public int _id_renglonTabla
+        public short _id_renglonTabla
         {
             get
             {
@@ -30,17 +29,6 @@ namespace TPdeDiseño.Clases_de_entidad
             set
             {
                 id_renglonTabla = value;
-            }
-        }
-        public int _id_tablaPos
-        {
-            get
-            {
-                return id_tablaPos;
-            }
-            set
-            {
-                id_tablaPos = value;
             }
         }
         public int _pts
@@ -120,7 +108,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 diferencia = value;
             }
         }
-        public int _id_participante
+        public short _id_participante
         {
             get
             {
@@ -144,10 +132,9 @@ namespace TPdeDiseño.Clases_de_entidad
         }
 
         //Constructor
-        public renglonTabla(int unId_renglonTabla, int unId_tablaPos, int unPts, int unPGanado, int unPEmpatado, int unPPerdido, int unGolesFavor, int unGolesContra, int unaDiferencia, int unId_participante, string unNombreParticipante)
+        public renglonTabla(short unId_renglonTabla, int unPts, int unPGanado, int unPEmpatado, int unPPerdido, int unGolesFavor, int unGolesContra, int unaDiferencia, short unId_participante, string unNombreParticipante)
         {
             this._id_renglonTabla = unId_renglonTabla;
-            this._id_tablaPos = unId_tablaPos;
             this._pts = unPts;
             this._pGanado = unPGanado;
             this._pEmpatado = unPEmpatado;

@@ -1,0 +1,4 @@
+﻿Modificar la etapa 1 lo de la interfaz "mostrar fixture"
+
+Actualizado el estado de la competencia en la BD si es el ultimo resultado ingresado o el primero
+Pregunta: se cambiara solo el estado de la competencia en "Ver Competencia"?

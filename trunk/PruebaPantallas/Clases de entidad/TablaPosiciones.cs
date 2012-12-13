@@ -48,6 +48,8 @@ namespace TPdeDiseño.Clases_de_entidad
         }
         
         //Constructor
+        public TablaPosiciones() { }
+
         public TablaPosiciones(int unId_tablaPos, List<renglonTabla> unosRenglones, int unId_competencia)
         {
             this._id_tablaPos = unId_tablaPos;
