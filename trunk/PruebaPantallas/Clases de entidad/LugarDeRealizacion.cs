@@ -73,7 +73,7 @@ namespace TPdeDiseño.Clases_de_entidad
             this._codigo = unCodigo;
             this._nombre = unNombre;
             this._descripcion = unaDescripcion;
-            this._disponibilidad = unaDisponibilidad;
+            //this._disponibilidad = unaDisponibilidad;
         }
 
     }

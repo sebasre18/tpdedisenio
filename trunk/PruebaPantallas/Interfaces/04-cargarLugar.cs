@@ -50,7 +50,7 @@ namespace TPdeDiseño
             {
                 if (unLugar._nombre == Convert.ToString(dgvLugares[0, fila].Value))
                 {
-                    unLugar._disponibilidad = Convert.ToInt32(dgvLugares[1, fila].Value);
+                    //unLugar._disponibilidad = Convert.ToInt32(dgvLugares[1, fila].Value);
                     auxLugares.Add(unLugar);
                 }
                 fila++;
