@@ -20,25 +20,25 @@ namespace TPdeDiseño
 
         private void generarFixture_Load(object sender, EventArgs e)
         {
-            /*competenciaGenFix._id_competencia = 3;
+            competenciaGenFix._id_competencia = 3;
             competenciaGenFix._nombre = "COMPETENCIA DE PRUEBA";
             competenciaGenFix._estado = "CREADA";
             Clases_de_entidad.Modalidad mod = new Clases_de_entidad.Modalidad();
             mod._nombreMod = "LIGA";
-            competenciaGenFix._modalidad = mod;*/
+            competenciaGenFix._modalidad = mod;
 
             //se completa la interfaz con el nombre y estado de la competencia
             labelNombreComp.Text = competenciaGenFix._nombre;
             labelEstadoComp.Text = competenciaGenFix._estado;
             
-            /*competenciaGenFix._participantes = new List<Clases_de_entidad.Participante>();
+            competenciaGenFix._participantes = new List<Clases_de_entidad.Participante>();
             for (short i = 1; i <=5; i++)
             {
                 Clases_de_entidad.Participante participante = new Clases_de_entidad.Participante();
                 participante._nombre = "PARTICIPANTE" + i;
                 participante._id_participante = i;
                 competenciaGenFix._participantes.Add(participante);
-            }*/
+            }
         }
 
         private void buttonAceptar_Click(object sender, EventArgs e)

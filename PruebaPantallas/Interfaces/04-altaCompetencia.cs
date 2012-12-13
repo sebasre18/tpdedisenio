@@ -261,6 +261,11 @@ namespace TPdeDiseño
             // FALTA HABILITAR OPCIONES CUANDO SE TILDA "PERMITIR EMPATE"
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         
 
     }
