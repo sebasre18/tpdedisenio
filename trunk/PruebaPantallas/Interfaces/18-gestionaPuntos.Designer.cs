@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gestionaPuntos));
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.textBoxP2 = new System.Windows.Forms.TextBox();
             this.checkBoxP2 = new System.Windows.Forms.CheckBox();
@@ -156,7 +157,11 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.groupBox7);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "gestionaPuntos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar resultado por puntos";
             this.Load += new System.EventHandler(this.gestionaPuntos_Load);
             this.groupBox7.ResumeLayout(false);

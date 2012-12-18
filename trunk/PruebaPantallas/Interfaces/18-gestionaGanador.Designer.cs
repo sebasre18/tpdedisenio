@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gestionaGanador));
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.radioButtonEmpate = new System.Windows.Forms.RadioButton();
             this.radioButtonP2 = new System.Windows.Forms.RadioButton();
@@ -59,6 +60,7 @@
             this.radioButtonEmpate.TabStop = true;
             this.radioButtonEmpate.Text = "Empate";
             this.radioButtonEmpate.UseVisualStyleBackColor = true;
+            this.radioButtonEmpate.CheckedChanged += new System.EventHandler(this.radioButtonEmpate_CheckedChanged);
             // 
             // radioButtonP2
             // 
@@ -121,7 +123,11 @@
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.groupBox7);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "gestionaGanador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar resultado por ganador";
             this.Load += new System.EventHandler(this.gestionaGanador_Load);
             this.groupBox7.ResumeLayout(false);

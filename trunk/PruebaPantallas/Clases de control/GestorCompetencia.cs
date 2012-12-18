@@ -39,10 +39,18 @@ namespace TPdeDiseño.Clases_de_control
             return tablaPos;
         }
 
-        public Boolean compararNombre(string nombre)
+        public short compararNombre(string nombre)
         {
             //comparar nombre con la BD para ver si existe. Retorna 1 o 0.
-            return false;
+            short existe = 0; // retornar short porque con boolean no andan las comparaciones!
+            return existe;
+        }
+
+        public Clases_de_entidad.CompetenciaDeportiva crearCompetencia(string unEstado, string unNombre, string unReglamento, Deporte unDeporte, List<Clases_de_entidad.LugarDeRealizacion> listaLugares, Modalidad unaModalidad, Usuario unUsuario)
+        {
+            Clases_de_entidad.CompetenciaDeportiva comp = new CompetenciaDeportiva(unEstado, unNombre, unReglamento, unDeporte, listaLugares, unaModalidad, unUsuario);
+
+            return comp;
         }
     }
 }

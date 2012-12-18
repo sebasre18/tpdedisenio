@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cargarLugar));
             this.dgvLugares = new System.Windows.Forms.DataGridView();
             this.lugarRealizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.turnosFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +50,8 @@
             this.dgvLugares.Name = "dgvLugares";
             this.dgvLugares.Size = new System.Drawing.Size(495, 86);
             this.dgvLugares.TabIndex = 30;
+            this.dgvLugares.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvLugares_EditingControlShowing);
+            this.dgvLugares.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvLugares_KeyPress);
             // 
             // lugarRealizacion
             // 
@@ -101,7 +104,11 @@
             this.Controls.Add(this.bCancelar);
             this.Controls.Add(this.bAceptar);
             this.Controls.Add(this.dgvLugares);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "cargarLugar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cargar lugares de realización";
             this.Load += new System.EventHandler(this.cargarLugar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLugares)).EndInit();

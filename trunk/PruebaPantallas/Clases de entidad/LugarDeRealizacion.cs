@@ -11,9 +11,20 @@ namespace TPdeDiseño.Clases_de_entidad
         private short codigo;
         private string nombre;
         private string descripcion;
-        private short disponibilidad;
-       
-       //Propiedades
+        private Disponibilidad disponibilidad;
+        
+        //Propiedades
+        public Disponibilidad _disponibilidad
+        {
+            get
+            {
+                return disponibilidad;
+            }
+            set
+            {
+                disponibilidad = value;
+            }
+        }
         public short _codigo
         {
             get
@@ -47,17 +58,6 @@ namespace TPdeDiseño.Clases_de_entidad
                 descripcion = value;
             }
         }
-        public short _disponibilidad
-        {
-            get
-            {
-                return disponibilidad;
-            }
-            set
-            {
-                disponibilidad = value;
-            }
-        }
         
         //Constructor
 
@@ -68,12 +68,13 @@ namespace TPdeDiseño.Clases_de_entidad
             this._nombre = unNombre;
         }
 
-        public LugarDeRealizacion(short unCodigo, string unNombre, string unaDescripcion, int unaDisponibilidad, List<LugarDeRealizacion> unaListaDeLugaresDeRealizacion)
+        public LugarDeRealizacion(short unCodigo, string unNombre, string unaDescripcion, Disponibilidad unaDisponibilidad, List<LugarDeRealizacion> unaListaDeLugaresDeRealizacion)
         {
             this._codigo = unCodigo;
             this._nombre = unNombre;
             this._descripcion = unaDescripcion;
-            //this._disponibilidad = unaDisponibilidad;
+            this._disponibilidad = unaDisponibilidad;
+            
         }
 
     }

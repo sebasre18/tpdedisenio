@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(altaCompetencia));
             this.labelNombre = new System.Windows.Forms.Label();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -76,6 +77,7 @@
             // 
             // tbNombre
             // 
+            this.tbNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbNombre.Location = new System.Drawing.Point(187, 22);
             this.tbNombre.MaxLength = 50;
             this.tbNombre.Name = "tbNombre";
@@ -126,6 +128,7 @@
             this.cbModalidad.Name = "cbModalidad";
             this.cbModalidad.Size = new System.Drawing.Size(107, 21);
             this.cbModalidad.TabIndex = 4;
+            this.cbModalidad.SelectionChangeCommitted += new System.EventHandler(this.cbModalidad_SelectionChangeCommitted);
             this.cbModalidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbModalidad_KeyDown);
             // 
             // label5
@@ -159,7 +162,6 @@
             this.cbEmpate.Text = "Permitir empate";
             this.cbEmpate.UseVisualStyleBackColor = true;
             this.cbEmpate.CheckedChanged += new System.EventHandler(this.cbEmpate_CheckedChanged);
-            this.cbEmpate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbEmpate_KeyDown);
             // 
             // label6
             // 
@@ -234,6 +236,7 @@
             this.cbFormaPuntuacion.Name = "cbFormaPuntuacion";
             this.cbFormaPuntuacion.Size = new System.Drawing.Size(100, 21);
             this.cbFormaPuntuacion.TabIndex = 9;
+            this.cbFormaPuntuacion.SelectionChangeCommitted += new System.EventHandler(this.cbFormaPuntuacion_SelectionChangeCommitted);
             this.cbFormaPuntuacion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbFormaPuntuacion_KeyDown);
             // 
             // label9
@@ -283,6 +286,7 @@
             this.bLimpiar.TabIndex = 19;
             this.bLimpiar.Text = "Limpiar";
             this.bLimpiar.UseVisualStyleBackColor = true;
+            this.bLimpiar.Click += new System.EventHandler(this.bLimpiar_Click);
             // 
             // bCancelar
             // 
@@ -408,6 +412,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(598, 639);
             this.Controls.Add(this.cbMaxSet);
             this.Controls.Add(this.comboBox6);
@@ -433,7 +438,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.labelNombre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "altaCompetencia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dar de alta competencia deportiva";
             this.Load += new System.EventHandler(this.altaCompetencia_Load);
             this.groupBox1.ResumeLayout(false);

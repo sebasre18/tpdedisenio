@@ -11,13 +11,12 @@ namespace TPdeDiseño
 {
     public partial class altaCompetencia : Form
     {
-        Clases_de_control.GestorUsuario gestorU = new Clases_de_control.GestorUsuario();
-        Clases_de_entidad.Usuario unUsuario;
+        public List<Clases_de_entidad.LugarDeRealizacion> lugaresAC = new List<Clases_de_entidad.LugarDeRealizacion>();
+        public Clases_de_entidad.Usuario usuarioLogueadoAC = new Clases_de_entidad.Usuario();
+        
         Clases_de_control.GestorCompetencia gestorC = new Clases_de_control.GestorCompetencia();
-        List<Clases_de_entidad.Deporte> deportes;
-        List<Clases_de_entidad.Modalidad> modalidades;
         Clases_de_control.GestorLugarRealizacion gestorL = new Clases_de_control.GestorLugarRealizacion();
-               
+        
         public altaCompetencia()
         {
             InitializeComponent();
@@ -25,17 +24,10 @@ namespace TPdeDiseño
 
         private void altaCompetencia_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
-            CargarPantalla();
+           
         }
 
-        private void CargarPantalla()
-        {
-            
-            //Seguir con el diagrama de secuencia.
-        }
-
-        private void tbNombre_KeyDown(object sender, KeyEventArgs e)
+         private void tbNombre_KeyDown(object sender, KeyEventArgs e)
         {
             simulaTab(e);
         }
@@ -174,34 +166,59 @@ namespace TPdeDiseño
         private void bAceptar_Click(object sender, EventArgs e)
         {
             int error = 0;
+            List<Clases_de_entidad.Deporte> deportes = gestorC.buscarDeportes();
             error = validarCamposNulos();
+            Clases_de_entidad.Deporte dep = deporteSeleccionado(cbDeporte.Text, deportes);
 
             if (error == 1)
             {
                 MessageBox.Show("Asegurese que ningun campo sea nulo");
                 tbNombre.Focus();
             }
-            //else 
-                // Comparar nombre en BD, etc.
+            else
+            {
+                short existe = gestorC.compararNombre(tbNombre.Text);
+                if (existe == 1)
+                {
+                    MessageBox.Show("El nombre ya existe.");
+                    tbNombre.Focus();
+                }
+                else
+                {
+                    Clases_de_entidad.FormaPuntuacion formaDePuntuacion = new Clases_de_entidad.FormaPuntuacion(cbFormaPuntuacion.Text, Convert.ToInt16(cbMaxSet.Text), Convert.ToInt16(tbNoPresentarse.Text));
+                    Clases_de_entidad.Modalidad modalidad = new Clases_de_entidad.Modalidad(cbModalidad.Text, Convert.ToInt16(tbPtosGanado.Text), cbEmpate.Checked, Convert.ToInt16(tbPtosEmpatado.Text), Convert.ToInt16(tbPtosPresentarse.Text), formaDePuntuacion);
+                    Clases_de_entidad.CompetenciaDeportiva nuevaCompetencia = gestorC.crearCompetencia("Creada", tbNombre.Text, rtbReglamento.Text, dep, lugaresAC, modalidad, usuarioLogueadoAC);
+                    // TERMINAR DE MANDAR PARAMETROS.
+                    MessageBox.Show("La competencia se creo satisfactoriamente.");
+                    // GUARDAR COMPETENCIA EN BD.
+                    // Abre la interfaz listar participantes de la competencia.
+                    listarParticipantes listarP = new listarParticipantes();
+                    listarP.MdiParent = principal.ActiveForm;
+                    listarP.competenciaActual = nuevaCompetencia;
+                    listarP.Show();
+                    this.Close();
+                }
+                
+            }
 
         }
 
         private void linkLugares_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            deportes = gestorC.buscarDeportes();
-            modalidades = gestorC.buscarModalidades();
-            unUsuario = gestorU.crearUsuario();
+            List<Clases_de_entidad.Deporte> deportes = gestorC.buscarDeportes();
+            List<Clases_de_entidad.Modalidad> modalidades = gestorC.buscarModalidades();
             Clases_de_entidad.Deporte dep = deporteSeleccionado(cbDeporte.Text, deportes);
-            List<Clases_de_entidad.LugarDeRealizacion> coleccionLugares = gestorL.buscarLugares(dep, unUsuario._email);
+            List<Clases_de_entidad.LugarDeRealizacion> coleccionLugares = gestorL.buscarLugares(dep, usuarioLogueadoAC._email);
             
             //Abre la interfaz para cargar la disponibilidad de los lugares, pasandole como parametro una lista con los lugares de realizacion.
             cargarLugar cl = new cargarLugar();
             cl.MdiParent = principal.ActiveForm;
             cl.WindowState = FormWindowState.Maximized;
-            cl.lugares = coleccionLugares;
+            cl.lugaresCL = coleccionLugares;
             cl.Show();
-
-
+            this.lugaresAC = cl.lugaresAux;
+            //PROBAR SI LUGARES ES LA LISTA MODIFICADA.
+            
         }
 
         ////////////////////////////////Metodos auxiliares////////////////////////////////////
@@ -244,7 +261,7 @@ namespace TPdeDiseño
 
         private Clases_de_entidad.Deporte deporteSeleccionado(string textoDeporte, List<Clases_de_entidad.Deporte> coleccionDeportes)
         {
-            /*Recibe el texto que indica que deporte se selecciono en el ComboBox Deporte y la coleccione de deportes traida de la Base de Datos,
+            /*Recibe el texto que indica que deporte se selecciono en el ComboBox Deporte y la coleccion de deportes traida de la Base de Datos,
             y devuelve el objeto deporte con el nombre seleccionado.*/
             foreach (Clases_de_entidad.Deporte unDeporte in coleccionDeportes)
             {
@@ -258,12 +275,54 @@ namespace TPdeDiseño
 
         private void cbEmpate_CheckedChanged(object sender, EventArgs e)
         {
-            // FALTA HABILITAR OPCIONES CUANDO SE TILDA "PERMITIR EMPATE"
+            if(cbEmpate.Checked)
+            {
+                tbPtosEmpatado.Enabled = true;
+            }
+            else
+            {
+                tbPtosEmpatado.Enabled = false;
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbModalidad_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbModalidad.Text == "SISTEMA DE LIGA")
+            {
+                tbPtosGanado.Enabled = true;
+                cbEmpate.Enabled = true;
+                tbPtosPresentarse.Enabled = true;
+            }
+        }
+
+        private void cbFormaPuntuacion_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbFormaPuntuacion.Text == "SET")
+                cbMaxSet.Enabled = true;
+            if (cbFormaPuntuacion.Text == "PUNTUACION")
+                tbNoPresentarse.Enabled = true;
+        }
+
+        private void bLimpiar_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in this.Controls)
+            {
+
+                if (c is TextBox)
+                {
+
+                    c.Text = "";
+
+                    //Enfoco en el primer TextBox
+
+                    this.tbNombre.Focus();
+                }
+            }
         }
 
         

@@ -98,6 +98,5 @@ namespace TPdeDiseño
             this.Close();
         }
 
-
-    }
+     }
 }

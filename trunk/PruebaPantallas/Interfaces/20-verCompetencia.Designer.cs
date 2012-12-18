@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(verCompetencia));
             this.label1 = new System.Windows.Forms.Label();
             this.labelNombreComp = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,13 +41,13 @@
             this.listBoxParticipantes = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.listBoxProxEncuentros = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonModificar = new System.Windows.Forms.Button();
+            this.buttonBaja = new System.Windows.Forms.Button();
             this.buttonVerFixture = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.buttonTabla = new System.Windows.Forms.Button();
+            this.buttonGenerarF = new System.Windows.Forms.Button();
+            this.buttonParticipantes = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -57,7 +58,6 @@
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelNombreComp
             // 
@@ -76,7 +76,6 @@
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Modalidad:";
-            this.label3.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelModComp
             // 
@@ -95,7 +94,6 @@
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Deporte:";
-            this.label5.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelDeporteComp
             // 
@@ -114,7 +112,6 @@
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 0;
             this.label7.Text = "Estado:";
-            this.label7.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelEstadoComp
             // 
@@ -133,7 +130,6 @@
             this.label9.Size = new System.Drawing.Size(71, 13);
             this.label9.TabIndex = 0;
             this.label9.Text = "Participantes:";
-            this.label9.Click += new System.EventHandler(this.label1_Click);
             // 
             // listBoxParticipantes
             // 
@@ -142,7 +138,6 @@
             this.listBoxParticipantes.Name = "listBoxParticipantes";
             this.listBoxParticipantes.Size = new System.Drawing.Size(332, 147);
             this.listBoxParticipantes.TabIndex = 2;
-            this.listBoxParticipantes.SelectedIndexChanged += new System.EventHandler(this.listBoxParticipantes_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -152,7 +147,6 @@
             this.label10.Size = new System.Drawing.Size(108, 13);
             this.label10.TabIndex = 0;
             this.label10.Text = "Próximos encuentros:";
-            this.label10.Click += new System.EventHandler(this.label1_Click);
             // 
             // listBoxProxEncuentros
             // 
@@ -162,25 +156,26 @@
             this.listBoxProxEncuentros.ScrollAlwaysVisible = true;
             this.listBoxProxEncuentros.Size = new System.Drawing.Size(332, 147);
             this.listBoxProxEncuentros.TabIndex = 2;
-            this.listBoxProxEncuentros.SelectedIndexChanged += new System.EventHandler(this.listBoxProxEncuentros_SelectedIndexChanged);
             // 
-            // button1
+            // buttonModificar
             // 
-            this.button1.Location = new System.Drawing.Point(124, 516);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonModificar.Location = new System.Drawing.Point(124, 516);
+            this.buttonModificar.Name = "buttonModificar";
+            this.buttonModificar.Size = new System.Drawing.Size(75, 23);
+            this.buttonModificar.TabIndex = 3;
+            this.buttonModificar.Text = "Modificar";
+            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
-            // button2
+            // buttonBaja
             // 
-            this.button2.Location = new System.Drawing.Point(205, 516);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Dar de baja";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonBaja.Location = new System.Drawing.Point(205, 516);
+            this.buttonBaja.Name = "buttonBaja";
+            this.buttonBaja.Size = new System.Drawing.Size(75, 23);
+            this.buttonBaja.TabIndex = 3;
+            this.buttonBaja.Text = "Dar de baja";
+            this.buttonBaja.UseVisualStyleBackColor = true;
+            this.buttonBaja.Click += new System.EventHandler(this.buttonBaja_Click);
             // 
             // buttonVerFixture
             // 
@@ -192,55 +187,58 @@
             this.buttonVerFixture.UseVisualStyleBackColor = true;
             this.buttonVerFixture.Click += new System.EventHandler(this.buttonVerFixture_Click_1);
             // 
-            // button4
+            // buttonTabla
             // 
-            this.button4.Location = new System.Drawing.Point(75, 487);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(124, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Tabla de posiciones";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonTabla.Location = new System.Drawing.Point(75, 487);
+            this.buttonTabla.Name = "buttonTabla";
+            this.buttonTabla.Size = new System.Drawing.Size(124, 23);
+            this.buttonTabla.TabIndex = 3;
+            this.buttonTabla.Text = "Tabla de posiciones";
+            this.buttonTabla.UseVisualStyleBackColor = true;
+            this.buttonTabla.Click += new System.EventHandler(this.buttonTabla_Click);
             // 
-            // button5
+            // buttonGenerarF
             // 
-            this.button5.Location = new System.Drawing.Point(286, 487);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(103, 23);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Generar fixture";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.buttonGenerarF.Location = new System.Drawing.Point(286, 487);
+            this.buttonGenerarF.Name = "buttonGenerarF";
+            this.buttonGenerarF.Size = new System.Drawing.Size(103, 23);
+            this.buttonGenerarF.TabIndex = 3;
+            this.buttonGenerarF.Text = "Generar fixture";
+            this.buttonGenerarF.UseVisualStyleBackColor = true;
+            this.buttonGenerarF.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // buttonParticipantes
             // 
-            this.button6.Location = new System.Drawing.Point(286, 516);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(103, 23);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Datos participante";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonParticipantes.Location = new System.Drawing.Point(286, 516);
+            this.buttonParticipantes.Name = "buttonParticipantes";
+            this.buttonParticipantes.Size = new System.Drawing.Size(103, 23);
+            this.buttonParticipantes.TabIndex = 3;
+            this.buttonParticipantes.Text = "Datos participante";
+            this.buttonParticipantes.UseVisualStyleBackColor = true;
+            this.buttonParticipantes.Click += new System.EventHandler(this.buttonParticipantes_Click);
             // 
-            // button7
+            // buttonCancelar
             // 
-            this.button7.Location = new System.Drawing.Point(309, 565);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(80, 23);
-            this.button7.TabIndex = 3;
-            this.button7.Text = "Cancelar";
-            this.button7.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Location = new System.Drawing.Point(309, 565);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(80, 23);
+            this.buttonCancelar.TabIndex = 3;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // verCompetencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(443, 609);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonParticipantes);
+            this.Controls.Add(this.buttonGenerarF);
+            this.Controls.Add(this.buttonTabla);
             this.Controls.Add(this.buttonVerFixture);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonBaja);
+            this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.listBoxProxEncuentros);
             this.Controls.Add(this.listBoxParticipantes);
             this.Controls.Add(this.labelEstadoComp);
@@ -253,7 +251,11 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "verCompetencia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ver competencia";
             this.Load += new System.EventHandler(this.verCompetencia_Load);
             this.ResumeLayout(false);
@@ -275,12 +277,12 @@
         private System.Windows.Forms.ListBox listBoxParticipantes;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox listBoxProxEncuentros;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonModificar;
+        private System.Windows.Forms.Button buttonBaja;
         private System.Windows.Forms.Button buttonVerFixture;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button buttonTabla;
+        private System.Windows.Forms.Button buttonGenerarF;
+        private System.Windows.Forms.Button buttonParticipantes;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }
