@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mostrarTablaSG));
             this.dataGridViewTablaSG = new System.Windows.Forms.DataGridView();
             this.equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pts = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -145,7 +146,11 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridViewTablaSG);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "mostrarTablaSG";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tabla de posiciones sin goles";
             this.Load += new System.EventHandler(this.mostrarTablaSG_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTablaSG)).EndInit();

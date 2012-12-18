@@ -24,11 +24,6 @@ namespace TPdeDiseño
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void verCompetencia_Load(object sender, EventArgs e)
         {
             /*
@@ -123,16 +118,31 @@ namespace TPdeDiseño
             }
         }
 
-        private void listBoxProxEncuentros_SelectedIndexChanged(object sender, EventArgs e)
+        private void buttonCancelar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
-        private void listBoxParticipantes_SelectedIndexChanged(object sender, EventArgs e)
+        private void buttonParticipantes_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Esta funcionalidad no está desarrollada aún.");
         }
 
-    }
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Esta funcionalidad no está desarrollada aún.");
+        }
+
+        private void buttonBaja_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Esta funcionalidad no está desarrollada aún.");
+        }
+
+        private void buttonTabla_Click(object sender, EventArgs e)
+        {
+            // Abrir interfaz para ver tabla de posiciones. (No se cual abrir.)
+        }
+
+     }
         
 }

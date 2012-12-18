@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gestionaSet));
             this.labelP1S1 = new System.Windows.Forms.Label();
             this.groupBoxS1 = new System.Windows.Forms.GroupBox();
             this.textBoxP2S1 = new System.Windows.Forms.TextBox();
@@ -582,7 +583,11 @@
             this.Controls.Add(this.buttonLimpiar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "gestionaSet";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar resultado por sets";
             this.Load += new System.EventHandler(this.gestionaSet_Load);
             this.groupBoxS1.ResumeLayout(false);

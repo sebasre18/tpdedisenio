@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(listarCompetencias));
+            this.bCancelar = new System.Windows.Forms.Button();
+            this.bVer = new System.Windows.Forms.Button();
+            this.bLimpiar = new System.Windows.Forms.Button();
+            this.bBuscar = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,55 +40,60 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCompetencia = new System.Windows.Forms.DataGridView();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button6 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.bNuevo = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompetencia)).BeginInit();
             this.SuspendLayout();
             // 
-            // button4
+            // bCancelar
             // 
-            this.button4.Location = new System.Drawing.Point(508, 306);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "Cancelar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.bCancelar.Location = new System.Drawing.Point(508, 401);
+            this.bCancelar.Name = "bCancelar";
+            this.bCancelar.Size = new System.Drawing.Size(75, 23);
+            this.bCancelar.TabIndex = 22;
+            this.bCancelar.Text = "Cancelar";
+            this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
-            // button3
+            // bVer
             // 
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(417, 306);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Ver";
-            this.button3.UseVisualStyleBackColor = true;
+            this.bVer.Enabled = false;
+            this.bVer.Location = new System.Drawing.Point(417, 401);
+            this.bVer.Name = "bVer";
+            this.bVer.Size = new System.Drawing.Size(75, 23);
+            this.bVer.TabIndex = 21;
+            this.bVer.Text = "Ver";
+            this.bVer.UseVisualStyleBackColor = true;
+            this.bVer.Click += new System.EventHandler(this.bVer_Click);
             // 
-            // button2
+            // bLimpiar
             // 
-            this.button2.Location = new System.Drawing.Point(508, 167);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bLimpiar.Enabled = false;
+            this.bLimpiar.Location = new System.Drawing.Point(508, 167);
+            this.bLimpiar.Name = "bLimpiar";
+            this.bLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.bLimpiar.TabIndex = 19;
+            this.bLimpiar.Text = "Limpiar";
+            this.bLimpiar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // bBuscar
             // 
-            this.button1.Location = new System.Drawing.Point(417, 167);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bBuscar.Enabled = false;
+            this.bBuscar.Location = new System.Drawing.Point(417, 167);
+            this.bBuscar.Name = "bBuscar";
+            this.bBuscar.Size = new System.Drawing.Size(75, 23);
+            this.bBuscar.TabIndex = 18;
+            this.bBuscar.Text = "Buscar";
+            this.bBuscar.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
+            this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Fútbol",
@@ -100,6 +106,8 @@
             // 
             // textBox2
             // 
+            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(179, 27);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(404, 20);
@@ -125,6 +133,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Enabled = false;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "Sistema de Liga",
@@ -153,42 +162,51 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Estado:";
             // 
-            // dataGridView1
+            // dgvCompetencia
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCompetencia.AllowUserToAddRows = false;
+            this.dgvCompetencia.AllowUserToDeleteRows = false;
+            this.dgvCompetencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompetencia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre,
             this.deporte,
             this.modalidad,
             this.estado});
-            this.dataGridView1.Location = new System.Drawing.Point(39, 222);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(544, 45);
-            this.dataGridView1.TabIndex = 28;
+            this.dgvCompetencia.Location = new System.Drawing.Point(39, 222);
+            this.dgvCompetencia.MultiSelect = false;
+            this.dgvCompetencia.Name = "dgvCompetencia";
+            this.dgvCompetencia.ReadOnly = true;
+            this.dgvCompetencia.Size = new System.Drawing.Size(544, 145);
+            this.dgvCompetencia.TabIndex = 28;
             // 
             // nombre
             // 
             this.nombre.HeaderText = "Nombre";
             this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
             this.nombre.Width = 200;
             // 
             // deporte
             // 
             this.deporte.HeaderText = "Deporte";
             this.deporte.Name = "deporte";
+            this.deporte.ReadOnly = true;
             // 
             // modalidad
             // 
             this.modalidad.HeaderText = "Modalidad";
             this.modalidad.Name = "modalidad";
+            this.modalidad.ReadOnly = true;
             // 
             // estado
             // 
             this.estado.HeaderText = "Estado";
             this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
             // 
             // comboBox3
             // 
+            this.comboBox3.Enabled = false;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
             "Creada",
@@ -200,38 +218,42 @@
             this.comboBox3.Size = new System.Drawing.Size(107, 21);
             this.comboBox3.TabIndex = 30;
             // 
-            // button6
+            // bNuevo
             // 
-            this.button6.Location = new System.Drawing.Point(325, 306);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 29;
-            this.button6.Text = "Nuevo";
-            this.button6.UseVisualStyleBackColor = true;
+            this.bNuevo.Location = new System.Drawing.Point(325, 401);
+            this.bNuevo.Name = "bNuevo";
+            this.bNuevo.Size = new System.Drawing.Size(75, 23);
+            this.bNuevo.TabIndex = 29;
+            this.bNuevo.Text = "Nuevo";
+            this.bNuevo.UseVisualStyleBackColor = true;
+            this.bNuevo.Click += new System.EventHandler(this.bNuevo_Click);
             // 
             // listarCompetencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 350);
+            this.ClientSize = new System.Drawing.Size(621, 448);
             this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.bNuevo);
+            this.Controls.Add(this.dgvCompetencia);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bCancelar);
+            this.Controls.Add(this.bVer);
+            this.Controls.Add(this.bLimpiar);
+            this.Controls.Add(this.bBuscar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nombreLugar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "listarCompetencias";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar competencias deportivas";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompetencia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,10 +261,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bCancelar;
+        private System.Windows.Forms.Button bVer;
+        private System.Windows.Forms.Button bLimpiar;
+        private System.Windows.Forms.Button bBuscar;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
@@ -250,12 +272,12 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCompetencia;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn deporte;
         private System.Windows.Forms.DataGridViewTextBoxColumn modalidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button bNuevo;
     }
 }

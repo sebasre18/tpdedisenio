@@ -146,15 +146,15 @@ namespace TPdeDiseño.Clases_de_entidad
         //Constructor
         public CompetenciaDeportiva() { }
 
-        public CompetenciaDeportiva(short unId_competencia, string unEstado, string unNombre, string unReglamento, Deporte unDeporte, List<LugarDeRealizacion> listaLugaresDeRealizacion, Modalidad unaModalidad)
+        public CompetenciaDeportiva(string unEstado, string unNombre, string unReglamento, Deporte unDeporte, List<LugarDeRealizacion> listaLugares, Modalidad unaModalidad, Usuario unUsuario)
         {
-            this._id_competencia = unId_competencia;
             this._nombre = unNombre;
             this._estado = unEstado;
             this._reglamento = unReglamento;
             this._deporte = unDeporte;
-            this._lugaresDeRealizacion = listaLugaresDeRealizacion;
+            this._lugaresDeRealizacion = listaLugares;
             this._modalidad = unaModalidad;
+            this._usuario = unUsuario;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mostrarFixtureSRG));
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonModRdo = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -206,7 +207,11 @@
             this.Controls.Add(this.buttonModRdo);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.groupBox3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "mostrarFixtureSRG";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mostrar fixture ";
             this.Load += new System.EventHandler(this.mostrarFixtureSRG_Load);
             this.groupBox2.ResumeLayout(false);

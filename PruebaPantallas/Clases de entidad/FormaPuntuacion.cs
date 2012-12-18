@@ -8,13 +8,13 @@ namespace TPdeDiseño.Clases_de_entidad
     public class FormaPuntuacion
     {
         //Atributos
-        private int id_forma;
+        private short id_forma;
         private string nombreForma;
-        private int cantidadSet;
-        private int tantosAusencia;
+        private short cantidadSet;
+        private short tantosAusencia;
 
         //Propiedades
-        public int _id_forma
+        public short _id_forma
         {
             get
             {
@@ -36,7 +36,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 nombreForma = value;
             }
         }
-        public int _cantidadSet
+        public short _cantidadSet
         {
             get
             {
@@ -47,7 +47,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 cantidadSet = value;
             }
         }
-        public int _tantosAusencia
+        public short _tantosAusencia
         {
             get
             {
@@ -62,9 +62,9 @@ namespace TPdeDiseño.Clases_de_entidad
         //Constructor
         public FormaPuntuacion() { }
 
-        public FormaPuntuacion(int unId_forma, int cantSet, int tantosAus)
+        public FormaPuntuacion(string nombreForma, short cantSet, short tantosAus)
         {
-            this._id_forma = unId_forma;
+            this._nombreForma = unNombreForma;
             this._cantidadSet = cantSet;
             this._tantosAusencia = tantosAus;
         }
