@@ -92,35 +92,38 @@ namespace TPdeDiseño.Clases_de_control
         //
 
         //Llama al ABDfixture para una competencia con forma de puntuacion por PUNTOS
-        public void guardarResultadoPuntos(Clases_de_entidad.Partido unPartido, int ptosP1, int ptosP2)
+        public void guardarResultadoPuntos(Clases_de_entidad.Partido unPartido, int ptosP1, int ptosP2, Clases_de_entidad.CompetenciaDeportiva comp)
         {
             //Llamada a la BD para setear el resultado
             Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
-            ABDfix.setResultadoPtos(unPartido, ptosP1, ptosP2);
+            ABDfix.setResultadoPtos(unPartido, ptosP1, ptosP2, comp);
         }
 
         //Llama al ABDfixture para una competencia con forma de puntuacion por RDO FINAL o por ausencias
-        public void guardarResultadoGanador(Clases_de_entidad.Partido unPartido, Clases_de_entidad.Participante ganador)
+        public void guardarResultadoGanador(Clases_de_entidad.Partido unPartido, Clases_de_entidad.Participante ganador, Clases_de_entidad.CompetenciaDeportiva comp)
         {
             //Llamada a la BD para setear el resultado
             Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
-            ABDfix.setResultadoGanador(unPartido, ganador);
+            ABDfix.setResultadoGanador(unPartido, ganador, comp);
         }
 
         //Llama al ABDfixture para una competencia con forma de puntuacion por RDO FINAL EMPATE
-        public void guardarResultadoGanadorEmp(Clases_de_entidad.Partido unPartido, bool empate)
+        public void guardarResultadoGanadorEmp(Clases_de_entidad.Partido unPartido, bool empate, Clases_de_entidad.CompetenciaDeportiva comp)
         {
             //Llamada a la BD para setear el resultado
             Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
-            ABDfix.setResultadoGanadorEmp(unPartido, empate);
+            ABDfix.setResultadoGanadorEmp(unPartido, empate, comp);
         }
 
         //Llama al ABDfixture para una competencia con forma de puntuacion por SETS
-        public void guardarResultadoSets(Clases_de_entidad.Partido unPartido, List<Clases_de_entidad.Set> sets)
+        public void guardarResultadoSets(Clases_de_entidad.Partido unPartido, List<Clases_de_entidad.Set> sets, Clases_de_entidad.CompetenciaDeportiva comp)
         {
+            //Creacion del TDO SETS
+
+
             //Llamada a la BD para setear el resultado
             Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
-            ABDfix.setResultadoSets(unPartido, sets);
+            ABDfix.setResultadoSets(unPartido, sets, comp);
         }
     }
 }

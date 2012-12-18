@@ -70,28 +70,28 @@ namespace TPdeDiseño.Clases_ABD
         }
         
         //Setea resultado para FormaPuntuacion por puntos
-        public void setResultadoPtos(Clases_de_entidad.Partido unPartido, int ptosP1, int ptosP2)
+        public void setResultadoPtos(Clases_de_entidad.Partido unPartido, int ptosP1, int ptosP2, Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
         {
             //Aca va a la base de datos el resultado del partido seleccionado
 
         }
 
         //Setea resultado para FormaPuntuacion por resultado final
-        public void setResultadoGanador(Clases_de_entidad.Partido unPartido, Clases_de_entidad.Participante ganador)
+        public void setResultadoGanador(Clases_de_entidad.Partido unPartido, Clases_de_entidad.Participante ganador, Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
         {
             //Aca va a la base de datos el resultado del partido seleccionado
 
         }
 
         //Setea resultado para FormaPuntuacion por resultado final que esa empate
-        public void setResultadoGanadorEmp(Clases_de_entidad.Partido unPartido, bool empate)
+        public void setResultadoGanadorEmp(Clases_de_entidad.Partido unPartido, bool empate, Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
         {
             //Aca va a la base de datos el resultado del partido seleccionado
 
         }
 
         //Setea resultado para FormaPuntuacion por sets
-        public void setResultadoSets(Clases_de_entidad.Partido unPartido, List<Clases_de_entidad.Set> sets)
+        public void setResultadoSets(Clases_de_entidad.Partido unPartido, List<Clases_de_entidad.Set> sets, Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
         {
             //Aca va a la base de datos el resultado del partido seleccionado
 

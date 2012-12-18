@@ -13,7 +13,7 @@ namespace TPdeDiseño
     {
         //Declaracion clases  publicas
         public Clases_de_entidad.Partido partidoSeleccionado = new Clases_de_entidad.Partido();
-        public Clases_de_entidad.Modalidad modalidadSeleccionado = new Clases_de_entidad.Modalidad();
+        public Clases_de_entidad.CompetenciaDeportiva competencia = new Clases_de_entidad.CompetenciaDeportiva();
 
         //Declaracion gestores publicos
         public Clases_de_control.GestorFixture gestFix = new Clases_de_control.GestorFixture();
@@ -26,11 +26,11 @@ namespace TPdeDiseño
         private void gestionaPuntos_Load(object sender, EventArgs e)
         {
             //Asigna el nombre de los participantes y el resultado alamacenado.
-            labelPart1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
+            /*labelPart1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
             labelPart2.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
 
             textBoxP1.Text = partidoSeleccionado._resultado._puntosP1.ToString();
-            textBoxP2.Text = partidoSeleccionado._resultado._puntosP2.ToString();
+            textBoxP2.Text = partidoSeleccionado._resultado._puntosP2.ToString();*/
         }
 
         private void textBoxP1_TextChanged(object sender, EventArgs e)
@@ -40,8 +40,8 @@ namespace TPdeDiseño
             {
                 mensajeTipo2 error;
                 error = new mensajeTipo2();
-                error.MdiParent = principal.ActiveForm;
-                error.WindowState = FormWindowState.Maximized;
+                //error.MdiParent = principal.ActiveForm;
+                //error.WindowState = FormWindowState.Maximized;
                 error.error2 = "El campo no puede estar vacio.";
                 error.Show();
             }
@@ -96,8 +96,8 @@ namespace TPdeDiseño
             {
                 mensajeTipo2 error;
                 error = new mensajeTipo2();
-                error.MdiParent = principal.ActiveForm;
-                error.WindowState = FormWindowState.Maximized;
+                //error.MdiParent = principal.ActiveForm;
+                //error.WindowState = FormWindowState.Maximized;
                 error.error2 = "El campo no puede estar vacio.";
                 error.Show();
             }
@@ -105,30 +105,12 @@ namespace TPdeDiseño
 
         private void textBoxP1_Enter(object sender, EventArgs e)
         {
-            //Validacion de que el campo no sea nulo
-            if (textBoxP1.TextLength == 0)
-            {
-                mensajeTipo2 error;
-                error = new mensajeTipo2();
-                error.MdiParent = principal.ActiveForm;
-                error.WindowState = FormWindowState.Maximized;
-                error.error2 = "El campo no puede estar vacio.";
-                error.Show();
-            }
+
         }
 
         private void textBoxP2_Enter(object sender, EventArgs e)
         {
-            //Validacion de que el campo no sea nulo
-            if (textBoxP2.TextLength == 0)
-            {
-                mensajeTipo2 error;
-                error = new mensajeTipo2();
-                error.MdiParent = principal.ActiveForm;
-                error.WindowState = FormWindowState.Maximized;
-                error.error2 = "El campo no puede estar vacio.";
-                error.Show();
-            }
+
         }
 
         private void textBoxP2_KeyDown(object sender, KeyEventArgs e)
@@ -140,8 +122,8 @@ namespace TPdeDiseño
                 {
                     mensajeTipo2 error;
                     error = new mensajeTipo2();
-                    error.MdiParent = principal.ActiveForm;
-                    error.WindowState = FormWindowState.Maximized;
+                    //error.MdiParent = principal.ActiveForm;
+                    //error.WindowState = FormWindowState.Maximized;
                     error.error2 = "El campo no puede estar vacio.";
                     error.Show();
                 }
@@ -157,8 +139,8 @@ namespace TPdeDiseño
                 {
                     mensajeTipo2 error;
                     error = new mensajeTipo2();
-                    error.MdiParent = principal.ActiveForm;
-                    error.WindowState = FormWindowState.Maximized;
+                    //error.MdiParent = principal.ActiveForm;
+                    //error.WindowState = FormWindowState.Maximized;
                     error.error2 = "El campo no puede estar vacio.";
                     error.Show();
                 }
@@ -172,18 +154,18 @@ namespace TPdeDiseño
             {
                 mensajeTipo2 error;
                 error = new mensajeTipo2();
-                error.MdiParent = principal.ActiveForm;
-                error.WindowState = FormWindowState.Maximized;
-                error.error2 = "El campo no puede estar vacio.";
+                //error.MdiParent = principal.ActiveForm;
+                //error.WindowState = FormWindowState.Maximized;
+                error.error2 = "El campo 1 no puede estar vacio.";
                 error.Show();
             }
-            if (textBoxP2.TextLength == 0)
+            else if (textBoxP2.TextLength == 0)
             {
                 mensajeTipo2 error;
                 error = new mensajeTipo2();
-                error.MdiParent = principal.ActiveForm;
-                error.WindowState = FormWindowState.Maximized;
-                error.error2 = "El campo no puede estar vacio.";
+                //error.MdiParent = principal.ActiveForm;
+                //error.WindowState = FormWindowState.Maximized;
+                error.error2 = "El campo 2 no puede estar vacio.";
                 error.Show();
             }
 
@@ -192,8 +174,8 @@ namespace TPdeDiseño
             {
                 mensajeTipo2 error;
                 error = new mensajeTipo2();
-                error.MdiParent = principal.ActiveForm;
-                error.WindowState = FormWindowState.Maximized;
+                //error.MdiParent = principal.ActiveForm;
+                //error.WindowState = FormWindowState.Maximized;
                 error.error2 = "Ambos participantes estan ausentes.";
                 error.Show();
             }
@@ -202,10 +184,10 @@ namespace TPdeDiseño
                 //Asigna el ganador y el ausente
                 partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[1]._participante;
                 partidoSeleccionado._resultado._ausente = partidoSeleccionado._pParticipantes[0]._participante;
-
+                
                 //Genera el historial de resultado y va a la BD
                 partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador);
+                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador, competencia);
             }
             else if (checkBoxP2.Checked == true)
             {
@@ -215,7 +197,7 @@ namespace TPdeDiseño
 
                 //Genera el historial de resultado y va a la BD
                 partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador);
+                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador, competencia);
             }
             //Curso normal sin ausentes
             else
@@ -223,7 +205,7 @@ namespace TPdeDiseño
                 //Verifica que se permita el empate
                 if (int.Parse(textBoxP1.Text) == int.Parse(textBoxP2.Text))
                 {
-                    if (modalidadSeleccionado._empate == true)
+                    if (competencia._modalidad._empate == true)
                     {
                         partidoSeleccionado._resultado._empate = true;
                         partidoSeleccionado._resultado._puntosP1 = int.Parse(textBoxP1.Text);
@@ -231,14 +213,14 @@ namespace TPdeDiseño
 
                         //Genera el historial de resultado y va a la BD
                         partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = true, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoPuntos(partidoSeleccionado, int.Parse(textBoxP1.Text), int.Parse(textBoxP2.Text));
+                        gestFix.guardarResultadoPuntos(partidoSeleccionado, int.Parse(textBoxP1.Text), int.Parse(textBoxP2.Text), competencia);
                     }
                     else
                     {
                         mensajeTipo2 error;
                         error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
+                        //error.MdiParent = principal.ActiveForm;
+                        //error.WindowState = FormWindowState.Maximized;
                         error.error2 = "En la competencia no esta permitido el empate.";
                         error.Show();
                     }
@@ -254,7 +236,7 @@ namespace TPdeDiseño
 
                         //Genera el historial de resultado y va a la BD
                         partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoPuntos(partidoSeleccionado, int.Parse(textBoxP1.Text), int.Parse(textBoxP2.Text));
+                        gestFix.guardarResultadoPuntos(partidoSeleccionado, int.Parse(textBoxP1.Text), int.Parse(textBoxP2.Text), competencia);
                     }
                     else if (int.Parse(textBoxP1.Text) > int.Parse(textBoxP2.Text))
                     {
@@ -265,7 +247,7 @@ namespace TPdeDiseño
 
                         //Genera el historial de resultado y va a la BD
                         partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoPuntos(partidoSeleccionado, int.Parse(textBoxP1.Text), int.Parse(textBoxP2.Text));
+                        gestFix.guardarResultadoPuntos(partidoSeleccionado, int.Parse(textBoxP1.Text), int.Parse(textBoxP2.Text), competencia);
                     }
                 }
             }

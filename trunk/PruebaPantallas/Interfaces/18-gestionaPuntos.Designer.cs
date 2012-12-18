@@ -59,10 +59,10 @@
             // textBoxP2
             // 
             this.textBoxP2.Location = new System.Drawing.Point(390, 17);
-            this.textBoxP2.MaxLength = 2;
+            this.textBoxP2.MaxLength = 3;
             this.textBoxP2.Name = "textBoxP2";
             this.textBoxP2.Size = new System.Drawing.Size(43, 20);
-            this.textBoxP2.TabIndex = 5;
+            this.textBoxP2.TabIndex = 2;
             this.textBoxP2.TextChanged += new System.EventHandler(this.textBoxP2_TextChanged);
             this.textBoxP2.Enter += new System.EventHandler(this.textBoxP2_Enter);
             this.textBoxP2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxP2_KeyDown);
@@ -90,10 +90,10 @@
             // textBoxP1
             // 
             this.textBoxP1.Location = new System.Drawing.Point(159, 17);
-            this.textBoxP1.MaxLength = 2;
+            this.textBoxP1.MaxLength = 3;
             this.textBoxP1.Name = "textBoxP1";
             this.textBoxP1.Size = new System.Drawing.Size(43, 20);
-            this.textBoxP1.TabIndex = 2;
+            this.textBoxP1.TabIndex = 1;
             this.textBoxP1.TextChanged += new System.EventHandler(this.textBoxP1_TextChanged);
             this.textBoxP1.Enter += new System.EventHandler(this.textBoxP1_Enter);
             this.textBoxP1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxP1_KeyDown);
@@ -105,7 +105,7 @@
             this.checkBoxP1.Location = new System.Drawing.Point(43, 43);
             this.checkBoxP1.Name = "checkBoxP1";
             this.checkBoxP1.Size = new System.Drawing.Size(65, 17);
-            this.checkBoxP1.TabIndex = 1;
+            this.checkBoxP1.TabIndex = 3;
             this.checkBoxP1.Text = "Ausente";
             this.checkBoxP1.UseVisualStyleBackColor = true;
             // 
@@ -123,7 +123,7 @@
             this.buttonLimpiar.Location = new System.Drawing.Point(322, 140);
             this.buttonLimpiar.Name = "buttonLimpiar";
             this.buttonLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.buttonLimpiar.TabIndex = 17;
+            this.buttonLimpiar.TabIndex = 6;
             this.buttonLimpiar.Text = "Limpiar";
             this.buttonLimpiar.UseVisualStyleBackColor = true;
             this.buttonLimpiar.Click += new System.EventHandler(this.buttonLimpiar_Click);
@@ -133,7 +133,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(411, 140);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 16;
+            this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Cancelar";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -143,7 +143,7 @@
             this.buttonAceptar.Location = new System.Drawing.Point(193, 140);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.buttonAceptar.TabIndex = 15;
+            this.buttonAceptar.TabIndex = 5;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
             this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
