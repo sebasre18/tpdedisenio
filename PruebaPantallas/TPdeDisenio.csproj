@@ -79,6 +79,7 @@
     <Compile Include="Clases de entidad\LugarDeRealizacion.cs" />
     <Compile Include="Clases de entidad\Provincia.cs" />
     <Compile Include="Clases de entidad\Usuario.cs" />
+    <Compile Include="Clases de entidad\Utilidades.cs" />
     <Compile Include="DataClasses.cs">
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
