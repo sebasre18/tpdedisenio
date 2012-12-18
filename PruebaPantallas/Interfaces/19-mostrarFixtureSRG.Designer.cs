@@ -51,7 +51,7 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(482, 225);
+            this.buttonCancelar.Location = new System.Drawing.Point(482, 365);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 4;
@@ -62,10 +62,10 @@
             // buttonModRdo
             // 
             this.buttonModRdo.Enabled = false;
-            this.buttonModRdo.Location = new System.Drawing.Point(351, 225);
+            this.buttonModRdo.Location = new System.Drawing.Point(351, 365);
             this.buttonModRdo.Name = "buttonModRdo";
             this.buttonModRdo.Size = new System.Drawing.Size(112, 23);
-            this.buttonModRdo.TabIndex = 5;
+            this.buttonModRdo.TabIndex = 3;
             this.buttonModRdo.Text = "Modificar resultado";
             this.buttonModRdo.UseVisualStyleBackColor = true;
             this.buttonModRdo.Click += new System.EventHandler(this.buttonModRdo_Click);
@@ -73,14 +73,15 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridPartidos);
-            this.groupBox2.Location = new System.Drawing.Point(31, 112);
+            this.groupBox2.Location = new System.Drawing.Point(31, 102);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(526, 86);
+            this.groupBox2.Size = new System.Drawing.Size(526, 257);
             this.groupBox2.TabIndex = 59;
             this.groupBox2.TabStop = false;
             // 
             // dataGridPartidos
             // 
+            this.dataGridPartidos.AllowUserToAddRows = false;
             this.dataGridPartidos.AllowUserToDeleteRows = false;
             this.dataGridPartidos.AllowUserToOrderColumns = true;
             this.dataGridPartidos.AllowUserToResizeColumns = false;
@@ -91,14 +92,14 @@
             this.resultadolocal,
             this.resultadoVisitante,
             this.visitante});
-            this.dataGridPartidos.Location = new System.Drawing.Point(6, 28);
+            this.dataGridPartidos.Location = new System.Drawing.Point(6, 19);
             this.dataGridPartidos.MultiSelect = false;
             this.dataGridPartidos.Name = "dataGridPartidos";
             this.dataGridPartidos.ReadOnly = true;
             this.dataGridPartidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridPartidos.Size = new System.Drawing.Size(514, 46);
+            this.dataGridPartidos.Size = new System.Drawing.Size(514, 232);
             this.dataGridPartidos.StandardTab = true;
-            this.dataGridPartidos.TabIndex = 22;
+            this.dataGridPartidos.TabIndex = 2;
             this.dataGridPartidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPartidos_CellContentClick);
             // 
             // local
@@ -154,25 +155,17 @@
             // comboBoxNroRonda
             // 
             this.comboBoxNroRonda.FormattingEnabled = true;
-            this.comboBoxNroRonda.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
             this.comboBoxNroRonda.Location = new System.Drawing.Point(113, 13);
             this.comboBoxNroRonda.Name = "comboBoxNroRonda";
             this.comboBoxNroRonda.Size = new System.Drawing.Size(68, 21);
             this.comboBoxNroRonda.Sorted = true;
-            this.comboBoxNroRonda.TabIndex = 60;
+            this.comboBoxNroRonda.TabIndex = 1;
             this.comboBoxNroRonda.SelectedIndexChanged += new System.EventHandler(this.comboBoxNroRonda_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 80);
+            this.label1.Location = new System.Drawing.Point(37, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 61;
@@ -182,7 +175,7 @@
             // 
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.comboBoxNroRonda);
-            this.groupBox3.Location = new System.Drawing.Point(31, 64);
+            this.groupBox3.Location = new System.Drawing.Point(31, 54);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(193, 42);
             this.groupBox3.TabIndex = 59;
@@ -200,7 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 272);
+            this.ClientSize = new System.Drawing.Size(587, 400);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

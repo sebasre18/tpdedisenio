@@ -13,6 +13,7 @@ namespace TPdeDiseño
     {
         //Declaracion clase Competencia publica
         public Clases_de_entidad.Partido partidoSeleccionado = new Clases_de_entidad.Partido();
+        public Clases_de_entidad.CompetenciaDeportiva competencia = new Clases_de_entidad.CompetenciaDeportiva();
 
         //Declaracion gestores publicos
         public Clases_de_control.GestorFixture gestFix = new Clases_de_control.GestorFixture();
@@ -29,7 +30,7 @@ namespace TPdeDiseño
         {
             //Hace visibles la cantidad de sets especificados, el nombre de cada participante y
             //carga sus respectivos resultados
-            if (partidoSeleccionado._resultado._cantidad_set == 1)
+          /*  if (partidoSeleccionado._resultado._cantidad_set == 1)
             {
                 groupBoxS2.Visible = false;
                 groupBoxS3.Visible = false;
@@ -292,7 +293,7 @@ namespace TPdeDiseño
                 labelP2S8.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
                 labelP1S9.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
                 labelP2S9.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-            }
+            }*/
         }
 
         private void buttonAceptar_Click(object sender, EventArgs e)
@@ -314,7 +315,7 @@ namespace TPdeDiseño
 
                 //Genera el historial de resultado y va a la BD
                 partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador);
+                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador, competencia);
             }
             else if (checkBoxP2.Checked == true)
             {
@@ -323,7 +324,7 @@ namespace TPdeDiseño
 
                 //Genera el historial de resultado y va a la BD
                 partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador);
+                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador, competencia);
             }
             else
             {
@@ -346,7 +347,7 @@ namespace TPdeDiseño
 
                         //Genera el historial de resultado y va a la BD
                         partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets);
+                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets, competencia);
                     }
                 }
                 else if (partidoSeleccionado._resultado._cantidad_set == 2)
@@ -380,7 +381,7 @@ namespace TPdeDiseño
 
                         //Genera el historial de resultado y va a la BD
                         partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets);
+                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets, competencia);
                     }
                 }
                 else if (partidoSeleccionado._resultado._cantidad_set == 3)
@@ -426,7 +427,7 @@ namespace TPdeDiseño
 
                         //Genera el historial de resultado y va a la BD
                         partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets);
+                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets, competencia);
                     }
 
                 }
@@ -485,7 +486,7 @@ namespace TPdeDiseño
 
                         //Genera el historial de resultado y va a la BD
                         partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets);
+                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets, competencia);
                     }
                 }
                 else if (partidoSeleccionado._resultado._cantidad_set == 5)
@@ -555,7 +556,7 @@ namespace TPdeDiseño
 
                         //Genera el historial de resultado y va a la BD
                         partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets);
+                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets, competencia);
                     }
                 }
                 else if (partidoSeleccionado._resultado._cantidad_set == 6)
@@ -637,7 +638,7 @@ namespace TPdeDiseño
 
                         //Genera el historial de resultado y va a la BD
                         partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets);
+                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets, competencia);
                     }
                 }
                 else if (partidoSeleccionado._resultado._cantidad_set == 7)
@@ -731,7 +732,7 @@ namespace TPdeDiseño
 
                         //Genera el historial de resultado y va a la BD
                         partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets);
+                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets, competencia);
                     }
                 }
                 else if (partidoSeleccionado._resultado._cantidad_set == 8)
@@ -837,7 +838,7 @@ namespace TPdeDiseño
 
                         //Genera el historial de resultado y va a la BD
                         partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets);
+                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets, competencia);
                     }
                 }
                 else
@@ -955,7 +956,7 @@ namespace TPdeDiseño
 
                         //Genera el historial de resultado y va a la BD
                         partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets);
+                        gestFix.guardarResultadoSets(partidoSeleccionado, partidoSeleccionado._resultado._sets, competencia);
                     }
                 }
             }
@@ -1062,6 +1063,293 @@ namespace TPdeDiseño
             this.Close();
         }
 
+        private void textBoxP1S1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP2S1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP1S2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP2S2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP1S3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP2S3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP1S4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP2S4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP1S5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP2S5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP1S6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP2S6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP1S7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP2S7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP1S8_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP2S8_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP1S9_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxP2S9_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
 
 
     }

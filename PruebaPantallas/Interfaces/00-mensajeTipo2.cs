@@ -20,6 +20,7 @@ namespace TPdeDiseño
 
         private void mensajeTipo2_Load(object sender, EventArgs e)
         {
+            labelError2.ForeColor = Color.Red;
             labelError2.Text = error2;
         }
 

@@ -119,16 +119,20 @@
             // textBoxP2S1
             // 
             this.textBoxP2S1.Location = new System.Drawing.Point(130, 72);
+            this.textBoxP2S1.MaxLength = 2;
             this.textBoxP2S1.Name = "textBoxP2S1";
             this.textBoxP2S1.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S1.TabIndex = 5;
+            this.textBoxP2S1.TabIndex = 3;
+            this.textBoxP2S1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S1_KeyPress);
             // 
             // textBoxP1S1
             // 
             this.textBoxP1S1.Location = new System.Drawing.Point(130, 26);
+            this.textBoxP1S1.MaxLength = 2;
             this.textBoxP1S1.Name = "textBoxP1S1";
             this.textBoxP1S1.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S1.TabIndex = 4;
+            this.textBoxP1S1.TabIndex = 1;
+            this.textBoxP1S1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S1_KeyPress);
             // 
             // checkBoxP2
             // 
@@ -136,7 +140,7 @@
             this.checkBoxP2.Location = new System.Drawing.Point(32, 91);
             this.checkBoxP2.Name = "checkBoxP2";
             this.checkBoxP2.Size = new System.Drawing.Size(65, 17);
-            this.checkBoxP2.TabIndex = 3;
+            this.checkBoxP2.TabIndex = 4;
             this.checkBoxP2.Text = "Ausente";
             this.checkBoxP2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBoxP2.UseVisualStyleBackColor = true;
@@ -177,16 +181,20 @@
             // textBoxP2S2
             // 
             this.textBoxP2S2.Location = new System.Drawing.Point(130, 72);
+            this.textBoxP2S2.MaxLength = 2;
             this.textBoxP2S2.Name = "textBoxP2S2";
             this.textBoxP2S2.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S2.TabIndex = 5;
+            this.textBoxP2S2.TabIndex = 6;
+            this.textBoxP2S2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S2_KeyPress);
             // 
             // textBoxP1S2
             // 
             this.textBoxP1S2.Location = new System.Drawing.Point(130, 26);
+            this.textBoxP1S2.MaxLength = 2;
             this.textBoxP1S2.Name = "textBoxP1S2";
             this.textBoxP1S2.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S2.TabIndex = 4;
+            this.textBoxP1S2.TabIndex = 5;
+            this.textBoxP1S2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S2_KeyPress);
             // 
             // labelP2S2
             // 
@@ -223,16 +231,20 @@
             // textBoxP2S4
             // 
             this.textBoxP2S4.Location = new System.Drawing.Point(130, 72);
+            this.textBoxP2S4.MaxLength = 2;
             this.textBoxP2S4.Name = "textBoxP2S4";
             this.textBoxP2S4.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S4.TabIndex = 5;
+            this.textBoxP2S4.TabIndex = 10;
+            this.textBoxP2S4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S4_KeyPress);
             // 
             // textBoxP1S4
             // 
             this.textBoxP1S4.Location = new System.Drawing.Point(130, 26);
+            this.textBoxP1S4.MaxLength = 2;
             this.textBoxP1S4.Name = "textBoxP1S4";
             this.textBoxP1S4.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S4.TabIndex = 4;
+            this.textBoxP1S4.TabIndex = 9;
+            this.textBoxP1S4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S4_KeyPress);
             // 
             // labelP2S4
             // 
@@ -268,16 +280,20 @@
             // textBoxP2S3
             // 
             this.textBoxP2S3.Location = new System.Drawing.Point(130, 72);
+            this.textBoxP2S3.MaxLength = 2;
             this.textBoxP2S3.Name = "textBoxP2S3";
             this.textBoxP2S3.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S3.TabIndex = 5;
+            this.textBoxP2S3.TabIndex = 8;
+            this.textBoxP2S3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S3_KeyPress);
             // 
             // textBoxP1S3
             // 
             this.textBoxP1S3.Location = new System.Drawing.Point(130, 26);
+            this.textBoxP1S3.MaxLength = 2;
             this.textBoxP1S3.Name = "textBoxP1S3";
             this.textBoxP1S3.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S3.TabIndex = 4;
+            this.textBoxP1S3.TabIndex = 7;
+            this.textBoxP1S3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S3_KeyPress);
             // 
             // labelP2S3
             // 
@@ -314,16 +330,20 @@
             // textBoxP2S5
             // 
             this.textBoxP2S5.Location = new System.Drawing.Point(130, 72);
+            this.textBoxP2S5.MaxLength = 2;
             this.textBoxP2S5.Name = "textBoxP2S5";
             this.textBoxP2S5.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S5.TabIndex = 5;
+            this.textBoxP2S5.TabIndex = 12;
+            this.textBoxP2S5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S5_KeyPress);
             // 
             // textBoxP1S5
             // 
             this.textBoxP1S5.Location = new System.Drawing.Point(130, 26);
+            this.textBoxP1S5.MaxLength = 2;
             this.textBoxP1S5.Name = "textBoxP1S5";
             this.textBoxP1S5.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S5.TabIndex = 4;
+            this.textBoxP1S5.TabIndex = 11;
+            this.textBoxP1S5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S5_KeyPress);
             // 
             // labelP2S5
             // 
@@ -348,7 +368,7 @@
             this.buttonAceptar.Location = new System.Drawing.Point(376, 453);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.buttonAceptar.TabIndex = 10;
+            this.buttonAceptar.TabIndex = 21;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
             this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
@@ -358,7 +378,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(594, 453);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 11;
+            this.buttonCancelar.TabIndex = 23;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
@@ -368,7 +388,7 @@
             this.buttonLimpiar.Location = new System.Drawing.Point(505, 453);
             this.buttonLimpiar.Name = "buttonLimpiar";
             this.buttonLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.buttonLimpiar.TabIndex = 12;
+            this.buttonLimpiar.TabIndex = 22;
             this.buttonLimpiar.Text = "Limpiar";
             this.buttonLimpiar.UseVisualStyleBackColor = true;
             this.buttonLimpiar.Click += new System.EventHandler(this.buttonLimpiar_Click);
@@ -407,16 +427,20 @@
             // textBoxP2S9
             // 
             this.textBoxP2S9.Location = new System.Drawing.Point(130, 72);
+            this.textBoxP2S9.MaxLength = 2;
             this.textBoxP2S9.Name = "textBoxP2S9";
             this.textBoxP2S9.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S9.TabIndex = 5;
+            this.textBoxP2S9.TabIndex = 20;
+            this.textBoxP2S9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S9_KeyPress);
             // 
             // textBoxP1S9
             // 
             this.textBoxP1S9.Location = new System.Drawing.Point(130, 26);
+            this.textBoxP1S9.MaxLength = 2;
             this.textBoxP1S9.Name = "textBoxP1S9";
             this.textBoxP1S9.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S9.TabIndex = 4;
+            this.textBoxP1S9.TabIndex = 19;
+            this.textBoxP1S9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S9_KeyPress);
             // 
             // labelP2S9
             // 
@@ -453,16 +477,20 @@
             // textBoxP2S6
             // 
             this.textBoxP2S6.Location = new System.Drawing.Point(130, 72);
+            this.textBoxP2S6.MaxLength = 2;
             this.textBoxP2S6.Name = "textBoxP2S6";
             this.textBoxP2S6.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S6.TabIndex = 5;
+            this.textBoxP2S6.TabIndex = 14;
+            this.textBoxP2S6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S6_KeyPress);
             // 
             // textBoxP1S6
             // 
             this.textBoxP1S6.Location = new System.Drawing.Point(130, 26);
+            this.textBoxP1S6.MaxLength = 2;
             this.textBoxP1S6.Name = "textBoxP1S6";
             this.textBoxP1S6.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S6.TabIndex = 4;
+            this.textBoxP1S6.TabIndex = 13;
+            this.textBoxP1S6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S6_KeyPress);
             // 
             // labelP2S6
             // 
@@ -499,16 +527,20 @@
             // textBoxP2S7
             // 
             this.textBoxP2S7.Location = new System.Drawing.Point(130, 72);
+            this.textBoxP2S7.MaxLength = 2;
             this.textBoxP2S7.Name = "textBoxP2S7";
             this.textBoxP2S7.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S7.TabIndex = 5;
+            this.textBoxP2S7.TabIndex = 16;
+            this.textBoxP2S7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S7_KeyPress);
             // 
             // textBoxP1S7
             // 
             this.textBoxP1S7.Location = new System.Drawing.Point(130, 26);
+            this.textBoxP1S7.MaxLength = 2;
             this.textBoxP1S7.Name = "textBoxP1S7";
             this.textBoxP1S7.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S7.TabIndex = 4;
+            this.textBoxP1S7.TabIndex = 15;
+            this.textBoxP1S7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S7_KeyPress);
             // 
             // labelP2S7
             // 
@@ -545,16 +577,20 @@
             // textBoxP2S8
             // 
             this.textBoxP2S8.Location = new System.Drawing.Point(130, 68);
+            this.textBoxP2S8.MaxLength = 2;
             this.textBoxP2S8.Name = "textBoxP2S8";
             this.textBoxP2S8.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S8.TabIndex = 5;
+            this.textBoxP2S8.TabIndex = 18;
+            this.textBoxP2S8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S8_KeyPress);
             // 
             // textBoxP1S8
             // 
             this.textBoxP1S8.Location = new System.Drawing.Point(130, 22);
+            this.textBoxP1S8.MaxLength = 2;
             this.textBoxP1S8.Name = "textBoxP1S8";
             this.textBoxP1S8.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S8.TabIndex = 4;
+            this.textBoxP1S8.TabIndex = 17;
+            this.textBoxP1S8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S8_KeyPress);
             // 
             // labelP2S8
             // 

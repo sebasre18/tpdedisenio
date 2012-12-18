@@ -13,7 +13,7 @@ namespace TPdeDiseño
     {
         //Declaracion clase Competencia publica
         public Clases_de_entidad.Partido partidoSeleccionado = new Clases_de_entidad.Partido();
-        public Clases_de_entidad.Modalidad modalidadSeleccionado = new Clases_de_entidad.Modalidad();
+        public Clases_de_entidad.CompetenciaDeportiva competencia = new Clases_de_entidad.CompetenciaDeportiva();
 
         //Declaracion gestores publicos
         public Clases_de_control.GestorFixture gestFix = new Clases_de_control.GestorFixture();
@@ -29,8 +29,8 @@ namespace TPdeDiseño
         private void gestionaGanador_Load(object sender, EventArgs e)
         {
             //Asigna los nombres de los participantes
-            radioButtonP1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-            radioButtonP2.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
+           // radioButtonP1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
+           // radioButtonP2.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
 
         }
 
@@ -43,7 +43,7 @@ namespace TPdeDiseño
 
                 //Genera el historial de resultado y va a la BD
                 partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador);
+                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador, competencia);
             }
             else if (radioButtonP2.Checked == true)
             {
@@ -51,18 +51,18 @@ namespace TPdeDiseño
 
                 //Genera el historial de resultado y va a la BD
                 partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador);
+                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador, competencia);
             }
             else if (radioButtonEmpate.Checked == true)
             {
                 //Valida que el empate sea permitido
-                if (modalidadSeleccionado._empate == true)
+                if (competencia._modalidad._empate == true)
                 {
                     partidoSeleccionado._resultado._empate = true;
 
                     //Genera el historial de resultado y va a la BD
                     partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                    gestFix.guardarResultadoGanadorEmp(partidoSeleccionado, partidoSeleccionado._resultado._empate);
+                    gestFix.guardarResultadoGanadorEmp(partidoSeleccionado, partidoSeleccionado._resultado._empate, competencia);
                 }
                 else
                 {

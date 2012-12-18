@@ -56,7 +56,7 @@
             this.radioButtonEmpate.Location = new System.Drawing.Point(190, 56);
             this.radioButtonEmpate.Name = "radioButtonEmpate";
             this.radioButtonEmpate.Size = new System.Drawing.Size(61, 17);
-            this.radioButtonEmpate.TabIndex = 8;
+            this.radioButtonEmpate.TabIndex = 3;
             this.radioButtonEmpate.TabStop = true;
             this.radioButtonEmpate.Text = "Empate";
             this.radioButtonEmpate.UseVisualStyleBackColor = true;
@@ -68,7 +68,7 @@
             this.radioButtonP2.Location = new System.Drawing.Point(302, 19);
             this.radioButtonP2.Name = "radioButtonP2";
             this.radioButtonP2.Size = new System.Drawing.Size(38, 17);
-            this.radioButtonP2.TabIndex = 7;
+            this.radioButtonP2.TabIndex = 2;
             this.radioButtonP2.TabStop = true;
             this.radioButtonP2.Text = "P2";
             this.radioButtonP2.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             this.radioButtonP1.Location = new System.Drawing.Point(24, 19);
             this.radioButtonP1.Name = "radioButtonP1";
             this.radioButtonP1.Size = new System.Drawing.Size(38, 17);
-            this.radioButtonP1.TabIndex = 6;
+            this.radioButtonP1.TabIndex = 1;
             this.radioButtonP1.TabStop = true;
             this.radioButtonP1.Text = "P1";
             this.radioButtonP1.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@
             this.buttonLimpiar.Location = new System.Drawing.Point(321, 136);
             this.buttonLimpiar.Name = "buttonLimpiar";
             this.buttonLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.buttonLimpiar.TabIndex = 23;
+            this.buttonLimpiar.TabIndex = 5;
             this.buttonLimpiar.Text = "Limpiar";
             this.buttonLimpiar.UseVisualStyleBackColor = true;
             this.buttonLimpiar.Click += new System.EventHandler(this.buttonLimpiar_Click);
@@ -99,7 +99,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(410, 136);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 22;
+            this.buttonCancelar.TabIndex = 6;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
@@ -109,7 +109,7 @@
             this.buttonAceptar.Location = new System.Drawing.Point(192, 136);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.buttonAceptar.TabIndex = 21;
+            this.buttonAceptar.TabIndex = 4;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
             this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
