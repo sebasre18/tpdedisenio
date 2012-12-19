@@ -54,24 +54,23 @@ namespace TPdeDiseño
             }
             else 
             {
-                // Abre la interfaz Ver Competencia, pasandole como parametro la competencia seleccionada.
+                // Trae todos los datos completos de la competencia seleccionada por el usuario.
                 filaSeleccionada = Convert.ToInt32(dgvCompetencia.CurrentRow.Index);
                 foreach (Clases_de_entidad.CompetenciaDeportiva unaCompetencia in competenciasLC)
                 {
                     if (unaCompetencia._nombre == Convert.ToString(dgvCompetencia[0, filaSeleccionada].Value))
                     {
-                        competenciaLC = unaCompetencia;
-                        verCompetencia vc = new verCompetencia();
-                        vc.MdiParent = principal.ActiveForm;
-                        vc.WindowState = FormWindowState.Maximized;
-                        vc.competenciaVerComp = competenciaLC;
-                        vc.Show();
+                        competenciaLC = gestorC.buscarUnaCompetencia(unaCompetencia._id_competencia);
                     }
                         
                 }
-                
+                // Abre la interfaz Ver Competencia, pasandole como parametro la competencia seleccionada.
+                verCompetencia vc = new verCompetencia();
+                vc.MdiParent = principal.ActiveForm;
+                vc.WindowState = FormWindowState.Maximized;
+                vc.competenciaVerComp = competenciaLC;
+                vc.Show();
             }
-            
         }
 
         private void bCancelar_Click(object sender, EventArgs e)
