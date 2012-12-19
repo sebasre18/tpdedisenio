@@ -146,7 +146,7 @@ namespace TPdeDiseño.Clases_de_entidad
         //Constructor
         public CompetenciaDeportiva() { }
 
-        public CompetenciaDeportiva(string unEstado, string unNombre, string unReglamento, Deporte unDeporte, List<LugarDeRealizacion> listaLugares, Modalidad unaModalidad, Usuario unUsuario)
+        public CompetenciaDeportiva(string unEstado, string unNombre, string unReglamento, Clases_de_entidad.Deporte unDeporte, List<LugarDeRealizacion> listaLugares, Clases_de_entidad.Modalidad unaModalidad, Clases_de_entidad.Usuario unUsuario)
         {
             this._nombre = unNombre;
             this._estado = unEstado;

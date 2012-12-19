@@ -32,12 +32,12 @@ namespace TPdeDiseño.Clases_de_control
             return listaFormas;
         }
         
-        public Clases_de_entidad.TablaPosiciones verTabla(Clases_de_entidad.CompetenciaDeportiva competencia)
+        /*public Clases_de_entidad.TablaPosiciones verTabla(Clases_de_entidad.CompetenciaDeportiva competencia)
         {
             Clases_de_entidad.TablaPosiciones tablaPos = new Clases_de_entidad.TablaPosiciones();
         //    tablaPos = Clases_ABD.ABDcompetencia.getTabla(competencia);
             return tablaPos;
-        }
+        }*/
 
         public short compararNombre(string nombre)
         {
@@ -46,11 +46,8 @@ namespace TPdeDiseño.Clases_de_control
             return existe;
         }
 
-        public Clases_de_entidad.CompetenciaDeportiva crearCompetencia(string unEstado, string unNombre, string unReglamento, Deporte unDeporte, List<Clases_de_entidad.LugarDeRealizacion> listaLugares, Modalidad unaModalidad, Usuario unUsuario)
+        public void setCompetencia(string unEstado, string unNombre, string unReglamento, Clases_de_entidad.Deporte unDeporte, List<Clases_de_entidad.LugarDeRealizacion> listaLugares, Clases_de_entidad.Modalidad unaModalidad, Clases_de_entidad.Usuario unUsuario)
         {
-            Clases_de_entidad.CompetenciaDeportiva comp = new CompetenciaDeportiva(unEstado, unNombre, unReglamento, unDeporte, listaLugares, unaModalidad, unUsuario);
-
-            return comp;
         }
     }
 }
