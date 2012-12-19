@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -53,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Clases ABD\ABDcompetencia.cs" />
     <Compile Include="Clases ABD\ABDfixture.cs" />
+    <Compile Include="Clases de control\GestorParticipante.cs" />
     <Compile Include="Clases de control\GestorTabla.cs" />
     <Compile Include="Clases de control\GestorUsuario.cs" />
     <Compile Include="Clases de control\GestorLugarRealizacion.cs" />

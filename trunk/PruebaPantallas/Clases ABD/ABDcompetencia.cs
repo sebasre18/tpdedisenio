@@ -12,7 +12,7 @@ namespace TPdeDiseño.Clases_ABD
             return unaCompetencia._tablaPosiciones;
         }
 
-        public static void setEstado(short unId_competencia, string unEstado)
+        public void setEstado(short unId_competencia, string unEstado)
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
 
@@ -77,6 +77,43 @@ namespace TPdeDiseño.Clases_ABD
             }
 
             return listaFormasDePuntuacion;
+        }
+
+        public void setRenglon(Clases_de_entidad.renglonTabla unRenglon)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+
+            var renglon = from renglonTabla in db.Tabla_Participante where (renglonTabla.id_tabla == unRenglon._id_renglonTabla) select unRenglon;
+
+            foreach (var seleccionado in renglon)
+            {
+                seleccionado._id_renglonTabla = unRenglon._id_renglonTabla;
+                seleccionado._id_participante = unRenglon._id_participante;
+                seleccionado._nombreParticipante = unRenglon._nombreParticipante;
+                seleccionado._diferencia = unRenglon._diferencia;
+                seleccionado._golesContra = unRenglon._golesContra;
+                seleccionado._golesFavor = unRenglon._golesFavor;
+                seleccionado._pEmpatado = unRenglon._pEmpatado;
+                seleccionado._pGanado = unRenglon._pGanado;
+                seleccionado._pPerdido = unRenglon._pPerdido;
+                seleccionado._pts = unRenglon._pts;
+                db.SubmitChanges();
+            }
+        }
+
+        public void crearRenglon(Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            Tabla_de_Posiciones tablaPos = new Tabla_de_Posiciones();
+            tablaPos.id_competencia = unaCompetencia._id_competencia;
+            db.SubmitChanges();
+            foreach ()
+            {
+                Tabla_Participante tablaPart = new Tabla_Participante();
+                unaCompetencia._tablaPosiciones._renglones
+                tablaPart.
+            }
+
         }
     }
 }

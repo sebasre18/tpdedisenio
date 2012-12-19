@@ -7,7 +7,7 @@ namespace TPdeDiseño.Clases_de_entidad
 {
     class Utilidades
     {
-       /* public void exportar()
+       public void exportar()
         {
             SaveFileDialog fichero = new SaveFileDialog();
             fichero.Filter = "Excel (*.xls)|*.xls";
@@ -42,6 +42,6 @@ namespace TPdeDiseño.Clases_de_entidad
             {
             PaintEventArgs myPaintArgs = new PaintEventArgs(e.Graphics, new Rectangle(new Point(0, 0), this.Size));
             this.InvokePaint(dgvTablaCG, myPaintArgs);
-            }*/
+            }
     }
 }
