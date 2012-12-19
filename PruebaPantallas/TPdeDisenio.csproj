@@ -62,6 +62,7 @@
     <Compile Include="Clases de control\GestorLugarRealizacion.cs" />
     <Compile Include="Clases de control\GestorFixture.cs" />
     <Compile Include="Clases de control\GestorCompetencia.cs" />
+    <Compile Include="Clases de entidad\ExportarExcel.cs" />
     <Compile Include="Clases de entidad\PartidoParticipante.cs" />
     <Compile Include="Clases de entidad\TablaPosiciones.cs" />
     <Compile Include="Clases de entidad\Fixture.cs" />
@@ -83,7 +84,6 @@
     <Compile Include="Clases de entidad\LugarDeRealizacion.cs" />
     <Compile Include="Clases de entidad\Provincia.cs" />
     <Compile Include="Clases de entidad\Usuario.cs" />
-    <Compile Include="Clases de entidad\Utilidades.cs" />
     <Compile Include="DataClasses.cs">
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>

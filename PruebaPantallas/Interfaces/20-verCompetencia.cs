@@ -86,7 +86,7 @@ namespace TPdeDiseño
             this.Close();
             genFixture = new generarFixture();
             genFixture.MdiParent = principal.ActiveForm;
-            genFixture.WindowState = FormWindowState.Maximized;
+            //genFixture.WindowState = FormWindowState.Maximized;
             //genFixture.competenciaGenFix = competenciaVerComp;
             genFixture.Show();
         }
@@ -102,7 +102,7 @@ namespace TPdeDiseño
                 this.Close();
                 mostrarFixture = new mostrarFixtureSRG();
                 mostrarFixture.MdiParent = principal.ActiveForm;
-                mostrarFixture.WindowState = FormWindowState.Maximized;
+                //mostrarFixture.WindowState = FormWindowState.Maximized;
                 mostrarFixture.competenciaVerFix = competenciaVerComp;
                 mostrarFixture.Show();
             }
@@ -140,9 +140,29 @@ namespace TPdeDiseño
 
         private void buttonTabla_Click(object sender, EventArgs e)
         {
-            // Abrir interfaz para ver tabla de posiciones. (No se cual abrir.)
+            if (competenciaVerComp._tablaPosiciones != null)
+            {
+                string formPunt = competenciaVerComp._modalidad._formaPuntuacion._nombreForma;
+                if (formPunt == "RESULTADO FINAL" || formPunt == "SETS")
+                {
+                    // Se llama a la interfaz ver tabla de posiciones sin goles.
+                    Interfaces.mostrarTablaSG mtSG = new Interfaces.mostrarTablaSG();
+                    mtSG.MdiParent = principal.ActiveForm;
+                    mtSG.competenciaSG = this.competenciaVerComp;
+                    mtSG.Show();
+                }
+                else
+                {
+                    // Se llama a la interfaz ver tabla de posiciones con goles.
+                    Interfases.mostrarTablaCG mtCG = new Interfases.mostrarTablaCG();
+                    mtCG.MdiParent = principal.ActiveForm;
+                    mtCG.competenciaCG = this.competenciaVerComp;
+                    mtCG.Show();
+                }
+            }
+            else
+                MessageBox.Show("No existe Tabla de Posiciones para esta competencia.");
         }
-
-     }
+    }
         
 }
