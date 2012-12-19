@@ -12,9 +12,11 @@ namespace TPdeDiseño
 {
     public partial class altaParticipante : Form
     {
-        public Clases_de_entidad.CompetenciaDeportiva competenciaAltaPart = new Clases_de_entidad.CompetenciaDeportiva();
+        public Clases_de_entidad.CompetenciaDeportiva competenciaAP = new Clases_de_entidad.CompetenciaDeportiva();
         public Clases_de_control.GestorParticipante gestorP = new Clases_de_control.GestorParticipante();
-                
+        public Clases_de_entidad.Participante nuevoParticipanteAP = new Clases_de_entidad.Participante();
+        public Clases_ABD.ABDcompetencia competenciaABD = new Clases_ABD.ABDcompetencia();
+        public Clases_ABD.ABDfixture fixtureABD = new Clases_ABD.ABDfixture();
         
         public altaParticipante()
         {
@@ -23,7 +25,6 @@ namespace TPdeDiseño
 
         private void altaParticipante_Load(object sender, EventArgs e)
         {
-            
         }
         
         private void tbNombre_KeyDown(object sender, KeyEventArgs e)
@@ -89,8 +90,17 @@ namespace TPdeDiseño
 
         private void tbMail_KeyPress(object sender, KeyPressEventArgs e)
             {
-                //validarEmail(tbMail.text);
+                validarEmail(tbMail.Text);
             }
+        
+        private int validarCamposNulos()
+        {
+            if (tbNombre.Text == " ")
+                return 1;
+            if (tbMail.Text == " ")
+                return 1;
+            return 0;
+        }
 
         private void bExaminar_Click(object sender, EventArgs e)
         {
@@ -133,34 +143,60 @@ namespace TPdeDiseño
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
-            if ((competenciaAltaPart._estado == "CREADA") || (competenciaAltaPart._estado == "PLANIFICADA"))
-                MessageBox.Show("No se pueden agregar participantes a la competencia.");
-            else
-            {
-                bool nombreValido = gestorP.compararNombre(tbNombre.Text);
-                if (nombreValido)
-                {
-                   bool emailValido = gestorP.compararMail(tbMail.Text);
-                   if (emailValido == false)
-                       MessageBox.Show("El email ya existe.");
-                   else
+            
+           int error = 0;
+           error = validarCamposNulos();
+           Boolean nombreValido = gestorP.compararNombre(tbNombre.Text);
+           Boolean emailValido = gestorP.compararMail(tbMail.Text);
+                
+           if (error == 1)
+           {
+               MessageBox.Show("Asegurese que ningun campo sea nulo");
+               tbNombre.Focus();
+           }
+           else
+           {
+               if (nombreValido)
+               {
+                   if (emailValido)
+                   {
+                       competenciaAP._estado = "CREADA";
+                       competenciaABD.setEstado(competenciaAP._id_competencia, "CREADA");
+                       if (competenciaAP._fixture != null)
                        {
-                           /*Clases_de_entidad.Participante participante = gestorP.nuevoParticipante();
-                           competenciaAltaPart._estado == "CREADA";
-                           Clases_de_control.GestorCompetencia competencia = new Clases_de_control.GestorCompetencia();
-                           //void estadoComp = Clases_de_control.GestorCompetencia.setEstado("CREADA");
-                           bool validaFixture = (competenciaAltaPart._fixture != null);
-                           if(validaFixture == true)
-                           { Clases_de_control.GestorFixture gestFixture = new Clases_de_control.GestorFixture();
-                               void borrado = gestFixture.borrarFixture(id_fixture);
-                               MessageBox.Show("Se elimino el fixture de la competencia.");
+                           // Se borra el fixture.
+                           fixtureABD.deleteFixture(competenciaAP);
+                           MessageBox.Show("Se elimino el fixture de la competencia.");
+                           // Se crea el participante.
+                           nuevoParticipanteAP._nombre = tbNombre.Text;
+                           nuevoParticipanteAP._email = tbMail.Text;
+                           nuevoParticipanteAP._imagen = tbImagen.Text;
+                           // Se agrega el participante a la competencia.
+                           if (competenciaAP._participantes == null)
+                           {
+                               List<Clases_de_entidad.Participante> participantes = new List<Clases_de_entidad.Participante>();
+                               participantes.Add(nuevoParticipanteAP);
+                               competenciaAP._participantes = participantes;
                            }
-                       bool terminado = Clases_de_control.GestorParticipante.guardar(participante);
-                       MessageBox.Show("El participante se ha creado correctamente.");*/
-                       } 
-                }
-                else
-                    MessageBox.Show("El nombre ya existe.");
+                           else
+                               competenciaAP._participantes.Add(nuevoParticipanteAP);
+
+                       }
+                       gestorP.guardar(nuevoParticipanteAP);
+                       MessageBox.Show("El participante se ha creado correctamente.");
+                       this.Close();
+                   }
+                   else
+                   {
+                       MessageBox.Show("El email ya existe.");
+                       tbNombre.Focus();
+                   }
+               }
+               else
+               {
+                   MessageBox.Show("El nombre ya existe.");
+                   tbNombre.Focus();
+               }
             }
         }
     }
