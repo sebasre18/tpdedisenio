@@ -60,6 +60,10 @@ namespace TPdeDiseño.Clases_de_control
             return unaCompetencia = competenciaABD.getUnaCompetencia(unId_competencia);
         }
 
-        
+        public void guardar(Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
+        {
+            // Guarda una competencia nueva en la BD.
+            competenciaABD.setCompetencia(unaCompetencia);
+        }
     }
 }

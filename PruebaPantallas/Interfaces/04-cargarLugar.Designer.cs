@@ -105,7 +105,7 @@
             this.Controls.Add(this.bAceptar);
             this.Controls.Add(this.dgvLugares);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "cargarLugar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
