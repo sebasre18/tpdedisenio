@@ -59,6 +59,7 @@
     <Compile Include="Clases ABD\ABDparticipante.cs" />
     <Compile Include="Clases ABD\ABDlugares.cs" />
     <Compile Include="Clases de control\GestorParticipante.cs" />
+    <Compile Include="Clases de control\GestorTabla.cs" />
     <Compile Include="Clases de control\GestorUsuario.cs" />
     <Compile Include="Clases de control\GestorLugarRealizacion.cs" />
     <Compile Include="Clases de control\GestorFixture.cs" />
@@ -291,6 +292,7 @@
     </None>
     <None Include="DataClasses.dbml.layout">
       <DependentUpon>DataClasses.dbml</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <EmbeddedResource Include="Interfaces\13-listarLugares.resx">
       <DependentUpon>13-listarLugares.cs</DependentUpon>

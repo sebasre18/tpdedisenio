@@ -91,39 +91,87 @@ namespace TPdeDiseño.Clases_de_control
         //METODOS PARA GUARDAR EN BASE DE DATOS LOS RESULTADOS!!
         //
 
-        //Llama al ABDfixture para una competencia con forma de puntuacion por PUNTOS
-        public void guardarResultadoPuntos(Clases_de_entidad.Partido unPartido, int ptosP1, int ptosP2, Clases_de_entidad.CompetenciaDeportiva comp)
+        public Clases_de_entidad.Partido guardaResultado(Clases_de_entidad.Partido unPartido)
         {
-            //Llamada a la BD para setear el resultado
+            Clases_de_entidad.Partido partido = new Clases_de_entidad.Partido();
             Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
-            ABDfix.setResultadoPtos(unPartido, ptosP1, ptosP2, comp);
+
+            partido._resultado._ausente = unPartido._resultado._ausente;
+            partido._resultado._cantidad_set = unPartido._resultado._cantidad_set;
+            partido._resultado._empate = unPartido._resultado._empate;
+            partido._resultado._ganador = unPartido._resultado._ganador;
+            partido._resultado._id_partido = unPartido._resultado._id_partido;
+            partido._resultado._id_resultado = unPartido._resultado._id_resultado;
+            partido._resultado._puntosP1 = unPartido._resultado._puntosP1;
+            partido._resultado._puntosP2 = unPartido._resultado._puntosP2;
+            partido._id_partido = unPartido._id_partido;
+            partido._pParticipantes[0]._participante = unPartido._pParticipantes[0]._participante;
+            partido._pParticipantes[1]._participante = unPartido._pParticipantes[1]._participante;
+            for (int i = 0; i < unPartido._resultado._cantidad_set; i++)
+            {
+                Clases_de_entidad.Set set = new Clases_de_entidad.Set();
+                set._puntosP1 = unPartido._resultado._sets[i]._puntosP1;
+                set._puntosP2 = unPartido._resultado._sets[i]._puntosP2;
+                set._id_set = unPartido._resultado._sets[i]._id_set;
+                partido._resultado._sets.Add(set);
+            }
+            for (int i = 0; i < unPartido._resultado._histResultado.Count; i++)
+            {
+                Clases_de_entidad.HistorialResultado histResult = new Clases_de_entidad.HistorialResultado();
+                histResult._ausente = unPartido._resultado._ausente;
+                histResult._cantidad_set = unPartido._resultado._cantidad_set;
+                histResult._empate = unPartido._resultado._empate;
+                histResult._ganador = unPartido._resultado._ganador;
+                histResult._id_partido = unPartido._id_partido;
+                histResult._id_resultado = unPartido._resultado._id_resultado;
+                histResult._puntosP1 = unPartido._resultado._puntosP1;
+                histResult._puntosP2 = unPartido._resultado._puntosP2;
+                for (int j = 0; j < unPartido._resultado._cantidad_set; j++)
+                {
+                    Clases_de_entidad.Set set = new Clases_de_entidad.Set();
+                    set._puntosP1 = unPartido._resultado._sets[j]._puntosP1;
+                    set._puntosP2 = unPartido._resultado._sets[j]._puntosP2;
+                    set._id_set = unPartido._resultado._sets[j]._id_set;
+                    histResult._sets.Add(set);
+                }
+                histResult._fecha_modificacion = DateTime.Now;
+                partido._resultado._histResultado.Add(histResult);
+            }
+
+            ABDfix.setResultado(partido);
+            partido = creaHistorialResultado(partido);
+
+            return partido;
         }
 
-        //Llama al ABDfixture para una competencia con forma de puntuacion por RDO FINAL o por ausencias
-        public void guardarResultadoGanador(Clases_de_entidad.Partido unPartido, Clases_de_entidad.Participante ganador, Clases_de_entidad.CompetenciaDeportiva comp)
+        public Clases_de_entidad.Partido creaHistorialResultado(Clases_de_entidad.Partido unPartido)
         {
-            //Llamada a la BD para setear el resultado
+            Clases_de_entidad.HistorialResultado histRes = new Clases_de_entidad.HistorialResultado();
+
+            histRes._ausente = unPartido._resultado._ausente;
+            histRes._cantidad_set = unPartido._resultado._cantidad_set;
+            histRes._empate = unPartido._resultado._empate;
+            histRes._ganador = unPartido._resultado._ganador;
+            histRes._id_partido = unPartido._id_partido;
+            histRes._id_resultado = unPartido._resultado._id_resultado;
+            histRes._puntosP1 = unPartido._resultado._puntosP1;
+            histRes._puntosP2 = unPartido._resultado._puntosP2;
+            for (int i = 0; i < unPartido._resultado._cantidad_set; i++)
+            {
+                Clases_de_entidad.Set set = new Clases_de_entidad.Set();
+                set._puntosP1 = unPartido._resultado._sets[i]._puntosP1;
+                set._puntosP2 = unPartido._resultado._sets[i]._puntosP2;
+                set._id_set = unPartido._resultado._sets[i]._id_set;
+                histRes._sets.Add(set);
+            }
+            histRes._fecha_modificacion = DateTime.Now;
+
+            unPartido._resultado._histResultado.Add(histRes);
+
             Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
-            ABDfix.setResultadoGanador(unPartido, ganador, comp);
-        }
+            ABDfix.creaHistorialResultado(histRes);
 
-        //Llama al ABDfixture para una competencia con forma de puntuacion por RDO FINAL EMPATE
-        public void guardarResultadoGanadorEmp(Clases_de_entidad.Partido unPartido, bool empate, Clases_de_entidad.CompetenciaDeportiva comp)
-        {
-            //Llamada a la BD para setear el resultado
-            Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
-            ABDfix.setResultadoGanadorEmp(unPartido, empate, comp);
-        }
-
-        //Llama al ABDfixture para una competencia con forma de puntuacion por SETS
-        public void guardarResultadoSets(Clases_de_entidad.Partido unPartido, List<Clases_de_entidad.Set> sets, Clases_de_entidad.CompetenciaDeportiva comp)
-        {
-            //Creacion del TDO SETS
-
-
-            //Llamada a la BD para setear el resultado
-            Clases_ABD.ABDfixture ABDfix = new Clases_ABD.ABDfixture();
-            ABDfix.setResultadoSets(unPartido, sets, comp);
+            return unPartido;
         }
     }
 }
