@@ -16,8 +16,8 @@ namespace TPdeDiseño.Clases_de_entidad
         private bool empate;
         private int cantidad_set;
         private List<Set> sets;
-        private int id_partido;
         private HistorialResultado histResultado;
+        private short id_partido;
 
         //Propiedades
         public short _id_resultado
@@ -108,17 +108,6 @@ namespace TPdeDiseño.Clases_de_entidad
                 sets = value;
             }
         }
-        public int _id_partido
-        {
-            get
-            {
-                return id_partido;
-            }
-            set
-            {
-                id_partido = value;
-            }
-        }
         public HistorialResultado _histResultado
         {
             get
@@ -130,11 +119,22 @@ namespace TPdeDiseño.Clases_de_entidad
                 histResultado = value;
             }
         }
+        public short _id_partido
+        {
+            get
+            {
+                return id_partido;
+            }
+            set
+            {
+                id_partido = value;
+            }
+        }
 
         //Constructor
         public Resultado() { }
 
-        public Resultado(short unId_resultado, int unPuntosP1, int unPuntosP2, Participante unGanador,Participante unAusente, bool unEmpate, int unaCantidad_set, List<Set> unosSets, int unId_partido, HistorialResultado unHistResultado)
+        public Resultado(short unId_resultado, int unPuntosP1, int unPuntosP2, Participante unGanador,Participante unAusente, bool unEmpate, int unaCantidad_set, List<Set> unosSets, short unId_partido, HistorialResultado unHistResultado)
         {
             this._id_resultado = unId_resultado;
             this._puntosP1 = unPuntosP1;
@@ -144,8 +144,8 @@ namespace TPdeDiseño.Clases_de_entidad
             this._empate = unEmpate;
             this._cantidad_set = unaCantidad_set;
             this._sets = unosSets;
-            this._id_partido = unId_partido;
             this._histResultado = unHistResultado;
+            this._id_partido = unId_partido;
         }
     }
 }

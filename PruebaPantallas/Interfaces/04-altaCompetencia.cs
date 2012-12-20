@@ -177,22 +177,34 @@ namespace TPdeDiseño
             }
             else
             {
-                short existe = gestorC.compararNombre(tbNombre.Text);
-                if (existe == 1)
+                if (gestorC.compararNombre(tbNombre.Text))
                 {
                     MessageBox.Show("El nombre ya existe.");
                     tbNombre.Focus();
                 }
                 else
                 {
-                    // Se crea la competencia con los datos ingresados por el usuario.
-                    Clases_de_entidad.FormaPuntuacion formaDePuntuacion = new Clases_de_entidad.FormaPuntuacion(cbFormaPuntuacion.Text, Convert.ToInt16(cbMaxSet.Text), Convert.ToInt16(tbNoPresentarse.Text));
-                    Clases_de_entidad.Modalidad modalidad = new Clases_de_entidad.Modalidad(cbModalidad.Text, Convert.ToInt16(tbPtosGanado.Text), cbEmpate.Checked, Convert.ToInt16(tbPtosEmpatado.Text), Convert.ToInt16(tbPtosPresentarse.Text), formaDePuntuacion);
+                    // Se crea la forma de puntuacion con los datos ingresados por el usuario.
+                    Clases_de_entidad.FormaPuntuacion formaDePuntuacion = new Clases_de_entidad.FormaPuntuacion();
+                    formaDePuntuacion._nombreForma = cbFormaPuntuacion.Text;
+                    formaDePuntuacion._cantidadSet = Convert.ToInt16(cbMaxSet.Text);
+                    formaDePuntuacion._tantosAusencia = Convert.ToInt16(tbNoPresentarse.Text);
+
+                    // Se crea la modalidad con los datos ingresados por el usuario.
+                    Clases_de_entidad.Modalidad modalidad = new Clases_de_entidad.Modalidad();
+                    modalidad._nombreMod = cbModalidad.Text;
+                    modalidad._ptosPG = Convert.ToInt16(tbPtosGanado.Text);
+                    modalidad._empate = cbEmpate.Checked;
+                    modalidad._ptosEmpate = Convert.ToInt16(tbPtosEmpatado.Text);
+                    modalidad._ptosPresentarse = Convert.ToInt16(tbPtosPresentarse.Text);
+                    modalidad._formaPuntuacion = formaDePuntuacion;
+
                     Clases_de_entidad.CompetenciaDeportiva nuevaCompetencia = new Clases_de_entidad.CompetenciaDeportiva("Creada", Convert.ToString(tbNombre.Text), Convert.ToString(rtbReglamento.Text), dep, lugaresAC, modalidad, usuarioLogueadoAC);
                     MessageBox.Show("La competencia se creo satisfactoriamente.");
                     
                     // Se guarda la competencia en la Base de Datos.
-                    gestorC.setCompetencia("Creada", Convert.ToString(tbNombre.Text), Convert.ToString(rtbReglamento.Text), dep, lugaresAC, modalidad, usuarioLogueadoAC);
+                    Clases_ABD.ABDcompetencia competenciaABD = new Clases_ABD.ABDcompetencia();
+                    competenciaABD.setCompetencia(nuevaCompetencia);
                     
                     // Abre la interfaz listar participantes de la competencia.
                     listarParticipantes listarP = new listarParticipantes();

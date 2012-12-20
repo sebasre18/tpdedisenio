@@ -66,7 +66,7 @@ namespace TPdeDiseño
                     //Actualiza el estado de la competencia en la BD a "En disputa"
                     competenciaVerFix._estado = "EN DISPUTA";
                     Clases_ABD.ABDcompetencia competenciaABD = new Clases_ABD.ABDcompetencia();
-                    Clases_ABD.ABDcompetencia.setEstado(competenciaVerFix._id_competencia, competenciaVerFix._estado);
+                    competenciaABD.setEstado(competenciaVerFix._id_competencia, competenciaVerFix._estado);
 
                 }
                 else if (competenciaVerFix._fixture._rondas[nRondaTotal]._partidos[nPartidos]._resultado == null)
@@ -74,7 +74,7 @@ namespace TPdeDiseño
                     //Actualiza el estado de la competencia en la BD a "Finalizada"
                     competenciaVerFix._estado = "FINALIZADA";
                     Clases_ABD.ABDcompetencia competenciaABD = new Clases_ABD.ABDcompetencia();
-                    Clases_ABD.ABDcompetencia.setEstado(competenciaVerFix._id_competencia, competenciaVerFix._estado);
+                    competenciaABD.setEstado(competenciaVerFix._id_competencia, competenciaVerFix._estado);
                 }*/
 
                 //Verifica la forma de puntuacion de la competencia y llama a las distintas pantallas

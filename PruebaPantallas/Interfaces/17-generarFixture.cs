@@ -76,6 +76,7 @@ namespace TPdeDiseño
 
                         //Se guarda el nuevo fixture en la BD
                         fixtureABD.guardarFixture(competenciaGenFix);
+                        this.Close();
                         MessageBox.Show("El fixture se genero exitosamente.");
                         break;
                     case "ELIMINACION SIMPLE":

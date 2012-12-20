@@ -20,28 +20,11 @@ namespace TPdeDiseño
         public listarCompetencias()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // Se cargan todas las competencias que existen.
-            competenciasLC = gestorC.buscarCompetencias(usuarioLogueadoLC);
-            int fila = 0;
-            foreach (Clases_de_entidad.CompetenciaDeportiva unaCompetencia in competenciasLC)
-            {
-                dgvCompetencia.Rows.Add();
-                dgvCompetencia[0, fila].Value = unaCompetencia._nombre;
-                dgvCompetencia[1, fila].Value = unaCompetencia._deporte;
-                dgvCompetencia[2, fila].Value = unaCompetencia._modalidad;
-                dgvCompetencia[3, fila].Value = unaCompetencia._estado;
-                fila++;
-            }
-
-        }
+        }       
 
         private void bVer_Click(object sender, EventArgs e)
         {
-            int filaSeleccionada;
+            int filaSeleccionada=0;
             //Comprueba que tenga una competencia seleccionada.
             if (dgvCompetencia.SelectedRows == null)
             {
@@ -65,11 +48,11 @@ namespace TPdeDiseño
                         
                 }
                 // Abre la interfaz Ver Competencia, pasandole como parametro la competencia seleccionada.
-                verCompetencia vc = new verCompetencia();
+                verCompetencia vc = new verCompetencia();                
                 vc.MdiParent = principal.ActiveForm;
-                vc.WindowState = FormWindowState.Maximized;
                 vc.competenciaVerComp = competenciaLC;
                 vc.Show();
+                this.Close();
             }
         }
 
@@ -82,9 +65,27 @@ namespace TPdeDiseño
         {
             altaCompetencia ac = new altaCompetencia();
             ac.MdiParent = principal.ActiveForm;
-            ac.WindowState = FormWindowState.Maximized;
             ac.Show();
             this.Close();
+        }
+
+        private void listarCompetencias_Load_1(object sender, EventArgs e)
+        {
+            Clases_ABD.ABDcompetencia competenciaABD = new Clases_ABD.ABDcompetencia();
+            usuarioLogueadoLC._email = "EMAIL@HOTMAIL.COM";
+
+            // Se cargan todas las competencias que existen.
+            competenciasLC = gestorC.buscarCompetencias(usuarioLogueadoLC);
+            int fila = 0;
+            foreach (Clases_de_entidad.CompetenciaDeportiva unaCompetencia in competenciasLC)
+            {
+                dgvCompetencia.Rows.Add();
+                dgvCompetencia[0, fila].Value = unaCompetencia._nombre;
+                dgvCompetencia[1, fila].Value = unaCompetencia._deporte._nombre;
+                dgvCompetencia[2, fila].Value = unaCompetencia._modalidad._nombreMod;
+                dgvCompetencia[3, fila].Value = unaCompetencia._estado;
+                fila++;
+            }
         }
 
         

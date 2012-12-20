@@ -8,12 +8,11 @@ namespace TPdeDiseño.Clases_de_entidad
     public class TablaPosiciones
     {
         //Atributos
-        private int id_tablaPos;
+        private short id_tablaPos;
         private List<renglonTabla> renglones;
-        private int id_competencia;
 
         //Propiedades
-        public int _id_tablaPos
+        public short _id_tablaPos
         {
             get
             {
@@ -35,26 +34,15 @@ namespace TPdeDiseño.Clases_de_entidad
                 renglones = value;
             }
         }
-        public int _id_competencia
-        {
-            get
-            {
-                return id_competencia;
-            }
-            set
-            {
-                id_competencia = value;
-            }
-        }
+
         
         //Constructor
         public TablaPosiciones() { }
 
-        public TablaPosiciones(int unId_tablaPos, List<renglonTabla> unosRenglones, int unId_competencia)
+        public TablaPosiciones(short unId_tablaPos, List<renglonTabla> unosRenglones)
         {
             this._id_tablaPos = unId_tablaPos;
             this._renglones = unosRenglones;
-            this._id_competencia = unId_competencia;
         }
     }
 }

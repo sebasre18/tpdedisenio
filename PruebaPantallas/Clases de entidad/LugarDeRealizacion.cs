@@ -8,32 +8,21 @@ namespace TPdeDiseño.Clases_de_entidad
     public class LugarDeRealizacion
     {
         //Atributos
-        private short codigo;
+        private short id_lugar;
         private string nombre;
         private string descripcion;
         private Disponibilidad disponibilidad;
-        
-        //Propiedades
-        public Disponibilidad _disponibilidad
+       
+       //Propiedades
+        public short _id_lugar
         {
             get
             {
-                return disponibilidad;
+                return id_lugar;
             }
             set
             {
-                disponibilidad = value;
-            }
-        }
-        public short _codigo
-        {
-            get
-            {
-                return codigo;
-            }
-            set
-            {
-                codigo = value;
+                id_lugar = value;
             }
         }
         public string _nombre
@@ -58,23 +47,28 @@ namespace TPdeDiseño.Clases_de_entidad
                 descripcion = value;
             }
         }
+        public Disponibilidad _disponibilidad
+        {
+            get
+            {
+                return disponibilidad;
+            }
+            set
+            {
+                disponibilidad = value;
+            }
+        }
         
         //Constructor
 
         public LugarDeRealizacion() { }
 
-        public LugarDeRealizacion(string unNombre)
+        public LugarDeRealizacion(short unId_lugar, string unNombre, string unaDescripcion, Disponibilidad unaDisponibilidad)
         {
-            this._nombre = unNombre;
-        }
-
-        public LugarDeRealizacion(short unCodigo, string unNombre, string unaDescripcion, Disponibilidad unaDisponibilidad, List<LugarDeRealizacion> unaListaDeLugaresDeRealizacion)
-        {
-            this._codigo = unCodigo;
+            this._id_lugar = unId_lugar;
             this._nombre = unNombre;
             this._descripcion = unaDescripcion;
             this._disponibilidad = unaDisponibilidad;
-            
         }
 
     }

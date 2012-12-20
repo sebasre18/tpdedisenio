@@ -10,10 +10,10 @@ namespace TPdeDiseño.Clases_de_entidad
         //Atributos
         private short id_modalidad;
         private string nombreMod;
-        private short ptosPG;
+        private int ptosPG;
         private Boolean empate;
-        private short ptosEmpate;
-        private short ptosPresentarse;
+        private int ptosEmpate;
+        private int ptosPresentarse;
         private FormaPuntuacion formaPuntuacion;
 
         //Propiedades
@@ -39,7 +39,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 nombreMod = value;
             }
         }
-        public short _ptosPG
+        public int _ptosPG
         {
             get
             {
@@ -61,7 +61,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 empate = value;
             }
             }
-        public short _ptosEmpate
+        public int _ptosEmpate
         {
             get
             {
@@ -72,7 +72,7 @@ namespace TPdeDiseño.Clases_de_entidad
                 ptosEmpate = value;
             }
         }
-        public short _ptosPresentarse
+        public int _ptosPresentarse
         {
             get
             {
@@ -98,8 +98,9 @@ namespace TPdeDiseño.Clases_de_entidad
         //Constructor
         public Modalidad() { }
 
-        public Modalidad(string nombreMod, short pPG, Boolean esEmpate, short pEmpate, short pPresentarse, FormaPuntuacion unaFormaPuntuacion)
+        public Modalidad(short unId_modalidad, string nombreMod, int pPG, Boolean esEmpate, int pEmpate, int pPresentarse, FormaPuntuacion unaFormaPuntuacion)
         {
+            this._id_modalidad = unId_modalidad;
             this._nombreMod = nombreMod;
             this._ptosPG = pPG;
             this._empate = esEmpate;

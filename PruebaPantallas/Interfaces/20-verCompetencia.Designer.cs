@@ -166,7 +166,6 @@
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
             this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonBaja
             // 
@@ -177,7 +176,6 @@
             this.buttonBaja.Text = "Dar de baja";
             this.buttonBaja.UseVisualStyleBackColor = true;
             this.buttonBaja.Click += new System.EventHandler(this.buttonBaja_Click);
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // buttonVerFixture
             // 
@@ -218,7 +216,6 @@
             this.buttonParticipantes.Text = "Datos participante";
             this.buttonParticipantes.UseVisualStyleBackColor = true;
             this.buttonParticipantes.Click += new System.EventHandler(this.buttonParticipantes_Click);
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // buttonCancelar
             // 
@@ -229,7 +226,6 @@
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // verCompetencia
             // 
@@ -256,7 +252,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "verCompetencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
