@@ -331,7 +331,15 @@ namespace TPdeDiseño.Clases_ABD
 
         public void setCompetencia(Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
         {
-
+            //Se guarda la competencia con sus atributos
+            CompetenciaDeportiva nueva = new CompetenciaDeportiva();
+            nueva.id_competencia = unaCompetencia._id_competencia;
+            nueva.nombre = unaCompetencia._nombre;
+            //nueva.id_deporte = unaCompetencia.;
+            //aca me tapo el agua con la forma de puntuacion y empate y todo eso
+            nueva.Reglamento = unaCompetencia._reglamento;
+            db.CompetenciaDeportiva.InsertOnSubmit(nueva);
+            db.SubmitChanges();
         }
 
         public void setRenglon(Clases_de_entidad.renglonTabla unRenglon)

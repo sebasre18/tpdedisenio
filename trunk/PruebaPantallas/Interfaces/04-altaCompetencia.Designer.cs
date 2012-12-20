@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(altaCompetencia));
             this.labelNombre = new System.Windows.Forms.Label();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -98,10 +97,6 @@
             // cbDeporte
             // 
             this.cbDeporte.FormattingEnabled = true;
-            this.cbDeporte.Items.AddRange(new object[] {
-            "Fútbol",
-            "Basquet",
-            "Tenis"});
             this.cbDeporte.Location = new System.Drawing.Point(98, 60);
             this.cbDeporte.Name = "cbDeporte";
             this.cbDeporte.Size = new System.Drawing.Size(83, 21);
@@ -120,10 +115,6 @@
             // cbModalidad
             // 
             this.cbModalidad.FormattingEnabled = true;
-            this.cbModalidad.Items.AddRange(new object[] {
-            "Sistema de Liga",
-            "Eliminatoria Simple",
-            "Eliminatorio Doble"});
             this.cbModalidad.Location = new System.Drawing.Point(197, 101);
             this.cbModalidad.Name = "cbModalidad";
             this.cbModalidad.Size = new System.Drawing.Size(107, 21);
@@ -229,9 +220,6 @@
             // cbFormaPuntuacion
             // 
             this.cbFormaPuntuacion.FormattingEnabled = true;
-            this.cbFormaPuntuacion.Items.AddRange(new object[] {
-            "Sets",
-            "Puntuación"});
             this.cbFormaPuntuacion.Location = new System.Drawing.Point(160, 305);
             this.cbFormaPuntuacion.Name = "cbFormaPuntuacion";
             this.cbFormaPuntuacion.Size = new System.Drawing.Size(100, 21);
@@ -439,7 +427,6 @@
             this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.labelNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "altaCompetencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

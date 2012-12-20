@@ -23,5 +23,40 @@ namespace TPdeDiseño.Clases_ABD
             
             return listaParticipantes;
         }
+
+        //retorna true si nombre del participante pasado por parametro existe en la BD
+        public bool compareNombre(string nombre)
+        {
+            var participante = from participantes in db.Participante where (participantes.nombre == nombre) select participantes;
+            foreach (var part in participante)
+            {
+                if (part.nombre == nombre)
+                    return true;
+            }
+            return false;
+        }
+
+        //retorna true si el mail del participante pasado por parametro existe en la BD
+        public bool compareMail(string email)
+        {
+            var participante = from participantes in db.Participante where (participantes.e_mail == email) select participantes;
+            foreach (var part in participante)
+            {
+                if (part.e_mail == email)
+                    return true;
+            }
+            return false;
+        }
+
+        public void setParticipante(Clases_de_entidad.Participante unParticipante)
+        {
+            //Se guarda el participante con sus atributos
+            Participante nuevo = new Participante();
+            nuevo.nombre = unParticipante._nombre;
+            nuevo.e_mail = unParticipante._email;
+            nuevo.imagen = unParticipante._imagen;
+            db.Participante.InsertOnSubmit(nuevo);
+            db.SubmitChanges();
+        }
     }
 }

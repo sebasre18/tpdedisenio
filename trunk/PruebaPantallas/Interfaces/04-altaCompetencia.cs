@@ -13,6 +13,7 @@ namespace TPdeDiseño
     {
         public List<Clases_de_entidad.LugarDeRealizacion> lugaresAC = new List<Clases_de_entidad.LugarDeRealizacion>();
         public Clases_de_entidad.Usuario usuarioLogueadoAC = new Clases_de_entidad.Usuario();
+        public List<Clases_de_entidad.Deporte> deportes = new List<Clases_de_entidad.Deporte>();
         
         Clases_de_control.GestorCompetencia gestorC = new Clases_de_control.GestorCompetencia();
         Clases_de_control.GestorLugarRealizacion gestorL = new Clases_de_control.GestorLugarRealizacion();
@@ -24,7 +25,24 @@ namespace TPdeDiseño
 
         private void altaCompetencia_Load(object sender, EventArgs e)
         {
-           
+            List<Clases_de_entidad.Modalidad> modalidades = new List<Clases_de_entidad.Modalidad>();
+            List<Clases_de_entidad.FormaPuntuacion> formasDePuntuacion = new List<Clases_de_entidad.FormaPuntuacion>();
+            modalidades = gestorC.buscarModalidades();
+            formasDePuntuacion = gestorC.buscarFormasDePuntuacion();
+            deportes = gestorC.buscarDeportes();
+
+            foreach (Clases_de_entidad.Deporte unDeporte in deportes)
+            {
+                cbDeporte.Items.Add(unDeporte._nombre);
+            }
+            foreach (Clases_de_entidad.Modalidad unaModalidad in modalidades)
+            {
+                cbModalidad.Items.Add(unaModalidad._nombreMod);
+            }
+            foreach (Clases_de_entidad.FormaPuntuacion unaforma in formasDePuntuacion)
+            {
+                cbFormaPuntuacion.Items.Add(unaforma._nombreForma);
+            }
         }
 
          private void tbNombre_KeyDown(object sender, KeyEventArgs e)
@@ -166,7 +184,6 @@ namespace TPdeDiseño
         private void bAceptar_Click(object sender, EventArgs e)
         {
             int error = 0;
-            List<Clases_de_entidad.Deporte> deportes = gestorC.buscarDeportes();
             error = validarCamposNulos();
             Clases_de_entidad.Deporte dep = deporteSeleccionado(cbDeporte.Text, deportes);
 
