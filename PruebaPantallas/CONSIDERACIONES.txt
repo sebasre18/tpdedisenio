@@ -8,3 +8,5 @@ TERMINAR:
 -getFixture
 
 revisar el deletefixture
+
+En el secuencia altaCompetencia, al setear la comp en la BD retornamos el id que se generó

@@ -34,18 +34,18 @@
             this.cbDeporte = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbModalidad = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lPtosGanado = new System.Windows.Forms.Label();
             this.tbPtosGanado = new System.Windows.Forms.TextBox();
             this.cbEmpate = new System.Windows.Forms.CheckBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lPtosEmpatado = new System.Windows.Forms.Label();
             this.tbPtosEmpatado = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lPtosPresentarse = new System.Windows.Forms.Label();
             this.tbPtosPresentarse = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbFormaPuntuacion = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lMaxSet = new System.Windows.Forms.Label();
+            this.lNoPresentarse = new System.Windows.Forms.Label();
             this.tbNoPresentarse = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.bLimpiar = new System.Windows.Forms.Button();
@@ -101,7 +101,9 @@
             this.cbDeporte.Name = "cbDeporte";
             this.cbDeporte.Size = new System.Drawing.Size(83, 21);
             this.cbDeporte.TabIndex = 2;
+            this.cbDeporte.SelectedValueChanged += new System.EventHandler(this.cbDeporte_SelectedValueChanged);
             this.cbDeporte.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbDeporte_KeyDown);
+            this.cbDeporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbDeporte_KeyPress);
             // 
             // label4
             // 
@@ -119,18 +121,19 @@
             this.cbModalidad.Name = "cbModalidad";
             this.cbModalidad.Size = new System.Drawing.Size(107, 21);
             this.cbModalidad.TabIndex = 4;
-            this.cbModalidad.SelectionChangeCommitted += new System.EventHandler(this.cbModalidad_SelectionChangeCommitted);
+            this.cbModalidad.SelectedValueChanged += new System.EventHandler(this.cbModalidad_SelectedValueChanged);
             this.cbModalidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbModalidad_KeyDown);
+            this.cbModalidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbModalidad_KeyPress);
             // 
-            // label5
+            // lPtosGanado
             // 
-            this.label5.AutoSize = true;
-            this.label5.Enabled = false;
-            this.label5.Location = new System.Drawing.Point(44, 145);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(135, 13);
-            this.label5.TabIndex = 53;
-            this.label5.Text = "Puntos por partido ganado:";
+            this.lPtosGanado.AutoSize = true;
+            this.lPtosGanado.Enabled = false;
+            this.lPtosGanado.Location = new System.Drawing.Point(44, 145);
+            this.lPtosGanado.Name = "lPtosGanado";
+            this.lPtosGanado.Size = new System.Drawing.Size(135, 13);
+            this.lPtosGanado.TabIndex = 53;
+            this.lPtosGanado.Text = "Puntos por partido ganado:";
             // 
             // tbPtosGanado
             // 
@@ -141,6 +144,7 @@
             this.tbPtosGanado.Size = new System.Drawing.Size(38, 20);
             this.tbPtosGanado.TabIndex = 5;
             this.tbPtosGanado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPtosGanado_KeyDown);
+            this.tbPtosGanado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPtosGanado_KeyPress);
             // 
             // cbEmpate
             // 
@@ -154,15 +158,15 @@
             this.cbEmpate.UseVisualStyleBackColor = true;
             this.cbEmpate.CheckedChanged += new System.EventHandler(this.cbEmpate_CheckedChanged);
             // 
-            // label6
+            // lPtosEmpatado
             // 
-            this.label6.AutoSize = true;
-            this.label6.Enabled = false;
-            this.label6.Location = new System.Drawing.Point(23, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(146, 13);
-            this.label6.TabIndex = 55;
-            this.label6.Text = "Puntos por partido empatado:";
+            this.lPtosEmpatado.AutoSize = true;
+            this.lPtosEmpatado.Enabled = false;
+            this.lPtosEmpatado.Location = new System.Drawing.Point(23, 53);
+            this.lPtosEmpatado.Name = "lPtosEmpatado";
+            this.lPtosEmpatado.Size = new System.Drawing.Size(146, 13);
+            this.lPtosEmpatado.TabIndex = 55;
+            this.lPtosEmpatado.Text = "Puntos por partido empatado:";
             // 
             // tbPtosEmpatado
             // 
@@ -173,16 +177,17 @@
             this.tbPtosEmpatado.Size = new System.Drawing.Size(38, 20);
             this.tbPtosEmpatado.TabIndex = 7;
             this.tbPtosEmpatado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPtosEmpatado_KeyDown);
+            this.tbPtosEmpatado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPtosEmpatado_KeyPress);
             // 
-            // label7
+            // lPtosPresentarse
             // 
-            this.label7.AutoSize = true;
-            this.label7.Enabled = false;
-            this.label7.Location = new System.Drawing.Point(3, 86);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 13);
-            this.label7.TabIndex = 56;
-            this.label7.Text = "Puntos por presentarse:";
+            this.lPtosPresentarse.AutoSize = true;
+            this.lPtosPresentarse.Enabled = false;
+            this.lPtosPresentarse.Location = new System.Drawing.Point(3, 86);
+            this.lPtosPresentarse.Name = "lPtosPresentarse";
+            this.lPtosPresentarse.Size = new System.Drawing.Size(119, 13);
+            this.lPtosPresentarse.TabIndex = 56;
+            this.lPtosPresentarse.Text = "Puntos por presentarse:";
             // 
             // tbPtosPresentarse
             // 
@@ -193,20 +198,20 @@
             this.tbPtosPresentarse.Size = new System.Drawing.Size(38, 20);
             this.tbPtosPresentarse.TabIndex = 8;
             this.tbPtosPresentarse.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPtosPresentarse_KeyDown);
+            this.tbPtosPresentarse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPtosPresentarse_KeyPress);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbEmpate);
-            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.lPtosEmpatado);
             this.groupBox1.Controls.Add(this.tbPtosPresentarse);
             this.groupBox1.Controls.Add(this.tbPtosEmpatado);
-            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.lPtosPresentarse);
             this.groupBox1.Location = new System.Drawing.Point(47, 173);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(500, 120);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label8
             // 
@@ -224,28 +229,29 @@
             this.cbFormaPuntuacion.Name = "cbFormaPuntuacion";
             this.cbFormaPuntuacion.Size = new System.Drawing.Size(100, 21);
             this.cbFormaPuntuacion.TabIndex = 9;
-            this.cbFormaPuntuacion.SelectionChangeCommitted += new System.EventHandler(this.cbFormaPuntuacion_SelectionChangeCommitted);
+            this.cbFormaPuntuacion.SelectedValueChanged += new System.EventHandler(this.cbFormaPuntuacion_SelectedValueChanged);
             this.cbFormaPuntuacion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbFormaPuntuacion_KeyDown);
+            this.cbFormaPuntuacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFormaPuntuacion_KeyPress);
             // 
-            // label9
+            // lMaxSet
             // 
-            this.label9.AutoSize = true;
-            this.label9.Enabled = false;
-            this.label9.Location = new System.Drawing.Point(71, 347);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(127, 13);
-            this.label9.TabIndex = 58;
-            this.label9.Text = "Cantidad máxima de sets:";
+            this.lMaxSet.AutoSize = true;
+            this.lMaxSet.Enabled = false;
+            this.lMaxSet.Location = new System.Drawing.Point(71, 347);
+            this.lMaxSet.Name = "lMaxSet";
+            this.lMaxSet.Size = new System.Drawing.Size(127, 13);
+            this.lMaxSet.TabIndex = 58;
+            this.lMaxSet.Text = "Cantidad máxima de sets:";
             // 
-            // label10
+            // lNoPresentarse
             // 
-            this.label10.AutoSize = true;
-            this.label10.Enabled = false;
-            this.label10.Location = new System.Drawing.Point(71, 383);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(190, 13);
-            this.label10.TabIndex = 59;
-            this.label10.Text = "Cantidad de tantos por no presentarse:";
+            this.lNoPresentarse.AutoSize = true;
+            this.lNoPresentarse.Enabled = false;
+            this.lNoPresentarse.Location = new System.Drawing.Point(71, 383);
+            this.lNoPresentarse.Name = "lNoPresentarse";
+            this.lNoPresentarse.Size = new System.Drawing.Size(190, 13);
+            this.lNoPresentarse.TabIndex = 59;
+            this.lNoPresentarse.Text = "Cantidad de tantos por no presentarse:";
             // 
             // tbNoPresentarse
             // 
@@ -256,6 +262,7 @@
             this.tbNoPresentarse.Size = new System.Drawing.Size(38, 20);
             this.tbNoPresentarse.TabIndex = 11;
             this.tbNoPresentarse.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbNoPresentarse_KeyDown);
+            this.tbNoPresentarse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNoPresentarse_KeyPress);
             // 
             // label11
             // 
@@ -284,6 +291,7 @@
             this.bCancelar.TabIndex = 20;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
             // bAceptar
             // 
@@ -386,6 +394,7 @@
             // 
             // cbMaxSet
             // 
+            this.cbMaxSet.Enabled = false;
             this.cbMaxSet.FormattingEnabled = true;
             this.cbMaxSet.Items.AddRange(new object[] {
             "3",
@@ -395,6 +404,8 @@
             this.cbMaxSet.Name = "cbMaxSet";
             this.cbMaxSet.Size = new System.Drawing.Size(38, 21);
             this.cbMaxSet.TabIndex = 29;
+            this.cbMaxSet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbDeporte_KeyDown);
+            this.cbMaxSet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbMaxSet_KeyPress);
             // 
             // altaCompetencia
             // 
@@ -413,13 +424,13 @@
             this.Controls.Add(this.bAceptar);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tbNoPresentarse);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lNoPresentarse);
+            this.Controls.Add(this.lMaxSet);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cbFormaPuntuacion);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbPtosGanado);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lPtosGanado);
             this.Controls.Add(this.cbModalidad);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbDeporte);
@@ -449,18 +460,18 @@
         private System.Windows.Forms.ComboBox cbDeporte;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbModalidad;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lPtosGanado;
         private System.Windows.Forms.TextBox tbPtosGanado;
         private System.Windows.Forms.CheckBox cbEmpate;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lPtosEmpatado;
         private System.Windows.Forms.TextBox tbPtosEmpatado;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lPtosPresentarse;
         private System.Windows.Forms.TextBox tbPtosPresentarse;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbFormaPuntuacion;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lMaxSet;
+        private System.Windows.Forms.Label lNoPresentarse;
         private System.Windows.Forms.TextBox tbNoPresentarse;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button bLimpiar;

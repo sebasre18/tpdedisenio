@@ -48,37 +48,6 @@
       <Association Name="Lugar_de_Realización_Partido" Member="Lugar_de_Realización" ThisKey="id_lugar" OtherKey="id_lugar" Type="Lugar_de_Realización" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Deporte" Member="Deporte">
-    <Type Name="Deporte">
-      <Column Name="id_deporte" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="id_lugar" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Association Name="Deporte_CompetenciaDeportiva" Member="CompetenciaDeportiva" ThisKey="id_deporte" OtherKey="id_deporte" Type="CompetenciaDeportiva" />
-      <Association Name="Lugar_de_Realización_Deporte" Member="Lugar_de_Realización" ThisKey="id_lugar" OtherKey="id_lugar" Type="Lugar_de_Realización" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Modalidad" Member="Modalidad">
-    <Type Name="Modalidad">
-      <Column Name="id_modalidad" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ptos_por_PG" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="empate" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ptos_empate" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ptos_por_presentarse" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="id_forma" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="nombre" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Association Name="Modalidad_CompetenciaDeportiva" Member="CompetenciaDeportiva" ThisKey="id_modalidad" OtherKey="id_modalidad" Type="CompetenciaDeportiva" />
-      <Association Name="Forma_de_Puntuacion_Modalidad" Member="Forma_de_Puntuacion" ThisKey="id_forma" OtherKey="id_forma" Type="Forma_de_Puntuacion" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Forma de Puntuacion" Member="Forma_de_Puntuacion">
-    <Type Name="Forma_de_Puntuacion">
-      <Column Name="id_forma" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="cant_sets" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="tantos_x_ausencia_del_rival" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="nombre" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Association Name="Forma_de_Puntuacion_Modalidad" Member="Modalidad" ThisKey="id_forma" OtherKey="id_forma" Type="Modalidad" />
-    </Type>
-  </Table>
   <Table Name="dbo.CompetenciaDeportiva" Member="CompetenciaDeportiva">
     <Type Name="CompetenciaDeportiva">
       <Column Name="id_competencia" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -94,9 +63,9 @@
       <Association Name="CompetenciaDeportiva_Fixture" Member="Fixture" ThisKey="id_competencia" OtherKey="id_competencia" Type="Fixture" />
       <Association Name="CompetenciaDeportiva_Tabla_de_Posiciones" Member="Tabla_de_Posiciones" ThisKey="id_competencia" OtherKey="id_competencia" Type="Tabla_de_Posiciones" />
       <Association Name="CompetenciaDeportiva_Competencia_Lugar" Member="Competencia_Lugar" ThisKey="id_competencia" OtherKey="id_competencia" Type="Competencia_Lugar" />
+      <Association Name="Usuario_CompetenciaDeportiva" Member="Usuario" ThisKey="e_mail_usuario" OtherKey="e_mail" Type="Usuario" IsForeignKey="true" />
       <Association Name="Deporte_CompetenciaDeportiva" Member="Deporte" ThisKey="id_deporte" OtherKey="id_deporte" Type="Deporte" IsForeignKey="true" />
       <Association Name="Modalidad_CompetenciaDeportiva" Member="Modalidad" ThisKey="id_modalidad" OtherKey="id_modalidad" Type="Modalidad" IsForeignKey="true" />
-      <Association Name="Usuario_CompetenciaDeportiva" Member="Usuario" ThisKey="e_mail_usuario" OtherKey="e_mail" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Lugar de Realización" Member="Lugar_de_Realización">
@@ -107,8 +76,8 @@
       <Column Name="eliminado" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="[e-mail_usuario]" Member="e_mail_usuario" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Lugar_de_Realización_Partido" Member="Partido" ThisKey="id_lugar" OtherKey="id_lugar" Type="Partido" />
-      <Association Name="Lugar_de_Realización_Deporte" Member="Deporte" ThisKey="id_lugar" OtherKey="id_lugar" Type="Deporte" />
       <Association Name="Lugar_de_Realización_Competencia_Lugar" Member="Competencia_Lugar" ThisKey="id_lugar" OtherKey="id_lugar" Type="Competencia_Lugar" />
+      <Association Name="Lugar_de_Realización_Deporte" Member="Deporte" ThisKey="id_lugar" OtherKey="id_lugar" Type="Deporte" />
       <Association Name="Usuario_Lugar_de_Realización" Member="Usuario" ThisKey="e_mail_usuario" OtherKey="e_mail" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>
@@ -223,6 +192,37 @@
       <Column Name="id_localidad" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Association Name="Usuario_CompetenciaDeportiva" Member="CompetenciaDeportiva" ThisKey="e_mail" OtherKey="e_mail_usuario" Type="CompetenciaDeportiva" />
       <Association Name="Usuario_Lugar_de_Realización" Member="Lugar_de_Realización" ThisKey="e_mail" OtherKey="e_mail_usuario" Type="Lugar_de_Realización" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Deporte" Member="Deporte">
+    <Type Name="Deporte">
+      <Column Name="id_deporte" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_lugar" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Deporte_CompetenciaDeportiva" Member="CompetenciaDeportiva" ThisKey="id_deporte" OtherKey="id_deporte" Type="CompetenciaDeportiva" />
+      <Association Name="Lugar_de_Realización_Deporte" Member="Lugar_de_Realización" ThisKey="id_lugar" OtherKey="id_lugar" Type="Lugar_de_Realización" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Forma de Puntuacion]" Member="Forma_de_Puntuacion">
+    <Type Name="Forma_de_Puntuacion">
+      <Column Name="id_forma" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cant_sets" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="tantos_x_ausencia_del_rival" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="Forma_de_Puntuacion_Modalidad" Member="Modalidad" ThisKey="id_forma" OtherKey="id_forma" Type="Modalidad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Modalidad" Member="Modalidad">
+    <Type Name="Modalidad">
+      <Column Name="id_modalidad" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ptos_por_PG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="empate" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ptos_empate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ptos_por_presentarse" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_forma" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="Modalidad_CompetenciaDeportiva" Member="CompetenciaDeportiva" ThisKey="id_modalidad" OtherKey="id_modalidad" Type="CompetenciaDeportiva" />
+      <Association Name="Forma_de_Puntuacion_Modalidad" Member="Forma_de_Puntuacion" ThisKey="id_forma" OtherKey="id_forma" Type="Forma_de_Puntuacion" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

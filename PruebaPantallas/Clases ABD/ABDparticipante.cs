@@ -48,13 +48,14 @@ namespace TPdeDiseño.Clases_ABD
             return false;
         }
 
-        public void setParticipante(Clases_de_entidad.Participante unParticipante)
+        public void setParticipante(Clases_de_entidad.Participante unParticipante, short unId_competencia)
         {
             //Se guarda el participante con sus atributos
             Participante nuevo = new Participante();
             nuevo.nombre = unParticipante._nombre;
             nuevo.e_mail = unParticipante._email;
             nuevo.imagen = unParticipante._imagen;
+            nuevo.id_competencia = unId_competencia;
             db.Participante.InsertOnSubmit(nuevo);
             db.SubmitChanges();
         }

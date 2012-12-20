@@ -11,8 +11,7 @@ namespace TPdeDiseño
 {
     public partial class principal : Form
     {
-        public Clases_de_entidad.Usuario usuarioLogueadoP = new Clases_de_entidad.Usuario();
-        
+        public static Clases_de_entidad.Usuario usuarioLogueadoP = new Clases_de_entidad.Usuario();
 
         public principal()
         {
@@ -21,9 +20,7 @@ namespace TPdeDiseño
 
         private void principal_Load(object sender, EventArgs e)
         {
-            //this.WindowState = FormWindowState.Maximized;
-            usuarioLogueadoP._email = "EMAIL@HOTMAIL.COM";
-            usuarioLogueadoP._contraseña = "PASS";
+            
         }
 
         private void iniciarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,13 +28,13 @@ namespace TPdeDiseño
             autentificarUsuario au = new autentificarUsuario();
             au.MdiParent = principal.ActiveForm;
             au.Show();
-            this.usuarioLogueadoP = au.usuarioNuevo;
             tsmiIniciar.Enabled = false;
             tsmiCerrar.Enabled = true;
             tsmiModificar.Enabled = true;
             tsmiAltaCompetencia.Enabled = true;
             tsmiListarCompetencias.Enabled = true;
             tsmiListarLugares.Enabled = true;
+            //this.usuarioLogueadoP = au.usuarioNuevo;
         }
 
         private void tsmiCerrar_Click(object sender, EventArgs e)
@@ -92,7 +89,7 @@ namespace TPdeDiseño
         {
             altaCompetencia ac = new altaCompetencia();
             ac.MdiParent = principal.ActiveForm;
-            ac.usuarioLogueadoAC = this.usuarioLogueadoP;
+            ac.usuarioLogueadoAC = usuarioLogueadoP;
             ac.Show();
         }
 
@@ -100,7 +97,7 @@ namespace TPdeDiseño
         {
             listarCompetencias lc = new listarCompetencias();
             lc.MdiParent = principal.ActiveForm;
-            lc.usuarioLogueadoLC = this.usuarioLogueadoP;
+            lc.usuarioLogueadoLC = usuarioLogueadoP;
             lc.Show();
         }
 

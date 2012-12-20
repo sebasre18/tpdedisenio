@@ -42,15 +42,6 @@ namespace TPdeDiseño
     partial void InsertPartido(Partido instance);
     partial void UpdatePartido(Partido instance);
     partial void DeletePartido(Partido instance);
-    partial void InsertDeporte(Deporte instance);
-    partial void UpdateDeporte(Deporte instance);
-    partial void DeleteDeporte(Deporte instance);
-    partial void InsertModalidad(Modalidad instance);
-    partial void UpdateModalidad(Modalidad instance);
-    partial void DeleteModalidad(Modalidad instance);
-    partial void InsertForma_de_Puntuacion(Forma_de_Puntuacion instance);
-    partial void UpdateForma_de_Puntuacion(Forma_de_Puntuacion instance);
-    partial void DeleteForma_de_Puntuacion(Forma_de_Puntuacion instance);
     partial void InsertCompetenciaDeportiva(CompetenciaDeportiva instance);
     partial void UpdateCompetenciaDeportiva(CompetenciaDeportiva instance);
     partial void DeleteCompetenciaDeportiva(CompetenciaDeportiva instance);
@@ -84,6 +75,15 @@ namespace TPdeDiseño
     partial void InsertUsuario(Usuario instance);
     partial void UpdateUsuario(Usuario instance);
     partial void DeleteUsuario(Usuario instance);
+    partial void InsertDeporte(Deporte instance);
+    partial void UpdateDeporte(Deporte instance);
+    partial void DeleteDeporte(Deporte instance);
+    partial void InsertForma_de_Puntuacion(Forma_de_Puntuacion instance);
+    partial void UpdateForma_de_Puntuacion(Forma_de_Puntuacion instance);
+    partial void DeleteForma_de_Puntuacion(Forma_de_Puntuacion instance);
+    partial void InsertModalidad(Modalidad instance);
+    partial void UpdateModalidad(Modalidad instance);
+    partial void DeleteModalidad(Modalidad instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -145,30 +145,6 @@ namespace TPdeDiseño
 			get
 			{
 				return this.GetTable<Partido>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Deporte> Deporte
-		{
-			get
-			{
-				return this.GetTable<Deporte>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Modalidad> Modalidad
-		{
-			get
-			{
-				return this.GetTable<Modalidad>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Forma_de_Puntuacion> Forma_de_Puntuacion
-		{
-			get
-			{
-				return this.GetTable<Forma_de_Puntuacion>();
 			}
 		}
 		
@@ -265,6 +241,30 @@ namespace TPdeDiseño
 			get
 			{
 				return this.GetTable<Usuario>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Deporte> Deporte
+		{
+			get
+			{
+				return this.GetTable<Deporte>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Forma_de_Puntuacion> Forma_de_Puntuacion
+		{
+			get
+			{
+				return this.GetTable<Forma_de_Puntuacion>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Modalidad> Modalidad
+		{
+			get
+			{
+				return this.GetTable<Modalidad>();
 			}
 		}
 	}
@@ -1308,622 +1308,6 @@ namespace TPdeDiseño
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Deporte")]
-	public partial class Deporte : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private short _id_deporte;
-		
-		private string _nombre;
-		
-		private System.Nullable<short> _id_lugar;
-		
-		private EntitySet<CompetenciaDeportiva> _CompetenciaDeportiva;
-		
-		private EntityRef<Lugar_de_Realización> _Lugar_de_Realización;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_deporteChanging(short value);
-    partial void Onid_deporteChanged();
-    partial void OnnombreChanging(string value);
-    partial void OnnombreChanged();
-    partial void Onid_lugarChanging(System.Nullable<short> value);
-    partial void Onid_lugarChanged();
-    #endregion
-		
-		public Deporte()
-		{
-			this._CompetenciaDeportiva = new EntitySet<CompetenciaDeportiva>(new Action<CompetenciaDeportiva>(this.attach_CompetenciaDeportiva), new Action<CompetenciaDeportiva>(this.detach_CompetenciaDeportiva));
-			this._Lugar_de_Realización = default(EntityRef<Lugar_de_Realización>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_deporte", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short id_deporte
-		{
-			get
-			{
-				return this._id_deporte;
-			}
-			set
-			{
-				if ((this._id_deporte != value))
-				{
-					this.Onid_deporteChanging(value);
-					this.SendPropertyChanging();
-					this._id_deporte = value;
-					this.SendPropertyChanged("id_deporte");
-					this.Onid_deporteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="NVarChar(50)")]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this.OnnombreChanging(value);
-					this.SendPropertyChanging();
-					this._nombre = value;
-					this.SendPropertyChanged("nombre");
-					this.OnnombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_lugar", DbType="SmallInt")]
-		public System.Nullable<short> id_lugar
-		{
-			get
-			{
-				return this._id_lugar;
-			}
-			set
-			{
-				if ((this._id_lugar != value))
-				{
-					if (this._Lugar_de_Realización.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_lugarChanging(value);
-					this.SendPropertyChanging();
-					this._id_lugar = value;
-					this.SendPropertyChanged("id_lugar");
-					this.Onid_lugarChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Deporte_CompetenciaDeportiva", Storage="_CompetenciaDeportiva", ThisKey="id_deporte", OtherKey="id_deporte")]
-		public EntitySet<CompetenciaDeportiva> CompetenciaDeportiva
-		{
-			get
-			{
-				return this._CompetenciaDeportiva;
-			}
-			set
-			{
-				this._CompetenciaDeportiva.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lugar_de_Realización_Deporte", Storage="_Lugar_de_Realización", ThisKey="id_lugar", OtherKey="id_lugar", IsForeignKey=true)]
-		public Lugar_de_Realización Lugar_de_Realización
-		{
-			get
-			{
-				return this._Lugar_de_Realización.Entity;
-			}
-			set
-			{
-				Lugar_de_Realización previousValue = this._Lugar_de_Realización.Entity;
-				if (((previousValue != value) 
-							|| (this._Lugar_de_Realización.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Lugar_de_Realización.Entity = null;
-						previousValue.Deporte.Remove(this);
-					}
-					this._Lugar_de_Realización.Entity = value;
-					if ((value != null))
-					{
-						value.Deporte.Add(this);
-						this._id_lugar = value.id_lugar;
-					}
-					else
-					{
-						this._id_lugar = default(Nullable<short>);
-					}
-					this.SendPropertyChanged("Lugar_de_Realización");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CompetenciaDeportiva(CompetenciaDeportiva entity)
-		{
-			this.SendPropertyChanging();
-			entity.Deporte = this;
-		}
-		
-		private void detach_CompetenciaDeportiva(CompetenciaDeportiva entity)
-		{
-			this.SendPropertyChanging();
-			entity.Deporte = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Modalidad")]
-	public partial class Modalidad : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private short _id_modalidad;
-		
-		private System.Nullable<int> _ptos_por_PG;
-		
-		private System.Data.Linq.Binary _empate;
-		
-		private System.Nullable<int> _ptos_empate;
-		
-		private System.Nullable<int> _ptos_por_presentarse;
-		
-		private System.Nullable<short> _id_forma;
-		
-		private string _nombre;
-		
-		private EntitySet<CompetenciaDeportiva> _CompetenciaDeportiva;
-		
-		private EntityRef<Forma_de_Puntuacion> _Forma_de_Puntuacion;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_modalidadChanging(short value);
-    partial void Onid_modalidadChanged();
-    partial void Onptos_por_PGChanging(System.Nullable<int> value);
-    partial void Onptos_por_PGChanged();
-    partial void OnempateChanging(System.Data.Linq.Binary value);
-    partial void OnempateChanged();
-    partial void Onptos_empateChanging(System.Nullable<int> value);
-    partial void Onptos_empateChanged();
-    partial void Onptos_por_presentarseChanging(System.Nullable<int> value);
-    partial void Onptos_por_presentarseChanged();
-    partial void Onid_formaChanging(System.Nullable<short> value);
-    partial void Onid_formaChanged();
-    partial void OnnombreChanging(string value);
-    partial void OnnombreChanged();
-    #endregion
-		
-		public Modalidad()
-		{
-			this._CompetenciaDeportiva = new EntitySet<CompetenciaDeportiva>(new Action<CompetenciaDeportiva>(this.attach_CompetenciaDeportiva), new Action<CompetenciaDeportiva>(this.detach_CompetenciaDeportiva));
-			this._Forma_de_Puntuacion = default(EntityRef<Forma_de_Puntuacion>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_modalidad", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short id_modalidad
-		{
-			get
-			{
-				return this._id_modalidad;
-			}
-			set
-			{
-				if ((this._id_modalidad != value))
-				{
-					this.Onid_modalidadChanging(value);
-					this.SendPropertyChanging();
-					this._id_modalidad = value;
-					this.SendPropertyChanged("id_modalidad");
-					this.Onid_modalidadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ptos_por_PG", DbType="Int")]
-		public System.Nullable<int> ptos_por_PG
-		{
-			get
-			{
-				return this._ptos_por_PG;
-			}
-			set
-			{
-				if ((this._ptos_por_PG != value))
-				{
-					this.Onptos_por_PGChanging(value);
-					this.SendPropertyChanging();
-					this._ptos_por_PG = value;
-					this.SendPropertyChanged("ptos_por_PG");
-					this.Onptos_por_PGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_empate", DbType="Binary(50)", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary empate
-		{
-			get
-			{
-				return this._empate;
-			}
-			set
-			{
-				if ((this._empate != value))
-				{
-					this.OnempateChanging(value);
-					this.SendPropertyChanging();
-					this._empate = value;
-					this.SendPropertyChanged("empate");
-					this.OnempateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ptos_empate", DbType="Int")]
-		public System.Nullable<int> ptos_empate
-		{
-			get
-			{
-				return this._ptos_empate;
-			}
-			set
-			{
-				if ((this._ptos_empate != value))
-				{
-					this.Onptos_empateChanging(value);
-					this.SendPropertyChanging();
-					this._ptos_empate = value;
-					this.SendPropertyChanged("ptos_empate");
-					this.Onptos_empateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ptos_por_presentarse", DbType="Int")]
-		public System.Nullable<int> ptos_por_presentarse
-		{
-			get
-			{
-				return this._ptos_por_presentarse;
-			}
-			set
-			{
-				if ((this._ptos_por_presentarse != value))
-				{
-					this.Onptos_por_presentarseChanging(value);
-					this.SendPropertyChanging();
-					this._ptos_por_presentarse = value;
-					this.SendPropertyChanged("ptos_por_presentarse");
-					this.Onptos_por_presentarseChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_forma", DbType="SmallInt")]
-		public System.Nullable<short> id_forma
-		{
-			get
-			{
-				return this._id_forma;
-			}
-			set
-			{
-				if ((this._id_forma != value))
-				{
-					if (this._Forma_de_Puntuacion.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_formaChanging(value);
-					this.SendPropertyChanging();
-					this._id_forma = value;
-					this.SendPropertyChanged("id_forma");
-					this.Onid_formaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="NVarChar(30)")]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this.OnnombreChanging(value);
-					this.SendPropertyChanging();
-					this._nombre = value;
-					this.SendPropertyChanged("nombre");
-					this.OnnombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Modalidad_CompetenciaDeportiva", Storage="_CompetenciaDeportiva", ThisKey="id_modalidad", OtherKey="id_modalidad")]
-		public EntitySet<CompetenciaDeportiva> CompetenciaDeportiva
-		{
-			get
-			{
-				return this._CompetenciaDeportiva;
-			}
-			set
-			{
-				this._CompetenciaDeportiva.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Forma_de_Puntuacion_Modalidad", Storage="_Forma_de_Puntuacion", ThisKey="id_forma", OtherKey="id_forma", IsForeignKey=true)]
-		public Forma_de_Puntuacion Forma_de_Puntuacion
-		{
-			get
-			{
-				return this._Forma_de_Puntuacion.Entity;
-			}
-			set
-			{
-				Forma_de_Puntuacion previousValue = this._Forma_de_Puntuacion.Entity;
-				if (((previousValue != value) 
-							|| (this._Forma_de_Puntuacion.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Forma_de_Puntuacion.Entity = null;
-						previousValue.Modalidad.Remove(this);
-					}
-					this._Forma_de_Puntuacion.Entity = value;
-					if ((value != null))
-					{
-						value.Modalidad.Add(this);
-						this._id_forma = value.id_forma;
-					}
-					else
-					{
-						this._id_forma = default(Nullable<short>);
-					}
-					this.SendPropertyChanged("Forma_de_Puntuacion");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CompetenciaDeportiva(CompetenciaDeportiva entity)
-		{
-			this.SendPropertyChanging();
-			entity.Modalidad = this;
-		}
-		
-		private void detach_CompetenciaDeportiva(CompetenciaDeportiva entity)
-		{
-			this.SendPropertyChanging();
-			entity.Modalidad = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Forma de Puntuacion")]
-	public partial class Forma_de_Puntuacion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private short _id_forma;
-		
-		private System.Nullable<short> _cant_sets;
-		
-		private System.Nullable<int> _tantos_x_ausencia_del_rival;
-		
-		private string _nombre;
-		
-		private EntitySet<Modalidad> _Modalidad;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_formaChanging(short value);
-    partial void Onid_formaChanged();
-    partial void Oncant_setsChanging(System.Nullable<short> value);
-    partial void Oncant_setsChanged();
-    partial void Ontantos_x_ausencia_del_rivalChanging(System.Nullable<int> value);
-    partial void Ontantos_x_ausencia_del_rivalChanged();
-    partial void OnnombreChanging(string value);
-    partial void OnnombreChanged();
-    #endregion
-		
-		public Forma_de_Puntuacion()
-		{
-			this._Modalidad = new EntitySet<Modalidad>(new Action<Modalidad>(this.attach_Modalidad), new Action<Modalidad>(this.detach_Modalidad));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_forma", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short id_forma
-		{
-			get
-			{
-				return this._id_forma;
-			}
-			set
-			{
-				if ((this._id_forma != value))
-				{
-					this.Onid_formaChanging(value);
-					this.SendPropertyChanging();
-					this._id_forma = value;
-					this.SendPropertyChanged("id_forma");
-					this.Onid_formaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cant_sets", DbType="SmallInt")]
-		public System.Nullable<short> cant_sets
-		{
-			get
-			{
-				return this._cant_sets;
-			}
-			set
-			{
-				if ((this._cant_sets != value))
-				{
-					this.Oncant_setsChanging(value);
-					this.SendPropertyChanging();
-					this._cant_sets = value;
-					this.SendPropertyChanged("cant_sets");
-					this.Oncant_setsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tantos_x_ausencia_del_rival", DbType="Int")]
-		public System.Nullable<int> tantos_x_ausencia_del_rival
-		{
-			get
-			{
-				return this._tantos_x_ausencia_del_rival;
-			}
-			set
-			{
-				if ((this._tantos_x_ausencia_del_rival != value))
-				{
-					this.Ontantos_x_ausencia_del_rivalChanging(value);
-					this.SendPropertyChanging();
-					this._tantos_x_ausencia_del_rival = value;
-					this.SendPropertyChanged("tantos_x_ausencia_del_rival");
-					this.Ontantos_x_ausencia_del_rivalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="NVarChar(30)")]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this.OnnombreChanging(value);
-					this.SendPropertyChanging();
-					this._nombre = value;
-					this.SendPropertyChanged("nombre");
-					this.OnnombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Forma_de_Puntuacion_Modalidad", Storage="_Modalidad", ThisKey="id_forma", OtherKey="id_forma")]
-		public EntitySet<Modalidad> Modalidad
-		{
-			get
-			{
-				return this._Modalidad;
-			}
-			set
-			{
-				this._Modalidad.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Modalidad(Modalidad entity)
-		{
-			this.SendPropertyChanging();
-			entity.Forma_de_Puntuacion = this;
-		}
-		
-		private void detach_Modalidad(Modalidad entity)
-		{
-			this.SendPropertyChanging();
-			entity.Forma_de_Puntuacion = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CompetenciaDeportiva")]
 	public partial class CompetenciaDeportiva : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1956,11 +1340,11 @@ namespace TPdeDiseño
 		
 		private EntitySet<Competencia_Lugar> _Competencia_Lugar;
 		
+		private EntityRef<Usuario> _Usuario;
+		
 		private EntityRef<Deporte> _Deporte;
 		
 		private EntityRef<Modalidad> _Modalidad;
-		
-		private EntityRef<Usuario> _Usuario;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -1992,9 +1376,9 @@ namespace TPdeDiseño
 			this._Fixture = new EntitySet<Fixture>(new Action<Fixture>(this.attach_Fixture), new Action<Fixture>(this.detach_Fixture));
 			this._Tabla_de_Posiciones = new EntitySet<Tabla_de_Posiciones>(new Action<Tabla_de_Posiciones>(this.attach_Tabla_de_Posiciones), new Action<Tabla_de_Posiciones>(this.detach_Tabla_de_Posiciones));
 			this._Competencia_Lugar = new EntitySet<Competencia_Lugar>(new Action<Competencia_Lugar>(this.attach_Competencia_Lugar), new Action<Competencia_Lugar>(this.detach_Competencia_Lugar));
+			this._Usuario = default(EntityRef<Usuario>);
 			this._Deporte = default(EntityRef<Deporte>);
 			this._Modalidad = default(EntityRef<Modalidad>);
-			this._Usuario = default(EntityRef<Usuario>);
 			OnCreated();
 		}
 		
@@ -2238,6 +1622,40 @@ namespace TPdeDiseño
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_CompetenciaDeportiva", Storage="_Usuario", ThisKey="e_mail_usuario", OtherKey="e_mail", IsForeignKey=true)]
+		public Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.CompetenciaDeportiva.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.CompetenciaDeportiva.Add(this);
+						this._e_mail_usuario = value.e_mail;
+					}
+					else
+					{
+						this._e_mail_usuario = default(string);
+					}
+					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Deporte_CompetenciaDeportiva", Storage="_Deporte", ThisKey="id_deporte", OtherKey="id_deporte", IsForeignKey=true)]
 		public Deporte Deporte
 		{
@@ -2302,40 +1720,6 @@ namespace TPdeDiseño
 						this._id_modalidad = default(short);
 					}
 					this.SendPropertyChanged("Modalidad");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_CompetenciaDeportiva", Storage="_Usuario", ThisKey="e_mail_usuario", OtherKey="e_mail", IsForeignKey=true)]
-		public Usuario Usuario
-		{
-			get
-			{
-				return this._Usuario.Entity;
-			}
-			set
-			{
-				Usuario previousValue = this._Usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Usuario.Entity = null;
-						previousValue.CompetenciaDeportiva.Remove(this);
-					}
-					this._Usuario.Entity = value;
-					if ((value != null))
-					{
-						value.CompetenciaDeportiva.Add(this);
-						this._e_mail_usuario = value.e_mail;
-					}
-					else
-					{
-						this._e_mail_usuario = default(string);
-					}
-					this.SendPropertyChanged("Usuario");
 				}
 			}
 		}
@@ -2427,9 +1811,9 @@ namespace TPdeDiseño
 		
 		private EntitySet<Partido> _Partido;
 		
-		private EntitySet<Deporte> _Deporte;
-		
 		private EntitySet<Competencia_Lugar> _Competencia_Lugar;
+		
+		private EntitySet<Deporte> _Deporte;
 		
 		private EntityRef<Usuario> _Usuario;
 		
@@ -2452,8 +1836,8 @@ namespace TPdeDiseño
 		public Lugar_de_Realización()
 		{
 			this._Partido = new EntitySet<Partido>(new Action<Partido>(this.attach_Partido), new Action<Partido>(this.detach_Partido));
-			this._Deporte = new EntitySet<Deporte>(new Action<Deporte>(this.attach_Deporte), new Action<Deporte>(this.detach_Deporte));
 			this._Competencia_Lugar = new EntitySet<Competencia_Lugar>(new Action<Competencia_Lugar>(this.attach_Competencia_Lugar), new Action<Competencia_Lugar>(this.detach_Competencia_Lugar));
+			this._Deporte = new EntitySet<Deporte>(new Action<Deporte>(this.attach_Deporte), new Action<Deporte>(this.detach_Deporte));
 			this._Usuario = default(EntityRef<Usuario>);
 			OnCreated();
 		}
@@ -2571,19 +1955,6 @@ namespace TPdeDiseño
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lugar_de_Realización_Deporte", Storage="_Deporte", ThisKey="id_lugar", OtherKey="id_lugar")]
-		public EntitySet<Deporte> Deporte
-		{
-			get
-			{
-				return this._Deporte;
-			}
-			set
-			{
-				this._Deporte.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lugar_de_Realización_Competencia_Lugar", Storage="_Competencia_Lugar", ThisKey="id_lugar", OtherKey="id_lugar")]
 		public EntitySet<Competencia_Lugar> Competencia_Lugar
 		{
@@ -2594,6 +1965,19 @@ namespace TPdeDiseño
 			set
 			{
 				this._Competencia_Lugar.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lugar_de_Realización_Deporte", Storage="_Deporte", ThisKey="id_lugar", OtherKey="id_lugar")]
+		public EntitySet<Deporte> Deporte
+		{
+			get
+			{
+				return this._Deporte;
+			}
+			set
+			{
+				this._Deporte.Assign(value);
 			}
 		}
 		
@@ -2663,18 +2047,6 @@ namespace TPdeDiseño
 			entity.Lugar_de_Realización = null;
 		}
 		
-		private void attach_Deporte(Deporte entity)
-		{
-			this.SendPropertyChanging();
-			entity.Lugar_de_Realización = this;
-		}
-		
-		private void detach_Deporte(Deporte entity)
-		{
-			this.SendPropertyChanging();
-			entity.Lugar_de_Realización = null;
-		}
-		
 		private void attach_Competencia_Lugar(Competencia_Lugar entity)
 		{
 			this.SendPropertyChanging();
@@ -2682,6 +2054,18 @@ namespace TPdeDiseño
 		}
 		
 		private void detach_Competencia_Lugar(Competencia_Lugar entity)
+		{
+			this.SendPropertyChanging();
+			entity.Lugar_de_Realización = null;
+		}
+		
+		private void attach_Deporte(Deporte entity)
+		{
+			this.SendPropertyChanging();
+			entity.Lugar_de_Realización = this;
+		}
+		
+		private void detach_Deporte(Deporte entity)
 		{
 			this.SendPropertyChanging();
 			entity.Lugar_de_Realización = null;
@@ -4902,6 +4286,622 @@ namespace TPdeDiseño
 		{
 			this.SendPropertyChanging();
 			entity.Usuario = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Deporte")]
+	public partial class Deporte : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private short _id_deporte;
+		
+		private string _nombre;
+		
+		private System.Nullable<short> _id_lugar;
+		
+		private EntitySet<CompetenciaDeportiva> _CompetenciaDeportiva;
+		
+		private EntityRef<Lugar_de_Realización> _Lugar_de_Realización;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_deporteChanging(short value);
+    partial void Onid_deporteChanged();
+    partial void OnnombreChanging(string value);
+    partial void OnnombreChanged();
+    partial void Onid_lugarChanging(System.Nullable<short> value);
+    partial void Onid_lugarChanged();
+    #endregion
+		
+		public Deporte()
+		{
+			this._CompetenciaDeportiva = new EntitySet<CompetenciaDeportiva>(new Action<CompetenciaDeportiva>(this.attach_CompetenciaDeportiva), new Action<CompetenciaDeportiva>(this.detach_CompetenciaDeportiva));
+			this._Lugar_de_Realización = default(EntityRef<Lugar_de_Realización>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_deporte", AutoSync=AutoSync.OnInsert, DbType="SmallInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public short id_deporte
+		{
+			get
+			{
+				return this._id_deporte;
+			}
+			set
+			{
+				if ((this._id_deporte != value))
+				{
+					this.Onid_deporteChanging(value);
+					this.SendPropertyChanging();
+					this._id_deporte = value;
+					this.SendPropertyChanged("id_deporte");
+					this.Onid_deporteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="NVarChar(50)")]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this.OnnombreChanging(value);
+					this.SendPropertyChanging();
+					this._nombre = value;
+					this.SendPropertyChanged("nombre");
+					this.OnnombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_lugar", DbType="SmallInt")]
+		public System.Nullable<short> id_lugar
+		{
+			get
+			{
+				return this._id_lugar;
+			}
+			set
+			{
+				if ((this._id_lugar != value))
+				{
+					if (this._Lugar_de_Realización.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_lugarChanging(value);
+					this.SendPropertyChanging();
+					this._id_lugar = value;
+					this.SendPropertyChanged("id_lugar");
+					this.Onid_lugarChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Deporte_CompetenciaDeportiva", Storage="_CompetenciaDeportiva", ThisKey="id_deporte", OtherKey="id_deporte")]
+		public EntitySet<CompetenciaDeportiva> CompetenciaDeportiva
+		{
+			get
+			{
+				return this._CompetenciaDeportiva;
+			}
+			set
+			{
+				this._CompetenciaDeportiva.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lugar_de_Realización_Deporte", Storage="_Lugar_de_Realización", ThisKey="id_lugar", OtherKey="id_lugar", IsForeignKey=true)]
+		public Lugar_de_Realización Lugar_de_Realización
+		{
+			get
+			{
+				return this._Lugar_de_Realización.Entity;
+			}
+			set
+			{
+				Lugar_de_Realización previousValue = this._Lugar_de_Realización.Entity;
+				if (((previousValue != value) 
+							|| (this._Lugar_de_Realización.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Lugar_de_Realización.Entity = null;
+						previousValue.Deporte.Remove(this);
+					}
+					this._Lugar_de_Realización.Entity = value;
+					if ((value != null))
+					{
+						value.Deporte.Add(this);
+						this._id_lugar = value.id_lugar;
+					}
+					else
+					{
+						this._id_lugar = default(Nullable<short>);
+					}
+					this.SendPropertyChanged("Lugar_de_Realización");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CompetenciaDeportiva(CompetenciaDeportiva entity)
+		{
+			this.SendPropertyChanging();
+			entity.Deporte = this;
+		}
+		
+		private void detach_CompetenciaDeportiva(CompetenciaDeportiva entity)
+		{
+			this.SendPropertyChanging();
+			entity.Deporte = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Forma de Puntuacion]")]
+	public partial class Forma_de_Puntuacion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private short _id_forma;
+		
+		private System.Nullable<short> _cant_sets;
+		
+		private System.Nullable<int> _tantos_x_ausencia_del_rival;
+		
+		private string _nombre;
+		
+		private EntitySet<Modalidad> _Modalidad;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_formaChanging(short value);
+    partial void Onid_formaChanged();
+    partial void Oncant_setsChanging(System.Nullable<short> value);
+    partial void Oncant_setsChanged();
+    partial void Ontantos_x_ausencia_del_rivalChanging(System.Nullable<int> value);
+    partial void Ontantos_x_ausencia_del_rivalChanged();
+    partial void OnnombreChanging(string value);
+    partial void OnnombreChanged();
+    #endregion
+		
+		public Forma_de_Puntuacion()
+		{
+			this._Modalidad = new EntitySet<Modalidad>(new Action<Modalidad>(this.attach_Modalidad), new Action<Modalidad>(this.detach_Modalidad));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_forma", AutoSync=AutoSync.OnInsert, DbType="SmallInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public short id_forma
+		{
+			get
+			{
+				return this._id_forma;
+			}
+			set
+			{
+				if ((this._id_forma != value))
+				{
+					this.Onid_formaChanging(value);
+					this.SendPropertyChanging();
+					this._id_forma = value;
+					this.SendPropertyChanged("id_forma");
+					this.Onid_formaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cant_sets", DbType="SmallInt")]
+		public System.Nullable<short> cant_sets
+		{
+			get
+			{
+				return this._cant_sets;
+			}
+			set
+			{
+				if ((this._cant_sets != value))
+				{
+					this.Oncant_setsChanging(value);
+					this.SendPropertyChanging();
+					this._cant_sets = value;
+					this.SendPropertyChanged("cant_sets");
+					this.Oncant_setsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tantos_x_ausencia_del_rival", DbType="Int")]
+		public System.Nullable<int> tantos_x_ausencia_del_rival
+		{
+			get
+			{
+				return this._tantos_x_ausencia_del_rival;
+			}
+			set
+			{
+				if ((this._tantos_x_ausencia_del_rival != value))
+				{
+					this.Ontantos_x_ausencia_del_rivalChanging(value);
+					this.SendPropertyChanging();
+					this._tantos_x_ausencia_del_rival = value;
+					this.SendPropertyChanged("tantos_x_ausencia_del_rival");
+					this.Ontantos_x_ausencia_del_rivalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="NVarChar(30)")]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this.OnnombreChanging(value);
+					this.SendPropertyChanging();
+					this._nombre = value;
+					this.SendPropertyChanged("nombre");
+					this.OnnombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Forma_de_Puntuacion_Modalidad", Storage="_Modalidad", ThisKey="id_forma", OtherKey="id_forma")]
+		public EntitySet<Modalidad> Modalidad
+		{
+			get
+			{
+				return this._Modalidad;
+			}
+			set
+			{
+				this._Modalidad.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Modalidad(Modalidad entity)
+		{
+			this.SendPropertyChanging();
+			entity.Forma_de_Puntuacion = this;
+		}
+		
+		private void detach_Modalidad(Modalidad entity)
+		{
+			this.SendPropertyChanging();
+			entity.Forma_de_Puntuacion = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Modalidad")]
+	public partial class Modalidad : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private short _id_modalidad;
+		
+		private System.Nullable<int> _ptos_por_PG;
+		
+		private System.Nullable<bool> _empate;
+		
+		private System.Nullable<int> _ptos_empate;
+		
+		private System.Nullable<int> _ptos_por_presentarse;
+		
+		private System.Nullable<short> _id_forma;
+		
+		private string _nombre;
+		
+		private EntitySet<CompetenciaDeportiva> _CompetenciaDeportiva;
+		
+		private EntityRef<Forma_de_Puntuacion> _Forma_de_Puntuacion;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_modalidadChanging(short value);
+    partial void Onid_modalidadChanged();
+    partial void Onptos_por_PGChanging(System.Nullable<int> value);
+    partial void Onptos_por_PGChanged();
+    partial void OnempateChanging(System.Nullable<bool> value);
+    partial void OnempateChanged();
+    partial void Onptos_empateChanging(System.Nullable<int> value);
+    partial void Onptos_empateChanged();
+    partial void Onptos_por_presentarseChanging(System.Nullable<int> value);
+    partial void Onptos_por_presentarseChanged();
+    partial void Onid_formaChanging(System.Nullable<short> value);
+    partial void Onid_formaChanged();
+    partial void OnnombreChanging(string value);
+    partial void OnnombreChanged();
+    #endregion
+		
+		public Modalidad()
+		{
+			this._CompetenciaDeportiva = new EntitySet<CompetenciaDeportiva>(new Action<CompetenciaDeportiva>(this.attach_CompetenciaDeportiva), new Action<CompetenciaDeportiva>(this.detach_CompetenciaDeportiva));
+			this._Forma_de_Puntuacion = default(EntityRef<Forma_de_Puntuacion>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_modalidad", AutoSync=AutoSync.OnInsert, DbType="SmallInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public short id_modalidad
+		{
+			get
+			{
+				return this._id_modalidad;
+			}
+			set
+			{
+				if ((this._id_modalidad != value))
+				{
+					this.Onid_modalidadChanging(value);
+					this.SendPropertyChanging();
+					this._id_modalidad = value;
+					this.SendPropertyChanged("id_modalidad");
+					this.Onid_modalidadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ptos_por_PG", DbType="Int")]
+		public System.Nullable<int> ptos_por_PG
+		{
+			get
+			{
+				return this._ptos_por_PG;
+			}
+			set
+			{
+				if ((this._ptos_por_PG != value))
+				{
+					this.Onptos_por_PGChanging(value);
+					this.SendPropertyChanging();
+					this._ptos_por_PG = value;
+					this.SendPropertyChanged("ptos_por_PG");
+					this.Onptos_por_PGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_empate", DbType="Bit")]
+		public System.Nullable<bool> empate
+		{
+			get
+			{
+				return this._empate;
+			}
+			set
+			{
+				if ((this._empate != value))
+				{
+					this.OnempateChanging(value);
+					this.SendPropertyChanging();
+					this._empate = value;
+					this.SendPropertyChanged("empate");
+					this.OnempateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ptos_empate", DbType="Int")]
+		public System.Nullable<int> ptos_empate
+		{
+			get
+			{
+				return this._ptos_empate;
+			}
+			set
+			{
+				if ((this._ptos_empate != value))
+				{
+					this.Onptos_empateChanging(value);
+					this.SendPropertyChanging();
+					this._ptos_empate = value;
+					this.SendPropertyChanged("ptos_empate");
+					this.Onptos_empateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ptos_por_presentarse", DbType="Int")]
+		public System.Nullable<int> ptos_por_presentarse
+		{
+			get
+			{
+				return this._ptos_por_presentarse;
+			}
+			set
+			{
+				if ((this._ptos_por_presentarse != value))
+				{
+					this.Onptos_por_presentarseChanging(value);
+					this.SendPropertyChanging();
+					this._ptos_por_presentarse = value;
+					this.SendPropertyChanged("ptos_por_presentarse");
+					this.Onptos_por_presentarseChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_forma", DbType="SmallInt")]
+		public System.Nullable<short> id_forma
+		{
+			get
+			{
+				return this._id_forma;
+			}
+			set
+			{
+				if ((this._id_forma != value))
+				{
+					if (this._Forma_de_Puntuacion.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_formaChanging(value);
+					this.SendPropertyChanging();
+					this._id_forma = value;
+					this.SendPropertyChanged("id_forma");
+					this.Onid_formaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="NVarChar(30)")]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this.OnnombreChanging(value);
+					this.SendPropertyChanging();
+					this._nombre = value;
+					this.SendPropertyChanged("nombre");
+					this.OnnombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Modalidad_CompetenciaDeportiva", Storage="_CompetenciaDeportiva", ThisKey="id_modalidad", OtherKey="id_modalidad")]
+		public EntitySet<CompetenciaDeportiva> CompetenciaDeportiva
+		{
+			get
+			{
+				return this._CompetenciaDeportiva;
+			}
+			set
+			{
+				this._CompetenciaDeportiva.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Forma_de_Puntuacion_Modalidad", Storage="_Forma_de_Puntuacion", ThisKey="id_forma", OtherKey="id_forma", IsForeignKey=true)]
+		public Forma_de_Puntuacion Forma_de_Puntuacion
+		{
+			get
+			{
+				return this._Forma_de_Puntuacion.Entity;
+			}
+			set
+			{
+				Forma_de_Puntuacion previousValue = this._Forma_de_Puntuacion.Entity;
+				if (((previousValue != value) 
+							|| (this._Forma_de_Puntuacion.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Forma_de_Puntuacion.Entity = null;
+						previousValue.Modalidad.Remove(this);
+					}
+					this._Forma_de_Puntuacion.Entity = value;
+					if ((value != null))
+					{
+						value.Modalidad.Add(this);
+						this._id_forma = value.id_forma;
+					}
+					else
+					{
+						this._id_forma = default(Nullable<short>);
+					}
+					this.SendPropertyChanged("Forma_de_Puntuacion");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CompetenciaDeportiva(CompetenciaDeportiva entity)
+		{
+			this.SendPropertyChanging();
+			entity.Modalidad = this;
+		}
+		
+		private void detach_CompetenciaDeportiva(CompetenciaDeportiva entity)
+		{
+			this.SendPropertyChanging();
+			entity.Modalidad = null;
 		}
 	}
 }

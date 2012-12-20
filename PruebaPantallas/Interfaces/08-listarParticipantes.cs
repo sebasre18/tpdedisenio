@@ -12,7 +12,7 @@ namespace TPdeDiseño
     public partial class listarParticipantes : Form
     {
         public Clases_de_entidad.CompetenciaDeportiva competenciaActual = new Clases_de_entidad.CompetenciaDeportiva();
-        public Clases_de_entidad.Participante nuevoParticipanteLP = new Clases_de_entidad.Participante();
+        public static Clases_de_entidad.Participante nuevoParticipanteLP = new Clases_de_entidad.Participante();
         public int fila = 0;
         
         public listarParticipantes()
@@ -33,23 +33,19 @@ namespace TPdeDiseño
         {
             if ((competenciaActual._estado == "CREADA") || (competenciaActual._estado == "PLANIFICADA"))
             {
-                MessageBox.Show("No se pueden agregar participantes a esta competencia.");
-            }
-            else
-            {
                 altaParticipante ap = new altaParticipante();
                 ap.MdiParent = principal.ActiveForm;
                 ap.competenciaAP = this.competenciaActual;
                 ap.Show();
-                this.nuevoParticipanteLP = ap.nuevoParticipanteAP;
-                this.competenciaActual = ap.competenciaAP;
                 // Mostrar en el datagriev el participante que se va agregando.
                 dgvParticipantes.Rows.Add();
                 dgvParticipantes[0, fila].Value = nuevoParticipanteLP._nombre;
                 dgvParticipantes[1, fila].Value = nuevoParticipanteLP._email;
                 fila = fila++; 
             }
-            
+            else         
+                MessageBox.Show("No se pueden agregar participantes a esta competencia.");
+
         }
 
         private void bModificar_Click(object sender, EventArgs e)
@@ -60,14 +56,11 @@ namespace TPdeDiseño
         private void bEliminar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Esta funcionalidad no está desarrollada aún.");
-
         }
 
         private void bCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        
+        }       
     }
 }
