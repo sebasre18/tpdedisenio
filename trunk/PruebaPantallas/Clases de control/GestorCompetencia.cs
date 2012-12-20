@@ -7,7 +7,8 @@ namespace TPdeDiseño.Clases_de_control
 {
     public class GestorCompetencia
     {
-        Clases_ABD.ABDcompetencia competenciaABD = new Clases_ABD.ABDcompetencia();
+        private Clases_ABD.ABDcompetencia competenciaABD = new Clases_ABD.ABDcompetencia();
+
         public List<Clases_de_entidad.Deporte> buscarDeportes()
         {
             List<Clases_de_entidad.Deporte> deportes = new List<Clases_de_entidad.Deporte>();
@@ -32,22 +33,33 @@ namespace TPdeDiseño.Clases_de_control
             return listaFormas;
         }
         
-        /*public Clases_de_entidad.TablaPosiciones verTabla(Clases_de_entidad.CompetenciaDeportiva competencia)
+        public Clases_de_entidad.TablaPosiciones verTabla(Clases_de_entidad.CompetenciaDeportiva competencia)
         {
             Clases_de_entidad.TablaPosiciones tablaPos = new Clases_de_entidad.TablaPosiciones();
         //    tablaPos = Clases_ABD.ABDcompetencia.getTabla(competencia);
             return tablaPos;
-        }*/
+        }
 
-        public short compararNombre(string nombre)
+        public Boolean compararNombre(string nombreComp)
         {
             //comparar nombre con la BD para ver si existe. Retorna 1 o 0.
-            short existe = 0; // retornar short porque con boolean no andan las comparaciones!
-            return existe;
+            return competenciaABD.compareNombre(nombreComp);
         }
 
-        public void setCompetencia(string unEstado, string unNombre, string unReglamento, Clases_de_entidad.Deporte unDeporte, List<Clases_de_entidad.LugarDeRealizacion> listaLugares, Clases_de_entidad.Modalidad unaModalidad, Clases_de_entidad.Usuario unUsuario)
+        public List<Clases_de_entidad.CompetenciaDeportiva> buscarCompetencias(Clases_de_entidad.Usuario usuarioAutenticado)
         {
+            List<Clases_de_entidad.CompetenciaDeportiva> listaCompetencias = new List<Clases_de_entidad.CompetenciaDeportiva>();
+            //busca de la BD una coleccion con todas las competencias creadas por un usuario
+            return listaCompetencias = competenciaABD.getCompetencias(usuarioAutenticado);
         }
+
+        public Clases_de_entidad.CompetenciaDeportiva buscarUnaCompetencia(short unId_competencia)
+        {
+            Clases_de_entidad.CompetenciaDeportiva unaCompetencia = new Clases_de_entidad.CompetenciaDeportiva();
+            //busca de la BD una competencia especifica con todos sus datos
+            return unaCompetencia = competenciaABD.getUnaCompetencia(unId_competencia);
+        }
+
+        
     }
 }

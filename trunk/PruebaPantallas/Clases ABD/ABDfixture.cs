@@ -7,6 +7,11 @@ namespace TPdeDiseño.Clases_ABD
 {
     public class ABDfixture
     {
+        DataClasses1DataContext db = new DataClasses1DataContext();
+//        ABDcompetencia competenciaABD = new ABDcompetencia();
+
+
+        //elimina el fixture de una competencia
         public void deleteFixture(Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
@@ -22,16 +27,17 @@ namespace TPdeDiseño.Clases_ABD
             }
         }
 
+
+        //guarda el fixture de una competencia
         public void guardarFixture(Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
         {    
-            DataClasses1DataContext db = new DataClasses1DataContext();
             //Se guarda el fixture con sus atributos
             Fixture nuevo = new Fixture();
             nuevo.id_competencia = unaCompetencia._id_competencia;
-            nuevo.id_ronda_actual = unaCompetencia._fixture._rondaActual;
+            nuevo.ronda_actual = unaCompetencia._fixture._rondaActual;
             db.Fixture.InsertOnSubmit(nuevo);
             db.SubmitChanges(); 
-
+            
             //Se guarda cada una de las rondas asignandolas al fixture creado
             foreach (Clases_de_entidad.Ronda unaRonda in unaCompetencia._fixture._rondas)
             {
@@ -64,11 +70,21 @@ namespace TPdeDiseño.Clases_ABD
                     db.SubmitChanges();   
                 }
             }
-
             //Se setea la competencia como PLANIFICADA en la BD
-            ABDcompetencia.setEstado(unaCompetencia._id_competencia, unaCompetencia._estado);
+            ABDcompetencia competenciaABD = new ABDcompetencia();
+            competenciaABD.setEstado(unaCompetencia._id_competencia, unaCompetencia._estado);
         }
-        
+
+
+        //retorna el fixture de una competencia
+        //TERMINAR
+        public Clases_de_entidad.Fixture getFixture(short unId_competencia)
+        {
+            Clases_de_entidad.Fixture fixture = new Clases_de_entidad.Fixture();
+            return fixture;
+        }
+
+
         //Setea resultado para FormaPuntuacion por puntos
         public void setResultadoPtos(Clases_de_entidad.Partido unPartido, int ptosP1, int ptosP2, Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
         {
@@ -76,12 +92,14 @@ namespace TPdeDiseño.Clases_ABD
 
         }
 
+
         //Setea resultado para FormaPuntuacion por resultado final
         public void setResultadoGanador(Clases_de_entidad.Partido unPartido, Clases_de_entidad.Participante ganador, Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
         {
             //Aca va a la base de datos el resultado del partido seleccionado
 
         }
+
 
         //Setea resultado para FormaPuntuacion por resultado final que esa empate
         public void setResultadoGanadorEmp(Clases_de_entidad.Partido unPartido, bool empate, Clases_de_entidad.CompetenciaDeportiva unaCompetencia)

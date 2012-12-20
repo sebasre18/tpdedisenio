@@ -12,7 +12,7 @@ namespace TPdeDiseño
 {
     public partial class altaParticipante : Form
     {
-        public Clases_de_entidad.CompetenciaDeportiva competenciaAP = new Clases_de_entidad.CompetenciaDeportiva();
+        public Clases_de_entidad.CompetenciaDeportiva competenciaAP = new Clases_de_entidad.CompetenciaDeportiva();        
         public Clases_de_control.GestorParticipante gestorP = new Clases_de_control.GestorParticipante();
         public Clases_de_entidad.Participante nuevoParticipanteAP = new Clases_de_entidad.Participante();
         public Clases_ABD.ABDcompetencia competenciaABD = new Clases_ABD.ABDcompetencia();

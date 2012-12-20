@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(listarCompetencias));
             this.bCancelar = new System.Windows.Forms.Button();
             this.bVer = new System.Windows.Forms.Button();
             this.bLimpiar = new System.Windows.Forms.Button();
@@ -62,13 +61,13 @@
             // 
             // bVer
             // 
-            this.bVer.Enabled = false;
             this.bVer.Location = new System.Drawing.Point(417, 401);
             this.bVer.Name = "bVer";
             this.bVer.Size = new System.Drawing.Size(75, 23);
             this.bVer.TabIndex = 21;
             this.bVer.Text = "Ver";
             this.bVer.UseVisualStyleBackColor = true;
+            this.bVer.EnabledChanged += new System.EventHandler(this.bVer_Click);
             this.bVer.Click += new System.EventHandler(this.bVer_Click);
             // 
             // bLimpiar
@@ -176,6 +175,7 @@
             this.dgvCompetencia.MultiSelect = false;
             this.dgvCompetencia.Name = "dgvCompetencia";
             this.dgvCompetencia.ReadOnly = true;
+            this.dgvCompetencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCompetencia.Size = new System.Drawing.Size(544, 145);
             this.dgvCompetencia.TabIndex = 28;
             // 
@@ -247,12 +247,11 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nombreLugar);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "listarCompetencias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar competencias deportivas";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.listarCompetencias_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompetencia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

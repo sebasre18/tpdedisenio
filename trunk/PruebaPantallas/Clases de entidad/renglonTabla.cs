@@ -133,7 +133,7 @@ namespace TPdeDiseño.Clases_de_entidad
 
         //Constructor
         public renglonTabla() { }
-        
+
         public renglonTabla(short unId_renglonTabla, int unPts, int unPGanado, int unPEmpatado, int unPPerdido, int unGolesFavor, int unGolesContra, int unaDiferencia, short unId_participante, string unNombreParticipante)
         {
             this._id_renglonTabla = unId_renglonTabla;

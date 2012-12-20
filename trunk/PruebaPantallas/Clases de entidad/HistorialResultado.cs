@@ -16,8 +16,8 @@ namespace TPdeDiseño.Clases_de_entidad
         private bool empate;
         private int cantidad_set;
         private List<Set> sets;
-        private int id_partido;
         private HistorialResultado histResultado;
+        private short id_partido;
         private DateTime fecha_modificacion;
 
         //Propiedades
@@ -34,7 +34,7 @@ namespace TPdeDiseño.Clases_de_entidad
         }
 
         //Constructor
-        public HistorialResultado(short unId_resultado, int unPuntosP1, int unPuntosP2, Participante unGanador,Participante unAusente, bool unEmpate, int unaCantidad_set, List<Set> unosSets, int unId_partido, HistorialResultado unHistResultado, DateTime unaFecha_modificacion) :
+        public HistorialResultado(short unId_resultado, int unPuntosP1, int unPuntosP2, Participante unGanador, Participante unAusente, bool unEmpate, int unaCantidad_set, List<Set> unosSets, short unId_partido, HistorialResultado unHistResultado, DateTime unaFecha_modificacion) :
             base(unId_resultado, unPuntosP1, unPuntosP2, unGanador, unAusente, unEmpate, unaCantidad_set, unosSets, unId_partido, unHistResultado)
         {
             this._fecha_modificacion = unaFecha_modificacion;

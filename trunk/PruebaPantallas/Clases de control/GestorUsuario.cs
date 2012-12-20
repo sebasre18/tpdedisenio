@@ -23,6 +23,8 @@ namespace TPdeDiseño.Clases_de_control
         {
             /* Consultar si el email esta guardado en la base de datos para saber si el usuario existe. En caso de que exista retornar el usuario completo.
                Si no existe retornar un objeto usuario con los campos nulos. */
+            Clases_de_entidad.Usuario unUsuario = new Clases_de_entidad.Usuario();
+            return unUsuario;
         }
     }
 }

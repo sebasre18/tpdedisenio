@@ -59,36 +59,26 @@ namespace TPdeDiseño
                 listBoxParticipantes.Items.Add(participante._nombre);
             }
 
-            foreach (Clases_de_entidad.Ronda ronda in competenciaVerComp._fixture._rondas)
-            {
-                nR = ronda._nro_ronda;
-                foreach (Clases_de_entidad.Partido part in competenciaVerComp._fixture._rondas[nR]._partidos)
-                {
-                    if (part._resultado == null)
-                    {
-                        rondaActual = nR;
-                        break;
-                    }
-                }
-            }
 
-            foreach (Clases_de_entidad.Partido partido in competenciaVerComp._fixture._rondas[rondaActual + 1]._partidos)
+            for (int nroRonda = competenciaVerComp._fixture._rondaActual ; nroRonda <= competenciaVerComp._fixture._rondas.Count ; nroRonda++)
             {
-                cadena = partido._pParticipantes[0]._participante._nombre + " - " + partido._pParticipantes[1]._participante._nombre;
-                listBoxProxEncuentros.Items.Add(cadena);
+                foreach (Clases_de_entidad.Partido partido in competenciaVerComp._fixture._rondas[nroRonda-1]._partidos)
+                {
+                    cadena = partido._pParticipantes[0]._participante._nombre + " - " + partido._pParticipantes[1]._participante._nombre;
+                    listBoxProxEncuentros.Items.Add(cadena);
+                }
             }
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            generarFixture genFixture;
+            generarFixture genFixture = new generarFixture();
             this.Close();
-            genFixture = new generarFixture();
             genFixture.MdiParent = principal.ActiveForm;
-            //genFixture.WindowState = FormWindowState.Maximized;
-            //genFixture.competenciaGenFix = competenciaVerComp;
+            genFixture.competenciaGenFix = competenciaVerComp;
             genFixture.Show();
+            
         }
 
         private void buttonVerFixture_Click_1(object sender, EventArgs e)
@@ -98,23 +88,21 @@ namespace TPdeDiseño
             if (competenciaVerComp._fixture != null)
             {
                 //Llamada a la nueva interfaz.
-                mostrarFixtureSRG mostrarFixture;
-                this.Close();
-                mostrarFixture = new mostrarFixtureSRG();
+                mostrarFixtureSRG mostrarFixture = new mostrarFixtureSRG();
                 mostrarFixture.MdiParent = principal.ActiveForm;
                 //mostrarFixture.WindowState = FormWindowState.Maximized;
                 mostrarFixture.competenciaVerFix = competenciaVerComp;
                 mostrarFixture.Show();
+                this.Close();
             }
             else
             {
                 mensajeTipo2 error;
-                this.Close();
                 error = new mensajeTipo2();
                 error.MdiParent = principal.ActiveForm;
-                error.WindowState = FormWindowState.Maximized;
                 error.error2 = "No existe un fixture generado.";
                 error.Show();
+                this.Close();
             }
         }
 
@@ -150,6 +138,7 @@ namespace TPdeDiseño
                     mtSG.MdiParent = principal.ActiveForm;
                     mtSG.competenciaSG = this.competenciaVerComp;
                     mtSG.Show();
+                    this.Close();
                 }
                 else
                 {
@@ -158,6 +147,7 @@ namespace TPdeDiseño
                     mtCG.MdiParent = principal.ActiveForm;
                     mtCG.competenciaCG = this.competenciaVerComp;
                     mtCG.Show();
+                    this.Close();
                 }
             }
             else

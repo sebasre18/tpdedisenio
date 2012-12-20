@@ -57,19 +57,6 @@
       <Association Name="Lugar_de_Realización_Deporte" Member="Lugar_de_Realización" ThisKey="id_lugar" OtherKey="id_lugar" Type="Lugar_de_Realización" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Usuario" Member="Usuario">
-    <Type Name="Usuario">
-      <Column Name="[e-mail]" Member="e_mail" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="contraseña" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Apellido" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="tipo_DNI" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="nro_DNI" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="id_localidad" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Association Name="Usuario_CompetenciaDeportiva" Member="CompetenciaDeportiva" ThisKey="e_mail" OtherKey="e_mail_usuario" Type="CompetenciaDeportiva" />
-      <Association Name="Usuario_Lugar_de_Realización" Member="Lugar_de_Realización" ThisKey="e_mail" OtherKey="e_mail_usuario" Type="Lugar_de_Realización" />
-    </Type>
-  </Table>
   <Table Name="dbo.Modalidad" Member="Modalidad">
     <Type Name="Modalidad">
       <Column Name="id_modalidad" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -223,6 +210,19 @@
       <Association Name="Resultado_Participante_Rdo" Member="Participante_Rdo" ThisKey="id_rdo" OtherKey="id_rdo" Type="Participante_Rdo" />
       <Association Name="Resultado_Set" Member="Set" ThisKey="id_rdo" OtherKey="id_rdo" Type="Set" />
       <Association Name="Resultado_Rdo_Partido" Member="Rdo_Partido" ThisKey="id_rdo" OtherKey="id_rdo" Type="Rdo_Partido" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="[e-mail]" Member="e_mail" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="contraseña" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tipo_DNI" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="nro_DNI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_localidad" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Usuario_CompetenciaDeportiva" Member="CompetenciaDeportiva" ThisKey="e_mail" OtherKey="e_mail_usuario" Type="CompetenciaDeportiva" />
+      <Association Name="Usuario_Lugar_de_Realización" Member="Lugar_de_Realización" ThisKey="e_mail" OtherKey="e_mail_usuario" Type="Lugar_de_Realización" />
     </Type>
   </Table>
 </Database>

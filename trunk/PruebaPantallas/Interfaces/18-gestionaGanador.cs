@@ -98,5 +98,10 @@ namespace TPdeDiseño
             this.Close();
         }
 
+        private void radioButtonEmpate_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
      }
 }

@@ -45,9 +45,6 @@ namespace TPdeDiseño
     partial void InsertDeporte(Deporte instance);
     partial void UpdateDeporte(Deporte instance);
     partial void DeleteDeporte(Deporte instance);
-    partial void InsertUsuario(Usuario instance);
-    partial void UpdateUsuario(Usuario instance);
-    partial void DeleteUsuario(Usuario instance);
     partial void InsertModalidad(Modalidad instance);
     partial void UpdateModalidad(Modalidad instance);
     partial void DeleteModalidad(Modalidad instance);
@@ -84,6 +81,9 @@ namespace TPdeDiseño
     partial void InsertResultado(Resultado instance);
     partial void UpdateResultado(Resultado instance);
     partial void DeleteResultado(Resultado instance);
+    partial void InsertUsuario(Usuario instance);
+    partial void UpdateUsuario(Usuario instance);
+    partial void DeleteUsuario(Usuario instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -153,14 +153,6 @@ namespace TPdeDiseño
 			get
 			{
 				return this.GetTable<Deporte>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Usuario> Usuario
-		{
-			get
-			{
-				return this.GetTable<Usuario>();
 			}
 		}
 		
@@ -265,6 +257,14 @@ namespace TPdeDiseño
 			get
 			{
 				return this.GetTable<Resultado>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Usuario> Usuario
+		{
+			get
+			{
+				return this.GetTable<Usuario>();
 			}
 		}
 	}
@@ -1484,268 +1484,6 @@ namespace TPdeDiseño
 		{
 			this.SendPropertyChanging();
 			entity.Deporte = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuario")]
-	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _e_mail;
-		
-		private string _contraseña;
-		
-		private string _Apellido;
-		
-		private string _Nombre;
-		
-		private string _tipo_DNI;
-		
-		private string _nro_DNI;
-		
-		private System.Nullable<short> _id_localidad;
-		
-		private EntitySet<CompetenciaDeportiva> _CompetenciaDeportiva;
-		
-		private EntitySet<Lugar_de_Realización> _Lugar_de_Realización;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void One_mailChanging(string value);
-    partial void One_mailChanged();
-    partial void OncontraseñaChanging(string value);
-    partial void OncontraseñaChanged();
-    partial void OnApellidoChanging(string value);
-    partial void OnApellidoChanged();
-    partial void OnNombreChanging(string value);
-    partial void OnNombreChanged();
-    partial void Ontipo_DNIChanging(string value);
-    partial void Ontipo_DNIChanged();
-    partial void Onnro_DNIChanging(string value);
-    partial void Onnro_DNIChanged();
-    partial void Onid_localidadChanging(System.Nullable<short> value);
-    partial void Onid_localidadChanged();
-    #endregion
-		
-		public Usuario()
-		{
-			this._CompetenciaDeportiva = new EntitySet<CompetenciaDeportiva>(new Action<CompetenciaDeportiva>(this.attach_CompetenciaDeportiva), new Action<CompetenciaDeportiva>(this.detach_CompetenciaDeportiva));
-			this._Lugar_de_Realización = new EntitySet<Lugar_de_Realización>(new Action<Lugar_de_Realización>(this.attach_Lugar_de_Realización), new Action<Lugar_de_Realización>(this.detach_Lugar_de_Realización));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[e-mail]", Storage="_e_mail", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string e_mail
-		{
-			get
-			{
-				return this._e_mail;
-			}
-			set
-			{
-				if ((this._e_mail != value))
-				{
-					this.One_mailChanging(value);
-					this.SendPropertyChanging();
-					this._e_mail = value;
-					this.SendPropertyChanged("e_mail");
-					this.One_mailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contraseña", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string contraseña
-		{
-			get
-			{
-				return this._contraseña;
-			}
-			set
-			{
-				if ((this._contraseña != value))
-				{
-					this.OncontraseñaChanging(value);
-					this.SendPropertyChanging();
-					this._contraseña = value;
-					this.SendPropertyChanged("contraseña");
-					this.OncontraseñaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Apellido
-		{
-			get
-			{
-				return this._Apellido;
-			}
-			set
-			{
-				if ((this._Apellido != value))
-				{
-					this.OnApellidoChanging(value);
-					this.SendPropertyChanging();
-					this._Apellido = value;
-					this.SendPropertyChanged("Apellido");
-					this.OnApellidoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this.OnNombreChanging(value);
-					this.SendPropertyChanging();
-					this._Nombre = value;
-					this.SendPropertyChanged("Nombre");
-					this.OnNombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo_DNI", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string tipo_DNI
-		{
-			get
-			{
-				return this._tipo_DNI;
-			}
-			set
-			{
-				if ((this._tipo_DNI != value))
-				{
-					this.Ontipo_DNIChanging(value);
-					this.SendPropertyChanging();
-					this._tipo_DNI = value;
-					this.SendPropertyChanged("tipo_DNI");
-					this.Ontipo_DNIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nro_DNI", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string nro_DNI
-		{
-			get
-			{
-				return this._nro_DNI;
-			}
-			set
-			{
-				if ((this._nro_DNI != value))
-				{
-					this.Onnro_DNIChanging(value);
-					this.SendPropertyChanging();
-					this._nro_DNI = value;
-					this.SendPropertyChanged("nro_DNI");
-					this.Onnro_DNIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_localidad", DbType="SmallInt")]
-		public System.Nullable<short> id_localidad
-		{
-			get
-			{
-				return this._id_localidad;
-			}
-			set
-			{
-				if ((this._id_localidad != value))
-				{
-					this.Onid_localidadChanging(value);
-					this.SendPropertyChanging();
-					this._id_localidad = value;
-					this.SendPropertyChanged("id_localidad");
-					this.Onid_localidadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_CompetenciaDeportiva", Storage="_CompetenciaDeportiva", ThisKey="e_mail", OtherKey="e_mail_usuario")]
-		public EntitySet<CompetenciaDeportiva> CompetenciaDeportiva
-		{
-			get
-			{
-				return this._CompetenciaDeportiva;
-			}
-			set
-			{
-				this._CompetenciaDeportiva.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Lugar_de_Realización", Storage="_Lugar_de_Realización", ThisKey="e_mail", OtherKey="e_mail_usuario")]
-		public EntitySet<Lugar_de_Realización> Lugar_de_Realización
-		{
-			get
-			{
-				return this._Lugar_de_Realización;
-			}
-			set
-			{
-				this._Lugar_de_Realización.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CompetenciaDeportiva(CompetenciaDeportiva entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = this;
-		}
-		
-		private void detach_CompetenciaDeportiva(CompetenciaDeportiva entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = null;
-		}
-		
-		private void attach_Lugar_de_Realización(Lugar_de_Realización entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = this;
-		}
-		
-		private void detach_Lugar_de_Realización(Lugar_de_Realización entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = null;
 		}
 	}
 	
@@ -4902,6 +4640,268 @@ namespace TPdeDiseño
 		{
 			this.SendPropertyChanging();
 			entity.Resultado = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuario")]
+	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _e_mail;
+		
+		private string _contraseña;
+		
+		private string _Apellido;
+		
+		private string _Nombre;
+		
+		private string _tipo_DNI;
+		
+		private System.Nullable<int> _nro_DNI;
+		
+		private System.Nullable<short> _id_localidad;
+		
+		private EntitySet<CompetenciaDeportiva> _CompetenciaDeportiva;
+		
+		private EntitySet<Lugar_de_Realización> _Lugar_de_Realización;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void One_mailChanging(string value);
+    partial void One_mailChanged();
+    partial void OncontraseñaChanging(string value);
+    partial void OncontraseñaChanged();
+    partial void OnApellidoChanging(string value);
+    partial void OnApellidoChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    partial void Ontipo_DNIChanging(string value);
+    partial void Ontipo_DNIChanged();
+    partial void Onnro_DNIChanging(System.Nullable<int> value);
+    partial void Onnro_DNIChanged();
+    partial void Onid_localidadChanging(System.Nullable<short> value);
+    partial void Onid_localidadChanged();
+    #endregion
+		
+		public Usuario()
+		{
+			this._CompetenciaDeportiva = new EntitySet<CompetenciaDeportiva>(new Action<CompetenciaDeportiva>(this.attach_CompetenciaDeportiva), new Action<CompetenciaDeportiva>(this.detach_CompetenciaDeportiva));
+			this._Lugar_de_Realización = new EntitySet<Lugar_de_Realización>(new Action<Lugar_de_Realización>(this.attach_Lugar_de_Realización), new Action<Lugar_de_Realización>(this.detach_Lugar_de_Realización));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[e-mail]", Storage="_e_mail", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string e_mail
+		{
+			get
+			{
+				return this._e_mail;
+			}
+			set
+			{
+				if ((this._e_mail != value))
+				{
+					this.One_mailChanging(value);
+					this.SendPropertyChanging();
+					this._e_mail = value;
+					this.SendPropertyChanged("e_mail");
+					this.One_mailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contraseña", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string contraseña
+		{
+			get
+			{
+				return this._contraseña;
+			}
+			set
+			{
+				if ((this._contraseña != value))
+				{
+					this.OncontraseñaChanging(value);
+					this.SendPropertyChanging();
+					this._contraseña = value;
+					this.SendPropertyChanged("contraseña");
+					this.OncontraseñaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido", DbType="NVarChar(50)")]
+		public string Apellido
+		{
+			get
+			{
+				return this._Apellido;
+			}
+			set
+			{
+				if ((this._Apellido != value))
+				{
+					this.OnApellidoChanging(value);
+					this.SendPropertyChanging();
+					this._Apellido = value;
+					this.SendPropertyChanged("Apellido");
+					this.OnApellidoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="NVarChar(50)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this.OnNombreChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo_DNI", DbType="NVarChar(20)")]
+		public string tipo_DNI
+		{
+			get
+			{
+				return this._tipo_DNI;
+			}
+			set
+			{
+				if ((this._tipo_DNI != value))
+				{
+					this.Ontipo_DNIChanging(value);
+					this.SendPropertyChanging();
+					this._tipo_DNI = value;
+					this.SendPropertyChanged("tipo_DNI");
+					this.Ontipo_DNIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nro_DNI", DbType="Int")]
+		public System.Nullable<int> nro_DNI
+		{
+			get
+			{
+				return this._nro_DNI;
+			}
+			set
+			{
+				if ((this._nro_DNI != value))
+				{
+					this.Onnro_DNIChanging(value);
+					this.SendPropertyChanging();
+					this._nro_DNI = value;
+					this.SendPropertyChanged("nro_DNI");
+					this.Onnro_DNIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_localidad", DbType="SmallInt")]
+		public System.Nullable<short> id_localidad
+		{
+			get
+			{
+				return this._id_localidad;
+			}
+			set
+			{
+				if ((this._id_localidad != value))
+				{
+					this.Onid_localidadChanging(value);
+					this.SendPropertyChanging();
+					this._id_localidad = value;
+					this.SendPropertyChanged("id_localidad");
+					this.Onid_localidadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_CompetenciaDeportiva", Storage="_CompetenciaDeportiva", ThisKey="e_mail", OtherKey="e_mail_usuario")]
+		public EntitySet<CompetenciaDeportiva> CompetenciaDeportiva
+		{
+			get
+			{
+				return this._CompetenciaDeportiva;
+			}
+			set
+			{
+				this._CompetenciaDeportiva.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Lugar_de_Realización", Storage="_Lugar_de_Realización", ThisKey="e_mail", OtherKey="e_mail_usuario")]
+		public EntitySet<Lugar_de_Realización> Lugar_de_Realización
+		{
+			get
+			{
+				return this._Lugar_de_Realización;
+			}
+			set
+			{
+				this._Lugar_de_Realización.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CompetenciaDeportiva(CompetenciaDeportiva entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_CompetenciaDeportiva(CompetenciaDeportiva entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Lugar_de_Realización(Lugar_de_Realización entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Lugar_de_Realización(Lugar_de_Realización entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
 		}
 	}
 }

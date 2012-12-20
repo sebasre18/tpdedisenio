@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(autentificarUsuario));
             this.tbPass = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.contrasena = new System.Windows.Forms.Label();
@@ -151,8 +150,7 @@
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.contrasena);
             this.Controls.Add(this.email);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.Name = "autentificarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

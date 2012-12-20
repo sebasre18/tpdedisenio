@@ -439,7 +439,7 @@
             this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.labelNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "altaCompetencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

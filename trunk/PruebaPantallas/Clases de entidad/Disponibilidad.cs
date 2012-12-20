@@ -24,6 +24,8 @@ namespace TPdeDiseño.Clases_de_entidad
         }
         
         //Constructor
+        public Disponibilidad() { }
+
         public Disponibilidad(int unTurnosPorFecha)
         {
             this._turnosPorFecha = unTurnosPorFecha;

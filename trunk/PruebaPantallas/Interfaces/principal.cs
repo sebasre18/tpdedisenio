@@ -13,6 +13,7 @@ namespace TPdeDiseño
     {
         public Clases_de_entidad.Usuario usuarioLogueadoP = new Clases_de_entidad.Usuario();
         
+
         public principal()
         {
             InitializeComponent();
@@ -20,16 +21,17 @@ namespace TPdeDiseño
 
         private void principal_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
+            usuarioLogueadoP._email = "EMAIL@HOTMAIL.COM";
+            usuarioLogueadoP._contraseña = "PASS";
         }
 
         private void iniciarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             autentificarUsuario au = new autentificarUsuario();
             au.MdiParent = principal.ActiveForm;
-            au.WindowState = FormWindowState.Maximized;
             au.Show();
-            this.usuarioLogueado = au.usuarioNuevo;
+            this.usuarioLogueadoP = au.usuarioNuevo;
             tsmiIniciar.Enabled = false;
             tsmiCerrar.Enabled = true;
             tsmiModificar.Enabled = true;
@@ -42,7 +44,7 @@ namespace TPdeDiseño
         {
             // Borra los datos del usuario loguado.
             Clases_de_entidad.Usuario usuarioDeslogueado = new Clases_de_entidad.Usuario();
-            usuarioLogueado = usuarioDeslogueado;
+            usuarioLogueadoP = usuarioDeslogueado;
             
             tsmiIniciar.Enabled = true;
             tsmiCerrar.Enabled = false;
@@ -90,7 +92,6 @@ namespace TPdeDiseño
         {
             altaCompetencia ac = new altaCompetencia();
             ac.MdiParent = principal.ActiveForm;
-            ac.WindowState = FormWindowState.Maximized;
             ac.usuarioLogueadoAC = this.usuarioLogueadoP;
             ac.Show();
         }
@@ -99,7 +100,6 @@ namespace TPdeDiseño
         {
             listarCompetencias lc = new listarCompetencias();
             lc.MdiParent = principal.ActiveForm;
-            lc.WindowState = FormWindowState.Maximized;
             lc.usuarioLogueadoLC = this.usuarioLogueadoP;
             lc.Show();
         }

@@ -8,12 +8,13 @@ namespace TPdeDiseño.Clases_de_entidad
     public class Set
     {
         //Atributos
-        private int id_set;
+        private short id_set;
         private int puntosP1;
         private int puntosP2;
+        private short nroSet;
 
         //Propiedades
-        public int _id_set
+        public short _id_set
         {
             get
             {
@@ -46,13 +47,28 @@ namespace TPdeDiseño.Clases_de_entidad
                 puntosP2 = value;
             }
         }
+        public short _nroSet
+        {
+            get
+            {
+                return nroSet;
+            }
+            set
+            {
+                nroSet = value;
+            }
+        }
+
 
         //Constructor
-        public Set(int unId_set, int unPuntosP1, int unPuntosP2)
+        public Set() { }
+
+        public Set(short unId_set, int unPuntosP1, int unPuntosP2, short unNroSet)
         {
             this._id_set = unId_set;
             this._puntosP1 = unPuntosP1;
             this._puntosP2 = unPuntosP2;
+            this._nroSet = unNroSet;
         }
     }
 }
