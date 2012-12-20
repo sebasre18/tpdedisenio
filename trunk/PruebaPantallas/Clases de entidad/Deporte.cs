@@ -8,11 +8,11 @@ namespace TPdeDiseño.Clases_de_entidad
     public class Deporte
     {
         //Atributos
-        private int id_deporte;
+        private short id_deporte;
         private string nombre;
 
         //Propiedades
-        public int _id_deporte
+        public short _id_deporte
         {
             get
             {
@@ -38,7 +38,7 @@ namespace TPdeDiseño.Clases_de_entidad
         //Constructor
         public Deporte() { }
         
-        public Deporte(int unId_deporte, string unNombre)
+        public Deporte(short unId_deporte, string unNombre)
         {
             this._id_deporte = unId_deporte;
             this._nombre = unNombre;

@@ -33,11 +33,10 @@
             this.contrasena = new System.Windows.Forms.Label();
             this.email = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.aceptar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.bLimpiar = new System.Windows.Forms.Button();
+            this.bCancelar = new System.Windows.Forms.Button();
+            this.bAceptar = new System.Windows.Forms.Button();
+            this.bRegistrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbPass
@@ -49,6 +48,7 @@
             this.tbPass.PasswordChar = '*';
             this.tbPass.Size = new System.Drawing.Size(252, 20);
             this.tbPass.TabIndex = 2;
+            this.tbPass.Text = "PASS";
             // 
             // tbEmail
             // 
@@ -58,6 +58,7 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(252, 20);
             this.tbEmail.TabIndex = 1;
+            this.tbEmail.Text = "EMAIL@HOTMAIL.COM";
             // 
             // contrasena
             // 
@@ -86,65 +87,57 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Si usted está registrado ingrese sus datos:";
             // 
-            // button2
+            // bLimpiar
             // 
-            this.button2.Location = new System.Drawing.Point(134, 215);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bLimpiar.Location = new System.Drawing.Point(134, 215);
+            this.bLimpiar.Name = "bLimpiar";
+            this.bLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.bLimpiar.TabIndex = 5;
+            this.bLimpiar.Text = "Limpiar";
+            this.bLimpiar.UseVisualStyleBackColor = true;
+            this.bLimpiar.Click += new System.EventHandler(this.bLimpiar_Click);
             // 
-            // button1
+            // bCancelar
             // 
-            this.button1.Location = new System.Drawing.Point(222, 215);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bCancelar.Location = new System.Drawing.Point(222, 215);
+            this.bCancelar.Name = "bCancelar";
+            this.bCancelar.Size = new System.Drawing.Size(75, 23);
+            this.bCancelar.TabIndex = 6;
+            this.bCancelar.Text = "Cancelar";
+            this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
-            // aceptar
+            // bAceptar
             // 
-            this.aceptar.Location = new System.Drawing.Point(45, 215);
-            this.aceptar.Name = "aceptar";
-            this.aceptar.Size = new System.Drawing.Size(75, 23);
-            this.aceptar.TabIndex = 4;
-            this.aceptar.Text = "Aceptar";
-            this.aceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.aceptar.UseVisualStyleBackColor = true;
-            this.aceptar.Click += new System.EventHandler(this.aceptar_Click);
+            this.bAceptar.Location = new System.Drawing.Point(45, 215);
+            this.bAceptar.Name = "bAceptar";
+            this.bAceptar.Size = new System.Drawing.Size(75, 23);
+            this.bAceptar.TabIndex = 4;
+            this.bAceptar.Text = "Aceptar";
+            this.bAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.bAceptar.UseVisualStyleBackColor = true;
+            this.bAceptar.Click += new System.EventHandler(this.aceptar_Click);
             // 
-            // button3
+            // bRegistrar
             // 
-            this.button3.Location = new System.Drawing.Point(45, 175);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(252, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Registrar nuevo usuario";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Enabled = false;
-            this.label2.Location = new System.Drawing.Point(55, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 13);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "ejemplo@ejemplo.com";
+            this.bRegistrar.Location = new System.Drawing.Point(45, 175);
+            this.bRegistrar.Name = "bRegistrar";
+            this.bRegistrar.Size = new System.Drawing.Size(252, 23);
+            this.bRegistrar.TabIndex = 3;
+            this.bRegistrar.Text = "Registrar nuevo usuario";
+            this.bRegistrar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.bRegistrar.UseVisualStyleBackColor = true;
+            this.bRegistrar.Click += new System.EventHandler(this.bRegistrar_Click);
             // 
             // autentificarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 267);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.aceptar);
+            this.Controls.Add(this.bRegistrar);
+            this.Controls.Add(this.bLimpiar);
+            this.Controls.Add(this.bCancelar);
+            this.Controls.Add(this.bAceptar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.tbEmail);
@@ -168,10 +161,9 @@
         private System.Windows.Forms.Label contrasena;
         private System.Windows.Forms.Label email;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button aceptar;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button bLimpiar;
+        private System.Windows.Forms.Button bCancelar;
+        private System.Windows.Forms.Button bAceptar;
+        private System.Windows.Forms.Button bRegistrar;
     }
 }

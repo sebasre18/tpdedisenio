@@ -141,7 +141,7 @@
             // 
             // pbImagen
             // 
-            this.pbImagen.Image = global::TPdeDiseño.Properties.Resources.usuarioMasculino;
+            this.pbImagen.Image = global::TPdeDiseño.Properties.Resources.usuarioMasculino;           
             this.pbImagen.Location = new System.Drawing.Point(36, 136);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(131, 107);

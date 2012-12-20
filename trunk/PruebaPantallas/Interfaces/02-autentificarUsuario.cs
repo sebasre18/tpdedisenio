@@ -13,7 +13,7 @@ namespace TPdeDiseño
     {
         public Clases_de_entidad.Usuario usuarioNuevo = new Clases_de_entidad.Usuario();
         Clases_de_control.GestorUsuario gestorU = new Clases_de_control.GestorUsuario();
-        
+
         public autentificarUsuario()
         {
             InitializeComponent();
@@ -26,13 +26,19 @@ namespace TPdeDiseño
 
         private void aceptar_Click(object sender, EventArgs e)
         {
-            if (tbEmail.Text == " " || tbPass.Text == " ")
+            usuarioNuevo._email = "EMAIL@HOTMAIL.COM";
+            usuarioNuevo._contraseña = "PASS";
+            principal.usuarioLogueadoP = usuarioNuevo;
+            /*if (tbEmail.Text == "" || tbPass.Text == "")
             {
                 MessageBox.Show("Ninguno de los campos puede ser nulo.");
             }
             else
             {
                 // Si el usuario no existe el sistema presenta un mensaje de error. Se vuelven a ingresar los datos.
+                usuarioNuevo._email = "EMAIL@HOTMAIL.COM";
+                usuarioNuevo._contraseña = "PASS";
+
                 usuarioNuevo = gestorU.existeUsuario(tbEmail.Text);
                 if (usuarioNuevo._email == " ")
                 {
@@ -43,6 +49,30 @@ namespace TPdeDiseño
                 {
                     // Queda creado el objeto logico usuario logueado. Se cierra la ventana de loguin.
                     this.Close();
+                }
+            }*/
+            this.Close();
+        }
+
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bRegistrar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Esta funcionalidad no está desarrollada aún.");
+        }
+
+        private void bLimpiar_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    c.Text = "";
+                    //Enfoco en el primer TextBox
+                    this.tbEmail.Focus();
                 }
             }
         }

@@ -21,10 +21,10 @@ namespace TPdeDiseño.Clases_de_control
             return participanteABD.compareMail(email);
         } 
 
-        public void guardar(Clases_de_entidad.Participante unParticipante)
+        public void guardar(Clases_de_entidad.Participante unParticipante, short unId_competencia)
         {
             // Guarda un participante nuevo en la BD.
-            participanteABD.setParticipante(unParticipante);
+            participanteABD.setParticipante(unParticipante, unId_competencia);
         }
          
     }

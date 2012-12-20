@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cargarLugar));
             this.dgvLugares = new System.Windows.Forms.DataGridView();
             this.lugarRealizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.turnosFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +73,7 @@
             this.bLimpiar.TabIndex = 33;
             this.bLimpiar.Text = "Limpiar";
             this.bLimpiar.UseVisualStyleBackColor = true;
+            this.bLimpiar.Click += new System.EventHandler(this.bLimpiar_Click);
             // 
             // bCancelar
             // 
@@ -83,6 +83,7 @@
             this.bCancelar.TabIndex = 32;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
             // bAceptar
             // 
@@ -105,7 +106,6 @@
             this.Controls.Add(this.bAceptar);
             this.Controls.Add(this.dgvLugares);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "cargarLugar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

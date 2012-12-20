@@ -25,6 +25,7 @@ namespace TPdeDiseño
 
         private void altaParticipante_Load(object sender, EventArgs e)
         {
+
         }
         
         private void tbNombre_KeyDown(object sender, KeyEventArgs e)
@@ -122,15 +123,10 @@ namespace TPdeDiseño
         {
             foreach (Control c in this.Controls)
             {
-
                 if (c is TextBox)
-
                 {
-
                     c.Text = " ";
-
                     //Enfoco en el primer TextBox
-
                     this.tbNombre.Focus();
                 }
              }
@@ -182,7 +178,7 @@ namespace TPdeDiseño
                                competenciaAP._participantes.Add(nuevoParticipanteAP);
 
                        }
-                       gestorP.guardar(nuevoParticipanteAP);
+                       gestorP.guardar(nuevoParticipanteAP, competenciaAP._id_competencia);
                        MessageBox.Show("El participante se ha creado correctamente.");
                        this.Close();
                    }

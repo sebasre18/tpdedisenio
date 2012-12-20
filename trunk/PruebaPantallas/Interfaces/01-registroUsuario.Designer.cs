@@ -51,7 +51,6 @@
             this.aceptoTerminos = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // aceptar
@@ -262,22 +261,11 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Acepto los términos y condiciones";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Enabled = false;
-            this.label2.Location = new System.Drawing.Point(102, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 13);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "ejemplo@ejemplo.com";
-            // 
             // registroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 460);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.aceptoTerminos);
@@ -334,7 +322,6 @@
         private System.Windows.Forms.CheckBox aceptoTerminos;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Label label2;
     }
 }
 

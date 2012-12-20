@@ -10,31 +10,26 @@ namespace TPdeDiseño.Clases_ABD
         DataClasses1DataContext db = new DataClasses1DataContext();
         
         //lista los lugares de una competencia
-        public List<Clases_de_entidad.LugarDeRealizacion> getLugares(short unId_competencia)
+        public List<Clases_de_entidad.LugarDeRealizacion> getLugares(string unNombreDeporte, string unEmail)
         {
             List<Clases_de_entidad.LugarDeRealizacion> listaLugares = new List<Clases_de_entidad.LugarDeRealizacion>();
 
-            var lugares = from lugar in db.Competencia_Lugar where (lugar.id_competencia == unId_competencia) select lugar;
+            var lugares = from lugar in db.Lugar_de_Realización where (lugar.e_mail_usuario == unEmail) select lugar;
 
             foreach (var unLugar in lugares)
             {
-                if (unLugar.id_competencia == unId_competencia)
+                foreach (var unDeporte in unLugar.Deporte)
                 {
-                    Clases_de_entidad.LugarDeRealizacion unLugarDeRealizacion = new Clases_de_entidad.LugarDeRealizacion();
-                    unLugarDeRealizacion._id_lugar = unLugar.id_lugar;
-                    unLugarDeRealizacion._disponibilidad = new Clases_de_entidad.Disponibilidad();
-                    unLugarDeRealizacion._disponibilidad._turnosPorFecha = Convert.ToInt32(unLugar.turnos_por_fecha);
-
-                    var coleccionLugares = from lugar in db.Lugar_de_Realización where (lugar.id_lugar == unLugar.id_lugar) select lugar;
-                    foreach (var lugarSeleccionado in coleccionLugares)
+                    if (unDeporte.nombre == unNombreDeporte)
                     {
-                        if (lugarSeleccionado.id_lugar == unLugar.id_lugar)
-                        {
-                            unLugarDeRealizacion._nombre = lugarSeleccionado.Nombre;
-                            unLugarDeRealizacion._descripcion = lugarSeleccionado.Descripción;
-                        }
+                        Clases_de_entidad.LugarDeRealizacion unLugarDeRealizacion = new Clases_de_entidad.LugarDeRealizacion();
+                        unLugarDeRealizacion._id_lugar = unLugar.id_lugar;
+                        unLugarDeRealizacion._nombre = unLugar.Nombre;
+                        unLugarDeRealizacion._descripcion = unLugar.Descripción;
+                        unLugarDeRealizacion._disponibilidad = new Clases_de_entidad.Disponibilidad();
+                        unLugarDeRealizacion._disponibilidad._turnosPorFecha = 0;
+                        listaLugares.Add(unLugarDeRealizacion);
                     }
-                    listaLugares.Add(unLugarDeRealizacion);
                 }
             }
             return listaLugares;

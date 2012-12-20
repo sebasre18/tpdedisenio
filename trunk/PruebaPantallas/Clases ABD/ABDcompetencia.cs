@@ -38,92 +38,87 @@ namespace TPdeDiseño.Clases_ABD
         }
 
 
-        //retorna la lista de todos los deportes
+        //retorna la lista de todos los deportes para interfaz
         public List<Clases_de_entidad.Deporte> getDeportes()
         {
             List<Clases_de_entidad.Deporte> listaDeportes = new List<Clases_de_entidad.Deporte>();
-            List<Deporte> listaDeportes2 = new List<Deporte>();           
+            int existeNombre = 0;
             var dep = from deportes in db.Deporte select deportes;
             foreach (var deporte in dep)
-            {                
-                Clases_de_entidad.Deporte unDeporte = new Clases_de_entidad.Deporte();
-                unDeporte._id_deporte = deporte.id_deporte;
-                unDeporte._nombre = deporte.nombre;
-                listaDeportes.Add(unDeporte);                
+            {
+                existeNombre = 0;
+                foreach (var unDep in listaDeportes)
+                {
+                    if (deporte.nombre == unDep._nombre)
+                    {
+                        existeNombre = 1;
+                    }
+                }
+                if ((listaDeportes.Count == 0) || (existeNombre == 0))
+                {
+                    Clases_de_entidad.Deporte unDeporte = new Clases_de_entidad.Deporte();
+                    unDeporte._id_deporte = deporte.id_deporte;
+                    unDeporte._nombre = deporte.nombre;
+                    listaDeportes.Add(unDeporte);
+                }
             }
             return listaDeportes;
         }
 
 
-        //retorna la lista de todas las modalidades
+        //retorna la lista de todas las modalidades para interfaz
         public List<Clases_de_entidad.Modalidad> getModalidades()
         {
             List<Clases_de_entidad.Modalidad> listaModalidades = new List<Clases_de_entidad.Modalidad>();            
+            int existeNombre = 0;
 
             var mod = from modalidades in db.Modalidad select modalidades;
             foreach (var modalidad in mod)
             {
-                Clases_de_entidad.Modalidad unaModalidad = new Clases_de_entidad.Modalidad();
-                unaModalidad._id_modalidad = modalidad.id_modalidad;
-                unaModalidad._nombreMod = modalidad.nombre;
-                listaModalidades.Add(unaModalidad);
+                existeNombre = 0;
+                foreach (var unaMod in listaModalidades)
+                {
+                    if (modalidad.nombre == unaMod._nombreMod)
+                    {
+                        existeNombre = 1;
+                    }
+                }
+                if ((listaModalidades.Count == 0) || (existeNombre == 0))
+                {
+                    Clases_de_entidad.Modalidad unaModalidad = new Clases_de_entidad.Modalidad();
+                    unaModalidad._id_modalidad = modalidad.id_modalidad;
+                    unaModalidad._nombreMod = modalidad.nombre;
+                    listaModalidades.Add(unaModalidad);
+                }
             }
             return listaModalidades;
         }
 
 
-        //retorna la modalidad de la competencia
-        public Clases_de_entidad.Modalidad getModalidad(short unId_modalidad)
-        {
-            List<Clases_de_entidad.Modalidad> listaModalidades = new List<Clases_de_entidad.Modalidad>();            
-
-            var mod = from modalidades in db.Modalidad where (modalidades.id_modalidad == unId_modalidad) select modalidades;
-            foreach (var modalidad in mod)
-            {
-                if (modalidad.id_modalidad == unId_modalidad)
-                {
-
-                    Clases_de_entidad.Modalidad unaModalidad = new Clases_de_entidad.Modalidad();
-                    unaModalidad._id_modalidad = modalidad.id_modalidad;
-                    unaModalidad._nombreMod = modalidad.nombre;
-                    unaModalidad._ptosPG = Convert.ToInt32(modalidad.ptos_por_PG);
-                    unaModalidad._empate = Convert.ToBoolean(modalidad.empate);
-                    unaModalidad._ptosEmpate = Convert.ToInt32(modalidad.ptos_empate);
-                    unaModalidad._ptosPresentarse = Convert.ToInt32(modalidad.ptos_por_presentarse);
-
-                    unaModalidad._formaPuntuacion = new Clases_de_entidad.FormaPuntuacion();
-                    var fp = from formas in db.Forma_de_Puntuacion where (formas.id_forma == modalidad.id_forma) select formas;
-                    foreach (var forma in fp)
-                    {
-                        if (forma.id_forma == modalidad.id_forma)
-                        {
-                            Clases_de_entidad.FormaPuntuacion unaFormaDePuntuacion = new Clases_de_entidad.FormaPuntuacion();
-                            unaFormaDePuntuacion._id_forma = forma.id_forma;
-                            unaFormaDePuntuacion._nombreForma = forma.nombre;
-                            unaFormaDePuntuacion._tantosAusencia = Convert.ToInt32(forma.tantos_x_ausencia_del_rival);
-                            unaFormaDePuntuacion._cantidadSet = Convert.ToInt16(forma.cant_sets);
-                            unaModalidad._formaPuntuacion = unaFormaDePuntuacion;
-                        }
-                    }
-                    return unaModalidad;
-                }
-            }
-            return null;
-        }
-
-
-        //retorna la lista de todas las formas de puntuacion
+        //retorna la lista de todas las formas de puntuacion para interfaz
         public List<Clases_de_entidad.FormaPuntuacion> getFormasDePuntuacion()
         {
-            List<Clases_de_entidad.FormaPuntuacion> listaFormasDePuntuacion = new List<Clases_de_entidad.FormaPuntuacion>();            
+            List<Clases_de_entidad.FormaPuntuacion> listaFormasDePuntuacion = new List<Clases_de_entidad.FormaPuntuacion>();
+            int existeNombre = 0;
 
             var fp = from formas in db.Forma_de_Puntuacion select formas;
             foreach (var forma in fp)
             {
-                Clases_de_entidad.FormaPuntuacion unaFormaDePuntuacion = new Clases_de_entidad.FormaPuntuacion();
-                unaFormaDePuntuacion._id_forma = forma.id_forma;
-                unaFormaDePuntuacion._nombreForma = forma.nombre;
-                listaFormasDePuntuacion.Add(unaFormaDePuntuacion);
+                existeNombre = 0;
+                foreach (var unaForma in listaFormasDePuntuacion)
+                {
+                    if (forma.nombre == unaForma._nombreForma)
+                    {
+                        existeNombre = 1;
+                    }
+                }
+                if ((listaFormasDePuntuacion.Count == 0) || (existeNombre == 0))
+                {
+                    Clases_de_entidad.FormaPuntuacion unaFormaDePuntuacion = new Clases_de_entidad.FormaPuntuacion();
+                    unaFormaDePuntuacion._id_forma = forma.id_forma;
+                    unaFormaDePuntuacion._nombreForma = forma.nombre;
+                    listaFormasDePuntuacion.Add(unaFormaDePuntuacion);
+                }
             }
             return listaFormasDePuntuacion;
         }
@@ -329,18 +324,51 @@ namespace TPdeDiseño.Clases_ABD
         }
 
 
-        public void setCompetencia(Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
+        //Se guarda la competencia en la BD y retornamos el id asignado
+        public short setCompetencia(Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
         {
+            Forma_de_Puntuacion formaNueva = new Forma_de_Puntuacion();
+            formaNueva.nombre = unaCompetencia._modalidad._formaPuntuacion._nombreForma;
+            formaNueva.cant_sets = unaCompetencia._modalidad._formaPuntuacion._cantidadSet;
+            formaNueva.tantos_x_ausencia_del_rival = unaCompetencia._modalidad._formaPuntuacion._tantosAusencia;
+            db.Forma_de_Puntuacion.InsertOnSubmit(formaNueva);
+            db.SubmitChanges();
+
+            Modalidad modalidadNueva = new Modalidad();
+            modalidadNueva.nombre = unaCompetencia._modalidad._nombreMod;
+            modalidadNueva.empate = unaCompetencia._modalidad._empate;
+            modalidadNueva.ptos_empate = unaCompetencia._modalidad._ptosEmpate;
+            modalidadNueva.ptos_por_PG = unaCompetencia._modalidad._ptosPG;
+            modalidadNueva.ptos_por_presentarse = unaCompetencia._modalidad._ptosPresentarse;
+            modalidadNueva.id_forma = formaNueva.id_forma;
+            db.Modalidad.InsertOnSubmit(modalidadNueva);
+            db.SubmitChanges();
+
             //Se guarda la competencia con sus atributos
             CompetenciaDeportiva nueva = new CompetenciaDeportiva();
-            nueva.id_competencia = unaCompetencia._id_competencia;
-            nueva.nombre = unaCompetencia._nombre;
-            //nueva.id_deporte = unaCompetencia.;
-            //aca me tapo el agua con la forma de puntuacion y empate y todo eso
+            nueva.nombre = unaCompetencia._nombre;            
+            nueva.Estado = unaCompetencia._estado;
             nueva.Reglamento = unaCompetencia._reglamento;
+            nueva.id_deporte = unaCompetencia._deporte._id_deporte;
+            nueva.e_mail_usuario = unaCompetencia._usuario._email;
+            nueva.id_modalidad = modalidadNueva.id_modalidad;            
             db.CompetenciaDeportiva.InsertOnSubmit(nueva);
             db.SubmitChanges();
+
+            //Se asigna la disponibilidad a los lugares relacionados con la competencia
+            foreach (var lugar in unaCompetencia._lugaresDeRealizacion)
+            {
+                Competencia_Lugar lugarNuevo = new Competencia_Lugar();
+                lugarNuevo.turnos_por_fecha = lugar._disponibilidad._turnosPorFecha;
+                lugarNuevo.id_lugar = lugar._id_lugar;
+                lugarNuevo.id_competencia = nueva.id_competencia;
+                db.Competencia_Lugar.InsertOnSubmit(lugarNuevo);
+                db.SubmitChanges();
+            }
+
+            return nueva.id_competencia;
         }
+
 
         public void setRenglon(Clases_de_entidad.renglonTabla unRenglon)
         {

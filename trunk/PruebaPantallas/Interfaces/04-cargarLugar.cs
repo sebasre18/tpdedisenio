@@ -12,7 +12,6 @@ namespace TPdeDiseño
     public partial class cargarLugar : Form
     {
         public List<Clases_de_entidad.LugarDeRealizacion> lugaresCL = new List<Clases_de_entidad.LugarDeRealizacion>();
-        public List<Clases_de_entidad.LugarDeRealizacion> lugaresAux = new List<Clases_de_entidad.LugarDeRealizacion>();
             
         /* CASO DE PRUEBA
         Clases_de_entidad.LugarDeRealizacion lugar1 = new Clases_de_entidad.LugarDeRealizacion("LA CANCHA DE LA LORA");
@@ -27,10 +26,6 @@ namespace TPdeDiseño
 
         private void cargarLugar_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
-            /*lugares.Add(lugar1);
-            lugares.Add(lugar2);*/
-
             //Inserta los Lugares de Realizacion en el DataGriv.
             int fila = 0;
             foreach (Clases_de_entidad.LugarDeRealizacion unLugar in lugaresCL)
@@ -39,6 +34,7 @@ namespace TPdeDiseño
                 dgvLugares[0, fila].Value = unLugar._nombre;
                 fila++;
             }
+            fila = 0;
             foreach (Clases_de_entidad.LugarDeRealizacion unLugar in lugaresCL)
             {
                 if (unLugar._nombre == Convert.ToString(dgvLugares[0, fila].Value))
@@ -47,25 +43,21 @@ namespace TPdeDiseño
                 }
                 fila++;
             }
-
-            
         }
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
-            int fila = 0;
-            Clases_de_entidad.Disponibilidad disponibilidadAux;
+            
             foreach (Clases_de_entidad.LugarDeRealizacion unLugar in lugaresCL)
             {
                 // PROBAR SI LA LISTA QUE RETORNA A ALTACOMPETENCIA ES LA MODIFICADA.
-                if (unLugar._nombre == Convert.ToString(dgvLugares[0, fila].Value))
+                for (int fila = 0 ; fila < lugaresCL.Count ; fila++)
                 {
-                    disponibilidadAux = new Clases_de_entidad.Disponibilidad(Convert.ToInt16(dgvLugares[1, fila].Value));
-                    unLugar._disponibilidad = disponibilidadAux;
-                    lugaresAux.Add(unLugar);
+                    if (unLugar._nombre == Convert.ToString(dgvLugares[0, fila].Value))                
+                        unLugar._disponibilidad._turnosPorFecha = Convert.ToInt32(dgvLugares[1, fila].Value);
                 }
-                fila++;
             }
+            altaCompetencia.lugaresAC = lugaresCL;
             this.Close();
         }
 
@@ -93,6 +85,24 @@ namespace TPdeDiseño
                 else
                     e.Handled = true;
             }
+        }
+
+        private void bLimpiar_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    c.Text = "";
+                    //Enfoco en el primer TextBox
+                    this.bAceptar.Focus();
+                }
+            }
+        }
+
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         
