@@ -17,6 +17,7 @@ namespace TPdeDiseño
 
         //Declaracion gestores publicos
         public Clases_de_control.GestorFixture gestFix = new Clases_de_control.GestorFixture();
+        public Clases_de_control.GestorTabla gestTab = new Clases_de_control.GestorTabla();
 
         public gestionaPuntos()
         {
@@ -26,11 +27,20 @@ namespace TPdeDiseño
         private void gestionaPuntos_Load(object sender, EventArgs e)
         {
             //Asigna el nombre de los participantes y el resultado alamacenado.
-            /*labelPart1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
+            labelPart1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
             labelPart2.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
 
-            textBoxP1.Text = partidoSeleccionado._resultado._puntosP1.ToString();
-            textBoxP2.Text = partidoSeleccionado._resultado._puntosP2.ToString();*/
+            //Si existe un resultado previo se carga en pantalla.
+            if (partidoSeleccionado._resultado != null)
+            {
+                textBoxP1.Text = partidoSeleccionado._resultado._puntosP1.ToString();
+                textBoxP2.Text = partidoSeleccionado._resultado._puntosP2.ToString();
+            }
+            else
+            {
+                textBoxP1.Text = "";
+                textBoxP2.Text = "";
+            }
         }
 
         private void textBoxP1_TextChanged(object sender, EventArgs e)
@@ -186,8 +196,9 @@ namespace TPdeDiseño
                 partidoSeleccionado._resultado._ausente = partidoSeleccionado._pParticipantes[0]._participante;
                 
                 //Genera el historial de resultado y va a la BD
-                partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador, competencia);
+                partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+                gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
+                gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
             }
             else if (checkBoxP2.Checked == true)
             {
@@ -196,8 +207,9 @@ namespace TPdeDiseño
                 partidoSeleccionado._resultado._ausente = partidoSeleccionado._pParticipantes[1]._participante;
 
                 //Genera el historial de resultado y va a la BD
-                partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                gestFix.guardarResultadoGanador(partidoSeleccionado, partidoSeleccionado._resultado._ganador, competencia);
+                partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+                gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
+                gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
             }
             //Curso normal sin ausentes
             else
@@ -212,8 +224,9 @@ namespace TPdeDiseño
                         partidoSeleccionado._resultado._puntosP2 = int.Parse(textBoxP2.Text);
 
                         //Genera el historial de resultado y va a la BD
-                        partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = true, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoPuntos(partidoSeleccionado, int.Parse(textBoxP1.Text), int.Parse(textBoxP2.Text), competencia);
+                        partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+                        gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
+                        gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
                     }
                     else
                     {
@@ -235,8 +248,9 @@ namespace TPdeDiseño
                         partidoSeleccionado._resultado._puntosP2 = int.Parse(textBoxP2.Text);
 
                         //Genera el historial de resultado y va a la BD
-                        partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoPuntos(partidoSeleccionado, int.Parse(textBoxP1.Text), int.Parse(textBoxP2.Text), competencia);
+                        partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+                        gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
+                        gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
                     }
                     else if (int.Parse(textBoxP1.Text) > int.Parse(textBoxP2.Text))
                     {
@@ -246,8 +260,9 @@ namespace TPdeDiseño
                         partidoSeleccionado._resultado._puntosP2 = int.Parse(textBoxP2.Text);
 
                         //Genera el historial de resultado y va a la BD
-                        partidoSeleccionado._resultado._histResultado = new Clases_de_entidad.HistorialResultado(partidoSeleccionado._resultado._id_resultado, partidoSeleccionado._resultado._puntosP1, partidoSeleccionado._resultado._puntosP2, partidoSeleccionado._resultado._ganador, partidoSeleccionado._resultado._ausente, partidoSeleccionado._resultado._empate = false, partidoSeleccionado._resultado._cantidad_set, partidoSeleccionado._resultado._sets, partidoSeleccionado._id_partido, partidoSeleccionado._resultado._histResultado, DateTime.Now);
-                        gestFix.guardarResultadoPuntos(partidoSeleccionado, int.Parse(textBoxP1.Text), int.Parse(textBoxP2.Text), competencia);
+                        partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+                        gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
+                        gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
                     }
                 }
             }

@@ -76,6 +76,7 @@ namespace TPdeDiseño.Clases_ABD
         }
 
 
+
         //retorna el fixture de una competencia
         //TERMINAR
         public Clases_de_entidad.Fixture getFixture(short unId_competencia)
@@ -85,36 +86,84 @@ namespace TPdeDiseño.Clases_ABD
         }
 
 
-        //Setea resultado para FormaPuntuacion por puntos
-        public void setResultadoPtos(Clases_de_entidad.Partido unPartido, int ptosP1, int ptosP2, Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
+        //Setea los datos en el resultado
+        public void setResultado(Clases_de_entidad.Partido unPartido)
         {
-            //Aca va a la base de datos el resultado del partido seleccionado
+            DataClasses1DataContext db = new DataClasses1DataContext();
+
+            if (unPartido._resultado == null)
+                creaResultado(unPartido);
+            else
+            {
+                var result = from unResultado in db.Resultado where (unPartido._resultado._id_resultado == unResultado.id_rdo) select unResultado;
+                foreach (var seleccionado in result)
+                {
+                    seleccionado.cantSets = unPartido._resultado._cantidad_set;
+                    //seleccionado.empate = unPatido._resultado._empate;   PASAR DE BOOLEAN A BINARY NO SE COMO SE HACE.
+                    seleccionado.id_ganador = unPartido._resultado._ganador._id_participante;
+                    seleccionado.puntosP1 = unPartido._resultado._puntosP1;
+                    seleccionado.puntosP2 = unPartido._resultado._puntosP2;
+                    seleccionado.Rdo_Partido[0].id_ausente = unPartido._resultado._ausente._id_participante;
+                    seleccionado.Rdo_Partido[0].id_partido = unPartido._id_partido;
+                    seleccionado.Rdo_Partido[0].id_rdo = unPartido._resultado._id_resultado;
+                    for (short i = 0; i < unPartido._resultado._cantidad_set; i++)
+                    {
+                        Set set = new Set();
+                        set.puntosP1 = unPartido._resultado._sets[i]._puntosP1;
+                        set.puntosP2 = unPartido._resultado._sets[i]._puntosP2;
+                        set.nro_set = i;
+                        db.Set.InsertOnSubmit(set);
+                    }
+                    db.SubmitChanges();
+                }
+            }
+        }
+
+        
+        //Se crea el resultado en la BD
+        public void creaResultado(Clases_de_entidad.Partido unPartido)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            Resultado result = new Resultado();
+
+            result.cantSets = null;
+            result.empate = false;
+            result.id_ganador = null;
+            result.puntosP1 = null;
+            result.puntosP2 = null;
+            result.Rdo_Partido[0].id_ausente = null;
+            result.Rdo_Partido[0].id_partido = unPartido._id_partido;
+            result.Rdo_Partido[0].id_rdo = null; //Noc si se setea esto.
+            for (short i = 1; i <= unPartido._resultado._cantidad_set; i++)
+            {
+                Set set = new Set();
+                set.puntosP1 = null;
+                set.puntosP2 = null;
+                set.nro_set = i;
+                db.Set.InsertOnSubmit(set);
+            }
+
+
 
         }
 
-
-        //Setea resultado para FormaPuntuacion por resultado final
-        public void setResultadoGanador(Clases_de_entidad.Partido unPartido, Clases_de_entidad.Participante ganador, Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
+        //REVEER... ver lo de los sets...
+        public void creaHistorialResultado(Clases_de_entidad.HistorialResultado unHistorial)
         {
-            //Aca va a la base de datos el resultado del partido seleccionado
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            Historial_de_Resultado histRes = new Historial_de_Resultado();
+
+            histRes.empate = unHistorial._empate;
+            histRes.ganador = unHistorial._ganador._id_participante; //Se guarda el id del participante ganador
+            histRes.id_rdo = unHistorial._id_resultado;
+            histRes.fecha = unHistorial._fecha_modificacion;
+            histRes.puntosP1 = unHistorial._puntosP1;
+            histRes.puntosP2 = unHistorial._puntosP2;
+            histRes.nro_set = Convert.ToInt16(unHistorial._cantidad_set);
+
+            db.SubmitChanges();
 
         }
-
-
-        //Setea resultado para FormaPuntuacion por resultado final que esa empate
-        public void setResultadoGanadorEmp(Clases_de_entidad.Partido unPartido, bool empate, Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
-        {
-            //Aca va a la base de datos el resultado del partido seleccionado
-
-        }
-
-        //Setea resultado para FormaPuntuacion por sets
-        public void setResultadoSets(Clases_de_entidad.Partido unPartido, List<Clases_de_entidad.Set> sets, Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
-        {
-            //Aca va a la base de datos el resultado del partido seleccionado
-
-        }
-
     }
 
 }
