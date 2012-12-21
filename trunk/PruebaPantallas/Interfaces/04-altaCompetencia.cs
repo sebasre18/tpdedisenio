@@ -16,10 +16,10 @@ namespace TPdeDiseño
         public List<Clases_de_entidad.Deporte> deportes = new List<Clases_de_entidad.Deporte>();
         public Clases_de_entidad.Deporte dep;
         public Clases_de_entidad.Deporte depAux;
-        
+
         Clases_de_control.GestorCompetencia gestorC = new Clases_de_control.GestorCompetencia();
         Clases_de_control.GestorLugarRealizacion gestorL = new Clases_de_control.GestorLugarRealizacion();
-        
+
         public altaCompetencia()
         {
             InitializeComponent();
@@ -29,6 +29,7 @@ namespace TPdeDiseño
         {
             List<Clases_de_entidad.Modalidad> modalidades = new List<Clases_de_entidad.Modalidad>();
             List<Clases_de_entidad.FormaPuntuacion> formasDePuntuacion = new List<Clases_de_entidad.FormaPuntuacion>();
+            
             modalidades = gestorC.buscarModalidades();
             formasDePuntuacion = gestorC.buscarFormasDePuntuacion();
             deportes = gestorC.buscarDeportes();
@@ -95,16 +96,16 @@ namespace TPdeDiseño
                     Clases_de_entidad.CompetenciaDeportiva nuevaCompetencia = new Clases_de_entidad.CompetenciaDeportiva("CREADA", Convert.ToString(tbNombre.Text), Convert.ToString(rtbReglamento.Text), dep, lugaresAC, modalidad, usuarioLogueadoAC);
                     MessageBox.Show("La competencia se creo satisfactoriamente.");
 
-                    
+
                     // Se guarda la competencia en la Base de Datos.
                     Clases_ABD.ABDcompetencia competenciaABD = new Clases_ABD.ABDcompetencia();
                     nuevaCompetencia._id_competencia = competenciaABD.setCompetencia(nuevaCompetencia);
-                    
+
 
                     // Abre la interfaz listar participantes de la competencia.
                     listarParticipantes listarP = new listarParticipantes();
                     listarP.MdiParent = principal.ActiveForm;
-                    listarP.competenciaActual = nuevaCompetencia;
+                    listarParticipantes.competenciaActual = nuevaCompetencia;
                     listarP.Show();
                     this.Close();
                 }
@@ -117,11 +118,15 @@ namespace TPdeDiseño
             {
                 if (c is TextBox)
                 {
-                    c.Text = "";
+                    c.Text = null;
                     //Enfoco en el primer TextBox
                     this.tbNombre.Focus();
                 }
             }
+            cbDeporte.SelectedIndex = 0;
+            cbModalidad.SelectedIndex = 0;
+            cbFormaPuntuacion.SelectedIndex = 0;
+            cbMaxSet.SelectedIndex = 0;
         }
 
         private void bCancelar_Click(object sender, EventArgs e)
@@ -130,17 +135,17 @@ namespace TPdeDiseño
         }
 
         private void linkLugares_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {           
+        {
             if (dep == null)
                 MessageBox.Show("Debe seleccionar un deporte.");
             else
             {
                 //busca los lugares por primera vez o cuando cambia el deporte seleccionado
-                if (lugaresAC.Count == 0)                
-                    lugaresAC = gestorL.buscarLugares(dep._nombre, usuarioLogueadoAC._email);                
+                if (lugaresAC.Count == 0)
+                    lugaresAC = gestorL.buscarLugares(dep._nombre, usuarioLogueadoAC._email);
                 else
                 {
-                    if (dispCargadas() == 0)
+                    if (dispCargadas() == lugaresAC.Count)
                         lugaresAC = gestorL.buscarLugares(dep._nombre, usuarioLogueadoAC._email);
                 }
 
@@ -167,7 +172,7 @@ namespace TPdeDiseño
             }
             return null;
         }
-        
+
         private int validarCamposNulos()
         {
             if (tbNombre.Text == "")
@@ -188,13 +193,13 @@ namespace TPdeDiseño
                 return 1;
             if (tbNoPresentarse.Enabled == true && tbNoPresentarse.Text == "")
                 return 1;
-            if (dispCargadas() == 0)
+            if (dispCargadas() == lugaresAC.Count)
                 return 1;
             return 0;
             //Falta validar la parte de permitir empate.
 
         }
-        
+
         private void simulaTab(KeyEventArgs e)
         {
             //El Enter simula el Tab (pasa al siguiente objeto)
@@ -208,7 +213,7 @@ namespace TPdeDiseño
 
                 }
             }
-        }        
+        }
 
         private void tbNombre_KeyDown(object sender, KeyEventArgs e)
         {
@@ -272,6 +277,8 @@ namespace TPdeDiseño
             {
                 e.Handled = false;
             }
+            else if (Char.IsSeparator(e.KeyChar))
+                e.Handled = false;
             else
             {
                 //Cuando es TRUE, no se escribe el caracter e. 
@@ -344,7 +351,7 @@ namespace TPdeDiseño
             {
                 e.Handled = true;
             }
-        }          
+        }
 
         private void cbModalidad_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -433,16 +440,16 @@ namespace TPdeDiseño
             lugaresAC = new List<Clases_de_entidad.LugarDeRealizacion>();
         }
 
-        private int dispCargadas ()
+        private int dispCargadas()
         {
-        int cantNulas = 0;
-                    foreach (var unLugar in lugaresAC)
-                    {
-                        if (unLugar._disponibilidad._turnosPorFecha == 0)
-                            cantNulas++;
-                    }
+            int cantNulas = 0;
+            foreach (var unLugar in lugaresAC)
+            {
+                if (unLugar._disponibilidad._turnosPorFecha == 0)
+                    cantNulas++;
+            }
             return cantNulas;
         }
-                    
+
     }
 }

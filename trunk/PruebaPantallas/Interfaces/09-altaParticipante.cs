@@ -58,47 +58,25 @@ namespace TPdeDiseño
             }
         }
 
-        private void tbNombre_KeyPress(object sender, KeyPressEventArgs e)
+        public Boolean validarEmail(string email)
         {
-            //Se ingresan solo caracteres alfanumericos.
-            if (Char.IsLetterOrDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            {
-                e.Handled = true;
-            }
-        }
-
-        public static bool validarEmail(string email)
-            {
-                string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-        
-                if (Regex.IsMatch(email, expresion))
+            string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
             {
                 if (Regex.Replace(email, expresion, String.Empty).Length == 0)
-                { return true; }
+                    return true; 
                 else
-                { return false; }
+                    return false; 
             }
-                else
-                { return false; }
-            }
+            else
+                return false;
+        }
 
-        private void tbMail_KeyPress(object sender, KeyPressEventArgs e)
-            {
-                validarEmail(tbMail.Text);
-            }
-        
         private int validarCamposNulos()
         {
-            if (tbNombre.Text == " ")
+            if (tbNombre.Text == null)
                 return 1;
-            if (tbMail.Text == " ")
+            if (tbMail.Text == null)
                 return 1;
             return 0;
         }
@@ -125,7 +103,7 @@ namespace TPdeDiseño
             {
                 if (c is TextBox)
                 {
-                    c.Text = " ";
+                    c.Text = "";
                     //Enfoco en el primer TextBox
                     this.tbNombre.Focus();
                 }
@@ -147,14 +125,14 @@ namespace TPdeDiseño
                 
            if (error == 1)
            {
-               MessageBox.Show("Asegurese que ningun campo sea nulo");
+               MessageBox.Show("Los campos Nombre y E-mail son obligatorios.");
                tbNombre.Focus();
            }
            else
            {
-               if (nombreValido)
+               if (nombreValido == false)
                {
-                   if (emailValido)
+                   if (emailValido == false)
                    {
                        competenciaAP._estado = "CREADA";
                        competenciaABD.setEstado(competenciaAP._id_competencia, "CREADA");
@@ -163,23 +141,28 @@ namespace TPdeDiseño
                            // Se borra el fixture.
                            fixtureABD.deleteFixture(competenciaAP);
                            MessageBox.Show("Se elimino el fixture de la competencia.");
-                           // Se crea el participante.
-                           nuevoParticipanteAP._nombre = tbNombre.Text;
-                           nuevoParticipanteAP._email = tbMail.Text;
-                           nuevoParticipanteAP._imagen = tbImagen.Text;
-                           // Se agrega el participante a la competencia.
-                           if (competenciaAP._participantes == null)
-                           {
-                               List<Clases_de_entidad.Participante> participantes = new List<Clases_de_entidad.Participante>();
-                               participantes.Add(nuevoParticipanteAP);
-                               competenciaAP._participantes = participantes;
-                           }
-                           else
-                               competenciaAP._participantes.Add(nuevoParticipanteAP);
-
                        }
+                       // Se crea el participante.
+                       nuevoParticipanteAP._nombre = tbNombre.Text;
+                       nuevoParticipanteAP._email = tbMail.Text;
+                       nuevoParticipanteAP._imagen = tbImagen.Text;
+                       // Se agrega el participante a la competencia.
+                       if (competenciaAP._participantes == null)
+                       {
+                           List<Clases_de_entidad.Participante> participantes = new List<Clases_de_entidad.Participante>();
+                           participantes.Add(nuevoParticipanteAP);
+                           competenciaAP._participantes = participantes;
+                       }
+                       else
+                           competenciaAP._participantes.Add(nuevoParticipanteAP);
+
                        gestorP.guardar(nuevoParticipanteAP, competenciaAP._id_competencia);
+
                        MessageBox.Show("El participante se ha creado correctamente.");
+                       listarParticipantes listarP = new listarParticipantes();
+                       listarP.MdiParent = principal.ActiveForm;
+                       listarParticipantes.competenciaActual = competenciaAP;
+                       listarP.Show();
                        this.Close();
                    }
                    else
@@ -194,6 +177,55 @@ namespace TPdeDiseño
                    tbNombre.Focus();
                }
             }
+        }
+
+        private void tbNombre_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            //Se ingresan solo caracteres.
+            if (Char.IsLetter(e.KeyChar))
+            {
+                //Cuando es false se escribe el caracter e.
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+                e.Handled = false;
+            
+            else
+            {
+                //Cuando es TRUE, no se escribe el caracter e. 
+                e.Handled = true;
+            }
+        }
+
+        /*private void tbMail_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            //Se ingresan solo caracteres alfanumericos.
+            if (Char.IsLetterOrDigit(e.KeyChar))
+            {
+                //Cuando es false se escribe el caracter e.
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                //Cuando es TRUE, no se escribe el caracter e. 
+                e.Handled = true;
+            }
+        }*/
+
+        private void tbMail_Leave(object sender, EventArgs e)
+        {
+            var error = validarEmail(tbMail.Text);
+            
+            if(error == false)
+                MessageBox.Show("Debe ingresar un formato valido de email.");
         }
     }
 }

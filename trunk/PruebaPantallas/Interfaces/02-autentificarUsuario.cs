@@ -51,6 +51,9 @@ namespace TPdeDiseño
                     this.Close();
                 }
             }*/
+            principal.ActiveForm.MainMenuStrip.Items[0].Enabled = false;
+            principal.ActiveForm.MainMenuStrip.Items[1].Enabled = true;
+            principal.ActiveForm.MainMenuStrip.Items[2].Enabled = false;
             this.Close();
         }
 
