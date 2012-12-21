@@ -30,15 +30,7 @@ namespace TPdeDiseño.Clases_de_control
         {
             List<Clases_de_entidad.FormaPuntuacion> listaFormas = new List<Clases_de_entidad.FormaPuntuacion>();
             return listaFormas = competenciaABD.getFormasDePuntuacion();            
-        }
-        
-
-
-        public Clases_de_entidad.TablaPosiciones verTabla(short unId_competencia)
-        {
-            Clases_de_entidad.TablaPosiciones tablaPos = new Clases_de_entidad.TablaPosiciones();
-            return tablaPos = competenciaABD.getTabla(unId_competencia);
-        }
+        }               
 
 
         //comparar nombre con la BD para ver si existe. Retorna 1 o 0.

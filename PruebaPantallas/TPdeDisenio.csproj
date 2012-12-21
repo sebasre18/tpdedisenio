@@ -58,8 +58,8 @@
     <Compile Include="Clases ABD\ABDfixture.cs" />
     <Compile Include="Clases ABD\ABDparticipante.cs" />
     <Compile Include="Clases ABD\ABDlugares.cs" />
-    <Compile Include="Clases de control\GestorParticipante.cs" />
     <Compile Include="Clases de control\GestorTabla.cs" />
+    <Compile Include="Clases de control\GestorParticipante.cs" />
     <Compile Include="Clases de control\GestorUsuario.cs" />
     <Compile Include="Clases de control\GestorLugarRealizacion.cs" />
     <Compile Include="Clases de control\GestorFixture.cs" />
@@ -148,18 +148,6 @@
     <Compile Include="Interfaces\21-mostrarTablaSG.Designer.cs">
       <DependentUpon>21-mostrarTablaSG.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\00-mensajeTipo1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaces\00-mensajeTipo1.Designer.cs">
-      <DependentUpon>00-mensajeTipo1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Interfaces\00-mensajeTipo2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaces\00-mensajeTipo2.Designer.cs">
-      <DependentUpon>00-mensajeTipo2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interfaces\03-listarCompetencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,18 +178,13 @@
     <Compile Include="Interfaces\04-cargarLugar.Designer.cs">
       <DependentUpon>04-cargarLugar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\19-mostrarFixtureCRG.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Interfaces\19-mostrarFixtureCRG.Designer.cs">
-      <DependentUpon>19-mostrarFixtureCRG.cs</DependentUpon>
-    </Compile>
     <Compile Include="Interfaces\principal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interfaces\principal.Designer.cs">
       <DependentUpon>principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\Interface1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControl1.cs">
@@ -249,12 +232,6 @@
     <EmbeddedResource Include="Interfaces\21-mostrarTablaSG.resx">
       <DependentUpon>21-mostrarTablaSG.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\00-mensajeTipo1.resx">
-      <DependentUpon>00-mensajeTipo1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\00-mensajeTipo2.resx">
-      <DependentUpon>00-mensajeTipo2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\03-listarCompetencias.resx">
       <DependentUpon>03-listarCompetencias.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,44 +247,9 @@
     <EmbeddedResource Include="Interfaces\04-cargarLugar.resx">
       <DependentUpon>04-cargarLugar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\19-mostrarFixtureCRG.resx">
-      <DependentUpon>19-mostrarFixtureCRG.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\principal.resx">
       <DependentUpon>principal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.altaCompetencia.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.altaLugar.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.altaParticipante.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.autentificarUsuario.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.bajaCompetencia.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.bajaLugar.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.bajaParticipante.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.cargarLugar.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.errorCompetencia.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.generarFixture.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.gestionaGanador.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.gestionaPuntos.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.gestionaSet.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.Interfaces.mostrarTablaSG.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.Interfases.mostrarTablaCG.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.listarCompetencias.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.listarLugares.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.listarParticipantes.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.listarTodasCompetencias.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.mensajeTipo1.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.mensajeTipo2.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.mensajeTipo3.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.modificarCompetencia.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.modificarLugar.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.modificarParticipante.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.modificarUsuario.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.mostrarFixtureCRG.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.mostrarFixtureSRG.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.principal.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.Properties.Resources.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.registroUsuario.resources" />
-    <EmbeddedResource Include="obj\x86\Debug\TPdeDiseño.verCompetencia.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -321,10 +263,6 @@
     <None Include="DataClasses.dbml.layout.mine" />
     <None Include="DataClasses.dbml.layout.r38" />
     <None Include="DataClasses.dbml.layout.r39" />
-    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\x86\Debug\GenerateResource.read.1.tlog" />
-    <None Include="obj\x86\Debug\GenerateResource.write.1.tlog" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -340,12 +278,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\TPdeDiseño.vshost.exe" />
-    <Content Include="obj\x86\Debug\TempPE\DataClasses1.designer.cs.dll" />
-    <Content Include="obj\x86\Debug\TempPE\DataClasses2.designer.cs.dll" />
-    <Content Include="obj\x86\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
-    <Content Include="obj\x86\Debug\TPdeDisenio.csproj.FileListAbsolute.txt" />
     <Content Include="CONSIDERACIONES.txt" />
-    <Content Include="Resources\Icono interfaz.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

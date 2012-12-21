@@ -8,8 +8,6 @@ namespace TPdeDiseño.Clases_ABD
     public class ABDfixture
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
-//        ABDcompetencia competenciaABD = new ABDcompetencia();
-
 
         //elimina el fixture de una competencia
         public void deleteFixture(Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
@@ -29,7 +27,7 @@ namespace TPdeDiseño.Clases_ABD
 
 
         //guarda el fixture de una competencia
-        public void guardarFixture(Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
+        public Clases_de_entidad.Fixture guardarFixture(Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
         {    
             //Se guarda el fixture con sus atributos
             Fixture nuevo = new Fixture();
@@ -67,103 +65,123 @@ namespace TPdeDiseño.Clases_ABD
                     partidoParticipante2.id_partido = partido.id_partido;
                     partidoParticipante2.id_participante = unPartido._pParticipantes[1]._participante._id_participante;
                     db.Partido_Participante.InsertOnSubmit(partidoParticipante2);
-                    db.SubmitChanges();   
+                    db.SubmitChanges();
+                    
+                    unPartido._id_partido = partido.id_partido;
                 }
             }
+            unaCompetencia._fixture._id_fixture = nuevo.id_fixture;
+
             //Se setea la competencia como PLANIFICADA en la BD
             ABDcompetencia competenciaABD = new ABDcompetencia();
             competenciaABD.setEstado(unaCompetencia._id_competencia, unaCompetencia._estado);
-        }
-
-
-
-        //retorna el fixture de una competencia
-        //TERMINAR
-        public Clases_de_entidad.Fixture getFixture(short unId_competencia)
-        {
-            Clases_de_entidad.Fixture fixture = new Clases_de_entidad.Fixture();
-            return fixture;
+            return unaCompetencia._fixture;
         }
 
 
         //Setea los datos en el resultado
-        public void setResultado(Clases_de_entidad.Partido unPartido)
+        public short setResultado(Clases_de_entidad.Partido unPartido)
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
+            int entro = 0;
+            var resultados = from result in db.Rdo_Partido where (result.id_partido == unPartido._id_partido) select result;
 
-            if (unPartido._resultado == null)
-                creaResultado(unPartido);
-            else
+            foreach (var unResultado in resultados)
             {
-                var result = from unResultado in db.Resultado where (unPartido._resultado._id_resultado == unResultado.id_rdo) select unResultado;
-                foreach (var seleccionado in result)
+                entro = 1;
+                unResultado.Resultado.cantSets = unPartido._resultado._cantidad_set;
+                unResultado.Resultado.empate = unPartido._resultado._empate;
+                if (unPartido._resultado._ganador != null)
+                    unResultado.Resultado.id_ganador = unPartido._resultado._ganador._id_participante;
+                unResultado.Resultado.puntosP1 = unPartido._resultado._puntosP1;
+                unResultado.Resultado.puntosP2 = unPartido._resultado._puntosP2;
+                //unResultado.id_partido = unPartido._id_partido;
+                if (unPartido._resultado._ausente != null)
+                    unResultado.id_ausente = unPartido._resultado._ausente._id_participante;
+                //unResultado.id_rdo = unPartido._resultado._id_resultado;
+                for (short i = 0; i < unPartido._resultado._cantidad_set; i++)
                 {
-                    seleccionado.cantSets = unPartido._resultado._cantidad_set;
-                    //seleccionado.empate = unPatido._resultado._empate;   PASAR DE BOOLEAN A BINARY NO SE COMO SE HACE.
-                    seleccionado.id_ganador = unPartido._resultado._ganador._id_participante;
-                    seleccionado.puntosP1 = unPartido._resultado._puntosP1;
-                    seleccionado.puntosP2 = unPartido._resultado._puntosP2;
-                    seleccionado.Rdo_Partido[0].id_ausente = unPartido._resultado._ausente._id_participante;
-                    seleccionado.Rdo_Partido[0].id_partido = unPartido._id_partido;
-                    seleccionado.Rdo_Partido[0].id_rdo = unPartido._resultado._id_resultado;
-                    for (short i = 0; i < unPartido._resultado._cantidad_set; i++)
-                    {
-                        Set set = new Set();
-                        set.puntosP1 = unPartido._resultado._sets[i]._puntosP1;
-                        set.puntosP2 = unPartido._resultado._sets[i]._puntosP2;
-                        set.nro_set = i;
-                        db.Set.InsertOnSubmit(set);
-                    }
+                    unResultado.Resultado.Set[i + 1].puntosP1 = unPartido._resultado._sets[i]._puntosP1;
+                    unResultado.Resultado.Set[i + 1].puntosP2 = unPartido._resultado._sets[i]._puntosP2;
+                    //db.Set.InsertOnSubmit(unResultado.Resultado.Set[i + 1]);
                     db.SubmitChanges();
                 }
+                db.SubmitChanges();
+                return unResultado.id_rdo;
             }
+            if (entro == 0)
+                unPartido._resultado._id_resultado = creaResultado(unPartido);
+            return unPartido._resultado._id_resultado;
         }
 
         
         //Se crea el resultado en la BD
-        public void creaResultado(Clases_de_entidad.Partido unPartido)
+        public short creaResultado(Clases_de_entidad.Partido unPartido)
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
             Resultado result = new Resultado();
+            Rdo_Partido nuevo = new Rdo_Partido();
+            
+            result.cantSets = unPartido._resultado._cantidad_set;
+            result.empate = unPartido._resultado._empate;
+            if (unPartido._resultado._ganador != null)
+                result.id_ganador = unPartido._resultado._ganador._id_participante;
+            result.puntosP1 = unPartido._resultado._puntosP1;
+            result.puntosP2 = unPartido._resultado._puntosP2;            
+            db.Resultado.InsertOnSubmit(result);
+            db.SubmitChanges();
 
-            result.cantSets = null;
-            result.empate = false;
-            result.id_ganador = null;
-            result.puntosP1 = null;
-            result.puntosP2 = null;
-            result.Rdo_Partido[0].id_ausente = null;
-            result.Rdo_Partido[0].id_partido = unPartido._id_partido;
-            result.Rdo_Partido[0].id_rdo = null; //Noc si se setea esto.
-            for (short i = 1; i <= unPartido._resultado._cantidad_set; i++)
+            nuevo.id_partido = unPartido._id_partido;
+            if (unPartido._resultado._ausente != null)
+                nuevo.id_ausente = unPartido._resultado._ausente._id_participante;
+            nuevo.id_rdo = result.id_rdo;
+            db.Rdo_Partido.InsertOnSubmit(nuevo);
+            db.SubmitChanges();
+
+            for (short i = 0; i < unPartido._resultado._cantidad_set; i++)
             {
                 Set set = new Set();
-                set.puntosP1 = null;
-                set.puntosP2 = null;
+                set.puntosP1 = unPartido._resultado._sets[i]._puntosP1;
+                set.puntosP2 = unPartido._resultado._sets[i]._puntosP2;
                 set.nro_set = i;
+                set.id_rdo = result.id_rdo;
                 db.Set.InsertOnSubmit(set);
+                db.SubmitChanges();
             }
-
-
-
+            return result.id_rdo;
         }
 
-        //REVEER... ver lo de los sets...
+
+        //Crea el historial de resultado
         public void creaHistorialResultado(Clases_de_entidad.HistorialResultado unHistorial)
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
             Historial_de_Resultado histRes = new Historial_de_Resultado();
 
             histRes.empate = unHistorial._empate;
-            histRes.ganador = unHistorial._ganador._id_participante; //Se guarda el id del participante ganador
+            if (unHistorial._ganador != null)
+                histRes.ganador = unHistorial._ganador._id_participante; //Se guarda el id del participante ganador
             histRes.id_rdo = unHistorial._id_resultado;
             histRes.fecha = unHistorial._fecha_modificacion;
             histRes.puntosP1 = unHistorial._puntosP1;
             histRes.puntosP2 = unHistorial._puntosP2;
             histRes.nro_set = Convert.ToInt16(unHistorial._cantidad_set);
-
+            if (unHistorial._ausente != null)
+                histRes.ausente = unHistorial._ausente._id_participante;
+            db.Historial_de_Resultado.InsertOnSubmit(histRes);
             db.SubmitChanges();
+        }
 
+
+        public void setRondaActual(short unId_fixture)
+        {
+            var listaFixtures = from fixtures in db.Fixture where (fixtures.id_fixture == unId_fixture) select fixtures;
+
+            foreach (var unFixture in listaFixtures)
+            {
+                unFixture.ronda_actual = unFixture.ronda_actual + 1;
+                db.SubmitChanges();
+            }
         }
     }
-
 }

@@ -58,6 +58,13 @@ namespace TPdeDiseño.Interfases
             this.InvokePaint(dgvTablaCG, myPaintArgs);
         }
 
-       
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            verCompetencia vc = new verCompetencia();
+            vc.MdiParent = Interfaces.principal.ActiveForm;
+            vc.competenciaVerComp = competenciaCG;
+            vc.Show();
+        }       
     }
 }

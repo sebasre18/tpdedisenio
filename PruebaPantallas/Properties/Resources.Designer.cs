@@ -59,19 +59,5 @@ namespace TPdeDiseño.Properties {
                 resourceCulture = value;
             }
         }
-        
-        internal static System.Drawing.Bitmap elefante {
-            get {
-                object obj = ResourceManager.GetObject("elefante", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap usuarioMasculino {
-            get {
-                object obj = ResourceManager.GetObject("usuarioMasculino", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

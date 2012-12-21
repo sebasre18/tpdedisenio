@@ -18,6 +18,7 @@ namespace TPdeDiseño
         //Declaracion gestores publicos
         public Clases_de_control.GestorFixture gestFix = new Clases_de_control.GestorFixture();
         public Clases_de_control.GestorTabla gestTab = new Clases_de_control.GestorTabla();
+        public string estado;
 
         //Declaracion de variables publicas
         public int numeroRonda, numeroPartido;
@@ -29,70 +30,29 @@ namespace TPdeDiseño
 
         private void gestionaSet_Load(object sender, EventArgs e)
         {
+            if (partidoSeleccionado._resultado == null)
+            {
+                partidoSeleccionado._resultado = new Clases_de_entidad.Resultado();
+                partidoSeleccionado._resultado._cantidad_set = competencia._modalidad._formaPuntuacion._cantidadSet;
+                partidoSeleccionado._resultado._sets = new List<Clases_de_entidad.Set>();
+                for (short i = 0; i < partidoSeleccionado._resultado._cantidad_set; i++)
+                {
+                    Clases_de_entidad.Set set = new Clases_de_entidad.Set();
+                    set._nroSet = i;
+                    partidoSeleccionado._resultado._sets.Add(set);
+                }
+            }
             //Hace visibles la cantidad de sets especificados, el nombre de cada participante y
             //carga sus respectivos resultados
-            if (partidoSeleccionado._resultado._cantidad_set == 1)
+            
+            if (partidoSeleccionado._resultado._cantidad_set == 3)
             {
-                groupBoxS2.Visible = false;
-                groupBoxS3.Visible = false;
-                groupBoxS4.Visible = false;
-                groupBoxS5.Visible = false;
-                groupBoxS6.Visible = false;
-                groupBoxS7.Visible = false;
-                groupBoxS8.Visible = false;
-                groupBoxS9.Visible = false;
-
-                //Si existe un resultado previo se carga en pantalla.
-                if (partidoSeleccionado._resultado != null)
-                {
-                    textBoxP1S1.Text = partidoSeleccionado._resultado._sets[0]._puntosP1.ToString();
-                    textBoxP2S1.Text = partidoSeleccionado._resultado._sets[0]._puntosP2.ToString();
-                }
-                else
-                {
-                    textBoxP1S1.Text = ""; textBoxP2S1.Text = "";
-                }
-
-                labelP1S1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S1.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-            }
-            else if (partidoSeleccionado._resultado._cantidad_set == 2)
-            {
-                groupBoxS3.Visible = false;
-                groupBoxS4.Visible = false;
-                groupBoxS5.Visible = false;
-                groupBoxS6.Visible = false;
-                groupBoxS7.Visible = false;
-                groupBoxS8.Visible = false;
-                groupBoxS9.Visible = false;
-
-                //Si existe un resultado previo se carga en pantalla.
-                if (partidoSeleccionado._resultado != null)
-                {
-                    textBoxP1S1.Text = partidoSeleccionado._resultado._sets[0]._puntosP1.ToString();
-                    textBoxP2S1.Text = partidoSeleccionado._resultado._sets[0]._puntosP2.ToString();
-                    textBoxP1S2.Text = partidoSeleccionado._resultado._sets[1]._puntosP1.ToString();
-                    textBoxP2S2.Text = partidoSeleccionado._resultado._sets[1]._puntosP2.ToString();
-                }
-                else
-                {
-                    textBoxP1S1.Text = ""; textBoxP2S1.Text = "";
-                    textBoxP1S2.Text = ""; textBoxP2S2.Text = "";
-                }
-
-                labelP1S1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S1.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S2.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S2.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-            }
-            else if (partidoSeleccionado._resultado._cantidad_set == 3)
-            {
-                groupBoxS4.Visible = false;
-                groupBoxS5.Visible = false;
-                groupBoxS6.Visible = false;
-                groupBoxS7.Visible = false;
-                groupBoxS8.Visible = false;
-                groupBoxS9.Visible = false;
+                groupBoxS4.Enabled = false;
+                groupBoxS5.Enabled = false;
+                groupBoxS6.Enabled = false;
+                groupBoxS7.Enabled = false;
+                groupBoxS8.Enabled = false;
+                groupBoxS9.Enabled = false;
 
                 //Si existe un resultado previo se carga en pantalla.
                 if (partidoSeleccionado._resultado != null)
@@ -119,49 +79,13 @@ namespace TPdeDiseño
                 labelP1S3.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
                 labelP2S3.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
             }
-            else if (partidoSeleccionado._resultado._cantidad_set == 4)
-            {
-                groupBoxS5.Visible = false;
-                groupBoxS6.Visible = false;
-                groupBoxS7.Visible = false;
-                groupBoxS8.Visible = false;
-                groupBoxS9.Visible = false;
-
-                //Si existe un resultado previo se carga en pantalla.
-                if (partidoSeleccionado._resultado != null)
-                {
-                    textBoxP1S1.Text = partidoSeleccionado._resultado._sets[0]._puntosP1.ToString();
-                    textBoxP2S1.Text = partidoSeleccionado._resultado._sets[0]._puntosP2.ToString();
-                    textBoxP1S2.Text = partidoSeleccionado._resultado._sets[1]._puntosP1.ToString();
-                    textBoxP2S2.Text = partidoSeleccionado._resultado._sets[1]._puntosP2.ToString();
-                    textBoxP1S3.Text = partidoSeleccionado._resultado._sets[2]._puntosP1.ToString();
-                    textBoxP2S3.Text = partidoSeleccionado._resultado._sets[2]._puntosP2.ToString();
-                    textBoxP1S4.Text = partidoSeleccionado._resultado._sets[3]._puntosP1.ToString();
-                    textBoxP2S4.Text = partidoSeleccionado._resultado._sets[3]._puntosP2.ToString();
-                }
-                else
-                {
-                    textBoxP1S1.Text = ""; textBoxP2S1.Text = "";
-                    textBoxP1S2.Text = ""; textBoxP2S2.Text = "";
-                    textBoxP1S3.Text = ""; textBoxP2S3.Text = "";
-                    textBoxP1S4.Text = ""; textBoxP2S4.Text = "";
-                }
-
-                labelP1S1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S1.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S2.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S2.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S3.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S3.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S4.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S4.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-            }
+            
             else if (partidoSeleccionado._resultado._cantidad_set == 5)
             {
-                groupBoxS6.Visible = false;
-                groupBoxS7.Visible = false;
-                groupBoxS8.Visible = false;
-                groupBoxS9.Visible = false;
+                groupBoxS6.Enabled = false;
+                groupBoxS7.Enabled = false;
+                groupBoxS8.Enabled = false;
+                groupBoxS9.Enabled = false;
 
                 //Si existe un resultado previo se carga en pantalla.
                 if (partidoSeleccionado._resultado != null)
@@ -197,55 +121,11 @@ namespace TPdeDiseño
                 labelP1S5.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
                 labelP2S5.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
             }
-            else if (partidoSeleccionado._resultado._cantidad_set == 6)
-            {
-                groupBoxS7.Visible = false;
-                groupBoxS8.Visible = false;
-                groupBoxS9.Visible = false;
-
-                //Si existe un resultado previo se carga en pantalla.
-                if (partidoSeleccionado._resultado != null)
-                {
-                    textBoxP1S1.Text = partidoSeleccionado._resultado._sets[0]._puntosP1.ToString();
-                    textBoxP2S1.Text = partidoSeleccionado._resultado._sets[0]._puntosP2.ToString();
-                    textBoxP1S2.Text = partidoSeleccionado._resultado._sets[1]._puntosP1.ToString();
-                    textBoxP2S2.Text = partidoSeleccionado._resultado._sets[1]._puntosP2.ToString();
-                    textBoxP1S3.Text = partidoSeleccionado._resultado._sets[2]._puntosP1.ToString();
-                    textBoxP2S3.Text = partidoSeleccionado._resultado._sets[2]._puntosP2.ToString();
-                    textBoxP1S4.Text = partidoSeleccionado._resultado._sets[3]._puntosP1.ToString();
-                    textBoxP2S4.Text = partidoSeleccionado._resultado._sets[3]._puntosP2.ToString();
-                    textBoxP1S5.Text = partidoSeleccionado._resultado._sets[4]._puntosP1.ToString();
-                    textBoxP2S5.Text = partidoSeleccionado._resultado._sets[4]._puntosP2.ToString();
-                    textBoxP1S6.Text = partidoSeleccionado._resultado._sets[5]._puntosP1.ToString();
-                    textBoxP2S6.Text = partidoSeleccionado._resultado._sets[5]._puntosP2.ToString();
-                }
-                else
-                {
-                    textBoxP1S1.Text = ""; textBoxP2S1.Text = "";
-                    textBoxP1S2.Text = ""; textBoxP2S2.Text = "";
-                    textBoxP1S3.Text = ""; textBoxP2S3.Text = "";
-                    textBoxP1S4.Text = ""; textBoxP2S4.Text = "";
-                    textBoxP1S5.Text = ""; textBoxP2S5.Text = "";
-                    textBoxP1S6.Text = ""; textBoxP2S6.Text = "";
-                }
-
-                labelP1S1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S1.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S2.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S2.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S3.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S3.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S4.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S4.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S5.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S5.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S6.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S6.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-            }
+            
             else if (partidoSeleccionado._resultado._cantidad_set == 7)
             {
-                groupBoxS8.Visible = false;
-                groupBoxS9.Visible = false;
+                groupBoxS8.Enabled = false;
+                groupBoxS9.Enabled = false;
 
                 //Si existe un resultado previo se carga en pantalla.
                 if (partidoSeleccionado._resultado != null)
@@ -291,60 +171,7 @@ namespace TPdeDiseño
                 labelP1S7.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
                 labelP2S7.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
             }
-            else if (partidoSeleccionado._resultado._cantidad_set == 8)
-            {
-                groupBoxS9.Visible = false;
-
-                //Si existe un resultado previo se carga en pantalla.
-                if (partidoSeleccionado._resultado != null)
-                {
-                    textBoxP1S1.Text = partidoSeleccionado._resultado._sets[0]._puntosP1.ToString();
-                    textBoxP2S1.Text = partidoSeleccionado._resultado._sets[0]._puntosP2.ToString();
-                    textBoxP1S2.Text = partidoSeleccionado._resultado._sets[1]._puntosP1.ToString();
-                    textBoxP2S2.Text = partidoSeleccionado._resultado._sets[1]._puntosP2.ToString();
-                    textBoxP1S3.Text = partidoSeleccionado._resultado._sets[2]._puntosP1.ToString();
-                    textBoxP2S3.Text = partidoSeleccionado._resultado._sets[2]._puntosP2.ToString();
-                    textBoxP1S4.Text = partidoSeleccionado._resultado._sets[3]._puntosP1.ToString();
-                    textBoxP2S4.Text = partidoSeleccionado._resultado._sets[3]._puntosP2.ToString();
-                    textBoxP1S5.Text = partidoSeleccionado._resultado._sets[4]._puntosP1.ToString();
-                    textBoxP2S5.Text = partidoSeleccionado._resultado._sets[4]._puntosP2.ToString();
-                    textBoxP1S6.Text = partidoSeleccionado._resultado._sets[5]._puntosP1.ToString();
-                    textBoxP2S6.Text = partidoSeleccionado._resultado._sets[5]._puntosP2.ToString();
-                    textBoxP1S7.Text = partidoSeleccionado._resultado._sets[6]._puntosP1.ToString();
-                    textBoxP2S7.Text = partidoSeleccionado._resultado._sets[6]._puntosP2.ToString();
-                    textBoxP1S8.Text = partidoSeleccionado._resultado._sets[7]._puntosP1.ToString();
-                    textBoxP2S8.Text = partidoSeleccionado._resultado._sets[7]._puntosP2.ToString();
-                }
-                else
-                {
-                    textBoxP1S1.Text = ""; textBoxP2S1.Text = "";
-                    textBoxP1S2.Text = ""; textBoxP2S2.Text = "";
-                    textBoxP1S3.Text = ""; textBoxP2S3.Text = "";
-                    textBoxP1S4.Text = ""; textBoxP2S4.Text = "";
-                    textBoxP1S5.Text = ""; textBoxP2S5.Text = "";
-                    textBoxP1S6.Text = ""; textBoxP2S6.Text = "";
-                    textBoxP1S7.Text = ""; textBoxP2S7.Text = "";
-                    textBoxP1S8.Text = ""; textBoxP2S8.Text = "";
-                }
-
-
-                labelP1S1.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S1.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S2.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S2.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S3.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S3.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S4.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S4.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S5.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S5.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S6.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S6.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S7.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S7.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-                labelP1S8.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
-                labelP2S8.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
-            }
+            
             else
             {
                 //Si son 9 los sets especificados no oculta ningun groupBox
@@ -413,12 +240,7 @@ namespace TPdeDiseño
             //Valida el ausente de los participantes
             if (checkBoxP1.Checked == true & checkBoxP2.Checked == true)
             {
-                mensajeTipo2 error;
-                error = new mensajeTipo2();
-                error.MdiParent = principal.ActiveForm;
-                error.WindowState = FormWindowState.Maximized;
-                error.error2 = "Ambos participantes estan ausentes.";
-                error.Show();
+                MessageBox.Show("Ambos participantes están ausentes", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (checkBoxP1.Checked == true)
             {
@@ -432,84 +254,21 @@ namespace TPdeDiseño
             }
             else
             {
-                if (partidoSeleccionado._resultado._cantidad_set == 1)
+                if (partidoSeleccionado._resultado._cantidad_set == 3)
                 {
-                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP1S1.Text))
+                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP2S1.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 1: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 1: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else
+                    else if (int.Parse(textBoxP1S2.Text) == int.Parse(textBoxP2S2.Text))
                     {
-                        partidoSeleccionado._resultado._sets[0]._puntosP1 = int.Parse(textBoxP1S1.Text);
-                        partidoSeleccionado._resultado._sets[0]._puntosP2 = int.Parse(textBoxP2S1.Text);
-                    }
-                }
-                else if (partidoSeleccionado._resultado._cantidad_set == 2)
-                {
-                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP1S1.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 1: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 2: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (int.Parse(textBoxP1S2.Text) == int.Parse(textBoxP1S2.Text))
+                    else if (int.Parse(textBoxP1S3.Text) == int.Parse(textBoxP2S3.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 2: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else
-                    {
-                        partidoSeleccionado._resultado._sets[0]._puntosP1 = int.Parse(textBoxP1S1.Text);
-                        partidoSeleccionado._resultado._sets[0]._puntosP2 = int.Parse(textBoxP2S1.Text);
-                        partidoSeleccionado._resultado._sets[1]._puntosP1 = int.Parse(textBoxP1S2.Text);
-                        partidoSeleccionado._resultado._sets[1]._puntosP2 = int.Parse(textBoxP2S2.Text);
-                    }
-                }
-                else if (partidoSeleccionado._resultado._cantidad_set == 3)
-                {
-                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP1S1.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 1: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S2.Text) == int.Parse(textBoxP1S2.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 2: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S3.Text) == int.Parse(textBoxP1S3.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 3: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 3: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
                     else
@@ -523,118 +282,40 @@ namespace TPdeDiseño
                     }
 
                 }
-                else if (partidoSeleccionado._resultado._cantidad_set == 4)
-                {
-                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP1S1.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 1: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S2.Text) == int.Parse(textBoxP1S2.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 2: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S3.Text) == int.Parse(textBoxP1S3.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 3: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S4.Text) == int.Parse(textBoxP1S4.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 4: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else
-                    {
-                        partidoSeleccionado._resultado._sets[0]._puntosP1 = int.Parse(textBoxP1S1.Text);
-                        partidoSeleccionado._resultado._sets[0]._puntosP2 = int.Parse(textBoxP2S1.Text);
-                        partidoSeleccionado._resultado._sets[1]._puntosP1 = int.Parse(textBoxP1S2.Text);
-                        partidoSeleccionado._resultado._sets[1]._puntosP2 = int.Parse(textBoxP2S2.Text);
-                        partidoSeleccionado._resultado._sets[2]._puntosP1 = int.Parse(textBoxP1S3.Text);
-                        partidoSeleccionado._resultado._sets[2]._puntosP2 = int.Parse(textBoxP2S3.Text);
-                        partidoSeleccionado._resultado._sets[3]._puntosP1 = int.Parse(textBoxP1S4.Text);
-                        partidoSeleccionado._resultado._sets[3]._puntosP2 = int.Parse(textBoxP2S4.Text);
-                    }
-                }
+                
                 else if (partidoSeleccionado._resultado._cantidad_set == 5)
                 {
-                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP1S1.Text))
+                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP2S1.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 1: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 1: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (int.Parse(textBoxP1S2.Text) == int.Parse(textBoxP1S2.Text))
+                    else if (int.Parse(textBoxP1S2.Text) == int.Parse(textBoxP2S2.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 2: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 2: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (int.Parse(textBoxP1S3.Text) == int.Parse(textBoxP1S3.Text))
+                    else if (int.Parse(textBoxP1S3.Text) == int.Parse(textBoxP2S3.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 3: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 3: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (int.Parse(textBoxP1S4.Text) == int.Parse(textBoxP1S4.Text))
+                    else if (int.Parse(textBoxP1S4.Text) == int.Parse(textBoxP2S4.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 4: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 4: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (int.Parse(textBoxP1S5.Text) == int.Parse(textBoxP1S5.Text))
+                    else if (int.Parse(textBoxP1S5.Text) == int.Parse(textBoxP2S5.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 5: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 5: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
                     else
                     {
-                        partidoSeleccionado._resultado._sets[0]._puntosP1 = int.Parse(textBoxP1S1.Text);
-                        partidoSeleccionado._resultado._sets[0]._puntosP2 = int.Parse(textBoxP2S1.Text);
-                        partidoSeleccionado._resultado._sets[1]._puntosP1 = int.Parse(textBoxP1S2.Text);
-                        partidoSeleccionado._resultado._sets[1]._puntosP2 = int.Parse(textBoxP2S2.Text);
+                        partidoSeleccionado._resultado._sets[0]._puntosP1 = Convert.ToInt32(textBoxP1S1.Text);
+                        partidoSeleccionado._resultado._sets[0]._puntosP2 = Convert.ToInt32(textBoxP2S1.Text);
+                        partidoSeleccionado._resultado._sets[1]._puntosP1 = Convert.ToInt32(textBoxP1S2.Text);
+                        partidoSeleccionado._resultado._sets[1]._puntosP2 = Convert.ToInt32(textBoxP2S2.Text);
                         partidoSeleccionado._resultado._sets[2]._puntosP1 = int.Parse(textBoxP1S3.Text);
                         partidoSeleccionado._resultado._sets[2]._puntosP2 = int.Parse(textBoxP2S3.Text);
                         partidoSeleccionado._resultado._sets[3]._puntosP1 = int.Parse(textBoxP1S4.Text);
@@ -643,155 +324,41 @@ namespace TPdeDiseño
                         partidoSeleccionado._resultado._sets[4]._puntosP2 = int.Parse(textBoxP2S5.Text);
                     }
                 }
-                else if (partidoSeleccionado._resultado._cantidad_set == 6)
-                {
-                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP1S1.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 1: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S2.Text) == int.Parse(textBoxP1S2.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 2: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S3.Text) == int.Parse(textBoxP1S3.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 3: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S4.Text) == int.Parse(textBoxP1S4.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 4: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S5.Text) == int.Parse(textBoxP1S5.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 5: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S6.Text) == int.Parse(textBoxP1S6.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 6: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else
-                    {
-                        partidoSeleccionado._resultado._sets[0]._puntosP1 = int.Parse(textBoxP1S1.Text);
-                        partidoSeleccionado._resultado._sets[0]._puntosP2 = int.Parse(textBoxP2S1.Text);
-                        partidoSeleccionado._resultado._sets[1]._puntosP1 = int.Parse(textBoxP1S2.Text);
-                        partidoSeleccionado._resultado._sets[1]._puntosP2 = int.Parse(textBoxP2S2.Text);
-                        partidoSeleccionado._resultado._sets[2]._puntosP1 = int.Parse(textBoxP1S3.Text);
-                        partidoSeleccionado._resultado._sets[2]._puntosP2 = int.Parse(textBoxP2S3.Text);
-                        partidoSeleccionado._resultado._sets[3]._puntosP1 = int.Parse(textBoxP1S4.Text);
-                        partidoSeleccionado._resultado._sets[3]._puntosP2 = int.Parse(textBoxP2S4.Text);
-                        partidoSeleccionado._resultado._sets[4]._puntosP1 = int.Parse(textBoxP1S5.Text);
-                        partidoSeleccionado._resultado._sets[4]._puntosP2 = int.Parse(textBoxP2S5.Text);
-                        partidoSeleccionado._resultado._sets[5]._puntosP1 = int.Parse(textBoxP1S6.Text);
-                        partidoSeleccionado._resultado._sets[5]._puntosP2 = int.Parse(textBoxP2S6.Text);
-                    }
-                }
+                
                 else if (partidoSeleccionado._resultado._cantidad_set == 7)
                 {
-                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP1S1.Text))
+                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP2S1.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 1: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 1: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (int.Parse(textBoxP1S2.Text) == int.Parse(textBoxP1S2.Text))
+                    else if (int.Parse(textBoxP1S2.Text) == int.Parse(textBoxP2S2.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 2: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 2: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (int.Parse(textBoxP1S3.Text) == int.Parse(textBoxP1S3.Text))
+                    else if (int.Parse(textBoxP1S3.Text) == int.Parse(textBoxP2S3.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 3: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 3: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else if (int.Parse(textBoxP1S4.Text) == int.Parse(textBoxP2S4.Text))
+                    {
+                        MessageBox.Show("SET 4: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (int.Parse(textBoxP1S4.Text) == int.Parse(textBoxP1S4.Text))
+                    else if (int.Parse(textBoxP1S5.Text) == int.Parse(textBoxP2S5.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 4: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 5: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (int.Parse(textBoxP1S5.Text) == int.Parse(textBoxP1S5.Text))
+                    else if (int.Parse(textBoxP1S6.Text) == int.Parse(textBoxP2S6.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 5: No pueden ser ambos valores iguales.";
-                        error.Show();
+                        MessageBox.Show("SET 6: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    else if (int.Parse(textBoxP1S6.Text) == int.Parse(textBoxP1S6.Text))
+                    else if (int.Parse(textBoxP1S7.Text) == int.Parse(textBoxP2S7.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 6: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S7.Text) == int.Parse(textBoxP1S7.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 7: No pueden ser ambos valores iguales.";
-                        error.Show();
-
+                        MessageBox.Show("SET 7: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -811,199 +378,44 @@ namespace TPdeDiseño
                         partidoSeleccionado._resultado._sets[6]._puntosP2 = int.Parse(textBoxP2S7.Text);
                     }
                 }
-                else if (partidoSeleccionado._resultado._cantidad_set == 8)
-                {
-                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP1S1.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 1: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S2.Text) == int.Parse(textBoxP1S2.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 2: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S3.Text) == int.Parse(textBoxP1S3.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 3: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S4.Text) == int.Parse(textBoxP1S4.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 4: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S5.Text) == int.Parse(textBoxP1S5.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 5: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S6.Text) == int.Parse(textBoxP1S6.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 6: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S7.Text) == int.Parse(textBoxP1S7.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 7: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else if (int.Parse(textBoxP1S8.Text) == int.Parse(textBoxP1S8.Text))
-                    {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 8: No pueden ser ambos valores iguales.";
-                        error.Show();
-
-                    }
-                    else
-                    {
-                        partidoSeleccionado._resultado._sets[0]._puntosP1 = int.Parse(textBoxP1S1.Text);
-                        partidoSeleccionado._resultado._sets[0]._puntosP2 = int.Parse(textBoxP2S1.Text);
-                        partidoSeleccionado._resultado._sets[1]._puntosP1 = int.Parse(textBoxP1S2.Text);
-                        partidoSeleccionado._resultado._sets[1]._puntosP2 = int.Parse(textBoxP2S2.Text);
-                        partidoSeleccionado._resultado._sets[2]._puntosP1 = int.Parse(textBoxP1S3.Text);
-                        partidoSeleccionado._resultado._sets[2]._puntosP2 = int.Parse(textBoxP2S3.Text);
-                        partidoSeleccionado._resultado._sets[3]._puntosP1 = int.Parse(textBoxP1S4.Text);
-                        partidoSeleccionado._resultado._sets[3]._puntosP2 = int.Parse(textBoxP2S4.Text);
-                        partidoSeleccionado._resultado._sets[4]._puntosP1 = int.Parse(textBoxP1S5.Text);
-                        partidoSeleccionado._resultado._sets[4]._puntosP2 = int.Parse(textBoxP2S5.Text);
-                        partidoSeleccionado._resultado._sets[5]._puntosP1 = int.Parse(textBoxP1S6.Text);
-                        partidoSeleccionado._resultado._sets[5]._puntosP2 = int.Parse(textBoxP2S6.Text);
-                        partidoSeleccionado._resultado._sets[6]._puntosP1 = int.Parse(textBoxP1S7.Text);
-                        partidoSeleccionado._resultado._sets[6]._puntosP2 = int.Parse(textBoxP2S7.Text);
-                        partidoSeleccionado._resultado._sets[7]._puntosP1 = int.Parse(textBoxP1S8.Text);
-                        partidoSeleccionado._resultado._sets[7]._puntosP2 = int.Parse(textBoxP2S8.Text);
-                    }
-                }
+                
                 else
                 {
-                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP1S1.Text))
+                    if (int.Parse(textBoxP1S1.Text) == int.Parse(textBoxP2S1.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 1: No pueden ser ambos valores iguales.";
-                        error.Show();
-
+                        MessageBox.Show("SET 1: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (int.Parse(textBoxP1S2.Text) == int.Parse(textBoxP1S2.Text))
+                    else if (int.Parse(textBoxP1S2.Text) == int.Parse(textBoxP2S2.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 2: No pueden ser ambos valores iguales.";
-                        error.Show();
-
+                        MessageBox.Show("SET 2: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (int.Parse(textBoxP1S3.Text) == int.Parse(textBoxP1S3.Text))
+                    else if (int.Parse(textBoxP1S3.Text) == int.Parse(textBoxP2S3.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 3: No pueden ser ambos valores iguales.";
-                        error.Show();
-
+                        MessageBox.Show("SET 3: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (int.Parse(textBoxP1S4.Text) == int.Parse(textBoxP1S4.Text))
+                    else if (int.Parse(textBoxP1S4.Text) == int.Parse(textBoxP2S4.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 4: No pueden ser ambos valores iguales.";
-                        error.Show();
-
+                        MessageBox.Show("SET 4: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (int.Parse(textBoxP1S5.Text) == int.Parse(textBoxP1S5.Text))
+                    else if (int.Parse(textBoxP1S5.Text) == int.Parse(textBoxP2S5.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 5: No pueden ser ambos valores iguales.";
-                        error.Show();
-
+                        MessageBox.Show("SET 5: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (int.Parse(textBoxP1S6.Text) == int.Parse(textBoxP1S6.Text))
+                    else if (int.Parse(textBoxP1S6.Text) == int.Parse(textBoxP2S6.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 6: No pueden ser ambos valores iguales.";
-                        error.Show();
-
+                        MessageBox.Show("SET 6: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (int.Parse(textBoxP1S7.Text) == int.Parse(textBoxP1S7.Text))
+                    else if (int.Parse(textBoxP1S7.Text) == int.Parse(textBoxP2S7.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 7: No pueden ser ambos valores iguales.";
-                        error.Show();
-
+                        MessageBox.Show("SET 7: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (int.Parse(textBoxP1S8.Text) == int.Parse(textBoxP1S8.Text))
+                    else if (int.Parse(textBoxP1S8.Text) == int.Parse(textBoxP2S8.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 8: No pueden ser ambos valores iguales.";
-                        error.Show();
-
+                        MessageBox.Show("SET 8: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (int.Parse(textBoxP1S9.Text) == int.Parse(textBoxP1S9.Text))
+                    else if (int.Parse(textBoxP1S9.Text) == int.Parse(textBoxP2S9.Text))
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        error.MdiParent = principal.ActiveForm;
-                        error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "SET 9: No pueden ser ambos valores iguales.";
-                        error.Show();
-
+                        MessageBox.Show("SET 9: No pueden ser ambos valores iguales", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {

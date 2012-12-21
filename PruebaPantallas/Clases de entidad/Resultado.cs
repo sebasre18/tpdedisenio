@@ -134,7 +134,7 @@ namespace TPdeDiseño.Clases_de_entidad
         //Constructor
         public Resultado() { }
 
-        public Resultado(short unId_resultado, int unPuntosP1, int unPuntosP2, Participante unGanador,Participante unAusente, bool unEmpate, int unaCantidad_set, List<Set> unosSets, int unId_partido, List<HistorialResultado> unosHistResultado)
+        public Resultado(short unId_resultado, int unPuntosP1, int unPuntosP2, Participante unGanador,Participante unAusente, bool unEmpate, int unaCantidad_set, List<Set> unosSets, short unId_partido, List<HistorialResultado> unosHistResultado)
         {
             this._id_resultado = unId_resultado;
             this._puntosP1 = unPuntosP1;

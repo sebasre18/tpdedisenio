@@ -1,28 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TP-DISEÑO" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=HARDKILL\SQLEXPRESS;Initial Catalog=TP-DISEÑO;Integrated Security=True" SettingsObjectName="TPdeDiseño.Properties.Settings" SettingsPropertyName="TP_DISEÑOConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Participante" Member="Participante">
-    <Type Name="Participante">
-      <Column Name="id_participante" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="[e-mail]" Member="e_mail" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="imagen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="perdido" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="eliminado" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="id_competencia" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Association Name="Participante_Partido_Participante" Member="Partido_Participante" ThisKey="id_participante" OtherKey="id_participante" Type="Partido_Participante" />
-      <Association Name="Participante_Ronda" Member="Ronda" ThisKey="id_participante" OtherKey="id_libre" Type="Ronda" />
-      <Association Name="Participante_Tabla_Participante" Member="Tabla_Participante" ThisKey="id_participante" OtherKey="id_participante" Type="Tabla_Participante" />
-      <Association Name="Participante_Participante_Rdo" Member="Participante_Rdo" ThisKey="id_participante" OtherKey="id_participante" Type="Participante_Rdo" />
-      <Association Name="CompetenciaDeportiva_Participante" Member="CompetenciaDeportiva" ThisKey="id_competencia" OtherKey="id_competencia" Type="CompetenciaDeportiva" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Partido_Participante" Member="Partido_Participante">
     <Type Name="Partido_Participante">
       <Column Name="id_partido" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="id_participante" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="id" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Association Name="Participante_Partido_Participante" Member="Participante" ThisKey="id_participante" OtherKey="id_participante" Type="Participante" IsForeignKey="true" />
       <Association Name="Partido_Partido_Participante" Member="Partido" ThisKey="id_partido" OtherKey="id_partido" Type="Partido" IsForeignKey="true" />
+      <Association Name="Participante_Partido_Participante" Member="Participante" ThisKey="id_participante" OtherKey="id_participante" Type="Participante" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Ronda" Member="Ronda">
@@ -33,8 +17,8 @@
       <Column Name="id_libre" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="id_ronda" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="Ronda_Partido" Member="Partido" ThisKey="nro_ronda" OtherKey="id_ronda" Type="Partido" />
-      <Association Name="Participante_Ronda" Member="Participante" ThisKey="id_libre" OtherKey="id_participante" Type="Participante" IsForeignKey="true" />
       <Association Name="Fixture_Ronda" Member="Fixture" ThisKey="id_fixture" OtherKey="id_fixture" Type="Fixture" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Participante_Ronda" Member="Participante" ThisKey="id_libre" OtherKey="id_participante" Type="Participante" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Partido" Member="Partido">
@@ -59,10 +43,10 @@
       <Column Name="id_deporte" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="id_modalidad" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
       <Column Name="nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="CompetenciaDeportiva_Participante" Member="Participante" ThisKey="id_competencia" OtherKey="id_competencia" Type="Participante" />
       <Association Name="CompetenciaDeportiva_Fixture" Member="Fixture" ThisKey="id_competencia" OtherKey="id_competencia" Type="Fixture" />
       <Association Name="CompetenciaDeportiva_Tabla_de_Posiciones" Member="Tabla_de_Posiciones" ThisKey="id_competencia" OtherKey="id_competencia" Type="Tabla_de_Posiciones" />
       <Association Name="CompetenciaDeportiva_Competencia_Lugar" Member="Competencia_Lugar" ThisKey="id_competencia" OtherKey="id_competencia" Type="Competencia_Lugar" />
+      <Association Name="CompetenciaDeportiva_Participante" Member="Participante" ThisKey="id_competencia" OtherKey="id_competencia" Type="Participante" />
       <Association Name="Usuario_CompetenciaDeportiva" Member="Usuario" ThisKey="e_mail_usuario" OtherKey="e_mail" Type="Usuario" IsForeignKey="true" />
       <Association Name="Deporte_CompetenciaDeportiva" Member="Deporte" ThisKey="id_deporte" OtherKey="id_deporte" Type="Deporte" IsForeignKey="true" />
       <Association Name="Modalidad_CompetenciaDeportiva" Member="Modalidad" ThisKey="id_modalidad" OtherKey="id_modalidad" Type="Modalidad" IsForeignKey="true" />
@@ -112,21 +96,8 @@
       <Column Name="D" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="id_renglon" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nombrePart" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Participante_Tabla_Participante" Member="Participante" ThisKey="id_participante" OtherKey="id_participante" Type="Participante" IsForeignKey="true" />
       <Association Name="Tabla_de_Posiciones_Tabla_Participante" Member="Tabla_de_Posiciones" ThisKey="id_tabla" OtherKey="id_tabla" Type="Tabla_de_Posiciones" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.[Historial de Resultado]" Member="Historial_de_Resultado">
-    <Type Name="Historial_de_Resultado">
-      <Column Name="id_historial" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="fecha" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="puntosP1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="puntosP2" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="nro_set" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="empate" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ganador" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="id_rdo" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Association Name="Resultado_Historial_de_Resultado" Member="Resultado" ThisKey="id_rdo" OtherKey="id_rdo" Type="Resultado" IsForeignKey="true" />
+      <Association Name="Participante_Tabla_Participante" Member="Participante" ThisKey="id_participante" OtherKey="id_participante" Type="Participante" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Participante_Rdo" Member="Participante_Rdo">
@@ -164,21 +135,7 @@
       <Column Name="id_ausente" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="id" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="Partido_Rdo_Partido" Member="Partido" ThisKey="id_partido" OtherKey="id_partido" Type="Partido" IsForeignKey="true" />
-      <Association Name="Resultado_Rdo_Partido" Member="Resultado" ThisKey="id_rdo" OtherKey="id_rdo" Type="Resultado" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Resultado" Member="Resultado">
-    <Type Name="Resultado">
-      <Column Name="id_rdo" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="id_ganador" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="puntosP1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="puntosP2" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="empate" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="cantSets" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Resultado_Historial_de_Resultado" Member="Historial_de_Resultado" ThisKey="id_rdo" OtherKey="id_rdo" Type="Historial_de_Resultado" />
-      <Association Name="Resultado_Participante_Rdo" Member="Participante_Rdo" ThisKey="id_rdo" OtherKey="id_rdo" Type="Participante_Rdo" />
-      <Association Name="Resultado_Set" Member="Set" ThisKey="id_rdo" OtherKey="id_rdo" Type="Set" />
-      <Association Name="Resultado_Rdo_Partido" Member="Rdo_Partido" ThisKey="id_rdo" OtherKey="id_rdo" Type="Rdo_Partido" />
+      <Association Name="Resultado_Rdo_Partido" Member="Resultado" ThisKey="id_rdo" OtherKey="id_rdo" Type="Resultado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Usuario" Member="Usuario">
@@ -223,6 +180,50 @@
       <Column Name="nombre" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Association Name="Modalidad_CompetenciaDeportiva" Member="CompetenciaDeportiva" ThisKey="id_modalidad" OtherKey="id_modalidad" Type="CompetenciaDeportiva" />
       <Association Name="Forma_de_Puntuacion_Modalidad" Member="Forma_de_Puntuacion" ThisKey="id_forma" OtherKey="id_forma" Type="Forma_de_Puntuacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Participante" Member="Participante">
+    <Type Name="Participante">
+      <Column Name="id_participante" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[e-mail]" Member="e_mail" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="imagen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="perdido" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="eliminado" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="id_competencia" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="Participante_Partido_Participante" Member="Partido_Participante" ThisKey="id_participante" OtherKey="id_participante" Type="Partido_Participante" />
+      <Association Name="Participante_Ronda" Member="Ronda" ThisKey="id_participante" OtherKey="id_libre" Type="Ronda" />
+      <Association Name="Participante_Tabla_Participante" Member="Tabla_Participante" ThisKey="id_participante" OtherKey="id_participante" Type="Tabla_Participante" />
+      <Association Name="Participante_Participante_Rdo" Member="Participante_Rdo" ThisKey="id_participante" OtherKey="id_participante" Type="Participante_Rdo" />
+      <Association Name="CompetenciaDeportiva_Participante" Member="CompetenciaDeportiva" ThisKey="id_competencia" OtherKey="id_competencia" Type="CompetenciaDeportiva" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Resultado" Member="Resultado">
+    <Type Name="Resultado">
+      <Column Name="id_rdo" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_ganador" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="puntosP1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="puntosP2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="empate" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="cantSets" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Resultado_Participante_Rdo" Member="Participante_Rdo" ThisKey="id_rdo" OtherKey="id_rdo" Type="Participante_Rdo" />
+      <Association Name="Resultado_Set" Member="Set" ThisKey="id_rdo" OtherKey="id_rdo" Type="Set" />
+      <Association Name="Resultado_Rdo_Partido" Member="Rdo_Partido" ThisKey="id_rdo" OtherKey="id_rdo" Type="Rdo_Partido" />
+      <Association Name="Resultado_Historial_de_Resultado" Member="Historial_de_Resultado" ThisKey="id_rdo" OtherKey="id_rdo" Type="Historial_de_Resultado" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Historial de Resultado]" Member="Historial_de_Resultado">
+    <Type Name="Historial_de_Resultado">
+      <Column Name="id_historial" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="puntosP1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="puntosP2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nro_set" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="empate" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ganador" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="id_rdo" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ausente" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Resultado_Historial_de_Resultado" Member="Resultado" ThisKey="id_rdo" OtherKey="id_rdo" Type="Resultado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
 </Database>

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mostrarFixtureSRG));
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonModRdo = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -161,6 +160,7 @@
             this.comboBoxNroRonda.Sorted = true;
             this.comboBoxNroRonda.TabIndex = 1;
             this.comboBoxNroRonda.SelectedIndexChanged += new System.EventHandler(this.comboBoxNroRonda_SelectedIndexChanged);
+            this.comboBoxNroRonda.SelectedValueChanged += new System.EventHandler(this.comboBoxNroRonda_SelectedValueChanged);
             // 
             // label1
             // 
@@ -201,7 +201,6 @@
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "mostrarFixtureSRG";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

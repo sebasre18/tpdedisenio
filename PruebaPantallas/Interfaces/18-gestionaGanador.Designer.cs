@@ -124,7 +124,6 @@
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.groupBox7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "gestionaGanador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

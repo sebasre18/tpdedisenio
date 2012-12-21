@@ -28,7 +28,7 @@ namespace TPdeDiseño
         {
             usuarioNuevo._email = "EMAIL@HOTMAIL.COM";
             usuarioNuevo._contraseña = "PASS";
-            principal.usuarioLogueadoP = usuarioNuevo;
+            Interfaces.principal.usuarioLogueadoP = usuarioNuevo;
             /*if (tbEmail.Text == "" || tbPass.Text == "")
             {
                 MessageBox.Show("Ninguno de los campos puede ser nulo.");
@@ -51,9 +51,9 @@ namespace TPdeDiseño
                     this.Close();
                 }
             }*/
-            principal.ActiveForm.MainMenuStrip.Items[0].Enabled = false;
-            principal.ActiveForm.MainMenuStrip.Items[1].Enabled = true;
-            principal.ActiveForm.MainMenuStrip.Items[2].Enabled = false;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[0].Enabled = false;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[1].Enabled = true;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[2].Enabled = false;
             this.Close();
         }
 

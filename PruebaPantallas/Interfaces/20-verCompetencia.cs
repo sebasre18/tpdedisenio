@@ -13,10 +13,10 @@ namespace TPdeDiseño
     {
         //Declaracion de clase Competencia publica.
         public Clases_de_entidad.CompetenciaDeportiva competenciaVerComp = new Clases_de_entidad.CompetenciaDeportiva();
-        
+
 
         //Declaracion de variables
-        int rondaActual, nR=0;
+        int rondaActual, nR = 0;
         string cadena;
 
         public verCompetencia()
@@ -26,37 +26,17 @@ namespace TPdeDiseño
 
         private void verCompetencia_Load(object sender, EventArgs e)
         {
-            /*
-            //Codigo para comprobar q se llene correctamente
-            
-            competenciaVerComp._id_competencia = 3;
-            competenciaVerComp._nombre = "COMPETENCIA DE PRUEBA";
-            competenciaVerComp._estado = "CREADA";
-            Clases_de_entidad.Modalidad mod = new Clases_de_entidad.Modalidad();
-            mod._nombreMod = "LIGA";
-            competenciaVerComp._modalidad = mod;
-            competenciaVerComp._deporte = new Clases_de_entidad.Deporte();
-
-            competenciaVerComp._participantes = new List<Clases_de_entidad.Participante>();
-            for (short i = 1; i <= 5; i++)
-            {
-                Clases_de_entidad.Participante participante = new Clases_de_entidad.Participante();
-                participante._nombre = "PARTICIPANTE" + i;
-                participante._id_participante = i;
-                competenciaVerComp._participantes.Add(participante);
-            }*/
-
-            
             //Asigna los labels de la pantalla
             labelDeporteComp.Text = competenciaVerComp._deporte._nombre;
             labelEstadoComp.Text = competenciaVerComp._estado;
             labelModComp.Text = competenciaVerComp._modalidad._nombreMod;
             labelNombreComp.Text = competenciaVerComp._nombre;
-            
+
             //Completa los listBox
             foreach (Clases_de_entidad.Participante participante in competenciaVerComp._participantes)
             {
-                listBoxParticipantes.Items.Add(participante._nombre);
+                if (participante._nombre != "EQUIPOFANTASMA")
+                    listBoxParticipantes.Items.Add(participante._nombre);
             }
 
             if (competenciaVerComp._fixture != null)
@@ -70,42 +50,34 @@ namespace TPdeDiseño
                     }
                 }
             }
-            
+
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            generarFixture genFixture = new generarFixture();
             this.Close();
-            genFixture.MdiParent = principal.ActiveForm;
+            generarFixture genFixture = new generarFixture();
+            genFixture.MdiParent = Interfaces.principal.ActiveForm;
             genFixture.competenciaGenFix = competenciaVerComp;
             genFixture.Show();
-            
         }
 
         private void buttonVerFixture_Click_1(object sender, EventArgs e)
         {
-            
             //Comprovar que exista el fixture
             if (competenciaVerComp._fixture != null)
             {
                 //Llamada a la nueva interfaz.
-                mostrarFixtureSRG mostrarFixture = new mostrarFixtureSRG();
-                mostrarFixture.MdiParent = principal.ActiveForm;
-                //mostrarFixture.WindowState = FormWindowState.Maximized;
-                mostrarFixture.competenciaVerFix = competenciaVerComp;
-                mostrarFixture.Show();
                 this.Close();
+                mostrarFixtureSRG mostrarFixture = new mostrarFixtureSRG();
+                mostrarFixture.MdiParent = Interfaces.principal.ActiveForm;
+                mostrarFixtureSRG.competenciaVerFix = competenciaVerComp;
+                mostrarFixture.Show();
             }
             else
             {
-                mensajeTipo2 error;
-                error = new mensajeTipo2();
-                error.MdiParent = principal.ActiveForm;
-                error.error2 = "No existe un fixture generado.";
-                error.Show();
-                this.Close();
+                MessageBox.Show("No existe un fixture generado.", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -139,28 +111,26 @@ namespace TPdeDiseño
                 if (formPunt == "RESULTADO FINAL" || formPunt == "SETS")
                 {
                     // Se llama a la interfaz ver tabla de posiciones sin goles.
+                    this.Close();
                     Interfaces.mostrarTablaSG mtSG = new Interfaces.mostrarTablaSG();
-                    mtSG.MdiParent = principal.ActiveForm;
+                    mtSG.MdiParent = Interfaces.principal.ActiveForm;
                     mtSG.competenciaSG = this.competenciaVerComp;
                     mtSG.Show();
-                    this.Close();
                 }
                 else
                 {
+                    this.Close();
                     // Se llama a la interfaz ver tabla de posiciones con goles.
                     Interfases.mostrarTablaCG mtCG = new Interfases.mostrarTablaCG();
-                    mtCG.MdiParent = principal.ActiveForm;
+                    mtCG.MdiParent = Interfaces.principal.ActiveForm;
                     mtCG.competenciaCG = this.competenciaVerComp;
                     mtCG.Show();
-                    this.Close();
                 }
             }
             else
             {
-                mensajeTipo2 msj = new mensajeTipo2();
-                msj.mensaje = "No existe Tabla de Posiciones para esta competencia.";
-                // ALERTA AUDITIVA.
-                msj.Show();
+                MessageBox.Show("No existe tabla de posiciones para esta competencia.", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+    }
 }

@@ -53,5 +53,14 @@ namespace TPdeDiseño.Interfaces
             PaintEventArgs myPaintArgs = new PaintEventArgs(e.Graphics, new Rectangle(new Point(0, 0), this.Size));
             this.InvokePaint(dgvTablaSG, myPaintArgs);
         }
+
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            verCompetencia vc = new verCompetencia();
+            vc.MdiParent = principal.ActiveForm;
+            vc.competenciaVerComp = competenciaSG;
+            vc.Show();
+        }
     }
 }
