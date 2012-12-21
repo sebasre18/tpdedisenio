@@ -28,27 +28,6 @@ namespace TPdeDiseño
             autentificarUsuario au = new autentificarUsuario();
             au.MdiParent = principal.ActiveForm;
             au.Show();
-            tsmiIniciar.Enabled = false;
-            tsmiCerrar.Enabled = true;
-            tsmiModificar.Enabled = true;
-            tsmiAltaCompetencia.Enabled = true;
-            tsmiListarCompetencias.Enabled = true;
-            tsmiListarLugares.Enabled = true;
-            //this.usuarioLogueadoP = au.usuarioNuevo;
-        }
-
-        private void tsmiCerrar_Click(object sender, EventArgs e)
-        {
-            // Borra los datos del usuario loguado.
-            Clases_de_entidad.Usuario usuarioDeslogueado = new Clases_de_entidad.Usuario();
-            usuarioLogueadoP = usuarioDeslogueado;
-            
-            tsmiIniciar.Enabled = true;
-            tsmiCerrar.Enabled = false;
-            tsmiModificar.Enabled = false;
-            tsmiAltaCompetencia.Enabled = false;
-            tsmiListarCompetencias.Enabled = false;
-            tsmiListarLugares.Enabled = false;
         }
 
         private void tsmiModificar_Click(object sender, EventArgs e)
@@ -63,12 +42,6 @@ namespace TPdeDiseño
         }
 
         private void tsmiListarLugares_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Esta funcionalidad no está desarrollada aún.");
-
-        }
-
-        private void tsmiListarTodas_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Esta funcionalidad no está desarrollada aún.");
 
@@ -99,6 +72,22 @@ namespace TPdeDiseño
             lc.MdiParent = principal.ActiveForm;
             lc.usuarioLogueadoLC = usuarioLogueadoP;
             lc.Show();
+        }
+
+        private void listarTodasLasCompetenciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Esta funcionalidad no está desarrollada aún.");
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Borra los datos del usuario loguado.
+            Clases_de_entidad.Usuario usuarioDeslogueado = new Clases_de_entidad.Usuario();
+            usuarioLogueadoP = usuarioDeslogueado;
+
+            principal.ActiveForm.MainMenuStrip.Items[0].Enabled = true;
+            principal.ActiveForm.MainMenuStrip.Items[1].Enabled = false;
+            principal.ActiveForm.MainMenuStrip.Items[2].Enabled = true;
         }
 
         ////////////////////////////////////// Metodos auxiliares ////////////////////////////////////////
