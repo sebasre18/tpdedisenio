@@ -40,13 +40,14 @@
             this.bExaminar = new System.Windows.Forms.Button();
             this.pbImagen = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 19);
+            this.label1.Location = new System.Drawing.Point(33, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 13);
             this.label1.TabIndex = 1;
@@ -55,7 +56,7 @@
             // tbNombre
             // 
             this.tbNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tbNombre.Location = new System.Drawing.Point(36, 35);
+            this.tbNombre.Location = new System.Drawing.Point(36, 42);
             this.tbNombre.MaxLength = 50;
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(350, 20);
@@ -65,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 71);
+            this.label2.Location = new System.Drawing.Point(33, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 3;
@@ -74,7 +75,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(184, 136);
+            this.label3.Location = new System.Drawing.Point(184, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 4;
@@ -84,17 +85,16 @@
             // 
             this.tbMail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbMail.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tbMail.Location = new System.Drawing.Point(36, 87);
+            this.tbMail.Location = new System.Drawing.Point(36, 102);
             this.tbMail.MaxLength = 50;
             this.tbMail.Name = "tbMail";
             this.tbMail.Size = new System.Drawing.Size(350, 20);
             this.tbMail.TabIndex = 2;
-            this.tbMail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMail_KeyPress_1);
             this.tbMail.Leave += new System.EventHandler(this.tbMail_Leave);
             // 
             // bLimpiar
             // 
-            this.bLimpiar.Location = new System.Drawing.Point(221, 292);
+            this.bLimpiar.Location = new System.Drawing.Point(221, 332);
             this.bLimpiar.Name = "bLimpiar";
             this.bLimpiar.Size = new System.Drawing.Size(75, 23);
             this.bLimpiar.TabIndex = 6;
@@ -104,7 +104,7 @@
             // 
             // bCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(309, 292);
+            this.bCancelar.Location = new System.Drawing.Point(309, 332);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 7;
@@ -114,7 +114,7 @@
             // 
             // bAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(103, 292);
+            this.bAceptar.Location = new System.Drawing.Point(103, 332);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
             this.bAceptar.TabIndex = 5;
@@ -125,7 +125,7 @@
             // 
             // tbImagen
             // 
-            this.tbImagen.Location = new System.Drawing.Point(187, 152);
+            this.tbImagen.Location = new System.Drawing.Point(187, 174);
             this.tbImagen.MaxLength = 100;
             this.tbImagen.Name = "tbImagen";
             this.tbImagen.Size = new System.Drawing.Size(197, 20);
@@ -133,7 +133,7 @@
             // 
             // bExaminar
             // 
-            this.bExaminar.Location = new System.Drawing.Point(309, 178);
+            this.bExaminar.Location = new System.Drawing.Point(309, 200);
             this.bExaminar.Name = "bExaminar";
             this.bExaminar.Size = new System.Drawing.Size(75, 23);
             this.bExaminar.TabIndex = 4;
@@ -143,7 +143,8 @@
             // 
             // pbImagen
             // 
-            this.pbImagen.Location = new System.Drawing.Point(36, 136);
+            this.pbImagen.InitialImage = null;
+            this.pbImagen.Location = new System.Drawing.Point(36, 158);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(131, 107);
             this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -154,17 +155,21 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Enabled = false;
-            this.label4.Location = new System.Drawing.Point(65, 71);
+            this.label4.Location = new System.Drawing.Point(65, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 13);
             this.label4.TabIndex = 29;
             this.label4.Text = "(ejemplo@ejemplo.com)";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // altaParticipante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 340);
+            this.ClientSize = new System.Drawing.Size(426, 384);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pbImagen);
             this.Controls.Add(this.bExaminar);
@@ -177,7 +182,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "altaParticipante";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -203,5 +208,6 @@
         private System.Windows.Forms.Button bExaminar;
         private System.Windows.Forms.PictureBox pbImagen;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

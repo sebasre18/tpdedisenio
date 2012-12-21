@@ -11,7 +11,7 @@ namespace TPdeDiseño
 {
     public partial class mensajeTipo2 : Form
     {
-        public string error2;
+        public string mensaje;
 
         public mensajeTipo2()
         {
@@ -20,8 +20,8 @@ namespace TPdeDiseño
 
         private void mensajeTipo2_Load(object sender, EventArgs e)
         {
-            labelError2.ForeColor = Color.Red;
-            labelError2.Text = error2;
+            lError.ForeColor = Color.Red;
+            lError.Text = mensaje;
         }
 
         private void buttonAceptar_Click(object sender, EventArgs e)

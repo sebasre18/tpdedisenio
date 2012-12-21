@@ -42,7 +42,7 @@
             // tbPass
             // 
             this.tbPass.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tbPass.Location = new System.Drawing.Point(45, 129);
+            this.tbPass.Location = new System.Drawing.Point(45, 188);
             this.tbPass.MaxLength = 16;
             this.tbPass.Name = "tbPass";
             this.tbPass.PasswordChar = '*';
@@ -53,7 +53,7 @@
             // tbEmail
             // 
             this.tbEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tbEmail.Location = new System.Drawing.Point(45, 75);
+            this.tbEmail.Location = new System.Drawing.Point(45, 122);
             this.tbEmail.MaxLength = 50;
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(252, 20);
@@ -63,7 +63,7 @@
             // contrasena
             // 
             this.contrasena.AutoSize = true;
-            this.contrasena.Location = new System.Drawing.Point(42, 113);
+            this.contrasena.Location = new System.Drawing.Point(42, 172);
             this.contrasena.Name = "contrasena";
             this.contrasena.Size = new System.Drawing.Size(64, 13);
             this.contrasena.TabIndex = 10;
@@ -72,7 +72,7 @@
             // email
             // 
             this.email.AutoSize = true;
-            this.email.Location = new System.Drawing.Point(42, 59);
+            this.email.Location = new System.Drawing.Point(42, 106);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(38, 13);
             this.email.TabIndex = 9;
@@ -81,7 +81,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 23);
+            this.label1.Location = new System.Drawing.Point(62, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(205, 13);
             this.label1.TabIndex = 13;
@@ -89,7 +89,7 @@
             // 
             // bLimpiar
             // 
-            this.bLimpiar.Location = new System.Drawing.Point(134, 215);
+            this.bLimpiar.Location = new System.Drawing.Point(134, 310);
             this.bLimpiar.Name = "bLimpiar";
             this.bLimpiar.Size = new System.Drawing.Size(75, 23);
             this.bLimpiar.TabIndex = 5;
@@ -99,7 +99,7 @@
             // 
             // bCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(222, 215);
+            this.bCancelar.Location = new System.Drawing.Point(222, 310);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 6;
@@ -109,7 +109,7 @@
             // 
             // bAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(45, 215);
+            this.bAceptar.Location = new System.Drawing.Point(45, 310);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
             this.bAceptar.TabIndex = 4;
@@ -120,7 +120,7 @@
             // 
             // bRegistrar
             // 
-            this.bRegistrar.Location = new System.Drawing.Point(45, 175);
+            this.bRegistrar.Location = new System.Drawing.Point(45, 270);
             this.bRegistrar.Name = "bRegistrar";
             this.bRegistrar.Size = new System.Drawing.Size(252, 23);
             this.bRegistrar.TabIndex = 3;
@@ -133,7 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 267);
+            this.ClientSize = new System.Drawing.Size(340, 373);
             this.Controls.Add(this.bRegistrar);
             this.Controls.Add(this.bLimpiar);
             this.Controls.Add(this.bCancelar);
@@ -143,7 +143,7 @@
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.contrasena);
             this.Controls.Add(this.email);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "autentificarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

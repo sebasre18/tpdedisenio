@@ -65,6 +65,7 @@ namespace TPdeDiseño
         {
             altaCompetencia ac = new altaCompetencia();
             ac.MdiParent = principal.ActiveForm;
+            ac.usuarioLogueadoAC = usuarioLogueadoLC;
             ac.Show();
             this.Close();
         }

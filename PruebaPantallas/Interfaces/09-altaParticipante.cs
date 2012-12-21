@@ -83,15 +83,15 @@ namespace TPdeDiseño
 
         private void bExaminar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog BuscarImagen = new OpenFileDialog();
-            BuscarImagen.Filter = "*.jpg";
-            BuscarImagen.FileName = this.tbImagen.Text;
-            if (BuscarImagen.ShowDialog() == DialogResult.OK)
+            OpenFileDialog OpenFileDialog1 = new OpenFileDialog();
+            OpenFileDialog1.Filter = "*.jpg";
+            OpenFileDialog1.FileName = this.tbImagen.Text;
+            if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
             {
      
                 /// Si esto se cumple, capturamos la propiedad File Name y la guardamos en el control
-                this.tbImagen.Text = BuscarImagen.FileName;                
-                String Direccion = BuscarImagen.FileName;
+                this.tbImagen.Text = OpenFileDialog1.FileName;
+                String Direccion = OpenFileDialog1.FileName;
                 this.pbImagen.ImageLocation = Direccion;
                 pbImagen.SizeMode = PictureBoxSizeMode.StretchImage;
             }
@@ -126,6 +126,7 @@ namespace TPdeDiseño
            if (error == 1)
            {
                MessageBox.Show("Los campos Nombre y E-mail son obligatorios.");
+               // ALERTA AUDITIVA.
                tbNombre.Focus();
            }
            else
@@ -167,13 +168,19 @@ namespace TPdeDiseño
                    }
                    else
                    {
-                       MessageBox.Show("El email ya existe.");
+                       mensajeTipo2 msj = new mensajeTipo2();
+                       msj.mensaje = "El email ya existe.";
+                       // ALERTA AUDITIVA.
+                       msj.Show();
                        tbNombre.Focus();
                    }
                }
                else
                {
-                   MessageBox.Show("El nombre ya existe.");
+                   mensajeTipo2 msj = new mensajeTipo2();
+                   msj.mensaje = "El nombre ya existe.";
+                   // ALERTA AUDITIVA.
+                   msj.Show();
                    tbNombre.Focus();
                }
             }
@@ -227,6 +234,7 @@ namespace TPdeDiseño
             if(error == false)
                 MessageBox.Show("Debe ingresar un formato valido de email.");
         }
+
     }
 }
 
