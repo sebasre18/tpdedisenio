@@ -59,15 +59,18 @@ namespace TPdeDiseño
                 listBoxParticipantes.Items.Add(participante._nombre);
             }
 
-
-            for (int nroRonda = competenciaVerComp._fixture._rondaActual ; nroRonda <= competenciaVerComp._fixture._rondas.Count ; nroRonda++)
+            if (competenciaVerComp._fixture != null)
             {
-                foreach (Clases_de_entidad.Partido partido in competenciaVerComp._fixture._rondas[nroRonda-1]._partidos)
+                for (int nroRonda = competenciaVerComp._fixture._rondaActual; nroRonda <= competenciaVerComp._fixture._rondas.Count; nroRonda++)
                 {
-                    cadena = partido._pParticipantes[0]._participante._nombre + " - " + partido._pParticipantes[1]._participante._nombre;
-                    listBoxProxEncuentros.Items.Add(cadena);
+                    foreach (Clases_de_entidad.Partido partido in competenciaVerComp._fixture._rondas[nroRonda - 1]._partidos)
+                    {
+                        cadena = partido._pParticipantes[0]._participante._nombre + " - " + partido._pParticipantes[1]._participante._nombre;
+                        listBoxProxEncuentros.Items.Add(cadena);
+                    }
                 }
             }
+            
 
         }
 
@@ -128,7 +131,9 @@ namespace TPdeDiseño
 
         private void buttonTabla_Click(object sender, EventArgs e)
         {
-            if (competenciaVerComp._tablaPosiciones != null)
+            string nombreMod = competenciaVerComp._modalidad._nombreMod;
+            string estado = competenciaVerComp._estado;
+            if (competenciaVerComp._tablaPosiciones != null && nombreMod == "SISTEMA DE LIGA" && (estado == "EN DISPUTA" || estado == "FINALIZADA"))
             {
                 string formPunt = competenciaVerComp._modalidad._formaPuntuacion._nombreForma;
                 if (formPunt == "RESULTADO FINAL" || formPunt == "SETS")
@@ -151,8 +156,11 @@ namespace TPdeDiseño
                 }
             }
             else
-                MessageBox.Show("No existe Tabla de Posiciones para esta competencia.");
+            {
+                mensajeTipo2 msj = new mensajeTipo2();
+                msj.mensaje = "No existe Tabla de Posiciones para esta competencia.";
+                // ALERTA AUDITIVA.
+                msj.Show();
+            }
         }
-    }
-        
 }

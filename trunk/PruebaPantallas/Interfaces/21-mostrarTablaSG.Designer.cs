@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mostrarTablaSG));
             this.dgvTablaSG = new System.Windows.Forms.DataGridView();
             this.equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pts = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,7 +126,6 @@
             // 
             // bImprimir
             // 
-            this.bImprimir.Enabled = false;
             this.bImprimir.Location = new System.Drawing.Point(208, 400);
             this.bImprimir.Name = "bImprimir";
             this.bImprimir.Size = new System.Drawing.Size(75, 23);
@@ -138,7 +136,6 @@
             // 
             // bExportar
             // 
-            this.bExportar.Enabled = false;
             this.bExportar.Location = new System.Drawing.Point(118, 400);
             this.bExportar.Name = "bExportar";
             this.bExportar.Size = new System.Drawing.Size(75, 23);
@@ -161,8 +158,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bExportar);
             this.Controls.Add(this.dgvTablaSG);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "mostrarTablaSG";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mostrarTablaCG));
             this.dgvTablaCG = new System.Windows.Forms.DataGridView();
             this.equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pts = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,7 +65,7 @@
             this.dgvTablaCG.Name = "dgvTablaCG";
             this.dgvTablaCG.ReadOnly = true;
             this.dgvTablaCG.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvTablaCG.Size = new System.Drawing.Size(455, 312);
+            this.dgvTablaCG.Size = new System.Drawing.Size(455, 282);
             this.dgvTablaCG.TabIndex = 0;
             // 
             // equipo
@@ -135,7 +134,7 @@
             // 
             // bCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(410, 400);
+            this.bCancelar.Location = new System.Drawing.Point(410, 378);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
             this.bCancelar.TabIndex = 9;
@@ -144,8 +143,7 @@
             // 
             // bImprimir
             // 
-            this.bImprimir.Enabled = false;
-            this.bImprimir.Location = new System.Drawing.Point(298, 400);
+            this.bImprimir.Location = new System.Drawing.Point(298, 378);
             this.bImprimir.Name = "bImprimir";
             this.bImprimir.Size = new System.Drawing.Size(75, 23);
             this.bImprimir.TabIndex = 8;
@@ -155,8 +153,7 @@
             // 
             // bExportar
             // 
-            this.bExportar.Enabled = false;
-            this.bExportar.Location = new System.Drawing.Point(208, 400);
+            this.bExportar.Location = new System.Drawing.Point(208, 378);
             this.bExportar.Name = "bExportar";
             this.bExportar.Size = new System.Drawing.Size(75, 23);
             this.bExportar.TabIndex = 7;
@@ -190,14 +187,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 435);
+            this.ClientSize = new System.Drawing.Size(502, 423);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bCancelar);
             this.Controls.Add(this.bImprimir);
             this.Controls.Add(this.bExportar);
             this.Controls.Add(this.dgvTablaCG);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "mostrarTablaCG";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -11,6 +11,8 @@ namespace TPdeDiseño
 {
     public partial class mensajeTipo1 : Form
     {
+
+        public string mensaje;
         
         public mensajeTipo1()
         {
@@ -19,7 +21,13 @@ namespace TPdeDiseño
 
         private void mensajeTipo1_Load(object sender, EventArgs e)
         {
+            lExito.ForeColor = Color.Green;
+            lExito.Text = mensaje;
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

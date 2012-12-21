@@ -11,7 +11,7 @@ namespace TPdeDiseño
 {
     public partial class listarParticipantes : Form
     {
-        public Clases_de_entidad.CompetenciaDeportiva competenciaActual = new Clases_de_entidad.CompetenciaDeportiva();
+        public static Clases_de_entidad.CompetenciaDeportiva competenciaActual = new Clases_de_entidad.CompetenciaDeportiva();
         public static Clases_de_entidad.Participante nuevoParticipanteLP = new Clases_de_entidad.Participante();
         public int fila = 0;
         
@@ -25,6 +25,8 @@ namespace TPdeDiseño
             // Muestra el nombre de la competencia en el label.
             lNombreCompetencia.Text = competenciaActual._nombre;
 
+            completaGrid();
+
             /* Como solo se debe implementar las funcionalidades basicas no se tiene en cuenta que los participantes ya esten cargados con anterioridad.
                Se asume que al entrar a esta interfaz no hay participantes cargados.*/
         }
@@ -35,16 +37,16 @@ namespace TPdeDiseño
             {
                 altaParticipante ap = new altaParticipante();
                 ap.MdiParent = principal.ActiveForm;
-                ap.competenciaAP = this.competenciaActual;
+                ap.competenciaAP = competenciaActual;
                 ap.Show();
-                // Mostrar en el datagriev el participante que se va agregando.
-                dgvParticipantes.Rows.Add();
-                dgvParticipantes[0, fila].Value = nuevoParticipanteLP._nombre;
-                dgvParticipantes[1, fila].Value = nuevoParticipanteLP._email;
-                fila = fila++; 
+                this.Close();
             }
-            else         
-                MessageBox.Show("No se pueden agregar participantes a esta competencia.");
+            else
+            {
+                mensajeTipo2 msj = new mensajeTipo2();
+                msj.mensaje = "No se pueden agregar participantes a la competencia.";
+                msj.Show();
+            }
 
         }
 
@@ -61,6 +63,22 @@ namespace TPdeDiseño
         private void bCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }       
+        }
+
+        private void completaGrid()
+        {
+            // Mostrar en el datagriev el participante que se va agregando.
+            fila = 0;
+            if (competenciaActual._participantes != null)
+            {
+                foreach (var part in competenciaActual._participantes)
+                {
+                    dgvParticipantes.Rows.Add();
+                    dgvParticipantes[0, fila].Value = part._nombre;
+                    dgvParticipantes[1, fila].Value = part._email;
+                    fila = fila++;
+                }
+            }
+        }
     }
 }

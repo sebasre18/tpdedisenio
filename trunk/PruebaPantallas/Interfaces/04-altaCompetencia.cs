@@ -60,13 +60,23 @@ namespace TPdeDiseño
             if (error == 1)
             {
                 MessageBox.Show("Asegurese que ningun campo sea nulo");
+                // SUAVE ALERTA
+                tbNombre.Focus();
+            }
+            else if (cbModalidad.Text == "SISTEMA DE LIGA" && Convert.ToInt32(tbPtosGanado.Text) < Convert.ToInt32(tbPtosPresentarse.Text))
+            {
+                MessageBox.Show("La cantidad de puntos por partido ganado es menor que la cantidad de puntos por partido empatado");
+                // ALERTA AUDITIVA
                 tbNombre.Focus();
             }
             else
             {
                 if (gestorC.compararNombre(tbNombre.Text))
                 {
-                    MessageBox.Show("El nombre ya existe.");
+                    mensajeTipo2 msj = new mensajeTipo2();
+                    msj.mensaje = "El nombre ya existe. Vuelva a ingresar los datos.";
+                    msj.Show();
+                    // Alerta auditiva.
                     tbNombre.Focus();
                 }
                 else
@@ -94,8 +104,9 @@ namespace TPdeDiseño
                     modalidad._formaPuntuacion = formaDePuntuacion;
 
                     Clases_de_entidad.CompetenciaDeportiva nuevaCompetencia = new Clases_de_entidad.CompetenciaDeportiva("CREADA", Convert.ToString(tbNombre.Text), Convert.ToString(rtbReglamento.Text), dep, lugaresAC, modalidad, usuarioLogueadoAC);
-                    MessageBox.Show("La competencia se creo satisfactoriamente.");
-
+                    mensajeTipo1 msj = new mensajeTipo1();
+                    msj.mensaje = "La competencia se creo satisfactoriamente.";
+                    msj.Show();
 
                     // Se guarda la competencia en la Base de Datos.
                     Clases_ABD.ABDcompetencia competenciaABD = new Clases_ABD.ABDcompetencia();

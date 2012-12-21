@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mensajeTipo2));
-            this.labelError2 = new System.Windows.Forms.Label();
+            this.lError = new System.Windows.Forms.Label();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // labelError2
+            // lError
             // 
-            this.labelError2.AutoSize = true;
-            this.labelError2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelError2.ForeColor = System.Drawing.Color.Red;
-            this.labelError2.Location = new System.Drawing.Point(182, 35);
-            this.labelError2.Name = "labelError2";
-            this.labelError2.Size = new System.Drawing.Size(107, 17);
-            this.labelError2.TabIndex = 3;
-            this.labelError2.Text = "XXXXXXXXXXX";
+            this.lError.AutoSize = true;
+            this.lError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lError.ForeColor = System.Drawing.Color.Red;
+            this.lError.Location = new System.Drawing.Point(12, 30);
+            this.lError.Name = "lError";
+            this.lError.Size = new System.Drawing.Size(440, 17);
+            this.lError.TabIndex = 3;
+            this.lError.Text = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+            this.lError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // buttonAceptar
             // 
@@ -60,7 +61,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 130);
             this.ControlBox = false;
-            this.Controls.Add(this.labelError2);
+            this.Controls.Add(this.lError);
             this.Controls.Add(this.buttonAceptar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
@@ -75,7 +76,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelError2;
+        private System.Windows.Forms.Label lError;
         private System.Windows.Forms.Button buttonAceptar;
     }
 }
