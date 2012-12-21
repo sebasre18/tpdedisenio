@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(altaParticipante));
             this.label1 = new System.Windows.Forms.Label();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,6 +60,7 @@
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(350, 20);
             this.tbNombre.TabIndex = 1;
+            this.tbNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNombre_KeyPress_1);
             // 
             // label2
             // 
@@ -89,6 +89,8 @@
             this.tbMail.Name = "tbMail";
             this.tbMail.Size = new System.Drawing.Size(350, 20);
             this.tbMail.TabIndex = 2;
+            this.tbMail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMail_KeyPress_1);
+            this.tbMail.Leave += new System.EventHandler(this.tbMail_Leave);
             // 
             // bLimpiar
             // 
@@ -141,7 +143,6 @@
             // 
             // pbImagen
             // 
-            this.pbImagen.Image = global::TPdeDiseño.Properties.Resources.usuarioMasculino;           
             this.pbImagen.Location = new System.Drawing.Point(36, 136);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(131, 107);
@@ -177,7 +178,6 @@
             this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "altaParticipante";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

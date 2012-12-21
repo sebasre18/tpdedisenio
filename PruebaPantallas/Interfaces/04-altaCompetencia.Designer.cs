@@ -53,14 +53,14 @@
             this.bAceptar = new System.Windows.Forms.Button();
             this.rtbReglamento = new System.Windows.Forms.RichTextBox();
             this.linkLugares = new System.Windows.Forms.LinkLabel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.cbMaxSet = new System.Windows.Forms.ComboBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -153,7 +153,7 @@
             this.cbEmpate.Location = new System.Drawing.Point(6, 19);
             this.cbEmpate.Name = "cbEmpate";
             this.cbEmpate.Size = new System.Drawing.Size(98, 17);
-            this.cbEmpate.TabIndex = 54;
+            this.cbEmpate.TabIndex = 6;
             this.cbEmpate.Text = "Permitir empate";
             this.cbEmpate.UseVisualStyleBackColor = true;
             this.cbEmpate.CheckedChanged += new System.EventHandler(this.cbEmpate_CheckedChanged);
@@ -278,7 +278,7 @@
             this.bLimpiar.Location = new System.Drawing.Point(384, 595);
             this.bLimpiar.Name = "bLimpiar";
             this.bLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.bLimpiar.TabIndex = 19;
+            this.bLimpiar.TabIndex = 14;
             this.bLimpiar.Text = "Limpiar";
             this.bLimpiar.UseVisualStyleBackColor = true;
             this.bLimpiar.Click += new System.EventHandler(this.bLimpiar_Click);
@@ -288,7 +288,7 @@
             this.bCancelar.Location = new System.Drawing.Point(472, 595);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
-            this.bCancelar.TabIndex = 20;
+            this.bCancelar.TabIndex = 15;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
@@ -298,7 +298,7 @@
             this.bAceptar.Location = new System.Drawing.Point(266, 595);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
-            this.bAceptar.TabIndex = 18;
+            this.bAceptar.TabIndex = 13;
             this.bAceptar.Text = "Aceptar";
             this.bAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.bAceptar.UseVisualStyleBackColor = true;
@@ -312,7 +312,7 @@
             this.rtbReglamento.Name = "rtbReglamento";
             this.rtbReglamento.ShowSelectionMargin = true;
             this.rtbReglamento.Size = new System.Drawing.Size(500, 113);
-            this.rtbReglamento.TabIndex = 17;
+            this.rtbReglamento.TabIndex = 12;
             this.rtbReglamento.Text = "";
             // 
             // linkLugares
@@ -326,32 +326,6 @@
             this.linkLugares.Text = "Cargar lugares de realización";
             this.linkLugares.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLugares_LinkClicked);
             // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Sistema de Liga",
-            "Eliminatoria Simple",
-            "Eliminatorio Doble"});
-            this.comboBox3.Location = new System.Drawing.Point(186, 440);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(40, 21);
-            this.comboBox3.TabIndex = 13;
-            this.comboBox3.Text = "10";
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
-            "Sistema de Liga",
-            "Eliminatoria Simple",
-            "Eliminatorio Doble"});
-            this.comboBox6.Location = new System.Drawing.Point(47, 440);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(133, 21);
-            this.comboBox6.TabIndex = 12;
-            this.comboBox6.Text = "Times New Roman";
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -360,6 +334,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Enabled = false;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
             this.toolStripLabel3,
@@ -403,9 +378,33 @@
             this.cbMaxSet.Location = new System.Drawing.Point(204, 344);
             this.cbMaxSet.Name = "cbMaxSet";
             this.cbMaxSet.Size = new System.Drawing.Size(38, 21);
-            this.cbMaxSet.TabIndex = 29;
+            this.cbMaxSet.TabIndex = 10;
             this.cbMaxSet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbDeporte_KeyDown);
             this.cbMaxSet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbMaxSet_KeyPress);
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.Enabled = false;
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(47, 440);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(133, 21);
+            this.comboBox6.TabIndex = 12;
+            this.comboBox6.Text = "Times New Roman";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Enabled = false;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Sistema de Liga",
+            "Eliminatoria Simple",
+            "Eliminatorio Doble"});
+            this.comboBox3.Location = new System.Drawing.Point(186, 440);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(40, 21);
+            this.comboBox3.TabIndex = 13;
+            this.comboBox3.Text = "10";
             // 
             // altaCompetencia
             // 
@@ -479,13 +478,13 @@
         private System.Windows.Forms.Button bAceptar;
         private System.Windows.Forms.RichTextBox rtbReglamento;
         private System.Windows.Forms.LinkLabel linkLugares;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ComboBox cbMaxSet;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }
