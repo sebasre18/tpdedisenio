@@ -120,6 +120,7 @@
             this.groupBox1.Size = new System.Drawing.Size(524, 40);
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lNombreCompetencia
             // 

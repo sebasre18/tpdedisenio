@@ -247,6 +247,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nombreLugar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "listarCompetencias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -22,11 +22,6 @@ namespace TPdeDiseño
         {
             InitializeComponent();
         }
-
-        private void altaParticipante_Load(object sender, EventArgs e)
-        {
-
-        }
         
         private void tbNombre_KeyDown(object sender, KeyEventArgs e)
         {
@@ -74,9 +69,9 @@ namespace TPdeDiseño
 
         private int validarCamposNulos()
         {
-            if (tbNombre.Text == null)
+            if (tbNombre.Text == "")
                 return 1;
-            if (tbMail.Text == null)
+            if (tbMail.Text == "")
                 return 1;
             return 0;
         }
@@ -109,10 +104,14 @@ namespace TPdeDiseño
                     this.tbNombre.Focus();
                 }
              }
+            pbImagen.Image = null;
         }
 
         private void bCancelar_Click(object sender, EventArgs e)
         {
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[0].Enabled = false;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[1].Enabled = true;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[2].Enabled = false;
             this.Close();
         }
 

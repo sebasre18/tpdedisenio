@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gestionaPuntos));
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.textBoxP2 = new System.Windows.Forms.TextBox();
             this.checkBoxP2 = new System.Windows.Forms.CheckBox();
@@ -90,7 +89,7 @@
             this.textBoxP1.MaxLength = 3;
             this.textBoxP1.Name = "textBoxP1";
             this.textBoxP1.Size = new System.Drawing.Size(43, 20);
-            this.textBoxP1.TabIndex = 1;            
+            this.textBoxP1.TabIndex = 1;
             this.textBoxP1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1_KeyPress);
             // 
             // checkBoxP1
@@ -151,7 +150,7 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.groupBox7);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "gestionaPuntos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

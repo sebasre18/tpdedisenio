@@ -173,7 +173,7 @@
             this.groupBoxS2.Location = new System.Drawing.Point(223, 19);
             this.groupBoxS2.Name = "groupBoxS2";
             this.groupBoxS2.Size = new System.Drawing.Size(182, 120);
-            this.groupBoxS2.TabIndex = 6;
+            this.groupBoxS2.TabIndex = 5;
             this.groupBoxS2.TabStop = false;
             this.groupBoxS2.Text = "Segundo Set";
             // 
@@ -183,7 +183,7 @@
             this.textBoxP2S2.MaxLength = 2;
             this.textBoxP2S2.Name = "textBoxP2S2";
             this.textBoxP2S2.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S2.TabIndex = 6;
+            this.textBoxP2S2.TabIndex = 7;
             this.textBoxP2S2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S2_KeyPress);
             // 
             // textBoxP1S2
@@ -192,7 +192,7 @@
             this.textBoxP1S2.MaxLength = 2;
             this.textBoxP1S2.Name = "textBoxP1S2";
             this.textBoxP1S2.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S2.TabIndex = 5;
+            this.textBoxP1S2.TabIndex = 6;
             this.textBoxP1S2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S2_KeyPress);
             // 
             // labelP2S2
@@ -222,7 +222,7 @@
             this.groupBoxS4.Location = new System.Drawing.Point(6, 145);
             this.groupBoxS4.Name = "groupBoxS4";
             this.groupBoxS4.Size = new System.Drawing.Size(182, 120);
-            this.groupBoxS4.TabIndex = 7;
+            this.groupBoxS4.TabIndex = 11;
             this.groupBoxS4.TabStop = false;
             this.groupBoxS4.Text = "Cuarto Set";
             // 
@@ -232,7 +232,7 @@
             this.textBoxP2S4.MaxLength = 2;
             this.textBoxP2S4.Name = "textBoxP2S4";
             this.textBoxP2S4.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S4.TabIndex = 10;
+            this.textBoxP2S4.TabIndex = 13;
             this.textBoxP2S4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S4_KeyPress);
             // 
             // textBoxP1S4
@@ -241,7 +241,7 @@
             this.textBoxP1S4.MaxLength = 2;
             this.textBoxP1S4.Name = "textBoxP1S4";
             this.textBoxP1S4.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S4.TabIndex = 9;
+            this.textBoxP1S4.TabIndex = 12;
             this.textBoxP1S4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S4_KeyPress);
             // 
             // labelP2S4
@@ -281,7 +281,7 @@
             this.textBoxP2S3.MaxLength = 2;
             this.textBoxP2S3.Name = "textBoxP2S3";
             this.textBoxP2S3.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S3.TabIndex = 8;
+            this.textBoxP2S3.TabIndex = 10;
             this.textBoxP2S3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S3_KeyPress);
             // 
             // textBoxP1S3
@@ -290,7 +290,7 @@
             this.textBoxP1S3.MaxLength = 2;
             this.textBoxP1S3.Name = "textBoxP1S3";
             this.textBoxP1S3.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S3.TabIndex = 7;
+            this.textBoxP1S3.TabIndex = 9;
             this.textBoxP1S3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S3_KeyPress);
             // 
             // labelP2S3
@@ -320,7 +320,7 @@
             this.groupBoxS5.Location = new System.Drawing.Point(223, 145);
             this.groupBoxS5.Name = "groupBoxS5";
             this.groupBoxS5.Size = new System.Drawing.Size(182, 120);
-            this.groupBoxS5.TabIndex = 9;
+            this.groupBoxS5.TabIndex = 14;
             this.groupBoxS5.TabStop = false;
             this.groupBoxS5.Text = "Quinto Set";
             // 
@@ -330,7 +330,7 @@
             this.textBoxP2S5.MaxLength = 2;
             this.textBoxP2S5.Name = "textBoxP2S5";
             this.textBoxP2S5.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S5.TabIndex = 12;
+            this.textBoxP2S5.TabIndex = 15;
             this.textBoxP2S5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S5_KeyPress);
             // 
             // textBoxP1S5
@@ -339,7 +339,7 @@
             this.textBoxP1S5.MaxLength = 2;
             this.textBoxP1S5.Name = "textBoxP1S5";
             this.textBoxP1S5.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S5.TabIndex = 11;
+            this.textBoxP1S5.TabIndex = 14;
             this.textBoxP1S5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S5_KeyPress);
             // 
             // labelP2S5
@@ -365,7 +365,7 @@
             this.buttonAceptar.Location = new System.Drawing.Point(376, 453);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.buttonAceptar.TabIndex = 21;
+            this.buttonAceptar.TabIndex = 28;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
             this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
@@ -375,7 +375,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(594, 453);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 23;
+            this.buttonCancelar.TabIndex = 30;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
@@ -385,7 +385,7 @@
             this.buttonLimpiar.Location = new System.Drawing.Point(505, 453);
             this.buttonLimpiar.Name = "buttonLimpiar";
             this.buttonLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.buttonLimpiar.TabIndex = 22;
+            this.buttonLimpiar.TabIndex = 29;
             this.buttonLimpiar.Text = "Limpiar";
             this.buttonLimpiar.UseVisualStyleBackColor = true;
             this.buttonLimpiar.Click += new System.EventHandler(this.buttonLimpiar_Click);
@@ -416,7 +416,7 @@
             this.groupBoxS9.Location = new System.Drawing.Point(442, 271);
             this.groupBoxS9.Name = "groupBoxS9";
             this.groupBoxS9.Size = new System.Drawing.Size(182, 120);
-            this.groupBoxS9.TabIndex = 12;
+            this.groupBoxS9.TabIndex = 25;
             this.groupBoxS9.TabStop = false;
             this.groupBoxS9.Text = "Noveno Set";
             // 
@@ -426,7 +426,7 @@
             this.textBoxP2S9.MaxLength = 2;
             this.textBoxP2S9.Name = "textBoxP2S9";
             this.textBoxP2S9.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S9.TabIndex = 20;
+            this.textBoxP2S9.TabIndex = 27;
             this.textBoxP2S9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S9_KeyPress);
             // 
             // textBoxP1S9
@@ -435,7 +435,7 @@
             this.textBoxP1S9.MaxLength = 2;
             this.textBoxP1S9.Name = "textBoxP1S9";
             this.textBoxP1S9.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S9.TabIndex = 19;
+            this.textBoxP1S9.TabIndex = 26;
             this.textBoxP1S9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S9_KeyPress);
             // 
             // labelP2S9
@@ -465,7 +465,7 @@
             this.groupBoxS6.Location = new System.Drawing.Point(442, 145);
             this.groupBoxS6.Name = "groupBoxS6";
             this.groupBoxS6.Size = new System.Drawing.Size(182, 120);
-            this.groupBoxS6.TabIndex = 9;
+            this.groupBoxS6.TabIndex = 16;
             this.groupBoxS6.TabStop = false;
             this.groupBoxS6.Text = "Sexto Set";
             // 
@@ -475,7 +475,7 @@
             this.textBoxP2S6.MaxLength = 2;
             this.textBoxP2S6.Name = "textBoxP2S6";
             this.textBoxP2S6.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S6.TabIndex = 14;
+            this.textBoxP2S6.TabIndex = 18;
             this.textBoxP2S6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S6_KeyPress);
             // 
             // textBoxP1S6
@@ -484,7 +484,7 @@
             this.textBoxP1S6.MaxLength = 2;
             this.textBoxP1S6.Name = "textBoxP1S6";
             this.textBoxP1S6.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S6.TabIndex = 13;
+            this.textBoxP1S6.TabIndex = 17;
             this.textBoxP1S6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S6_KeyPress);
             // 
             // labelP2S6
@@ -514,7 +514,7 @@
             this.groupBoxS7.Location = new System.Drawing.Point(6, 271);
             this.groupBoxS7.Name = "groupBoxS7";
             this.groupBoxS7.Size = new System.Drawing.Size(182, 120);
-            this.groupBoxS7.TabIndex = 10;
+            this.groupBoxS7.TabIndex = 19;
             this.groupBoxS7.TabStop = false;
             this.groupBoxS7.Text = "Septimo Set";
             // 
@@ -524,7 +524,7 @@
             this.textBoxP2S7.MaxLength = 2;
             this.textBoxP2S7.Name = "textBoxP2S7";
             this.textBoxP2S7.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S7.TabIndex = 16;
+            this.textBoxP2S7.TabIndex = 21;
             this.textBoxP2S7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S7_KeyPress);
             // 
             // textBoxP1S7
@@ -533,7 +533,7 @@
             this.textBoxP1S7.MaxLength = 2;
             this.textBoxP1S7.Name = "textBoxP1S7";
             this.textBoxP1S7.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S7.TabIndex = 15;
+            this.textBoxP1S7.TabIndex = 20;
             this.textBoxP1S7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S7_KeyPress);
             // 
             // labelP2S7
@@ -563,7 +563,7 @@
             this.groupBoxS8.Location = new System.Drawing.Point(223, 271);
             this.groupBoxS8.Name = "groupBoxS8";
             this.groupBoxS8.Size = new System.Drawing.Size(182, 120);
-            this.groupBoxS8.TabIndex = 11;
+            this.groupBoxS8.TabIndex = 22;
             this.groupBoxS8.TabStop = false;
             this.groupBoxS8.Text = "Octavo Set";
             // 
@@ -573,7 +573,7 @@
             this.textBoxP2S8.MaxLength = 2;
             this.textBoxP2S8.Name = "textBoxP2S8";
             this.textBoxP2S8.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP2S8.TabIndex = 18;
+            this.textBoxP2S8.TabIndex = 24;
             this.textBoxP2S8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2S8_KeyPress);
             // 
             // textBoxP1S8
@@ -582,7 +582,7 @@
             this.textBoxP1S8.MaxLength = 2;
             this.textBoxP1S8.Name = "textBoxP1S8";
             this.textBoxP1S8.Size = new System.Drawing.Size(46, 20);
-            this.textBoxP1S8.TabIndex = 17;
+            this.textBoxP1S8.TabIndex = 23;
             this.textBoxP1S8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1S8_KeyPress);
             // 
             // labelP2S8
@@ -612,7 +612,7 @@
             this.Controls.Add(this.buttonLimpiar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "gestionaSet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

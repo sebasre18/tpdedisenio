@@ -89,14 +89,11 @@ namespace TPdeDiseño
 
         private void bLimpiar_Click(object sender, EventArgs e)
         {
-            foreach (Control c in this.Controls)
+            int fila = 0;
+            foreach (var row in dgvLugares.Rows)
             {
-                if (c is TextBox)
-                {
-                    c.Text = "";
-                    //Enfoco en el primer TextBox
-                    this.bAceptar.Focus();
-                }
+                dgvLugares[1, fila].Value = "0";
+                fila++;
             }
         }
 

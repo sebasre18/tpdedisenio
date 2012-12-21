@@ -56,11 +56,18 @@ namespace TPdeDiseño
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Close();
-            generarFixture genFixture = new generarFixture();
-            genFixture.MdiParent = Interfaces.principal.ActiveForm;
-            genFixture.competenciaGenFix = competenciaVerComp;
-            genFixture.Show();
+            if (competenciaVerComp._participantes.Count == 0)
+            {
+                MessageBox.Show("No existen participantes en la competencia.", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                this.Close();
+                generarFixture genFixture = new generarFixture();
+                genFixture.MdiParent = Interfaces.principal.ActiveForm;
+                genFixture.competenciaGenFix = competenciaVerComp;
+                genFixture.Show();
+            }
         }
 
         private void buttonVerFixture_Click_1(object sender, EventArgs e)

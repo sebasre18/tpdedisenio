@@ -17,8 +17,8 @@ namespace TPdeDiseño
         public Clases_de_control.GestorTabla gestTab = new Clases_de_control.GestorTabla();
         public Clases_ABD.ABDcompetencia compABD = new Clases_ABD.ABDcompetencia();
         public Clases_ABD.ABDfixture fixtureABD = new Clases_ABD.ABDfixture();
-        
-        public string estado;
+
+        public string estado; public int bandera;
 
         public gestionaPuntos()
         {
@@ -38,7 +38,7 @@ namespace TPdeDiseño
                 textBoxP2.Text = partidoSeleccionado._resultado._puntosP2.ToString();
             }
             else
-                partidoSeleccionado._resultado = new Clases_de_entidad.Resultado();
+                bandera = 1;
         }
 
         private void textBoxP1_KeyPress(object sender, KeyPressEventArgs e)
@@ -86,6 +86,9 @@ namespace TPdeDiseño
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
+            if (bandera == 1)
+                partidoSeleccionado._resultado = new Clases_de_entidad.Resultado();
+
             //Verifica que los campos no esten vacios
             if (((textBoxP1.Text == null) || (textBoxP2.Text == null)) && ((checkBoxP1.Checked == false && checkBoxP2.Checked == false)))
             {
@@ -191,7 +194,10 @@ namespace TPdeDiseño
                     }
                 }
                 this.Close();
+                mostrarFixtureSRG mf = new mostrarFixtureSRG();
+                mf.MdiParent = Interfaces.principal.ActiveForm;
                 mostrarFixtureSRG.competenciaVerFix = competencia;
+                mf.Show();
             }
         }
 
@@ -207,6 +213,9 @@ namespace TPdeDiseño
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            mostrarFixtureSRG mf = new mostrarFixtureSRG();
+            mf.MdiParent = Interfaces.principal.ActiveForm;
+            mf.Show();
         }
 
         private void actualizarCompetencia()

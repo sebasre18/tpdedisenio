@@ -36,6 +36,10 @@ namespace TPdeDiseño.Interfaces
             ac.MdiParent = principal.ActiveForm;
             ac.usuarioLogueadoAC = usuarioLogueadoP;
             ac.Show();
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[0].Enabled = false;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[1].Enabled = false;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[2].Enabled = false;
+            
         }
 
         private void listarCompetenciasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,6 +48,10 @@ namespace TPdeDiseño.Interfaces
             lc.MdiParent = principal.ActiveForm;
             lc.usuarioLogueadoLC = usuarioLogueadoP;
             lc.Show();
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[0].Enabled = false;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[1].Enabled = false;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[2].Enabled = false;
+            
         }
 
         private void listarLugaresToolStripMenuItem_Click(object sender, EventArgs e)

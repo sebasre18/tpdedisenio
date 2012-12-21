@@ -200,7 +200,7 @@
             this.Controls.Add(this.buttonModRdo);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.groupBox3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "mostrarFixtureSRG";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

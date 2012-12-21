@@ -373,8 +373,8 @@ namespace TPdeDiseño.Clases_ABD
         public void setRenglon(Clases_de_entidad.renglonTabla unRenglon)
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
-
-            var renglon = from renglonTabla in db.Tabla_Participante where (renglonTabla.id_tabla == unRenglon._id_renglonTabla) select renglonTabla;
+            
+            var renglon = from renglonTabla in db.Tabla_Participante where (renglonTabla.id_renglon == unRenglon._id_renglonTabla) select renglonTabla;
 
             foreach (var seleccionado in renglon)
             {

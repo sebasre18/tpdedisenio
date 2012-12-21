@@ -135,10 +135,14 @@ namespace TPdeDiseño
             cbModalidad.SelectedIndex = 0;
             cbFormaPuntuacion.SelectedIndex = 0;
             cbMaxSet.SelectedIndex = 0;
+            rtbReglamento.Text = "";
         }
 
         private void bCancelar_Click(object sender, EventArgs e)
         {
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[0].Enabled = false;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[1].Enabled = true;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[2].Enabled = false;
             this.Close();
         }
 
