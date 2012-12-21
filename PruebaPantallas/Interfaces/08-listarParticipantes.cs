@@ -60,6 +60,9 @@ namespace TPdeDiseño
 
         private void bCancelar_Click(object sender, EventArgs e)
         {
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[0].Enabled = false;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[1].Enabled = true;
+            Interfaces.principal.ActiveForm.MainMenuStrip.Items[2].Enabled = false;
             this.Close();
         }
 
@@ -74,9 +77,14 @@ namespace TPdeDiseño
                     dgvParticipantes.Rows.Add();
                     dgvParticipantes[0, fila].Value = part._nombre;
                     dgvParticipantes[1, fila].Value = part._email;
-                    fila = fila++;
+                    fila++;
                 }
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

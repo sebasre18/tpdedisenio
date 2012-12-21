@@ -65,7 +65,6 @@
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.groupBox1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelNombre
@@ -156,7 +155,7 @@
             this.cbEmpate.Location = new System.Drawing.Point(6, 19);
             this.cbEmpate.Name = "cbEmpate";
             this.cbEmpate.Size = new System.Drawing.Size(98, 17);
-            this.cbEmpate.TabIndex = 6;
+            this.cbEmpate.TabIndex = 7;
             this.cbEmpate.Text = "Permitir empate";
             this.cbEmpate.UseVisualStyleBackColor = true;
             this.cbEmpate.CheckedChanged += new System.EventHandler(this.cbEmpate_CheckedChanged);
@@ -178,7 +177,7 @@
             this.tbPtosEmpatado.MaxLength = 1;
             this.tbPtosEmpatado.Name = "tbPtosEmpatado";
             this.tbPtosEmpatado.Size = new System.Drawing.Size(38, 20);
-            this.tbPtosEmpatado.TabIndex = 7;
+            this.tbPtosEmpatado.TabIndex = 8;
             this.tbPtosEmpatado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPtosEmpatado_KeyDown);
             this.tbPtosEmpatado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPtosEmpatado_KeyPress);
             // 
@@ -199,7 +198,7 @@
             this.tbPtosPresentarse.MaxLength = 1;
             this.tbPtosPresentarse.Name = "tbPtosPresentarse";
             this.tbPtosPresentarse.Size = new System.Drawing.Size(38, 20);
-            this.tbPtosPresentarse.TabIndex = 8;
+            this.tbPtosPresentarse.TabIndex = 9;
             this.tbPtosPresentarse.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPtosPresentarse_KeyDown);
             this.tbPtosPresentarse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPtosPresentarse_KeyPress);
             // 
@@ -213,7 +212,7 @@
             this.groupBox1.Location = new System.Drawing.Point(47, 173);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(500, 120);
-            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
             // label8
@@ -231,7 +230,7 @@
             this.cbFormaPuntuacion.Location = new System.Drawing.Point(160, 305);
             this.cbFormaPuntuacion.Name = "cbFormaPuntuacion";
             this.cbFormaPuntuacion.Size = new System.Drawing.Size(100, 21);
-            this.cbFormaPuntuacion.TabIndex = 9;
+            this.cbFormaPuntuacion.TabIndex = 10;
             this.cbFormaPuntuacion.SelectedValueChanged += new System.EventHandler(this.cbFormaPuntuacion_SelectedValueChanged);
             this.cbFormaPuntuacion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbFormaPuntuacion_KeyDown);
             this.cbFormaPuntuacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFormaPuntuacion_KeyPress);
@@ -263,7 +262,7 @@
             this.tbNoPresentarse.MaxLength = 1;
             this.tbNoPresentarse.Name = "tbNoPresentarse";
             this.tbNoPresentarse.Size = new System.Drawing.Size(38, 20);
-            this.tbNoPresentarse.TabIndex = 11;
+            this.tbNoPresentarse.TabIndex = 12;
             this.tbNoPresentarse.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbNoPresentarse_KeyDown);
             this.tbNoPresentarse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNoPresentarse_KeyPress);
             // 
@@ -281,7 +280,7 @@
             this.bLimpiar.Location = new System.Drawing.Point(384, 595);
             this.bLimpiar.Name = "bLimpiar";
             this.bLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.bLimpiar.TabIndex = 14;
+            this.bLimpiar.TabIndex = 15;
             this.bLimpiar.Text = "Limpiar";
             this.bLimpiar.UseVisualStyleBackColor = true;
             this.bLimpiar.Click += new System.EventHandler(this.bLimpiar_Click);
@@ -291,7 +290,7 @@
             this.bCancelar.Location = new System.Drawing.Point(472, 595);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(75, 23);
-            this.bCancelar.TabIndex = 15;
+            this.bCancelar.TabIndex = 16;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
@@ -301,7 +300,7 @@
             this.bAceptar.Location = new System.Drawing.Point(266, 595);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(75, 23);
-            this.bAceptar.TabIndex = 13;
+            this.bAceptar.TabIndex = 14;
             this.bAceptar.Text = "Aceptar";
             this.bAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.bAceptar.UseVisualStyleBackColor = true;
@@ -315,7 +314,7 @@
             this.rtbReglamento.Name = "rtbReglamento";
             this.rtbReglamento.ShowSelectionMargin = true;
             this.rtbReglamento.Size = new System.Drawing.Size(500, 113);
-            this.rtbReglamento.TabIndex = 12;
+            this.rtbReglamento.TabIndex = 13;
             this.rtbReglamento.Text = "";
             // 
             // linkLugares
@@ -340,7 +339,7 @@
             this.toolStrip1.Enabled = false;
             this.toolStrip1.Location = new System.Drawing.Point(229, 439);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(55, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(111, 25);
             this.toolStrip1.TabIndex = 14;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -372,7 +371,7 @@
             this.cbMaxSet.Location = new System.Drawing.Point(204, 344);
             this.cbMaxSet.Name = "cbMaxSet";
             this.cbMaxSet.Size = new System.Drawing.Size(38, 21);
-            this.cbMaxSet.TabIndex = 10;
+            this.cbMaxSet.TabIndex = 11;
             this.cbMaxSet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbDeporte_KeyDown);
             this.cbMaxSet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbMaxSet_KeyPress);
             // 
@@ -459,8 +458,6 @@
             this.Load += new System.EventHandler(this.altaCompetencia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

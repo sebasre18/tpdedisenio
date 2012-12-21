@@ -61,7 +61,6 @@
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(350, 20);
             this.tbNombre.TabIndex = 1;
-            this.tbNombre.TextChanged += new System.EventHandler(this.tbNombre_TextChanged);
             this.tbNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNombre_KeyPress_1);
             // 
             // label2
@@ -188,7 +187,6 @@
             this.Name = "altaParticipante";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dar de alta un participante";
-            this.Load += new System.EventHandler(this.altaParticipante_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

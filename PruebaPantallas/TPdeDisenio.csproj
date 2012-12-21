@@ -260,9 +260,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="DataClasses.dbml.layout.mine" />
-    <None Include="DataClasses.dbml.layout.r38" />
-    <None Include="DataClasses.dbml.layout.r39" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

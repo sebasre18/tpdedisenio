@@ -18,10 +18,13 @@ namespace TPdeDiseño
         //Declaracion gestores publicos
         public Clases_de_control.GestorFixture gestFix = new Clases_de_control.GestorFixture();
         public Clases_de_control.GestorTabla gestTab = new Clases_de_control.GestorTabla();
+        public Clases_ABD.ABDcompetencia compABD = new Clases_ABD.ABDcompetencia();
+        public Clases_ABD.ABDfixture fixtureABD = new Clases_ABD.ABDfixture();
+
         public string estado;
 
         //Declaracion de variables publicas
-        public int numeroRonda, numeroPartido;
+        public int numeroRonda, numeroPartido, bandera;
 
         public gestionaSet()
         {
@@ -32,20 +35,12 @@ namespace TPdeDiseño
         {
             if (partidoSeleccionado._resultado == null)
             {
-                partidoSeleccionado._resultado = new Clases_de_entidad.Resultado();
-                partidoSeleccionado._resultado._cantidad_set = competencia._modalidad._formaPuntuacion._cantidadSet;
-                partidoSeleccionado._resultado._sets = new List<Clases_de_entidad.Set>();
-                for (short i = 0; i < partidoSeleccionado._resultado._cantidad_set; i++)
-                {
-                    Clases_de_entidad.Set set = new Clases_de_entidad.Set();
-                    set._nroSet = i;
-                    partidoSeleccionado._resultado._sets.Add(set);
-                }
+                bandera = 1;
             }
+
             //Hace visibles la cantidad de sets especificados, el nombre de cada participante y
             //carga sus respectivos resultados
-            
-            if (partidoSeleccionado._resultado._cantidad_set == 3)
+            if (competencia._modalidad._formaPuntuacion._cantidadSet == 3)
             {
                 groupBoxS4.Enabled = false;
                 groupBoxS5.Enabled = false;
@@ -79,8 +74,8 @@ namespace TPdeDiseño
                 labelP1S3.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
                 labelP2S3.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
             }
-            
-            else if (partidoSeleccionado._resultado._cantidad_set == 5)
+
+            else if (competencia._modalidad._formaPuntuacion._cantidadSet == 5)
             {
                 groupBoxS6.Enabled = false;
                 groupBoxS7.Enabled = false;
@@ -121,8 +116,8 @@ namespace TPdeDiseño
                 labelP1S5.Text = partidoSeleccionado._pParticipantes[0]._participante._nombre;
                 labelP2S5.Text = partidoSeleccionado._pParticipantes[1]._participante._nombre;
             }
-            
-            else if (partidoSeleccionado._resultado._cantidad_set == 7)
+
+            else if (competencia._modalidad._formaPuntuacion._cantidadSet == 7)
             {
                 groupBoxS8.Enabled = false;
                 groupBoxS9.Enabled = false;
@@ -237,6 +232,18 @@ namespace TPdeDiseño
         {
             int setsG2, setsG1;
 
+            if (bandera == 1)
+            {
+                partidoSeleccionado._resultado = new Clases_de_entidad.Resultado();
+                partidoSeleccionado._resultado._cantidad_set = competencia._modalidad._formaPuntuacion._cantidadSet;
+                partidoSeleccionado._resultado._sets = new List<Clases_de_entidad.Set>();
+                for (short i = 0; i < partidoSeleccionado._resultado._cantidad_set; i++)
+                {
+                    Clases_de_entidad.Set set = new Clases_de_entidad.Set();
+                    set._nroSet = i;
+                    partidoSeleccionado._resultado._sets.Add(set);
+                }
+            }
             //Valida el ausente de los participantes
             if (checkBoxP1.Checked == true & checkBoxP2.Checked == true)
             {
@@ -457,9 +464,17 @@ namespace TPdeDiseño
 
                 //Genera el resultado y va a la BD
                 partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+
+                actualizarCompetencia();
+
                 gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
                 gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
             }
+            mostrarFixtureSRG mf = new mostrarFixtureSRG();
+            mf.MdiParent = Interfaces.principal.ActiveForm;
+            mostrarFixtureSRG.competenciaVerFix = competencia;
+            mf.Show();
+            this.Close();
         }
 
         private void buttonLimpiar_Click(object sender, EventArgs e)
@@ -561,6 +576,9 @@ namespace TPdeDiseño
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+            mostrarFixtureSRG mf = new mostrarFixtureSRG();
+            mf.MdiParent = Interfaces.principal.ActiveForm;
+            mf.Show();
         }
 
         private void textBoxP1S1_KeyPress(object sender, KeyPressEventArgs e)
@@ -851,6 +869,20 @@ namespace TPdeDiseño
             }
         }
 
+        private void actualizarCompetencia()
+        {
+
+            if ((estado == "EN DISPUTA") || (estado == "FINALIZADA"))
+            {
+                competencia._estado = estado;
+                compABD.setEstado(competencia._id_competencia, competencia._estado);
+            }
+            else if (estado == "RONDA")
+            {
+                competencia._fixture._rondaActual++;
+                fixtureABD.setRondaActual(competencia._fixture._id_fixture);
+            }
+        }
 
     }
 }

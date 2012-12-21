@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(generarFixture));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelNombreComp = new System.Windows.Forms.Label();
             this.labelEstadoComp = new System.Windows.Forms.Label();
@@ -127,8 +126,7 @@
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "generarFixture";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
