@@ -36,16 +36,14 @@ namespace TPdeDiseño
             if ((competenciaActual._estado == "CREADA") || (competenciaActual._estado == "PLANIFICADA"))
             {
                 altaParticipante ap = new altaParticipante();
-                ap.MdiParent = principal.ActiveForm;
+                ap.MdiParent = Interfaces.principal.ActiveForm;
                 ap.competenciaAP = competenciaActual;
                 ap.Show();
                 this.Close();
             }
             else
             {
-                mensajeTipo2 msj = new mensajeTipo2();
-                msj.mensaje = "No se pueden agregar participantes a la competencia.";
-                msj.Show();
+                MessageBox.Show("No se pueden agregar participantes a la competencia", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }

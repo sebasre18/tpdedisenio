@@ -18,6 +18,7 @@ namespace TPdeDiseño
         //Declaracion gestores publicos
         public Clases_de_control.GestorFixture gestFix = new Clases_de_control.GestorFixture();
         public Clases_de_control.GestorTabla gestTab = new Clases_de_control.GestorTabla();
+        public string estado;
 
         //Declaracion de variables publicas
         public int numeroRonda, numeroPartido;
@@ -41,6 +42,8 @@ namespace TPdeDiseño
                 else
                     radioButtonP2.Checked = true;
             }
+            else
+                partidoSeleccionado._resultado = new Clases_de_entidad.Resultado();
 
         }
 
@@ -62,6 +65,7 @@ namespace TPdeDiseño
 
                 //Genera el historial de resultado y va a la BD
                 partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+                
                 gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
                 gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
             }
@@ -74,28 +78,20 @@ namespace TPdeDiseño
 
                     //Genera el historial de resultado y va a la BD
                     partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+
                     gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
                     gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
                 }
                 else
                 {
-                    mensajeTipo2 error;
-                    error = new mensajeTipo2();
-                    error.MdiParent = principal.ActiveForm;
-                    error.WindowState = FormWindowState.Maximized;
-                    error.error2 = "En la competencia no esta permitido el empate.";
-                    error.Show();
+                    MessageBox.Show("En la competencia no esta permitido el empate", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                mensajeTipo2 error;
-                error = new mensajeTipo2();
-                error.MdiParent = principal.ActiveForm;
-                error.WindowState = FormWindowState.Maximized;
-                error.error2 = "Debe seleccionar una opcion.";
-                error.Show();
+                MessageBox.Show("Debe seleccionar una opción", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
 
         private void buttonLimpiar_Click(object sender, EventArgs e)

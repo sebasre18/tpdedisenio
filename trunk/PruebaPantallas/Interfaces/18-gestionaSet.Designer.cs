@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gestionaSet));
             this.labelP1S1 = new System.Windows.Forms.Label();
             this.groupBoxS1 = new System.Windows.Forms.GroupBox();
             this.textBoxP2S1 = new System.Windows.Forms.TextBox();
@@ -220,7 +219,6 @@
             this.groupBoxS4.Controls.Add(this.textBoxP1S4);
             this.groupBoxS4.Controls.Add(this.labelP2S4);
             this.groupBoxS4.Controls.Add(this.labelP1S4);
-            this.groupBoxS4.Enabled = false;
             this.groupBoxS4.Location = new System.Drawing.Point(6, 145);
             this.groupBoxS4.Name = "groupBoxS4";
             this.groupBoxS4.Size = new System.Drawing.Size(182, 120);
@@ -319,7 +317,6 @@
             this.groupBoxS5.Controls.Add(this.textBoxP1S5);
             this.groupBoxS5.Controls.Add(this.labelP2S5);
             this.groupBoxS5.Controls.Add(this.labelP1S5);
-            this.groupBoxS5.Enabled = false;
             this.groupBoxS5.Location = new System.Drawing.Point(223, 145);
             this.groupBoxS5.Name = "groupBoxS5";
             this.groupBoxS5.Size = new System.Drawing.Size(182, 120);
@@ -416,7 +413,6 @@
             this.groupBoxS9.Controls.Add(this.textBoxP1S9);
             this.groupBoxS9.Controls.Add(this.labelP2S9);
             this.groupBoxS9.Controls.Add(this.labelP1S9);
-            this.groupBoxS9.Enabled = false;
             this.groupBoxS9.Location = new System.Drawing.Point(442, 271);
             this.groupBoxS9.Name = "groupBoxS9";
             this.groupBoxS9.Size = new System.Drawing.Size(182, 120);
@@ -466,7 +462,6 @@
             this.groupBoxS6.Controls.Add(this.textBoxP1S6);
             this.groupBoxS6.Controls.Add(this.labelP2S6);
             this.groupBoxS6.Controls.Add(this.labelP1S6);
-            this.groupBoxS6.Enabled = false;
             this.groupBoxS6.Location = new System.Drawing.Point(442, 145);
             this.groupBoxS6.Name = "groupBoxS6";
             this.groupBoxS6.Size = new System.Drawing.Size(182, 120);
@@ -516,7 +511,6 @@
             this.groupBoxS7.Controls.Add(this.textBoxP1S7);
             this.groupBoxS7.Controls.Add(this.labelP2S7);
             this.groupBoxS7.Controls.Add(this.labelP1S7);
-            this.groupBoxS7.Enabled = false;
             this.groupBoxS7.Location = new System.Drawing.Point(6, 271);
             this.groupBoxS7.Name = "groupBoxS7";
             this.groupBoxS7.Size = new System.Drawing.Size(182, 120);
@@ -566,7 +560,6 @@
             this.groupBoxS8.Controls.Add(this.textBoxP1S8);
             this.groupBoxS8.Controls.Add(this.labelP2S8);
             this.groupBoxS8.Controls.Add(this.labelP1S8);
-            this.groupBoxS8.Enabled = false;
             this.groupBoxS8.Location = new System.Drawing.Point(223, 271);
             this.groupBoxS8.Name = "groupBoxS8";
             this.groupBoxS8.Size = new System.Drawing.Size(182, 120);
@@ -620,7 +613,6 @@
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "gestionaSet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

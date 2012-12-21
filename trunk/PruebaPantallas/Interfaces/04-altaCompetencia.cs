@@ -50,6 +50,7 @@ namespace TPdeDiseño
             {
                 cbFormaPuntuacion.Items.Add(unaforma._nombreForma);
             }
+            cbMaxSet.Items.Add("");  cbMaxSet.Items.Add(3); cbMaxSet.Items.Add(5); cbMaxSet.Items.Add(7); cbMaxSet.Items.Add(9);
         }
 
         private void bAceptar_Click(object sender, EventArgs e)
@@ -59,25 +60,19 @@ namespace TPdeDiseño
 
             if (error == 1)
             {
-                MessageBox.Show("Asegurese que ningun campo sea nulo");
-                // SUAVE ALERTA
+                MessageBox.Show("Asegurese que ningun campo sea nulo"," ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tbNombre.Focus();
             }
             else if (cbModalidad.Text == "SISTEMA DE LIGA" && Convert.ToInt32(tbPtosGanado.Text) < Convert.ToInt32(tbPtosPresentarse.Text))
             {
-                MessageBox.Show("La cantidad de puntos por partido ganado es menor que la cantidad de puntos por partido empatado");
-                // ALERTA AUDITIVA
+                MessageBox.Show("La cantidad de puntos por partido ganado es menor que la cantidad de puntos por partido empatado"," ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tbNombre.Focus();
             }
             else
             {
                 if (gestorC.compararNombre(tbNombre.Text))
                 {
-                    mensajeTipo2 msj = new mensajeTipo2();
-                    msj.mensaje = "El nombre ya existe. Vuelva a ingresar los datos.";
-                    msj.Show();
-                    // Alerta auditiva.
-                    tbNombre.Focus();
+                    MessageBox.Show("El nombre ya existe.", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -104,10 +99,11 @@ namespace TPdeDiseño
                     modalidad._formaPuntuacion = formaDePuntuacion;
 
                     Clases_de_entidad.CompetenciaDeportiva nuevaCompetencia = new Clases_de_entidad.CompetenciaDeportiva("CREADA", Convert.ToString(tbNombre.Text), Convert.ToString(rtbReglamento.Text), dep, lugaresAC, modalidad, usuarioLogueadoAC);
-                    mensajeTipo1 msj = new mensajeTipo1();
+                    /*mensajeTipo1 msj = new mensajeTipo1();
                     msj.mensaje = "La competencia se creo satisfactoriamente.";
-                    msj.Show();
-
+                    msj.Show();*/
+                    MessageBox.Show("La competencia se creo satisfactoriamente.", " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                     // Se guarda la competencia en la Base de Datos.
                     Clases_ABD.ABDcompetencia competenciaABD = new Clases_ABD.ABDcompetencia();
                     nuevaCompetencia._id_competencia = competenciaABD.setCompetencia(nuevaCompetencia);
@@ -115,10 +111,11 @@ namespace TPdeDiseño
 
                     // Abre la interfaz listar participantes de la competencia.
                     listarParticipantes listarP = new listarParticipantes();
-                    listarP.MdiParent = principal.ActiveForm;
+                    this.Close();
+                    listarP.MdiParent = Interfaces.principal.ActiveForm;
                     listarParticipantes.competenciaActual = nuevaCompetencia;
                     listarP.Show();
-                    this.Close();
+                    
                 }
             }
         }
@@ -148,7 +145,7 @@ namespace TPdeDiseño
         private void linkLugares_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (dep == null)
-                MessageBox.Show("Debe seleccionar un deporte.");
+                MessageBox.Show("Debe seleccionar un deporte.", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 //busca los lugares por primera vez o cuando cambia el deporte seleccionado
@@ -162,7 +159,7 @@ namespace TPdeDiseño
 
                 //Abre la interfaz para cargar la disponibilidad de los lugares, pasandole como parametro una lista con los lugares de realizacion.
                 cargarLugar cl = new cargarLugar();
-                cl.MdiParent = principal.ActiveForm;
+                //cl.MdiParent = Interfaces.principal.ActiveForm;
                 cl.lugaresCL = lugaresAC;
                 cl.Show();
             }
@@ -393,6 +390,8 @@ namespace TPdeDiseño
             }
             else
             {
+                tbPtosEmpatado.Text = null;
+                
                 tbPtosEmpatado.Enabled = false;
                 lPtosEmpatado.Enabled = false;
             }
@@ -411,10 +410,16 @@ namespace TPdeDiseño
             }
             else
             {
-                tbPtosGanado.Enabled = false;
-                cbEmpate.Enabled = false;
-                tbPtosPresentarse.Enabled = false;
+                tbPtosGanado.Text = null;
+                cbEmpate.Checked = false;
+                tbPtosPresentarse.Text = null;
+                tbPtosEmpatado.Text = null;
 
+                cbEmpate.Enabled = false;
+                lPtosEmpatado.Enabled = false;
+                tbPtosEmpatado.Enabled = false;
+                tbPtosGanado.Enabled = false;
+                tbPtosPresentarse.Enabled = false;
                 lPtosGanado.Enabled = false;
                 lPtosPresentarse.Enabled = false;
             }
@@ -429,6 +434,8 @@ namespace TPdeDiseño
             }
             else
             {
+                cbMaxSet.SelectedIndex = 0;
+                
                 cbMaxSet.Enabled = false;
                 lMaxSet.Enabled = false;
             }
@@ -436,9 +443,13 @@ namespace TPdeDiseño
             {
                 tbNoPresentarse.Enabled = true;
                 lNoPresentarse.Enabled = true;
+                cbMaxSet.SelectedIndex = 0;
             }
             else
             {
+                cbMaxSet.SelectedIndex = 0;
+                tbNoPresentarse.Text = null;
+                
                 tbNoPresentarse.Enabled = false;
                 lNoPresentarse.Enabled = false;
             }

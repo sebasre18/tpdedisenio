@@ -20,35 +20,17 @@ namespace TPdeDiseño
 
         private void generarFixture_Load(object sender, EventArgs e)
         {
-            /*
-            competenciaGenFix._id_competencia = 3;
-            competenciaGenFix._nombre = "COMPETENCIA DE PRUEBA";
-            competenciaGenFix._estado = "CREADA";
-            Clases_de_entidad.Modalidad mod = new Clases_de_entidad.Modalidad();
-            mod._nombreMod = "LIGA";
-            competenciaGenFix._modalidad = mod;
-            */
 
             //se completa la interfaz con el nombre y estado de la competencia
             labelNombreComp.Text = competenciaGenFix._nombre;
             labelEstadoComp.Text = competenciaGenFix._estado;
             
-            /*
-            competenciaGenFix._participantes = new List<Clases_de_entidad.Participante>();
-            for (short i = 1; i <=5; i++)
-            {
-                Clases_de_entidad.Participante participante = new Clases_de_entidad.Participante();
-                participante._nombre = "PARTICIPANTE" + i;
-                participante._id_participante = i;
-                competenciaGenFix._participantes.Add(participante);
-            }
-            */
         }
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             if ((competenciaGenFix._estado == "EN DISPUTA") || (competenciaGenFix._estado == "FINALIZADA"))
-                MessageBox.Show("No se puede volver a generar el fixture.");
+                MessageBox.Show("No se puede volver a generar el fixture.", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 //se busca la modalidad
@@ -63,21 +45,31 @@ namespace TPdeDiseño
                 string caseSwitch = mod._nombreMod;
                 switch (caseSwitch)
                 {
-                    case "LIGA":
+                    case "SISTEMA DE LIGA":
                         Clases_ABD.ABDfixture fixtureABD = new Clases_ABD.ABDfixture();
                         if (competenciaGenFix._fixture != null) //si existe un fixture en la competencia se elimina de la BD
                         {
                             fixtureABD.deleteFixture(competenciaGenFix);
-                            MessageBox.Show("Se esta borrando el fixture anterior de la competencia.");
+                            MessageBox.Show("Se esta borrando el fixture anterior de la competencia.", " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         //Llamamos al metodo dentro del gestor para generar el fixture
                         competenciaGenFix._fixture = gFixture.generarFixtureLiga(listaParticipantes);
                         competenciaGenFix._estado = "PLANIFICADA";
 
                         //Se guarda el nuevo fixture en la BD
-                        fixtureABD.guardarFixture(competenciaGenFix);
+                        competenciaGenFix._fixture = fixtureABD.guardarFixture(competenciaGenFix);
+
+                        //Genera la tabla de posiciones
+                        Clases_de_control.GestorTabla gTabla = new Clases_de_control.GestorTabla();                        
+                        competenciaGenFix._tablaPosiciones = gTabla.crearTabla(competenciaGenFix);
+
+                        MessageBox.Show("El fixture se genero exitosamente.", " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                         this.Close();
-                        MessageBox.Show("El fixture se genero exitosamente.");
+                        verCompetencia vc = new verCompetencia();
+                        vc.MdiParent = Interfaces.principal.ActiveForm;
+                        vc.competenciaVerComp = competenciaGenFix;
+                        vc.Show();
                         break;
                     case "ELIMINACION SIMPLE":
                         MessageBox.Show("La funcionalidad no esta implementada.");
@@ -92,7 +84,10 @@ namespace TPdeDiseño
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+            verCompetencia vc = new verCompetencia();
+            vc.MdiParent = Interfaces.principal.ActiveForm;
+            vc.competenciaVerComp = competenciaGenFix;
+            vc.Show();
         }
-
     }
 }

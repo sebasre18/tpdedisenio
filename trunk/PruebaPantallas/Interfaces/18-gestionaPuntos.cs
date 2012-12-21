@@ -11,13 +11,14 @@ namespace TPdeDiseño
 {
     public partial class gestionaPuntos : Form
     {
-        //Declaracion clases  publicas
         public Clases_de_entidad.Partido partidoSeleccionado = new Clases_de_entidad.Partido();
         public Clases_de_entidad.CompetenciaDeportiva competencia = new Clases_de_entidad.CompetenciaDeportiva();
-
-        //Declaracion gestores publicos
         public Clases_de_control.GestorFixture gestFix = new Clases_de_control.GestorFixture();
         public Clases_de_control.GestorTabla gestTab = new Clases_de_control.GestorTabla();
+        public Clases_ABD.ABDcompetencia compABD = new Clases_ABD.ABDcompetencia();
+        public Clases_ABD.ABDfixture fixtureABD = new Clases_ABD.ABDfixture();
+        
+        public string estado;
 
         public gestionaPuntos()
         {
@@ -37,24 +38,7 @@ namespace TPdeDiseño
                 textBoxP2.Text = partidoSeleccionado._resultado._puntosP2.ToString();
             }
             else
-            {
-                textBoxP1.Text = "";
-                textBoxP2.Text = "";
-            }
-        }
-
-        private void textBoxP1_TextChanged(object sender, EventArgs e)
-        {
-            //Validacion de que el campo no sea nulo
-            if (textBoxP1.TextLength == 0)
-            {
-                mensajeTipo2 error;
-                error = new mensajeTipo2();
-                //error.MdiParent = principal.ActiveForm;
-                //error.WindowState = FormWindowState.Maximized;
-                error.error2 = "El campo no puede estar vacio.";
-                error.Show();
-            }
+                partidoSeleccionado._resultado = new Clases_de_entidad.Resultado();
         }
 
         private void textBoxP1_KeyPress(object sender, KeyPressEventArgs e)
@@ -97,174 +81,117 @@ namespace TPdeDiseño
             {
                 e.Handled = true;
             }
-        }
-
-        private void textBoxP2_TextChanged(object sender, EventArgs e)
-        {
-            //Validacion de que el campo no sea nulo
-            if (textBoxP2.TextLength == 0)
-            {
-                mensajeTipo2 error;
-                error = new mensajeTipo2();
-                //error.MdiParent = principal.ActiveForm;
-                //error.WindowState = FormWindowState.Maximized;
-                error.error2 = "El campo no puede estar vacio.";
-                error.Show();
-            }
-        }
-
-        private void textBoxP1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxP2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxP2_KeyDown(object sender, KeyEventArgs e)
-        {
-            //Validacion de que el campo no sea nulo cuando se presiona "Enter"
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (textBoxP2.TextLength == 0)
-                {
-                    mensajeTipo2 error;
-                    error = new mensajeTipo2();
-                    //error.MdiParent = principal.ActiveForm;
-                    //error.WindowState = FormWindowState.Maximized;
-                    error.error2 = "El campo no puede estar vacio.";
-                    error.Show();
-                }
-            }
-        }
-
-        private void textBoxP1_KeyDown(object sender, KeyEventArgs e)
-        {
-            //Validacion de que el campo no sea nulo cuando se presiona "Enter"
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (textBoxP1.TextLength == 0)
-                {
-                    mensajeTipo2 error;
-                    error = new mensajeTipo2();
-                    //error.MdiParent = principal.ActiveForm;
-                    //error.WindowState = FormWindowState.Maximized;
-                    error.error2 = "El campo no puede estar vacio.";
-                    error.Show();
-                }
-            }
-        }
+        }        
+        
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             //Verifica que los campos no esten vacios
-            if (textBoxP1.TextLength == 0)
+            if (((textBoxP1.Text == null) || (textBoxP2.Text == null)) && ((checkBoxP1.Checked == false && checkBoxP2.Checked == false)))
             {
-                mensajeTipo2 error;
-                error = new mensajeTipo2();
-                //error.MdiParent = principal.ActiveForm;
-                //error.WindowState = FormWindowState.Maximized;
-                error.error2 = "El campo 1 no puede estar vacio.";
-                error.Show();
-            }
-            else if (textBoxP2.TextLength == 0)
-            {
-                mensajeTipo2 error;
-                error = new mensajeTipo2();
-                //error.MdiParent = principal.ActiveForm;
-                //error.WindowState = FormWindowState.Maximized;
-                error.error2 = "El campo 2 no puede estar vacio.";
-                error.Show();
-            }
-
-            //Verifica los ausentes
-            if (checkBoxP1.Checked == true & checkBoxP2.Checked == true)
-            {
-                mensajeTipo2 error;
-                error = new mensajeTipo2();
-                //error.MdiParent = principal.ActiveForm;
-                //error.WindowState = FormWindowState.Maximized;
-                error.error2 = "Ambos participantes estan ausentes.";
-                error.Show();
-            }
-            else if (checkBoxP1.Checked == true)
-            {
-                //Asigna el ganador y el ausente
-                partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[1]._participante;
-                partidoSeleccionado._resultado._ausente = partidoSeleccionado._pParticipantes[0]._participante;
-                
-                //Genera el historial de resultado y va a la BD
-                partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
-                gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
-                gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
-            }
-            else if (checkBoxP2.Checked == true)
-            {
-                //Asigna el ganador y el ausente
-                partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[0]._participante;
-                partidoSeleccionado._resultado._ausente = partidoSeleccionado._pParticipantes[1]._participante;
-
-                //Genera el historial de resultado y va a la BD
-                partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
-                gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
-                gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
-            }
-            //Curso normal sin ausentes
+                MessageBox.Show("Los campos no deben ser nulos", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }            
             else
             {
-                //Verifica que se permita el empate
-                if (int.Parse(textBoxP1.Text) == int.Parse(textBoxP2.Text))
+                //Verifica los ausentes
+                if (checkBoxP1.Checked == true && checkBoxP2.Checked == true)
                 {
-                    if (competencia._modalidad._empate == true)
-                    {
-                        partidoSeleccionado._resultado._empate = true;
-                        partidoSeleccionado._resultado._puntosP1 = int.Parse(textBoxP1.Text);
-                        partidoSeleccionado._resultado._puntosP2 = int.Parse(textBoxP2.Text);
+                    MessageBox.Show("Ambos participantes están ausentes", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (checkBoxP1.Checked == true)
+                {
+                    //Asigna el ganador y el ausente
+                    if (partidoSeleccionado._resultado._ganador == null)
+                        partidoSeleccionado._resultado._ganador = new Clases_de_entidad.Participante();
+                    if (partidoSeleccionado._resultado._ausente == null)
+                        partidoSeleccionado._resultado._ausente = new Clases_de_entidad.Participante();
+                    partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[1]._participante;
+                    partidoSeleccionado._resultado._ausente = partidoSeleccionado._pParticipantes[0]._participante;
 
-                        //Genera el historial de resultado y va a la BD
-                        partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
-                        gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
-                        gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
+                    partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+
+                    actualizarCompetencia();
+
+                    gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
+                    gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
+                }
+                else if (checkBoxP2.Checked == true)
+                {
+                    //Asigna el ganador y el ausente
+                    if (partidoSeleccionado._resultado._ganador == null)
+                        partidoSeleccionado._resultado._ganador = new Clases_de_entidad.Participante();
+                    if (partidoSeleccionado._resultado._ausente == null)
+                        partidoSeleccionado._resultado._ausente = new Clases_de_entidad.Participante();
+                    partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[0]._participante;
+                    partidoSeleccionado._resultado._ausente = partidoSeleccionado._pParticipantes[1]._participante;
+
+                    partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+
+                    actualizarCompetencia();
+
+                    gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
+                    gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
+                }
+                //Curso normal sin ausentes
+                else
+                {
+                    //Verifica que se permita el empate
+                    if (int.Parse(textBoxP1.Text) == int.Parse(textBoxP2.Text))
+                    {
+                        if (competencia._modalidad._empate == true)
+                        {
+                            partidoSeleccionado._resultado._empate = true;
+                            partidoSeleccionado._resultado._puntosP1 = int.Parse(textBoxP1.Text);
+                            partidoSeleccionado._resultado._puntosP2 = int.Parse(textBoxP2.Text);
+
+                            partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+
+                            actualizarCompetencia();
+
+                            gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
+                            gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
+                        }
+                        else
+                        {
+                            MessageBox.Show("En la competencia no esta permitido el empate", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     else
                     {
-                        mensajeTipo2 error;
-                        error = new mensajeTipo2();
-                        //error.MdiParent = principal.ActiveForm;
-                        //error.WindowState = FormWindowState.Maximized;
-                        error.error2 = "En la competencia no esta permitido el empate.";
-                        error.Show();
+                        if (partidoSeleccionado._resultado._ganador == null)
+                            partidoSeleccionado._resultado._ganador = new Clases_de_entidad.Participante();
+                        if (int.Parse(textBoxP1.Text) < int.Parse(textBoxP2.Text))
+                        {
+                            //Setea el ganador y los resultados de cada participante
+                            partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[1]._participante;
+                            partidoSeleccionado._resultado._puntosP1 = int.Parse(textBoxP1.Text);
+                            partidoSeleccionado._resultado._puntosP2 = int.Parse(textBoxP2.Text);
+
+                            partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+
+                            actualizarCompetencia();
+
+                            gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
+                            gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
+                        }
+                        else if (int.Parse(textBoxP1.Text) > int.Parse(textBoxP2.Text))
+                        {
+                            //Setea el ganador y los resultados de cada participante
+                            partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[0]._participante;
+                            partidoSeleccionado._resultado._puntosP1 = int.Parse(textBoxP1.Text);
+                            partidoSeleccionado._resultado._puntosP2 = int.Parse(textBoxP2.Text);
+
+                            partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
+
+                            actualizarCompetencia();
+
+                            gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
+                            gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
+                        }
                     }
                 }
-                else
-                {
-                    if (int.Parse(textBoxP1.Text) < int.Parse(textBoxP2.Text))
-                    {
-                        //Setea el ganador y los resultados de cada participante
-                        partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[1]._participante;
-                        partidoSeleccionado._resultado._puntosP1 = int.Parse(textBoxP1.Text);
-                        partidoSeleccionado._resultado._puntosP2 = int.Parse(textBoxP2.Text);
-
-                        //Genera el historial de resultado y va a la BD
-                        partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
-                        gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
-                        gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
-                    }
-                    else if (int.Parse(textBoxP1.Text) > int.Parse(textBoxP2.Text))
-                    {
-                        //Setea el ganador y los resultados de cada participante
-                        partidoSeleccionado._resultado._ganador = partidoSeleccionado._pParticipantes[0]._participante;
-                        partidoSeleccionado._resultado._puntosP1 = int.Parse(textBoxP1.Text);
-                        partidoSeleccionado._resultado._puntosP2 = int.Parse(textBoxP2.Text);
-
-                        //Genera el historial de resultado y va a la BD
-                        partidoSeleccionado = gestFix.guardaResultado(partidoSeleccionado);
-                        gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[0]._participante, partidoSeleccionado._resultado, competencia);
-                        gestTab.actualizaRenglon(partidoSeleccionado._pParticipantes[1]._participante, partidoSeleccionado._resultado, competencia);
-                    }
-                }
+                this.Close();
+                mostrarFixtureSRG.competenciaVerFix = competencia;
             }
         }
 
@@ -282,6 +209,19 @@ namespace TPdeDiseño
             this.Close();
         }
 
-
+        private void actualizarCompetencia()
+        {
+            
+            if ((estado == "EN DISPUTA") || (estado == "FINALIZADA"))
+            {
+                competencia._estado = estado;
+                compABD.setEstado(competencia._id_competencia, competencia._estado);
+            }
+            else if (estado == "RONDA")
+            {
+                competencia._fixture._rondaActual++;
+                fixtureABD.setRondaActual(competencia._fixture._id_fixture);
+            }
+        }
     }
 }

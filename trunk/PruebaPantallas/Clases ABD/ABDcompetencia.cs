@@ -25,7 +25,7 @@ namespace TPdeDiseño.Clases_ABD
         }
 
 
-        //setea el estado de la competencia
+        //setea el estado de la competencia PONER IF
         public void setEstado(short unId_competencia, string unEstado)
         {            
             var competencia = from unaCompetencia in db.CompetenciaDeportiva where (unaCompetencia.id_competencia == unId_competencia) select unaCompetencia;
@@ -374,38 +374,47 @@ namespace TPdeDiseño.Clases_ABD
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
 
-            var renglon = from renglonTabla in db.Tabla_Participante where (renglonTabla.id_tabla == unRenglon._id_renglonTabla) select unRenglon;
+            var renglon = from renglonTabla in db.Tabla_Participante where (renglonTabla.id_tabla == unRenglon._id_renglonTabla) select renglonTabla;
 
             foreach (var seleccionado in renglon)
             {
-                seleccionado._id_renglonTabla = unRenglon._id_renglonTabla;
-                seleccionado._id_participante = unRenglon._id_participante;
-                seleccionado._nombreParticipante = unRenglon._nombreParticipante;
-                seleccionado._diferencia = unRenglon._diferencia;
-                seleccionado._golesContra = unRenglon._golesContra;
-                seleccionado._golesFavor = unRenglon._golesFavor;
-                seleccionado._pEmpatado = unRenglon._pEmpatado;
-                seleccionado._pGanado = unRenglon._pGanado;
-                seleccionado._pPerdido = unRenglon._pPerdido;
-                seleccionado._pts = unRenglon._pts;
+                seleccionado.D = unRenglon._diferencia;
+                seleccionado.GC = unRenglon._golesContra;
+                seleccionado.GF = unRenglon._golesFavor;
+                seleccionado.PE = unRenglon._pEmpatado;
+                seleccionado.PG = unRenglon._pGanado;
+                seleccionado.PP = unRenglon._pPerdido;
+                seleccionado.PTS = unRenglon._pts;
                 db.SubmitChanges();
             }
         }
 
-        /*
-        public void crearRenglon(Clases_de_entidad.CompetenciaDeportiva unaCompetencia)
+        
+        public short crearTabla (Clases_de_entidad.TablaPosiciones unaTabla, short unId_competencia)
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
             Tabla_de_Posiciones tablaPos = new Tabla_de_Posiciones();
-            tablaPos.id_competencia = unaCompetencia._id_competencia;
+            tablaPos.id_competencia = unId_competencia;
+            db.Tabla_de_Posiciones.InsertOnSubmit(tablaPos);
             db.SubmitChanges();
-            foreach ()
+
+            foreach (var renglon in unaTabla._renglones)
             {
                 Tabla_Participante tablaPart = new Tabla_Participante();
-                unaCompetencia._tablaPosiciones._renglones
-                tablaPart.
+                tablaPart.id_tabla = tablaPos.id_tabla;
+                tablaPart.nombrePart = renglon._nombreParticipante;
+                tablaPart.id_participante = renglon._id_participante;
+                tablaPart.PE = renglon._pEmpatado;
+                tablaPart.PG = renglon._pGanado;
+                tablaPart.PP = renglon._pPerdido;
+                tablaPart.PTS = renglon._pts;
+                tablaPart.GF = renglon._golesFavor;
+                tablaPart.GC = renglon._golesContra;
+                tablaPart.D = renglon._diferencia;
+                db.Tabla_Participante.InsertOnSubmit(tablaPart);
+                db.SubmitChanges();
             }
-
-        }*/
+            return tablaPos.id_tabla;
+        }
     }
 }

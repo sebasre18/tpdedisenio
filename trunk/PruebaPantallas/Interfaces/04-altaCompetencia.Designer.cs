@@ -369,10 +369,6 @@
             // 
             this.cbMaxSet.Enabled = false;
             this.cbMaxSet.FormattingEnabled = true;
-            this.cbMaxSet.Items.AddRange(new object[] {
-            "3",
-            "5",
-            "9"});
             this.cbMaxSet.Location = new System.Drawing.Point(204, 344);
             this.cbMaxSet.Name = "cbMaxSet";
             this.cbMaxSet.Size = new System.Drawing.Size(38, 21);

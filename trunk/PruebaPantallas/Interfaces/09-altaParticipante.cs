@@ -84,7 +84,8 @@ namespace TPdeDiseño
         private void bExaminar_Click(object sender, EventArgs e)
         {
             OpenFileDialog OpenFileDialog1 = new OpenFileDialog();
-            OpenFileDialog1.Filter = "*.jpg";
+            openFileDialog1.InitialDirectory = "c:\\";
+            OpenFileDialog1.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";
             OpenFileDialog1.FileName = this.tbImagen.Text;
             if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -125,8 +126,7 @@ namespace TPdeDiseño
                 
            if (error == 1)
            {
-               MessageBox.Show("Los campos Nombre y E-mail son obligatorios.");
-               // ALERTA AUDITIVA.
+               MessageBox.Show("Los campos Nombre y E-mail son obligatorios.", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                tbNombre.Focus();
            }
            else
@@ -135,13 +135,16 @@ namespace TPdeDiseño
                {
                    if (emailValido == false)
                    {
-                       competenciaAP._estado = "CREADA";
-                       competenciaABD.setEstado(competenciaAP._id_competencia, "CREADA");
+                       if (competenciaAP._estado != "CREADA")
+                       {
+                           competenciaAP._estado = "CREADA";
+                           competenciaABD.setEstado(competenciaAP._id_competencia, "CREADA");
+                       }
                        if (competenciaAP._fixture != null)
                        {
                            // Se borra el fixture.
                            fixtureABD.deleteFixture(competenciaAP);
-                           MessageBox.Show("Se elimino el fixture de la competencia.");
+                           MessageBox.Show("Se elimino el fixture de la competencia.", " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                        }
                        // Se crea el participante.
                        nuevoParticipanteAP._nombre = tbNombre.Text;
@@ -159,28 +162,22 @@ namespace TPdeDiseño
 
                        gestorP.guardar(nuevoParticipanteAP, competenciaAP._id_competencia);
 
-                       MessageBox.Show("El participante se ha creado correctamente.");
+                       MessageBox.Show("El participante se ha creado correctamente.", " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                        listarParticipantes listarP = new listarParticipantes();
-                       listarP.MdiParent = principal.ActiveForm;
+                       listarP.MdiParent = Interfaces.principal.ActiveForm;
                        listarParticipantes.competenciaActual = competenciaAP;
                        listarP.Show();
                        this.Close();
                    }
                    else
                    {
-                       mensajeTipo2 msj = new mensajeTipo2();
-                       msj.mensaje = "El email ya existe.";
-                       // ALERTA AUDITIVA.
-                       msj.Show();
+                       MessageBox.Show("El email ya existe.", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                        tbNombre.Focus();
                    }
                }
                else
                {
-                   mensajeTipo2 msj = new mensajeTipo2();
-                   msj.mensaje = "El nombre ya existe.";
-                   // ALERTA AUDITIVA.
-                   msj.Show();
+                   MessageBox.Show("El nombre ya existe.", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                    tbNombre.Focus();
                }
             }
@@ -189,7 +186,7 @@ namespace TPdeDiseño
         private void tbNombre_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             //Se ingresan solo caracteres.
-            if (Char.IsLetter(e.KeyChar))
+            if (Char.IsLetterOrDigit(e.KeyChar))
             {
                 //Cuando es false se escribe el caracter e.
                 e.Handled = false;
@@ -208,34 +205,15 @@ namespace TPdeDiseño
             }
         }
 
-        /*private void tbMail_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            //Se ingresan solo caracteres alfanumericos.
-            if (Char.IsLetterOrDigit(e.KeyChar))
-            {
-                //Cuando es false se escribe el caracter e.
-                e.Handled = false;
-            }
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                //Cuando es TRUE, no se escribe el caracter e. 
-                e.Handled = true;
-            }
-        }*/
-
         private void tbMail_Leave(object sender, EventArgs e)
         {
             var error = validarEmail(tbMail.Text);
             
             if(error == false)
-                MessageBox.Show("Debe ingresar un formato valido de email.");
+                MessageBox.Show("Debe ingresar un formato valido de email.", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-    }
+     }
 }
 
 

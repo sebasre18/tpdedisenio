@@ -28,12 +28,7 @@ namespace TPdeDiseño
             //Comprueba que tenga una competencia seleccionada.
             if (dgvCompetencia.SelectedRows == null)
             {
-                mensajeTipo2 error;
-                error = new mensajeTipo2();
-                error.MdiParent = principal.ActiveForm;
-                error.WindowState = FormWindowState.Maximized;
-                error.error2 = "Debe seleccionar una competencia.";
-                error.Show();
+                MessageBox.Show("Debe seleccionar una competencia", " ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else 
             {
@@ -49,7 +44,7 @@ namespace TPdeDiseño
                 }
                 // Abre la interfaz Ver Competencia, pasandole como parametro la competencia seleccionada.
                 verCompetencia vc = new verCompetencia();                
-                vc.MdiParent = principal.ActiveForm;
+                vc.MdiParent = Interfaces.principal.ActiveForm;
                 vc.competenciaVerComp = competenciaLC;
                 vc.Show();
                 this.Close();
@@ -64,7 +59,7 @@ namespace TPdeDiseño
         private void bNuevo_Click(object sender, EventArgs e)
         {
             altaCompetencia ac = new altaCompetencia();
-            ac.MdiParent = principal.ActiveForm;
+            ac.MdiParent = Interfaces.principal.ActiveForm;
             ac.usuarioLogueadoAC = usuarioLogueadoLC;
             ac.Show();
             this.Close();

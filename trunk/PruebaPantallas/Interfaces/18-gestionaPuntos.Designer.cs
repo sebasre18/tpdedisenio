@@ -63,9 +63,6 @@
             this.textBoxP2.Name = "textBoxP2";
             this.textBoxP2.Size = new System.Drawing.Size(43, 20);
             this.textBoxP2.TabIndex = 2;
-            this.textBoxP2.TextChanged += new System.EventHandler(this.textBoxP2_TextChanged);
-            this.textBoxP2.Enter += new System.EventHandler(this.textBoxP2_Enter);
-            this.textBoxP2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxP2_KeyDown);
             this.textBoxP2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP2_KeyPress);
             // 
             // checkBoxP2
@@ -93,10 +90,7 @@
             this.textBoxP1.MaxLength = 3;
             this.textBoxP1.Name = "textBoxP1";
             this.textBoxP1.Size = new System.Drawing.Size(43, 20);
-            this.textBoxP1.TabIndex = 1;
-            this.textBoxP1.TextChanged += new System.EventHandler(this.textBoxP1_TextChanged);
-            this.textBoxP1.Enter += new System.EventHandler(this.textBoxP1_Enter);
-            this.textBoxP1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxP1_KeyDown);
+            this.textBoxP1.TabIndex = 1;            
             this.textBoxP1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxP1_KeyPress);
             // 
             // checkBoxP1
@@ -158,7 +152,6 @@
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.groupBox7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "gestionaPuntos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
